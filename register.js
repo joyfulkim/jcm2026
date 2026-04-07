@@ -169,14 +169,19 @@ function submitReg(e) {
   all.push(record);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
 
-  // 2) Google Sheets 전송 (URL이 설정된 경우)
+  // 2) Google Sheets 전송 (GET 방식 — Apps Script CORS/redirect 이슈 우회)
   if (typeof SHEETS_URL !== 'undefined' && SHEETS_URL) {
-    fetch(SHEETS_URL, {
-      method:  'POST',
-      mode:    'no-cors',               // Apps Script CORS 우회
-      headers: { 'Content-Type': 'text/plain' },
-      body:    JSON.stringify(record),
-    }).catch(() => {/* 조용히 실패 허용 — localStorage에는 저장됨 */});
+    const params = new URLSearchParams({
+      action:   'add',
+      name:     record.name,
+      phone:    record.phone,
+      email:    record.email,
+      church:   record.church,
+      sessions: record.sessions.join(','),
+      note:     record.note,
+    });
+    fetch(`${SHEETS_URL}?${params}`, { mode: 'no-cors' })
+      .catch(() => {/* 조용히 실패 허용 — localStorage에는 저장됨 */});
   }
 
   // 성공 화면 표시
