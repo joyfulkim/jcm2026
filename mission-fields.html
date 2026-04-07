@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>조이플 미션 컨퍼런스 - 세계 선교지 소식</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Pretendard', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .masonry-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); grid-auto-rows: 200px; gap: 2rem; }
+        .span-v-2 { grid-row: span 2; }
+        .span-v-3 { grid-row: span 3; }
+        .editorial-shadow { box-shadow: 0 20px 40px -10px rgba(25, 28, 29, 0.08); }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "secondary": "#476083",
+                        "surface-container-high": "#e7e8e9",
+                        "on-tertiary-fixed-variant": "#763300",
+                        "tertiary-fixed-dim": "#ffb68d",
+                        "primary-fixed-dim": "#ffb693",
+                        "surface": "#f8f9fa",
+                        "tertiary-container": "#e97b32",
+                        "primary-container": "#ff6b00",
+                        "on-tertiary-container": "#542300",
+                        "primary-fixed": "#ffdbcc",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#445d80",
+                        "error-container": "#ffdad6",
+                        "outline": "#8e7164",
+                        "on-primary-fixed-variant": "#7a3000",
+                        "surface-variant": "#e1e3e4",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#191c1d",
+                        "inverse-on-surface": "#f0f1f2",
+                        "on-secondary-fixed-variant": "#2f486a",
+                        "surface-container-low": "#f3f4f5",
+                        "inverse-surface": "#2e3132",
+                        "on-background": "#191c1d",
+                        "tertiary": "#9b4500",
+                        "secondary-fixed": "#d4e3ff",
+                        "surface-container": "#edeeef",
+                        "surface-tint": "#a04100",
+                        "on-tertiary-fixed": "#331200",
+                        "on-secondary": "#ffffff",
+                        "on-surface-variant": "#5a4136",
+                        "surface-bright": "#f8f9fa",
+                        "primary": "#a04100",
+                        "surface-container-highest": "#e1e3e4",
+                        "background": "#f8f9fa",
+                        "tertiary-fixed": "#ffdbc9",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#001c3a",
+                        "secondary-fixed-dim": "#afc8f0",
+                        "secondary-container": "#bdd6ff",
+                        "on-primary-fixed": "#351000",
+                        "inverse-primary": "#ffb693",
+                        "on-primary-container": "#572000",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#e2bfb0",
+                        "surface-dim": "#d9dadb"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface/80 dark:bg-slate-900/80 backdrop-blur-md docked full-width top-0 sticky z-50">
+<nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full z-50">
+<div class="text-xl font-bold tracking-tighter text-slate-900 dark:text-white">
+                조이플 미션 컨퍼런스
+            </div>
+<div class="hidden md:flex items-center gap-8 font-['Plus_Jakarta_Sans','Pretendard'] text-body-lg">
+<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors" href="index.html">홈</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors" href="speakers.html">강사 소개</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors" href="schedule.html">일정</a>
+<a class="text-orange-600 dark:text-orange-500 font-bold border-b-2 border-orange-600" href="mission-fields.html">선교지 정보</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-semibold hover:scale-95 transition-all duration-200">
+                등록하기
+            </button>
+</nav>
+</header>
+<main class="max-w-7xl mx-auto px-8 py-16">
+<!-- Hero Section -->
+<section class="mb-20">
+<div class="flex flex-col md:flex-row justify-between items-end gap-8">
+<div class="max-w-2xl">
+<span class="inline-block px-4 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-label-md font-bold mb-6">
+                        MISSION IMPACT 2024
+                    </span>
+<h1 class="text-6xl font-bold leading-tight tracking-tighter mb-6 text-on-surface">
+                        세계 선교지 소식
+                    </h1>
+<p class="text-body-lg text-on-surface-variant max-w-lg leading-relaxed">
+                        전 세계 곳곳에서 일어나고 있는 하나님 나라의 확장을 생생한 데이터와 현장 소식으로 확인하세요. 우리의 발걸음은 멈추지 않습니다.
+                    </p>
+</div>
+<div class="flex gap-4 mb-2">
+<div class="flex flex-col items-center p-6 bg-surface-container-low rounded-xl">
+<span class="text-primary text-4xl font-bold">120+</span>
+<span class="text-label-md text-on-surface-variant">파송 국가</span>
+</div>
+<div class="flex flex-col items-center p-6 bg-surface-container-low rounded-xl">
+<span class="text-primary text-4xl font-bold">2,400+</span>
+<span class="text-label-md text-on-surface-variant">선교사</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Masonry Content Grid -->
+<div class="masonry-grid">
+<!-- SE ASIA Card -->
+<div class="span-v-2 group relative overflow-hidden rounded-3xl editorial-shadow transition-transform duration-500 hover:-translate-y-2">
+<img class="absolute inset-0 w-full h-full object-cover transition-scale duration-700 group-hover:scale-110" data-alt="lush green rice terraces in southeast asia at dawn with mystical morning mist and soft sunlight reflecting on water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5QiZY4H11DRIaN4-MeTE2LD305NBRRvcpExPN_gQAO3PKbzsBj4JtDnuWzsv-3yPixquVZ819aVzrXLpGEyy5bLDr253M5tKHmSH7Yo9rM2cb4Hv9NVNI6VuhnJSetPQhuZrn0-RC1zpye3L0LILxbNaRrJezpTxikbhZTYk6cssHomIEM7MsmwmO0DR7NzBxDVrUqSNL24nqRQrEM7sujQsKp2pTkAUjLQq4b6GygvAwPzV53pZr5ITdsedvmqhmbuTbp4N1ovND"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-secondary-fixed/90 via-on-secondary-fixed/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<div class="inline-block px-3 py-1 mb-4 bg-primary-container text-on-primary-container rounded-lg font-bold text-sm">
+                        동남아시아
+                    </div>
+<h3 class="text-3xl font-bold text-white mb-2">1,200명의 제자 양육</h3>
+<p class="text-white/80 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        현지 대학생 사역을 통해 세워진 리더들이 각 도시의 교회 개척팀으로 파송되고 있습니다.
+                    </p>
+<div class="flex items-center gap-2 text-white font-semibold">
+<span>자세히 보기</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- WEST AFRICA Card -->
+<div class="span-v-3 group relative overflow-hidden rounded-3xl editorial-shadow transition-transform duration-500 hover:-translate-y-2">
+<img class="absolute inset-0 w-full h-full object-cover transition-scale duration-700 group-hover:scale-110" data-alt="vibrant west african marketplace with people in colorful traditional clothing under bright sun with warm earthy tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3GlnsoHaW7jOUUpinU2xpKIThwZZARswCGXc8IbbicOpT2r6DwM17rG_9LdjENVr4h3N_Z-uLY11vd-so2sy0vtnCQX6ZI6a2QvLu5Lmyu1h5N4tr-J5IMDwH6B-wS6Ibf13I12EonDxz75nPVtvbEbV_WMC9stbcLuAKZQnCAkPmJ9agGO9ckgo9_BUtTv8Hu5A5Ds8H-y8cTqtVrrQLAKpV2pu_OV3U-HJjek7svh_Y7MQpkvhEk4q3EU1Fvj0jiIECHjJdofuU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-transparent to-transparent"></div>
+<div class="absolute inset-0 p-8 flex flex-col justify-between">
+<div class="flex justify-end">
+<div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+<span class="material-symbols-outlined">health_and_safety</span>
+</div>
+</div>
+<div>
+<div class="inline-block px-3 py-1 mb-4 bg-on-secondary-fixed text-white rounded-lg font-bold text-sm">
+                            서아프리카
+                        </div>
+<h3 class="text-4xl font-bold text-white mb-4 leading-tight">84개 의료 선교 거점</h3>
+<div class="grid grid-cols-2 gap-4 pt-6 border-t border-white/20">
+<div>
+<p class="text-white/60 text-xs uppercase tracking-wider">진료 횟수</p>
+<p class="text-white font-bold text-xl">15.2k</p>
+</div>
+<div>
+<p class="text-white/60 text-xs uppercase tracking-wider">거점 교회</p>
+<p class="text-white font-bold text-xl">42개소</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- EAST EUROPE Card -->
+<div class="span-v-2 group relative overflow-hidden rounded-3xl editorial-shadow transition-transform duration-500 hover:-translate-y-2">
+<img class="absolute inset-0 w-full h-full object-cover transition-scale duration-700 group-hover:scale-110" data-alt="cobblestone street in an old eastern european city with historic architecture and soft twilight blue hour lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8j3-HtRJoffjutDkrAyoRW_A9kr2PgZZJrQZJyBk3phiiDw_YwemxfSGbBono5ZnojD_5j4DPNcJKp7JSR2TzRd1aab16lB4Y21lZ1mNnSUy3gtajewgr4LW3ylqugDQxBUjkvoKa90qCriOOakSEUoNjJ6DP2KxWTGDbtZvOF1JwM-3WIqDb-p-SBZ3MVIum-OhsX6Jo8pCFjLhbHCd6sZYaItL6IG9gtTMckgG7xnZRX-h5Ohz5jUpJLdDx1UlRM_ght2X6bBTB"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/90 via-on-surface/30 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<div class="inline-block px-3 py-1 mb-4 bg-secondary text-white rounded-lg font-bold text-sm">
+                        동유럽
+                    </div>
+<h3 class="text-3xl font-bold text-white mb-2">850명의 긴급 지원 자원봉사자</h3>
+<p class="text-white/70 text-sm leading-relaxed mb-4">
+                        국경 지대 난민 보호소 운영 및 생필품 지원을 통해 복음의 통로를 확장하고 있습니다.
+                    </p>
+<div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 inline-flex items-center gap-3">
+<span class="material-symbols-outlined text-orange-400" data-weight="fill">volunteer_activism</span>
+<span class="text-white text-sm font-medium">실시간 활동 중</span>
+</div>
+</div>
+</div>
+<!-- CENTRAL ASIA Card -->
+<div class="span-v-2 group relative overflow-hidden rounded-3xl editorial-shadow transition-transform duration-500 hover:-translate-y-2">
+<div class="absolute inset-0 bg-surface-container-high flex flex-col p-8">
+<div class="flex justify-between items-start mb-8">
+<div class="bg-primary-container p-3 rounded-2xl">
+<span class="material-symbols-outlined text-on-primary-container">language</span>
+</div>
+<span class="text-label-md font-bold text-primary">NEW MISSION</span>
+</div>
+<h3 class="text-2xl font-bold text-on-surface mb-4">중앙아시아 기술 선교</h3>
+<p class="text-on-surface-variant text-sm mb-6">
+                        IT 교육을 통한 자립 지원 사업이 5개 도시로 확대되었습니다. 150명의 청년들이 전문 기술 교육에 참여하고 있습니다.
+                    </p>
+<div class="mt-auto flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-4 border-surface" data-alt="portrait of a professional man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANbZLpq-NTnBRRriOU8UuEdK8E0NUMuhZg82pDqIa0rfOb9ZaZQ6XdnB0luB3n7x55XYeYIcFB7eOdawtg7pySXQ66nZr9nUAHwD8xOVVHl2ivMJEkhg4QufRU5o3IcAPKCm0oJ5R2MZPhmERBrl5bswtf3MvqrRgbGeIN_ChU2Tsrg6KAA08TfBBdiKKaiH615cCIVQdHyaWUl4haB0W6EgOWFFk6l2-OqiHp5xjII40ovBCzpcmhuV1X_vFRndjBDVBqBkM_l35U"/>
+<img class="w-10 h-10 rounded-full border-4 border-surface" data-alt="portrait of a professional woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWYJ29zhUzrPIzCshc4UeUIKCWTHDm2BDqnDSj1XlhXTJ9gCWyYPVvQ80MpOBtctpf8NGBcva3WA7KcWwOGIexi_8oBJUkWBKprwjRv-wrLxbz4bPW0A5iGkMIsyoFNtf7gpF0dR4asB38injbYfJ1xb4jBiJyA1eP8jFX9qbF6F6UStgx6OI31o9hEjzIh-47ywM5eppZeqSOYfBChK4rWyS2i1tm-W8lbTibYS9gsUCcf4CxKfm6xId1viRmKm0yMjxuNwZbB4As"/>
+<div class="w-10 h-10 rounded-full border-4 border-surface bg-secondary-fixed flex items-center justify-center text-xs font-bold text-on-secondary-fixed">+12</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Call to Action Section -->
+<section class="mt-32 relative overflow-hidden rounded-[2.5rem] bg-on-secondary-fixed py-20 px-8">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[400px] text-white">public</span>
+</div>
+<div class="relative z-10 max-w-3xl mx-auto text-center">
+<h2 class="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
+                    당신의 기도가 <span class="text-primary-container">선교지의 역사</span>가 됩니다
+                </h2>
+<p class="text-white/70 text-lg mb-12 max-w-xl mx-auto">
+                    우리는 열방을 향한 하나님의 마음을 시각화하고 공유합니다. 컨퍼런스에 참여하여 더 구체적인 선교지의 필요를 들어보세요.
+                </p>
+<div class="flex flex-wrap justify-center gap-4">
+<button class="bg-primary-container text-on-primary-container px-10 py-4 rounded-full font-bold text-lg hover:shadow-xl hover:shadow-primary/20 transition-all">
+                        지금 등록하기
+                    </button>
+<button class="border border-white/30 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all">
+                        후원 안내 받기
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 full-width py-12 mt-20">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto w-full">
+<div class="mb-8 md:mb-0">
+<div class="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-2">조이플 미션 컨퍼런스</div>
+<div class="text-slate-500 dark:text-slate-400 font-['Plus_Jakarta_Sans','Pretendard'] text-label-md">
+                    © 2024 조이플 미션 컨퍼런스. All rights reserved.
+                </div>
+</div>
+<div class="flex gap-8 font-['Plus_Jakarta_Sans','Pretendard'] text-label-md">
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 underline transition-all" href="#">이용약관</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 underline transition-all" href="#">개인정보처리방침</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 underline transition-all" href="#">문의하기</a>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Pretendard', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-effect { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .asymmetric-clip { clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "secondary": "#476083",
+                    "surface-container-high": "#e7e8e9",
+                    "on-tertiary-fixed-variant": "#763300",
+                    "tertiary-fixed-dim": "#ffb68d",
+                    "primary-fixed-dim": "#ffb693",
+                    "surface": "#f8f9fa",
+                    "tertiary-container": "#e97b32",
+                    "primary-container": "#ff6b00",
+                    "on-tertiary-container": "#542300",
+                    "primary-fixed": "#ffdbcc",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#445d80",
+                    "error-container": "#ffdad6",
+                    "outline": "#8e7164",
+                    "on-primary-fixed-variant": "#7a3000",
+                    "surface-variant": "#e1e3e4",
+                    "on-error-container": "#93000a",
+                    "on-surface": "#191c1d",
+                    "inverse-on-surface": "#f0f1f2",
+                    "on-secondary-fixed-variant": "#2f486a",
+                    "surface-container-low": "#f3f4f5",
+                    "inverse-surface": "#2e3132",
+                    "on-background": "#191c1d",
+                    "tertiary": "#9b4500",
+                    "secondary-fixed": "#d4e3ff",
+                    "surface-container": "#edeeef",
+                    "surface-tint": "#a04100",
+                    "on-tertiary-fixed": "#331200",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#5a4136",
+                    "surface-bright": "#f8f9fa",
+                    "primary": "#a04100",
+                    "surface-container-highest": "#e1e3e4",
+                    "background": "#f8f9fa",
+                    "tertiary-fixed": "#ffdbc9",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#001c3a",
+                    "secondary-fixed-dim": "#afc8f0",
+                    "secondary-container": "#bdd6ff",
+                    "on-primary-fixed": "#351000",
+                    "inverse-primary": "#ffb693",
+                    "on-primary-container": "#572000",
+                    "surface-container-lowest": "#ffffff",
+                    "outline-variant": "#e2bfb0",
+                    "surface-dim": "#d9dadb"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar Component -->
+<header class="bg-surface/80 dark:bg-slate-900/80 backdrop-blur-md font-['Plus_Jakarta_Sans','Pretendard'] text-body-lg docked full-width top-0 sticky no-line tonal-shift-bg z-50">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full">
+<div class="text-xl font-bold tracking-tighter text-slate-900 dark:text-white">조이플 미션 컨퍼런스</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-orange-600 dark:text-orange-500 font-bold border-b-2 border-orange-600" href="#">홈</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors" href="speakers.html">강사 소개</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors" href="schedule.html">일정</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors" href="mission-fields.html">선교지 정보</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 rounded-xl bg-primary-container text-on-primary-container font-semibold hover:scale-95 transition-all duration-200">등록하기</button>
+<button class="md:hidden text-slate-900">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center overflow-hidden">
+<!-- Dynamic Background -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale-[20%] contrast-[1.1]" data-alt="a large group of diverse young people raising hands in a vibrant worship hall with dramatic orange and warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMI5pZjsZor8oFVih-X31tGcE5aVH-AH705jvJQaGmYJWh5Kq-8AHo1qy8X9FAGhXzHtiyo8x_CymKlHVV5hSdZQM-FtEdQoKL7isEuwDuHU2ZeOcOUyKZvW2ricgGkggtZhqkdnxvu_MmfozaBnIXXKowJzLjNuYu8useDtd3eSiWlUNrdiUHlPdzY8YHmhlI7CmCa0WF5Pc6OhYgfyPMiT0dKvoIo09lqrEBTYIZIJr_HCCWQsiRT04mJAMVkxUjH5oWNswchMcN"/>
+<div class="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/70 to-transparent"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Text Content -->
+<div class="lg:col-span-8 flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary-container px-4 py-1 rounded-full w-fit">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">colors_spark</span>
+<span class="text-label-md font-bold tracking-wider">JOYFUL MISSION CONFERENCE 2024</span>
+</div>
+<h1 class="text-[clamp(2.5rem,5vw,4.5rem)] font-extrabold leading-[1.1] text-white tracking-tight">
+                        조이플 미션 컨퍼런스:<br/>
+<span class="text-primary-container">열정적인 복음</span>의 현장
+                    </h1>
+<p class="text-xl text-slate-200 max-w-2xl font-light leading-relaxed">
+                        더 넓은 세상을 향한 선교의 비전,<br/>함께 꿈꾸고 동역하는 시간입니다. 당신의 열정이 선교의 밀알이 됩니다.
+                    </p>
+<div class="flex flex-wrap gap-4 mt-4">
+<button class="px-10 py-5 rounded-xl bg-primary-container text-on-primary-container text-lg font-bold shadow-2xl shadow-primary/20 hover:bg-tertiary-container transition-all active:scale-95">
+                            지금 등록하기
+                        </button>
+<button class="px-10 py-5 rounded-xl border-2 border-white/30 text-white text-lg font-bold hover:bg-white/10 glass-effect transition-all active:scale-95 flex items-center gap-2">
+                            홍보 영상 보기
+                            <span class="material-symbols-outlined">play_circle</span>
+</button>
+</div>
+</div>
+<!-- Asymmetric Highlight Cards -->
+<div class="lg:col-span-4 relative h-full flex flex-col gap-6 justify-center">
+<div class="bg-white/10 backdrop-blur-xl p-8 rounded-2xl border border-white/20 transform rotate-2 hover:rotate-0 transition-transform duration-500 shadow-xl self-end w-full lg:w-64">
+<span class="text-primary-container text-4xl font-black block mb-2">100+</span>
+<span class="text-white/80 font-medium">선교지</span>
+</div>
+<div class="bg-primary-container p-8 rounded-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-500 shadow-2xl shadow-primary/30 w-full lg:w-72">
+<span class="text-on-primary-container text-4xl font-black block mb-2">3일간의</span>
+<span class="text-on-primary-container/80 font-bold">뜨거운 여정</span>
+</div>
+<div class="bg-secondary p-8 rounded-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500 shadow-xl w-full lg:w-64">
+<span class="text-secondary-fixed text-4xl font-black block mb-2">50+</span>
+<span class="text-white/80 font-medium">글로벌 강사진</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Grid Feature Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-16">
+<h2 class="text-headline-lg font-bold text-secondary mb-4">컨퍼런스 핵심 가치</h2>
+<div class="h-1.5 w-24 bg-primary-container rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="md:col-span-2 bg-surface-container-lowest p-10 rounded-3xl flex flex-col justify-between min-h-[400px] group overflow-hidden relative">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary-container text-5xl mb-6">public</span>
+<h3 class="text-3xl font-bold text-on-surface mb-4">글로벌 네트워크 확장</h3>
+<p class="text-body-lg text-slate-500 max-w-md">전 세계 50개국 이상의 선교사들과 직접 연결되어 실시간 선교 현장의 목소리를 듣고 동역할 수 있는 기회를 제공합니다.</p>
+</div>
+<img class="absolute right-0 bottom-0 w-1/2 h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity" data-alt="a diverse group of professionals and mission leaders in a modern conference room collaborating around a large digital map" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCId6yZ5fJsHUYN7HHcq2qfnOcz8hUnS__goKtLUCfqORslufOX4USUhjY2DiGKj9jcl4u1LmckWGRLldIDQV5dTuCQsaw01itjzkdpMyon_e74p76aVpbOv6fTO65eGf2Tc2Go09Y8YjBtwOKQZJeJSZWiDsucwyjaliG6iYecvsCncbsWcsS8Gst_Pje45egdQQ9jmWYqrwLo-I2d9iyvVGXyTcSQ--RifU8UylYNjbMKxHb6baQSnwEOddk8wRjSnUFR7tZdRB6t"/>
+</div>
+<!-- Card 2 -->
+<div class="bg-secondary text-white p-10 rounded-3xl flex flex-col justify-end min-h-[400px] relative overflow-hidden">
+<div class="absolute top-10 right-10 opacity-20">
+<span class="material-symbols-outlined text-[120px]">volunteer_activism</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">열정적인 예배</h3>
+<p class="text-slate-300">매일 저녁 뜨거운 찬양과 기도로 회복되는 영적 축제의 시간</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-primary-container text-on-primary-container p-10 rounded-3xl flex flex-col justify-end min-h-[400px]">
+<h3 class="text-2xl font-bold mb-4">선교 전략 워크숍</h3>
+<p class="text-on-primary-container/80">변화하는 시대에 맞춘 혁신적인 선교 모델과 전략을 함께 연구합니다.</p>
+</div>
+<!-- Card 4 -->
+<div class="md:col-span-2 bg-surface-container-lowest p-10 rounded-3xl flex items-center gap-12 group overflow-hidden">
+<div class="flex-1">
+<span class="material-symbols-outlined text-primary text-4xl mb-6">diversity_3</span>
+<h3 class="text-2xl font-bold mb-4">다음 세대 리더십</h3>
+<p class="text-slate-500">청년 선교사들을 발굴하고 육성하기 위한 특별 멘토링 세션이 준비되어 있습니다.</p>
+</div>
+<div class="hidden lg:block flex-1 rounded-2xl overflow-hidden h-48">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="cheerful young adults of various ethnicities high-fiving and smiling in a sunlit outdoor garden setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOhYCw0MQdDjtSJtjhnxJoeYEZKa4-y1suCGmavUMwBoJRGxxeJd4HXsheNVGPLdJIrvoVt_LWZzaB3Onwo8Oapc7Lg-t9lx29lZayq91w3PtH821Vr8VbgdLDfT8Ljysgw3t76OXH_O5kaMh0GUZwm09lN6vkmYlA8mrTgkydNuEg2F16MisxSSu9z-Q3KPe9ruKA5owiANbYa9qLSVFKtPOOqzTkAuVrtUqG2Q4a0lNz8nBe7M24qaH5wbHU0Naogl_vxr9DAuXF"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-slate-50 dark:bg-slate-950 font-['Plus_Jakarta_Sans','Pretendard'] text-label-md full-width py-12 tonal-layering surface-container-low">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto w-full gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="text-lg font-semibold text-slate-800 dark:text-slate-200">조이플 미션 컨퍼런스</div>
+<div class="text-slate-500 dark:text-slate-400">© 2024 조이플 미션 컨퍼런스. All rights reserved.</div>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 underline transition-all" href="#">이용약관</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 underline transition-all" href="#">개인정보처리방침</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 underline transition-all" href="#">문의하기</a>
+</div>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-orange-100 hover:text-orange-600 transition-colors">
+<span class="material-symbols-outlined text-lg">share</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 hover:bg-orange-100 hover:text-orange-600 transition-colors">
+<span class="material-symbols-outlined text-lg">mail</span>
+</button>
+</div>
+</div>
+</footer>
+</body></html>

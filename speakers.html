@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Pretendard', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .asymmetric-item:nth-child(even) {
+            transform: translateY(2rem);
+        }
+        @media (max-width: 768px) {
+            .asymmetric-item:nth-child(even) {
+                transform: translateY(0);
+            }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary": "#ffffff",
+                      "error": "#ba1a1a",
+                      "secondary": "#476083",
+                      "surface-container-high": "#e7e8e9",
+                      "on-tertiary-fixed-variant": "#763300",
+                      "tertiary-fixed-dim": "#ffb68d",
+                      "primary-fixed-dim": "#ffb693",
+                      "surface": "#f8f9fa",
+                      "tertiary-container": "#e97b32",
+                      "primary-container": "#ff6b00",
+                      "on-tertiary-container": "#542300",
+                      "primary-fixed": "#ffdbcc",
+                      "on-error": "#ffffff",
+                      "on-secondary-container": "#445d80",
+                      "error-container": "#ffdad6",
+                      "outline": "#8e7164",
+                      "on-primary-fixed-variant": "#7a3000",
+                      "surface-variant": "#e1e3e4",
+                      "on-error-container": "#93000a",
+                      "on-surface": "#191c1d",
+                      "inverse-on-surface": "#f0f1f2",
+                      "on-secondary-fixed-variant": "#2f486a",
+                      "surface-container-low": "#f3f4f5",
+                      "inverse-surface": "#2e3132",
+                      "on-background": "#191c1d",
+                      "tertiary": "#9b4500",
+                      "secondary-fixed": "#d4e3ff",
+                      "surface-container": "#edeeef",
+                      "surface-tint": "#a04100",
+                      "on-tertiary-fixed": "#331200",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#5a4136",
+                      "surface-bright": "#f8f9fa",
+                      "primary": "#a04100",
+                      "surface-container-highest": "#e1e3e4",
+                      "background": "#f8f9fa",
+                      "tertiary-fixed": "#ffdbc9",
+                      "on-tertiary": "#ffffff",
+                      "on-secondary-fixed": "#001c3a",
+                      "secondary-fixed-dim": "#afc8f0",
+                      "secondary-container": "#bdd6ff",
+                      "on-primary-fixed": "#351000",
+                      "inverse-primary": "#ffb693",
+                      "on-primary-container": "#572000",
+                      "surface-container-lowest": "#ffffff",
+                      "outline-variant": "#e2bfb0",
+                      "surface-dim": "#d9dadb"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "1.5rem",
+                      "full": "9999px"
+              }
+            },
+          }
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="bg-surface/80 dark:bg-slate-900/80 backdrop-blur-md docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full">
+<div class="text-xl font-bold tracking-tighter text-slate-900 dark:text-white">
+                조이플 미션 컨퍼런스
+            </div>
+<nav class="hidden md:flex items-center space-x-8 font-['Plus_Jakarta_Sans','Pretendard'] text-body-lg">
+<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors" href="index.html">홈</a>
+<a class="text-orange-600 dark:text-orange-500 font-bold border-b-2 border-orange-600" href="speakers.html">강사 소개</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors" href="schedule.html">일정</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors" href="mission-fields.html">선교지 정보</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-xl font-semibold hover:scale-95 transition-all duration-200">
+                등록하기
+            </button>
+</div>
+</header>
+<main class="relative min-h-screen pb-32">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-8 pt-20 pb-12">
+<div class="relative z-10">
+<span class="inline-block py-1 px-3 bg-secondary-fixed text-on-secondary-fixed-variant rounded-full text-sm font-medium mb-6">Speakers 2024</span>
+<h1 class="text-5xl md:text-6xl font-bold text-on-surface tracking-tight leading-tight mb-6">
+                    함께하는 강사님들을 <br/>
+<span class="text-primary">소개합니다</span>
+</h1>
+<p class="text-xl text-secondary max-w-2xl leading-relaxed">
+                    세계 곳곳에서 복음의 증인으로 헌신하시는 리더들입니다. <br/>
+                    각 분야의 전문성과 뜨거운 열정으로 선교의 비전을 나눕니다.
+                </p>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute top-0 right-0 -z-10 w-1/2 h-full opacity-10">
+<div class="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary via-transparent to-transparent"></div>
+</div>
+</section>
+<!-- Dynamic Speakers Grid -->
+<section class="max-w-7xl mx-auto px-8 mt-12">
+<div class="editorial-grid">
+<!-- Speaker Card 1 -->
+<div class="asymmetric-item group">
+<div class="relative overflow-hidden rounded-[12px] bg-surface-container-low transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/10">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="professional portrait of a middle-aged male speaker with a warm smile, wearing a casual suit, clean studio lighting, warm tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsU7SnW2S8vz2HISRFKFrBcyxeQqni9Kan-qjnM5RBAvwONUKN8_BDmzGHZZTuVPsVQGuEECOyooXXyv_SHAP-8TbnQZ7OcF1cKEIlZXF7BPG09ZahJK8QOMAMTlqUBqNGcTuqjuKKRdYP7tK68Jj-Nq7j7QuXnwdWGWp2j7mnJoVDDefW9afZmFrWvYiScXFJXcmUz_dUWxyBqgd4h6bVlbL_OHyB0tJnd58pWRV3MJx7B3zl_g_iaOXfxyWdAbDdJtSkCBp4k8QX"/>
+</div>
+<div class="p-8 bg-surface-container-lowest">
+<h3 class="text-2xl font-bold text-on-secondary-fixed mb-1">김성민 선교사</h3>
+<p class="text-primary-container font-semibold mb-4">동남아시아 선교 전략</p>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">현지인 중심의 선교 네트워크 구축과 지속 가능한 선교 모델을 연구하며 태국과 베트남을 중심으로 사역하고 있습니다.</p>
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-secondary text-xl cursor-pointer hover:text-primary transition-colors">share</span>
+<span class="material-symbols-outlined text-secondary text-xl cursor-pointer hover:text-primary transition-colors">public</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Speaker Card 2 -->
+<div class="asymmetric-item group">
+<div class="relative overflow-hidden rounded-[12px] bg-surface-container-low transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/10">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="vibrant portrait of a female leader with modern glasses, confident expression, soft natural outdoor lighting, professional aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8wegL8gQw_S1qvqEKRplvkoWquwRXAhTj2xAzSTGcDzT6AK_pgVxplBNtymIubYG-XTC3RMHtuJsR-gcxJUqopHW9PNji_EEahUEsOuciZ92O4dJTykte_tIudL0xyzv6w3vfcJraLY9aQdsdNLhv2XkMby8RNlHer7-elUsjQB0hCwRGNH0XJqAT3jCGYpllgc0OBc7NGcFg_hspE07Mh_3CXGpaarZG8X6XKyYjESdqR1F6oxrgcHVctDwgDedKaYwe4_kd24rR"/>
+</div>
+<div class="p-8 bg-surface-container-lowest">
+<h3 class="text-2xl font-bold text-on-secondary-fixed mb-1">이지혜 대표</h3>
+<p class="text-primary-container font-semibold mb-4">글로벌 네트워킹</p>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">글로벌 비즈니스 선교(BAM)의 리더로서, 전 세계 기독교 기업가들을 연결하고 다음 세대 리더를 양성하는 데 주력하고 있습니다.</p>
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-secondary text-xl cursor-pointer hover:text-primary transition-colors">link</span>
+<span class="material-symbols-outlined text-secondary text-xl cursor-pointer hover:text-primary transition-colors">language</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Speaker Card 3 -->
+<div class="asymmetric-item group">
+<div class="relative overflow-hidden rounded-[12px] bg-surface-container-low transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/10">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="portrait of a male pastor in his 40s, charismatic look, urban background with soft bokeh, high contrast, professional photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeXulvJ1rr8xsNAz9hfboCwypy3retOSGl9JKKXY-pP48_C7zb6s4u_IZ1tvEjLLbtNUwh-2eynmBoBhWIfQpyq3ydzpR64-dNzKhou3-_A_vCR5niSY-acWm6eCzz2m7jpMAYyo8zivlELVB6yKiiRufxKRERECx-hPxEdrV6K_RW7jlqIwVI0I-bq1SEy4Pzn88MFhdzK_rJFLiX-PGWlTf67xEbqOjilB8Da84-iYm4tSKWfsZUEqDlNkczjT9tA3jZtbGHKMDy"/>
+</div>
+<div class="p-8 bg-surface-container-lowest">
+<h3 class="text-2xl font-bold text-on-secondary-fixed mb-1">박진우 목사</h3>
+<p class="text-primary-container font-semibold mb-4">청년 사역과 선교</p>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">청년 세대의 고민과 선교적 소명을 잇는 다리 역할을 하며, 역동적인 예배와 말씀을 통해 수많은 청년들을 선교지로 파송하고 있습니다.</p>
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-secondary text-xl cursor-pointer hover:text-primary transition-colors">auto_awesome</span>
+<span class="material-symbols-outlined text-secondary text-xl cursor-pointer hover:text-primary transition-colors">groups</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Speaker Card 4 (Additional Dynamic Content) -->
+<div class="asymmetric-item group">
+<div class="relative overflow-hidden rounded-[12px] bg-surface-container-low transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/10">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="close-up portrait of an African female missionary, soulful and determined eyes, natural warm afternoon sunlight, detailed skin texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiZY_2G48UCmCjCrPnI5dzZBMpAjEM791VG2GIdsdPc7wCbNgqhDIfEc2Ho0Ie5WF760KYo95ZHlw95Aj_VZ_tO35wsPbxBtFfJ55_T-1g6cZlFy5EvDYb6lZffE7DKtiyCJJNw7ziSyl_ioGwMfrj9V5z28lvjFgeXGW51lxcFeSnyrdbdELqotBOGFonBUa32EXErpKxE4Rvy2OeDwp9o3ZjbTkqveYW6fVhzpAuQH-W5PZvvq-0uYZyAdxTqsBfgbvDjHjJA22x"/>
+</div>
+<div class="p-8 bg-surface-container-lowest">
+<h3 class="text-2xl font-bold text-on-secondary-fixed mb-1">사라 윌리엄스</h3>
+<p class="text-primary-container font-semibold mb-4">아프리카 어린이 교육</p>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">케냐와 에티오피아에서 교육 선교를 통해 고아들을 돌보며, 복음을 통한 전인적 치유와 회복의 사역을 전개하고 있습니다.</p>
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-secondary text-xl cursor-pointer hover:text-primary transition-colors">school</span>
+<span class="material-symbols-outlined text-secondary text-xl cursor-pointer hover:text-primary transition-colors">favorite</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Speaker Card 5 (Additional Dynamic Content) -->
+<div class="asymmetric-item group">
+<div class="relative overflow-hidden rounded-[12px] bg-surface-container-low transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/10">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="portrait of a senior male leader with white hair, dignified and wise expression, elegant library background, soft depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC71tVCWaKVrdb5NpizRT-tTtCMk8nrwK5jnKBjgCL2vi2DvVLaa7jclNDdN5vjC4UMJOlC7n0wFtCIhNTUThKj2jia5ZhpzIgwoY6uXJANq5JUdSsit4kAqHa0Du3Cph0fG-NrkS8s1J2mOw-T34mrt7lQIjC5xhy5poPxSwgvClhLhIi9i2A1nCLSgBl9092J4EFVLyvVOeiKrOd5xZotyjmrr6ONPrkYYLCizSijqTfKUS_vTl80sSNIPILzmxLDRyOj80YjfOD4"/>
+</div>
+<div class="p-8 bg-surface-container-lowest">
+<h3 class="text-2xl font-bold text-on-secondary-fixed mb-1">최요한 고문</h3>
+<p class="text-primary-container font-semibold mb-4">선교 영성과 신학</p>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">40여 년간의 선교 현장 경험을 바탕으로 선교사들의 영적 건강을 돌보고, 현대 선교가 나아가야 할 신학적 방향을 제시합니다.</p>
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-secondary text-xl cursor-pointer hover:text-primary transition-colors">menu_book</span>
+<span class="material-symbols-outlined text-secondary text-xl cursor-pointer hover:text-primary transition-colors">spa</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Speaker Card 6 (Additional Dynamic Content) -->
+<div class="asymmetric-item group">
+<div class="relative overflow-hidden rounded-[12px] bg-surface-container-low transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-primary/10">
+<div class="aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-100" data-alt="close-up of a young female speaker with joyful expression, bright studio light, minimalistic clean background, high quality commercial style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEJEP1bpa2VYbFHNXaY-zHcdUgsBz19xh7HZSkrSThm-LKlKPe3cGYbPHUyJse1xfsH3vdODr9cwuae34GtSzzxi5i7oOqbUaYWwEN0xYFfDhdkk32hVdqJHhrvkXR1iwahziui0yoNYqGxXhTbj_CTMqs8a1HKRK8iVbDhE6ZkMm5Nn53E0ZFrF1O04JzQPwSUUnXV0SZLf5tM1HkPCR1NAPCIysKa0QxHLAghBhNydvJCTRG81btivwA_CgIUWf8qpJRRS83xMR-"/>
+</div>
+<div class="p-8 bg-surface-container-lowest">
+<h3 class="text-2xl font-bold text-on-secondary-fixed mb-1">정하나 간사</h3>
+<p class="text-primary-container font-semibold mb-4">미디어와 문화 선교</p>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6">디지털 시대에 걸맞은 미디어 콘텐츠를 통해 복음을 전하며, 전 세계 문화 사역자들과 협력하여 새로운 선교 패러다임을 만듭니다.</p>
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-secondary text-xl cursor-pointer hover:text-primary transition-colors">videocam</span>
+<span class="material-symbols-outlined text-secondary text-xl cursor-pointer hover:text-primary transition-colors">palette</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Dynamic Call to Action -->
+<section class="max-w-7xl mx-auto px-8 mt-32 relative">
+<div class="bg-secondary p-12 md:p-20 rounded-[2rem] overflow-hidden relative">
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="text-white max-w-xl">
+<h2 class="text-3xl md:text-4xl font-bold mb-4">강사님들과 더 깊은 대화를 나눠보세요</h2>
+<p class="text-secondary-fixed-dim text-lg">컨퍼런스 기간 중 진행되는 '브레이크아웃 세션'을 통해 관심 분야의 강사님들과 소통하며 네트워크를 쌓을 수 있습니다.</p>
+</div>
+<div class="flex-shrink-0">
+<button class="px-8 py-4 bg-primary-container text-on-primary-container font-bold rounded-full hover:scale-105 transition-transform flex items-center gap-2">
+<span>세션 일정 확인하기</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Background Decoration for CTA -->
+<div class="absolute top-0 right-0 w-1/3 h-full bg-primary/20 -skew-x-12 translate-x-1/2"></div>
+<div class="absolute bottom-0 left-0 w-1/4 h-1/2 bg-white/5 blur-3xl rounded-full -translate-x-1/2 translate-y-1/2"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 full-width py-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto w-full font-['Plus_Jakarta_Sans','Pretendard'] text-label-md">
+<div class="mb-8 md:mb-0">
+<div class="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-2">조이플 미션 컨퍼런스</div>
+<p class="text-slate-500 dark:text-slate-400">© 2024 조이플 미션 컨퍼런스. All rights reserved.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 underline transition-all" href="#">이용약관</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 underline transition-all" href="#">개인정보처리방침</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 underline transition-all" href="#">문의하기</a>
+</div>
+</div>
+</footer>
+</body></html>
