@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>관리자 · 조이플 미션 컨퍼런스 2026</title>
 <link rel="icon" type="image/png" href="favicon.png"/>
+<script src="config.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
 <style>
@@ -50,6 +51,8 @@
         </div>
       </div>
       <div class="flex items-center gap-3">
+        <span id="data-source" class="text-xs bg-slate-100 text-slate-500 font-bold px-3 py-1.5 rounded-full"></span>
+        <button onclick="loadData()" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm font-bold transition">🔄 새로고침</button>
         <button onclick="exportCSV()"
           class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm font-bold transition flex items-center gap-1.5">
           📥 CSV 내보내기
@@ -105,7 +108,7 @@
 
 <script>
 const STORAGE_KEY = 'jmc2026_registrations';
-const ADMIN_PW    = 'jmc2026';   // ← 비밀번호 변경 가능
+// ADMIN_PW 와 SHEETS_URL 은 config.js 에서 로드
 
 const SESSION_SHORT = {
   '첫째날 저녁 집회': '첫날 저녁',
@@ -118,7 +121,7 @@ function tryLogin() {
   if (pw === ADMIN_PW) {
     document.getElementById('login-screen').classList.add('hidden');
     document.getElementById('dashboard').classList.remove('hidden');
-    renderDashboard();
+    loadData();
   } else {
     document.getElementById('pw-err').classList.remove('hidden');
   }
@@ -130,12 +133,50 @@ function logout() {
   document.getElementById('pw-input').value = '';
 }
 
-function getRegs() {
+function getLocalRegs() {
   return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
 }
 
-function renderDashboard() {
-  const regs = getRegs();
+// Google Sheets 또는 localStorage 에서 데이터 로드
+function loadData() {
+  const badge = document.getElementById('count-badge');
+  badge.textContent = '불러오는 중…';
+
+  if (typeof SHEETS_URL !== 'undefined' && SHEETS_URL) {
+    fetch(`${SHEETS_URL}?pw=${encodeURIComponent(ADMIN_PW)}`)
+      .then(r => r.json())
+      .then(data => {
+        if (data.error) throw new Error(data.error);
+        // Sheets 응답을 내부 포맷으로 변환
+        const regs = data.map((row, i) => ({
+          id:        i,
+          timestamp: row['신청일시'] || '',
+          name:      row['이름']     || '',
+          phone:     row['연락처']   || '',
+          email:     row['이메일']   || '',
+          church:    row['소속']     || '',
+          sessions:  [
+            row['첫날 저녁(7:30)']      === 'O' ? '첫째날 저녁 집회' : null,
+            row['둘째날 오전(10:30)']   === 'O' ? '둘째날 오전 집회' : null,
+            row['둘째날 오후(2:00)']    === 'O' ? '둘째날 오후 집회' : null,
+          ].filter(Boolean),
+          note: row['메모'] || '',
+        }));
+        renderDashboard(regs, '구글 시트');
+      })
+      .catch(() => {
+        // Sheets 실패 시 localStorage 폴백
+        renderDashboard(getLocalRegs(), '로컬');
+      });
+  } else {
+    renderDashboard(getLocalRegs(), '로컬');
+  }
+}
+
+function renderDashboard(regs, source) {
+  // 데이터 출처 표시
+  const src = document.getElementById('data-source');
+  if (src) src.textContent = source === '구글 시트' ? '📊 구글 시트 연동 중' : '💾 로컬 데이터';
 
   // Stats
   const s1 = regs.filter(r => r.sessions?.includes('첫째날 저녁 집회')).length;

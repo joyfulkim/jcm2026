@@ -154,21 +154,32 @@ function submitReg(e) {
   const sessionLabels = SESSIONS.filter(s => checkedSessions.some(c => c.value === s.id)).map(s => s.label);
 
   const record = {
-    id: Date.now(),
+    id:        Date.now(),
     timestamp: new Date().toLocaleString('ko-KR'),
-    name:   form.name.value.trim(),
-    phone:  form.phone.value.trim(),
-    email:  form.email.value.trim(),
-    church: form.church.value.trim(),
-    sessions: sessionLabels,
-    note:   form.note.value.trim(),
+    name:      form.name.value.trim(),
+    phone:     form.phone.value.trim(),
+    email:     form.email.value.trim(),
+    church:    form.church.value.trim(),
+    sessions:  sessionLabels,
+    note:      form.note.value.trim(),
   };
 
+  // 1) localStorage 저장 (로컬 백업)
   const all = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
   all.push(record);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
 
-  // Show success
+  // 2) Google Sheets 전송 (URL이 설정된 경우)
+  if (typeof SHEETS_URL !== 'undefined' && SHEETS_URL) {
+    fetch(SHEETS_URL, {
+      method:  'POST',
+      mode:    'no-cors',               // Apps Script CORS 우회
+      headers: { 'Content-Type': 'text/plain' },
+      body:    JSON.stringify(record),
+    }).catch(() => {/* 조용히 실패 허용 — localStorage에는 저장됨 */});
+  }
+
+  // 성공 화면 표시
   form.classList.add('hidden');
   const success = document.getElementById('reg-success');
   success.classList.remove('hidden');
