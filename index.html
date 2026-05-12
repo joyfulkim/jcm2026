@@ -94,24 +94,44 @@
 <!-- TopNavBar Component -->
 <header class="bg-surface/80 dark:bg-slate-900/80 backdrop-blur-md font-['Plus_Jakarta_Sans','Pretendard'] text-body-lg docked full-width top-0 sticky no-line tonal-shift-bg z-50">
 <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full">
-<a href="index.html" class="flex items-center gap-2.5"><img src="logo.png" alt="조이플 미션 컨퍼런스" class="h-10 w-auto"/><span class="font-extrabold text-slate-900 text-base leading-tight tracking-tight">조이플 미션<br>컨퍼런스</span></a>
+<a href="index.html" class="flex items-center gap-2.5"><img src="https://raw.githubusercontent.com/joyfulkim/jcm2026/main/logo.png" alt="조이플 미션 컨퍼런스" class="h-10 w-auto"/><span class="font-extrabold text-slate-900 leading-none tracking-tight whitespace-nowrap" style="font-size: clamp(16px, 2.2vw, 32px);">조이플 미션 컨퍼런스</span></a>
 <nav class="hidden md:flex gap-8 items-center">
-<a class="text-orange-600 dark:text-orange-500 font-bold border-b-2 border-orange-600" href="#">홈</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors" href="speakers.html">강사 소개</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors" href="schedule.html">일정</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors" href="mission-fields.html">선교지 정보</a>
+<a class="text-orange-600 dark:text-orange-500 font-bold border-b-2 border-orange-600" style="font-size: clamp(13px, 1.74vw, 25px);" href="#">홈</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: clamp(13px, 1.74vw, 25px);" href="speakers.html">강사 소개</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: clamp(13px, 1.74vw, 25px);" href="schedule.html">일정</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: clamp(13px, 1.74vw, 25px);" href="mission-fields.html">선교지 정보</a>
 </nav>
 <div class="flex items-center gap-4">
-<button class="px-6 py-2 rounded-xl bg-primary-container text-on-primary-container font-semibold hover:scale-95 transition-all duration-200">등록하기</button>
-<button class="md:hidden text-slate-900">
+<button class="hidden md:block px-6 py-2 rounded-xl bg-primary-container text-white font-bold hover:scale-95 transition-all duration-200" style="font-size: 25px;">등록하기</button>
+<button id="mobile-menu-btn" class="md:hidden text-slate-900" onclick="toggleMobileMenu()">
 <span class="material-symbols-outlined">menu</span>
 </button>
 </div>
 </div>
+<!-- Mobile Dropdown Menu -->
+<div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-surface/98 backdrop-blur-md">
+<div class="flex flex-col px-8 py-4 gap-1">
+<a class="text-orange-600 font-bold py-3 border-b border-slate-100 text-lg" href="#">홈</a>
+<a class="text-slate-700 font-bold py-3 border-b border-slate-100 text-lg hover:text-orange-600 transition-colors" href="speakers.html">강사 소개</a>
+<a class="text-slate-700 font-bold py-3 border-b border-slate-100 text-lg hover:text-orange-600 transition-colors" href="schedule.html">일정</a>
+<a class="text-slate-700 font-bold py-3 border-b border-slate-100 text-lg hover:text-orange-600 transition-colors" href="mission-fields.html">선교지 정보</a>
+<div class="pt-3">
+<button class="w-full px-6 py-3 rounded-xl bg-primary-container text-on-primary-container font-bold text-lg hover:scale-95 transition-all duration-200">등록하기</button>
+</div>
+</div>
+</div>
 </header>
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('mobile-menu-btn').querySelector('span');
+  menu.classList.toggle('hidden');
+  btn.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+}
+</script>
 <main>
 <!-- Hero Section -->
-<section class="relative min-h-[921px] flex items-center overflow-hidden">
+<section class="relative min-h-[921px] lg:min-h-[700px] flex items-center overflow-hidden">
 <!-- Dynamic Background -->
 <div class="absolute inset-0 z-0">
 <img class="w-full h-full object-cover grayscale-[20%] contrast-[1.1]" data-alt="a large group of diverse young people raising hands in a vibrant worship hall with dramatic orange and warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMI5pZjsZor8oFVih-X31tGcE5aVH-AH705jvJQaGmYJWh5Kq-8AHo1qy8X9FAGhXzHtiyo8x_CymKlHVV5hSdZQM-FtEdQoKL7isEuwDuHU2ZeOcOUyKZvW2ricgGkggtZhqkdnxvu_MmfozaBnIXXKowJzLjNuYu8useDtd3eSiWlUNrdiUHlPdzY8YHmhlI7CmCa0WF5Pc6OhYgfyPMiT0dKvoIo09lqrEBTYIZIJr_HCCWQsiRT04mJAMVkxUjH5oWNswchMcN"/>
@@ -120,10 +140,9 @@
 </div>
 <div class="relative z-10 max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 <!-- Text Content -->
-<div class="lg:col-span-8 flex flex-col gap-8">
-<div class="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-primary-container px-4 py-1 rounded-full w-fit">
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">colors_spark</span>
-<span class="text-label-md font-bold tracking-wider">JOYFUL MISSION CONFERENCE 2024</span>
+<div class="lg:col-span-8 flex flex-col gap-8 pt-[50px] lg:pt-0">
+<div class="inline-flex items-center bg-primary/10 border border-primary/20 text-primary-container px-4 py-1 rounded-full w-fit">
+<span class="text-label-md font-bold tracking-wider">JOYFUL MISSION CONFERENCE 2026</span>
 </div>
 <h1 class="text-[clamp(2.5rem,5vw,4.5rem)] font-extrabold leading-[1.1] text-white tracking-tight">
                         조이플 미션 컨퍼런스:<br/>
@@ -144,17 +163,17 @@
 </div>
 <!-- Asymmetric Highlight Cards -->
 <div class="lg:col-span-4 relative h-full flex flex-col gap-6 justify-center">
-<div class="bg-white/10 backdrop-blur-xl p-8 rounded-2xl border border-white/20 transform rotate-2 hover:rotate-0 transition-transform duration-500 shadow-xl self-end w-full lg:w-64">
-<span class="text-primary-container text-4xl font-black block mb-2">100+</span>
-<span class="text-white/80 font-medium">선교지</span>
+<div class="bg-white/10 backdrop-blur-xl p-4 lg:p-8 rounded-2xl border border-white/20 transform rotate-2 hover:rotate-0 transition-transform duration-500 shadow-xl self-end w-full lg:w-64">
+<span class="text-primary-container text-xl lg:text-4xl font-black block mb-1 lg:mb-2">선교축제</span>
+<span class="text-white font-medium text-sm lg:text-base">글로벌 미션 선교전략</span>
 </div>
-<div class="bg-primary-container p-8 rounded-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-500 shadow-2xl shadow-primary/30 w-full lg:w-72">
-<span class="text-on-primary-container text-4xl font-black block mb-2">3일간의</span>
-<span class="text-on-primary-container/80 font-bold">뜨거운 여정</span>
+<div class="bg-primary-container p-4 lg:p-8 rounded-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-500 shadow-2xl shadow-primary/30 w-full lg:w-72">
+<span class="text-on-primary-container text-xl lg:text-4xl font-black block mb-1 lg:mb-2">1박 2일간의</span>
+<span class="text-on-primary-container/80 font-bold text-sm lg:text-base">뜨거운 여정</span>
 </div>
-<div class="bg-secondary p-8 rounded-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500 shadow-xl w-full lg:w-64">
-<span class="text-secondary-fixed text-4xl font-black block mb-2">50+</span>
-<span class="text-white/80 font-medium">글로벌 강사진</span>
+<div class="bg-secondary p-4 lg:p-8 rounded-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500 shadow-xl w-full lg:w-64">
+<span class="text-secondary-fixed text-xl lg:text-4xl font-black block mb-1 lg:mb-2">더 콜링</span>
+<span class="text-white/60 font-medium text-sm lg:text-base">홀리씨드, 선교의 밀알</span>
 </div>
 </div>
 </div>
@@ -205,11 +224,11 @@
 </section>
 </main>
 <!-- Footer Component -->
-<footer class="bg-slate-50 dark:bg-slate-950 font-['Plus_Jakarta_Sans','Pretendard'] text-label-md full-width py-12 tonal-layering surface-container-low">
+<footer class="bg-slate-50 dark:bg-slate-950 font-['Plus_Jakarta_Sans','Pretendard'] text-label-md full-width pt-12 pb-[50px] md:py-12 tonal-layering surface-container-low">
 <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto w-full gap-8">
 <div class="flex flex-col items-center md:items-start gap-4">
 <div class="text-lg font-semibold text-slate-800 dark:text-slate-200">조이플 미션 컨퍼런스</div>
-<div class="text-slate-500 dark:text-slate-400">© 2024 조이플 미션 컨퍼런스. All rights reserved.</div>
+<div class="text-slate-500 dark:text-slate-400">© 2026 조이플 미션 컨퍼런스. All rights reserved.</div>
 </div>
 <div class="flex gap-8">
 <a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 underline transition-all" href="#">이용약관</a>
