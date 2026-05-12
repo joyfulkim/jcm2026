@@ -96,22 +96,43 @@
 </head>
 <body class="bg-background text-on-surface">
 <!-- TopNavBar -->
-<header class="bg-surface/80 dark:bg-slate-900/80 backdrop-blur-md docked full-width top-0 sticky z-50">
-<nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full z-50">
-<div class="text-xl font-bold tracking-tighter text-slate-900 dark:text-white">
-                조이플 미션 컨퍼런스
-            </div>
-<div class="hidden md:flex items-center gap-8 font-['Plus_Jakarta_Sans','Pretendard'] text-body-lg">
-<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors" href="index.html">홈</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors" href="speakers.html">강사 소개</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors" href="schedule.html">일정</a>
-<a class="text-orange-600 dark:text-orange-500 font-bold border-b-2 border-orange-600" href="mission-fields.html">선교지 정보</a>
-</div>
-<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-semibold hover:scale-95 transition-all duration-200">
-                등록하기
-            </button>
+<header class="bg-surface/80 dark:bg-slate-900/80 backdrop-blur-md font-['Plus_Jakarta_Sans','Pretendard'] text-body-lg docked full-width top-0 sticky no-line tonal-shift-bg z-50">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full">
+<a href="index.html" class="flex items-center gap-2.5">
+  <img src="logo.png" alt="조이플 미션 컨퍼런스" class="h-10 w-auto"/>
+  <span class="font-extrabold text-slate-900 leading-none tracking-tight whitespace-nowrap" style="font-size: clamp(16px, 2.2vw, 32px);">조이플 미션 컨퍼런스</span>
+</a>
+<nav class="hidden md:flex gap-8 items-center">
+  <a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: clamp(13px, 1.74vw, 25px);" href="index.html">홈</a>
+  <a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: clamp(13px, 1.74vw, 25px);" href="speakers.html">강사 소개</a>
+  <a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: clamp(13px, 1.74vw, 25px);" href="schedule.html">일정</a>
+  <a class="text-orange-600 dark:text-orange-500 font-bold border-b-2 border-orange-600" style="font-size: clamp(13px, 1.74vw, 25px);" href="mission-fields.html">선교지 정보</a>
 </nav>
+<div class="flex items-center gap-4">
+  <button class="hidden md:block px-6 py-2 rounded-xl bg-primary-container text-white font-bold hover:scale-95 transition-all duration-200" style="font-size: 25px;">등록하기</button>
+  <button id="mobile-menu-btn" class="md:hidden text-slate-900" onclick="toggleMobileMenu()">
+    <span class="material-symbols-outlined">menu</span>
+  </button>
+</div>
+</div>
+<div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-surface/98 backdrop-blur-md">
+  <div class="flex flex-col px-8 py-4 gap-1">
+    <a class="py-3 text-slate-600 hover:text-orange-600 font-bold text-lg transition-colors" href="index.html">홈</a>
+    <a class="py-3 text-slate-600 hover:text-orange-600 font-bold text-lg transition-colors" href="speakers.html">강사 소개</a>
+    <a class="py-3 text-slate-600 hover:text-orange-600 font-bold text-lg transition-colors" href="schedule.html">일정</a>
+    <a class="py-3 text-orange-600 font-bold text-lg border-b-2 border-orange-600" href="mission-fields.html">선교지 정보</a>
+    <div class="pt-3"><button class="w-full px-6 py-3 rounded-xl bg-primary-container text-on-primary-container font-bold text-lg hover:scale-95 transition-all duration-200">등록하기</button></div>
+  </div>
+</div>
 </header>
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('mobile-menu-btn').querySelector('span');
+  menu.classList.toggle('hidden');
+  btn.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+}
+</script>
 <main class="max-w-7xl mx-auto px-8 py-16">
 <!-- Hero Section -->
 <section class="mb-20">
