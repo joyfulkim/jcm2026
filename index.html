@@ -159,7 +159,7 @@ function toggleMobileMenu() {
 <button class="px-10 py-5 rounded-xl bg-primary-container text-on-primary-container text-lg font-bold shadow-2xl shadow-primary/20 hover:bg-tertiary-container transition-all active:scale-95">
                             지금 등록하기
                         </button>
-<button class="px-10 py-5 rounded-xl border-2 border-white/30 text-white text-lg font-bold hover:bg-white/10 glass-effect transition-all active:scale-95 flex items-center gap-2">
+<button type="button" id="promo-video-open" class="px-10 py-5 rounded-xl border-2 border-white/30 text-white text-lg font-bold hover:bg-white/10 glass-effect transition-all active:scale-95 flex items-center gap-2" aria-haspopup="dialog" aria-controls="promo-video-modal">
                             홍보 영상 보기
                             <span class="material-symbols-outlined">play_circle</span>
 </button>
@@ -271,6 +271,20 @@ function toggleMobileMenu() {
 </div>
 </section>
 </main>
+<!-- Promo Video Modal -->
+<div id="promo-video-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/85 px-4 py-8 backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="조이플 미션 컨퍼런스 홍보 영상">
+<button type="button" id="promo-video-close" class="absolute right-5 top-5 w-12 h-12 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors flex items-center justify-center" aria-label="홍보 영상 닫기">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="w-full max-w-5xl">
+<div class="overflow-hidden rounded-2xl bg-black shadow-2xl border border-white/10">
+<video id="promo-video-player" class="w-full aspect-video bg-black" controls playsinline preload="metadata" poster="promo-worship-video-poster.jpg">
+<source src="promo-worship-video.mp4" type="video/mp4"/>
+브라우저가 영상 재생을 지원하지 않습니다.
+</video>
+</div>
+</div>
+</div>
 <!-- Footer Component -->
 <footer class="bg-slate-50 dark:bg-slate-950 font-['Plus_Jakarta_Sans','Pretendard'] text-label-md full-width pt-12 pb-[50px] md:py-12 tonal-layering surface-container-low">
 <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto w-full gap-8">
@@ -295,4 +309,36 @@ function toggleMobileMenu() {
 </footer>
 <script src="config.js"></script>
 <script src="register.js"></script>
+<script>
+const promoVideoOpen = document.getElementById('promo-video-open');
+const promoVideoModal = document.getElementById('promo-video-modal');
+const promoVideoClose = document.getElementById('promo-video-close');
+const promoVideoPlayer = document.getElementById('promo-video-player');
+
+function openPromoVideo() {
+  promoVideoModal.classList.remove('hidden');
+  promoVideoModal.classList.add('flex');
+  document.body.classList.add('overflow-hidden');
+  promoVideoPlayer.currentTime = 0;
+  promoVideoPlayer.play().catch(() => {});
+}
+
+function closePromoVideo() {
+  promoVideoPlayer.pause();
+  promoVideoModal.classList.add('hidden');
+  promoVideoModal.classList.remove('flex');
+  document.body.classList.remove('overflow-hidden');
+}
+
+promoVideoOpen.addEventListener('click', openPromoVideo);
+promoVideoClose.addEventListener('click', closePromoVideo);
+promoVideoModal.addEventListener('click', (event) => {
+  if (event.target === promoVideoModal) closePromoVideo();
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && !promoVideoModal.classList.contains('hidden')) {
+    closePromoVideo();
+  }
+});
+</script>
 </body></html>
