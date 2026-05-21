@@ -135,22 +135,27 @@ function copyAddress() {
           출발 전 지도 앱에서 목적지를 한 번 더 확인해 주세요.
         </p>
       </div>
-      <div class="bg-surface-container-lowest rounded-3xl p-8 editorial-shadow border border-outline-variant/40">
-        <p class="text-sm font-extrabold text-primary mb-3">행사 장소</p>
-        <h2 class="text-2xl font-extrabold text-on-surface mb-3">성서침례대학원대학교</h2>
-        <p class="text-on-surface-variant leading-relaxed mb-5">패트릭 채플관</p>
-        <div class="flex items-start gap-3 p-4 rounded-2xl bg-surface-container-low">
-          <span class="material-symbols-outlined text-primary mt-0.5">home_pin</span>
-          <div>
-            <p class="font-bold text-on-surface">경기도 이천시 대월면 대평로 548-123</p>
-            <p class="text-sm text-on-surface-variant mt-1">우편번호 17404</p>
-          </div>
+      <div class="bg-surface-container-lowest rounded-3xl overflow-hidden editorial-shadow border border-outline-variant/40">
+        <div class="aspect-[3/2] bg-surface-container-low overflow-hidden">
+          <img class="w-full h-full object-cover" src="campus-bbts.jpg" alt="성서침례대학원대학교 전경"/>
         </div>
-        <button onclick="copyAddress()" class="mt-4 w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-primary-container text-white font-bold hover:scale-[0.98] transition-transform">
-          <span class="material-symbols-outlined">content_copy</span>
-          주소 복사
-        </button>
-        <p id="copy-notice" class="h-5 mt-2 text-center text-sm font-bold text-primary"></p>
+        <div class="p-8">
+          <p class="text-sm font-extrabold text-primary mb-3">행사 장소</p>
+          <h2 class="text-2xl font-extrabold text-on-surface mb-3">성서침례대학원대학교</h2>
+          <p class="text-on-surface-variant leading-relaxed mb-5">패트릭 채플관</p>
+          <div class="flex items-start gap-3 p-4 rounded-2xl bg-surface-container-low">
+            <span class="material-symbols-outlined text-primary mt-0.5">home_pin</span>
+            <div>
+              <p class="font-bold text-on-surface">경기도 이천시 대월면 대평로 548-123</p>
+              <p class="text-sm text-on-surface-variant mt-1">우편번호 17404</p>
+            </div>
+          </div>
+          <button onclick="copyAddress()" class="mt-4 w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-primary-container text-white font-bold hover:scale-[0.98] transition-transform">
+            <span class="material-symbols-outlined">content_copy</span>
+            주소 복사
+          </button>
+          <p id="copy-notice" class="h-5 mt-2 text-center text-sm font-bold text-primary"></p>
+        </div>
       </div>
     </div>
   </section>
