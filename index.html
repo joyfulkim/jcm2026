@@ -140,7 +140,9 @@ function toggleMobileMenu() {
 <section class="relative min-h-[921px] lg:min-h-[700px] flex items-center overflow-hidden">
 <!-- Dynamic Background -->
 <div class="absolute inset-0 z-0">
-<img class="w-full h-full object-cover grayscale-[20%] contrast-[1.1]" alt="선교집회에서 함께 예배하며 찬양하는 사람들" src="hero-worship-photo.png"/>
+<video class="w-full h-full object-cover grayscale-[20%] contrast-[1.1]" autoplay muted loop playsinline preload="metadata" poster="hero-worship-photo.png" aria-label="선교집회에서 함께 예배하며 찬양하는 사람들">
+<source src="promo-worship-video.mp4" type="video/mp4"/>
+</video>
 <div class="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/70 to-transparent"></div>
 <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
 </div>
@@ -290,10 +292,7 @@ function toggleMobileMenu() {
 </button>
 <div class="w-full max-w-5xl">
 <div class="overflow-hidden rounded-2xl bg-black shadow-2xl border border-white/10">
-<video id="promo-video-player" class="w-full aspect-video bg-black" controls playsinline preload="metadata" poster="promo-worship-video-poster.jpg">
-<source src="promo-worship-video.mp4" type="video/mp4"/>
-브라우저가 영상 재생을 지원하지 않습니다.
-</video>
+<iframe id="promo-video-player" class="w-full aspect-video bg-black" title="지저스 미션 컨퍼런스 홍보 영상" data-src="https://www.youtube.com/embed/rbYs5JKibbk?autoplay=1&rel=0&modestbranding=1" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 </div>
 </div>
@@ -332,12 +331,11 @@ function openPromoVideo() {
   promoVideoModal.classList.remove('hidden');
   promoVideoModal.classList.add('flex');
   document.body.classList.add('overflow-hidden');
-  promoVideoPlayer.currentTime = 0;
-  promoVideoPlayer.play().catch(() => {});
+  promoVideoPlayer.src = promoVideoPlayer.dataset.src;
 }
 
 function closePromoVideo() {
-  promoVideoPlayer.pause();
+  promoVideoPlayer.src = '';
   promoVideoModal.classList.add('hidden');
   promoVideoModal.classList.remove('flex');
   document.body.classList.remove('overflow-hidden');
