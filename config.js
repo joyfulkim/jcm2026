@@ -13,4 +13,4 @@ const firebaseConfig = {
 };
 
 window.JMC_FIREBASE_CONFIG = firebaseConfig;
-window.JMC_ADMIN_EMAILS = [];
+window.JMC_ADMIN_EMAILS = ['kms@jfm.kr'];

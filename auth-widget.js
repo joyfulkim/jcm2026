@@ -101,7 +101,13 @@
         await window.JMCFirebase.signInGoogle();
         closeAuth();
       } catch (err) {
-        showError(err.message || 'Google 로그인을 완료하지 못했습니다.');
+        if (err.code === 'auth/operation-not-allowed') {
+          showError('Firebase 콘솔에서 Google 로그인 제공자를 먼저 사용 설정해야 합니다.');
+        } else if (err.code === 'auth/unauthorized-domain') {
+          showError('Firebase Authentication 승인 도메인에 현재 도메인을 추가해야 합니다.');
+        } else {
+          showError(err.message || 'Google 로그인을 완료하지 못했습니다.');
+        }
       }
     });
     document.getElementById('auth-form').addEventListener('submit', async (event) => {

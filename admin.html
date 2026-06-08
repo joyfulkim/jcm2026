@@ -36,35 +36,17 @@
     <section class="p-8 md:p-10">
       <div class="mb-7">
         <h2 class="text-2xl font-black text-slate-900">로그인</h2>
-        <p class="mt-2 text-sm text-slate-500">Firebase 계정으로 로그인한 뒤 관리자 비밀번호를 입력하세요.</p>
+        <p class="mt-2 text-sm text-slate-500">관리자 Google 계정으로 로그인하면 바로 관리자 모드로 이동합니다.</p>
       </div>
 
-      <div class="mb-5 grid grid-cols-2 rounded-2xl bg-slate-100 p-1 text-sm font-extrabold">
-        <button id="admin-login-tab" class="rounded-xl bg-white py-2 text-slate-900 shadow-sm" type="button">로그인</button>
-        <button id="admin-signup-tab" class="rounded-xl py-2 text-slate-500" type="button">회원가입</button>
-      </div>
-
-      <form id="admin-auth-form" class="space-y-3">
-        <input id="admin-name" class="hidden w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="이름">
-        <input id="admin-email" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" type="email" placeholder="이메일" required>
-        <input id="admin-password" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" type="password" placeholder="계정 비밀번호" required minlength="6">
-        <button id="admin-auth-submit" class="w-full rounded-2xl bg-slate-900 py-3.5 font-extrabold text-white hover:bg-slate-800" type="submit">로그인</button>
-      </form>
-
-      <div class="my-5 flex items-center gap-3 text-xs font-bold text-slate-400">
-        <span class="h-px flex-1 bg-slate-200"></span>또는<span class="h-px flex-1 bg-slate-200"></span>
-      </div>
-      <button id="admin-google" class="flex w-full items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white py-3.5 font-extrabold text-slate-800 hover:bg-slate-50" type="button">
+      <div class="rounded-3xl bg-slate-50 p-6">
+        <div class="mb-5 rounded-2xl bg-white px-5 py-4 text-sm leading-6 text-slate-600">
+          관리자 허용 계정: <strong class="text-slate-900">kms@jfm.kr</strong>
+        </div>
+      <button id="admin-google" class="flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-900 py-4 font-extrabold text-white hover:bg-slate-800" type="button">
         <span class="material-symbols-outlined text-base">account_circle</span>
-        Google로 로그인
+        Google 계정으로 관리자 로그인
       </button>
-
-      <div class="mt-7 rounded-2xl bg-orange-50 p-5">
-        <label class="mb-2 block text-xs font-extrabold uppercase tracking-widest text-orange-700">관리자 비밀번호</label>
-        <input id="admin-pw-input" type="password" placeholder="관리자 비밀번호 입력"
-          class="w-full rounded-xl border border-orange-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100"
-          onkeydown="if(event.key==='Enter') enterAdmin()"/>
-        <button onclick="enterAdmin()" class="mt-3 w-full rounded-xl bg-orange-500 py-3 font-extrabold text-white hover:bg-orange-600" type="button">관리자 모드 입장</button>
       </div>
       <p id="login-message" class="mt-4 hidden rounded-xl bg-red-50 px-4 py-3 text-sm font-bold text-red-600"></p>
       <p id="auth-state" class="mt-4 text-center text-xs font-bold text-slate-400">로그인 상태를 확인하는 중입니다.</p>
@@ -181,13 +163,13 @@
 <script src="firebase-client.js"></script>
 <script>
 const STORAGE_KEY = 'jmc2026_registrations';
+const ADMIN_EMAIL = 'kms@jfm.kr';
 const SESSION_SHORT = {
   '첫째날 저녁 집회': '첫날 저녁',
   '둘째날 오전 집회': '둘째날 오전',
   '둘째날 오후 집회': '둘째날 오후',
 };
 
-let authMode = 'login';
 let adminUnlocked = false;
 let unsubscribeNotices = null;
 let unsubscribeRegistrations = null;
@@ -209,31 +191,12 @@ function clearLoginMessage() {
   el.classList.add('hidden');
 }
 
-function setAuthMode(mode) {
-  authMode = mode;
-  const signup = mode === 'signup';
-  document.getElementById('admin-name').classList.toggle('hidden', !signup);
-  document.getElementById('admin-auth-submit').textContent = signup ? '회원가입' : '로그인';
-  document.getElementById('admin-login-tab').className = signup
-    ? 'rounded-xl py-2 text-slate-500'
-    : 'rounded-xl bg-white py-2 text-slate-900 shadow-sm';
-  document.getElementById('admin-signup-tab').className = signup
-    ? 'rounded-xl bg-white py-2 text-slate-900 shadow-sm'
-    : 'rounded-xl py-2 text-slate-500';
+function isAdminUser(user) {
+  return !!user && String(user.email || '').toLowerCase() === ADMIN_EMAIL;
 }
 
-function enterAdmin() {
+function unlockAdmin(user) {
   clearLoginMessage();
-  const user = window.JMCFirebase.currentUser();
-  const pw = document.getElementById('admin-pw-input').value;
-  if (!user) {
-    showLoginMessage('먼저 Firebase 계정으로 로그인해 주세요.');
-    return;
-  }
-  if (pw !== ADMIN_PW) {
-    showLoginMessage('관리자 비밀번호가 올바르지 않습니다.');
-    return;
-  }
   adminUnlocked = true;
   document.getElementById('login-screen').classList.add('hidden');
   document.getElementById('dashboard').classList.remove('hidden');
@@ -248,7 +211,6 @@ function logout() {
   window.JMCFirebase.signOut();
   document.getElementById('dashboard').classList.add('hidden');
   document.getElementById('login-screen').classList.remove('hidden');
-  document.getElementById('admin-pw-input').value = '';
 }
 
 function refreshAll() {
@@ -410,30 +372,18 @@ function exportCSV() {
   a.click();
 }
 
-document.getElementById('admin-login-tab').addEventListener('click', () => setAuthMode('login'));
-document.getElementById('admin-signup-tab').addEventListener('click', () => setAuthMode('signup'));
-document.getElementById('admin-auth-form').addEventListener('submit', async (event) => {
-  event.preventDefault();
-  clearLoginMessage();
-  try {
-    const email = document.getElementById('admin-email').value.trim();
-    const password = document.getElementById('admin-password').value;
-    const name = document.getElementById('admin-name').value.trim();
-    if (authMode === 'signup') {
-      await window.JMCFirebase.signUp(email, password, name);
-    } else {
-      await window.JMCFirebase.signIn(email, password);
-    }
-  } catch (err) {
-    showLoginMessage(err.message || '로그인 처리 중 문제가 발생했습니다.');
-  }
-});
 document.getElementById('admin-google').addEventListener('click', async () => {
   clearLoginMessage();
   try {
     await window.JMCFirebase.signInGoogle();
   } catch (err) {
-    showLoginMessage(err.message || 'Google 로그인을 완료하지 못했습니다.');
+    if (err.code === 'auth/operation-not-allowed') {
+      showLoginMessage('Firebase 콘솔에서 Google 로그인 제공자를 먼저 사용 설정해야 합니다.');
+    } else if (err.code === 'auth/unauthorized-domain') {
+      showLoginMessage('Firebase Authentication 승인 도메인에 현재 도메인을 추가해야 합니다.');
+    } else {
+      showLoginMessage(err.message || 'Google 로그인을 완료하지 못했습니다.');
+    }
   }
 });
 document.getElementById('notice-form').addEventListener('submit', async (event) => {
@@ -459,10 +409,18 @@ document.querySelectorAll('.admin-tab').forEach((tab) => {
     document.getElementById(tab.dataset.tab).classList.remove('hidden');
   });
 });
+window.JMCFirebase.finishRedirectSignIn().catch(() => {});
 window.JMCFirebase.onAuth((user) => {
   document.getElementById('auth-state').textContent = user
     ? `로그인됨: ${user.email || user.displayName || 'Firebase 사용자'}`
-    : 'Firebase 계정으로 로그인해 주세요.';
+    : '관리자 Google 계정으로 로그인해 주세요.';
+  if (user && isAdminUser(user)) {
+    unlockAdmin(user);
+    return;
+  }
+  if (user && !isAdminUser(user)) {
+    showLoginMessage(`${user.email || '현재 계정'} 계정은 관리자 권한이 없습니다. ${ADMIN_EMAIL} 계정으로 로그인해 주세요.`);
+  }
   if (!user && adminUnlocked) logout();
 });
 </script>

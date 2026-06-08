@@ -39,6 +39,7 @@
       auth = firebase.auth();
       db = firebase.firestore();
       googleProvider = new firebase.auth.GoogleAuthProvider();
+      googleProvider.setCustomParameters({ prompt: 'select_account' });
       auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(() => {});
     }
     return true;
@@ -65,7 +66,30 @@
 
   async function signInGoogle() {
     if (!init()) throw new Error('Firebase가 아직 준비되지 않았습니다.');
-    const result = await auth.signInWithPopup(googleProvider);
+    let result;
+    try {
+      result = await auth.signInWithPopup(googleProvider);
+    } catch (err) {
+      if (err.code === 'auth/popup-blocked' || err.code === 'auth/cancelled-popup-request') {
+        await auth.signInWithRedirect(googleProvider);
+        return null;
+      }
+      throw err;
+    }
+    if (!result || !result.user) return null;
+    await db.collection('users').doc(result.user.uid).set({
+      displayName: result.user.displayName || '',
+      email: result.user.email || '',
+      provider: 'google',
+      updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+    }, { merge: true });
+    return result.user;
+  }
+
+  async function finishRedirectSignIn() {
+    if (!init()) throw new Error('Firebase가 아직 준비되지 않았습니다.');
+    const result = await auth.getRedirectResult();
+    if (!result || !result.user) return null;
     await db.collection('users').doc(result.user.uid).set({
       displayName: result.user.displayName || '',
       email: result.user.email || '',
@@ -184,6 +208,7 @@
     signUp,
     signIn,
     signInGoogle,
+    finishRedirectSignIn,
     signOut,
     onAuth,
     currentUser,
