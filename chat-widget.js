@@ -61,7 +61,7 @@
         </div>
         <div class="jmc-chat-body" id="jmc-chat-body">
           <div class="jmc-chat-stack" id="jmc-chat-stack">
-            <div class="jmc-chat-message bot">안녕하세요. 조이플 미션 컨퍼런스 운영팀입니다. 궁금한 내용을 남겨주시면 확인 후 연락드리겠습니다.</div>
+            <div class="jmc-chat-message bot">안녕하세요. 지저스 미션 컨퍼런스 운영팀입니다. 궁금한 내용을 남겨주시면 확인 후 연락드리겠습니다.</div>
             <div class="jmc-chat-message bot">자주 묻는 항목을 먼저 선택해도 좋아요.</div>
           </div>
           <div class="jmc-chat-quick">

@@ -3,221 +3,384 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>관리자 · 지저스 미션 컨퍼런스 2026</title>
+<title>관리자 모드 · 지저스 미션 컨퍼런스 2026</title>
 <link rel="icon" type="image/png" href="favicon.png"/>
 <script src="config.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
 <style>
   body { font-family: 'Pretendard', sans-serif; }
   @keyframes fadeIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
-  .fade-in { animation: fadeIn .4s ease; }
+  .fade-in { animation: fadeIn .35s ease; }
+  .admin-tab.is-active { background:#ff6b00; color:white; }
 </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen">
+<body class="min-h-screen bg-slate-50 text-slate-800">
 
-<!-- Login Screen -->
 <div id="login-screen" class="min-h-screen flex items-center justify-center p-4">
-  <div class="bg-white rounded-3xl shadow-xl p-10 w-full max-w-sm fade-in">
-    <div class="text-center mb-8">
-      <img src="logo.png?v=20260609-jesus" alt="지저스 미션 컨퍼런스" class="h-16 mx-auto mb-4">
-      <h1 class="text-xl font-extrabold text-slate-800">관리자 로그인</h1>
-      <p class="text-sm text-slate-400 mt-1">지저스 미션 컨퍼런스 2026</p>
-    </div>
-    <div class="space-y-4">
-      <input id="pw-input" type="password" placeholder="비밀번호 입력"
-        class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-400 focus:ring-2 focus:ring-orange-100 outline-none text-sm"
-        onkeydown="if(event.key==='Enter') tryLogin()"/>
-      <p id="pw-err" class="text-red-500 text-xs hidden">비밀번호가 올바르지 않습니다.</p>
-      <button onclick="tryLogin()"
-        class="w-full py-3 rounded-xl bg-orange-500 text-white font-bold hover:bg-orange-600 transition">
-        로그인
+  <div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] overflow-hidden rounded-[2rem] bg-white shadow-2xl fade-in">
+    <section class="bg-slate-900 p-10 text-white flex flex-col justify-between">
+      <div>
+        <img src="logo.png?v=20260609-jesus" alt="지저스 미션 컨퍼런스" class="h-20 mb-8">
+        <p class="text-sm font-extrabold uppercase tracking-[0.25em] text-orange-300">Admin Mode</p>
+        <h1 class="mt-4 text-4xl font-black leading-tight">통합 관리자 모드</h1>
+        <p class="mt-5 text-slate-300 leading-7">공지사항 작성과 신청현황 확인을 한 곳에서 관리합니다.</p>
+      </div>
+      <a href="index.html" class="mt-10 inline-flex items-center gap-2 text-sm font-bold text-slate-300 hover:text-white">
+        <span class="material-symbols-outlined text-base">arrow_back</span>
+        홈페이지로 돌아가기
+      </a>
+    </section>
+
+    <section class="p-8 md:p-10">
+      <div class="mb-7">
+        <h2 class="text-2xl font-black text-slate-900">로그인</h2>
+        <p class="mt-2 text-sm text-slate-500">Firebase 계정으로 로그인한 뒤 관리자 비밀번호를 입력하세요.</p>
+      </div>
+
+      <div class="mb-5 grid grid-cols-2 rounded-2xl bg-slate-100 p-1 text-sm font-extrabold">
+        <button id="admin-login-tab" class="rounded-xl bg-white py-2 text-slate-900 shadow-sm" type="button">로그인</button>
+        <button id="admin-signup-tab" class="rounded-xl py-2 text-slate-500" type="button">회원가입</button>
+      </div>
+
+      <form id="admin-auth-form" class="space-y-3">
+        <input id="admin-name" class="hidden w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="이름">
+        <input id="admin-email" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" type="email" placeholder="이메일" required>
+        <input id="admin-password" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" type="password" placeholder="계정 비밀번호" required minlength="6">
+        <button id="admin-auth-submit" class="w-full rounded-2xl bg-slate-900 py-3.5 font-extrabold text-white hover:bg-slate-800" type="submit">로그인</button>
+      </form>
+
+      <div class="my-5 flex items-center gap-3 text-xs font-bold text-slate-400">
+        <span class="h-px flex-1 bg-slate-200"></span>또는<span class="h-px flex-1 bg-slate-200"></span>
+      </div>
+      <button id="admin-google" class="flex w-full items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white py-3.5 font-extrabold text-slate-800 hover:bg-slate-50" type="button">
+        <span class="material-symbols-outlined text-base">account_circle</span>
+        Google로 로그인
       </button>
-    </div>
+
+      <div class="mt-7 rounded-2xl bg-orange-50 p-5">
+        <label class="mb-2 block text-xs font-extrabold uppercase tracking-widest text-orange-700">관리자 비밀번호</label>
+        <input id="admin-pw-input" type="password" placeholder="관리자 비밀번호 입력"
+          class="w-full rounded-xl border border-orange-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100"
+          onkeydown="if(event.key==='Enter') enterAdmin()"/>
+        <button onclick="enterAdmin()" class="mt-3 w-full rounded-xl bg-orange-500 py-3 font-extrabold text-white hover:bg-orange-600" type="button">관리자 모드 입장</button>
+      </div>
+      <p id="login-message" class="mt-4 hidden rounded-xl bg-red-50 px-4 py-3 text-sm font-bold text-red-600"></p>
+      <p id="auth-state" class="mt-4 text-center text-xs font-bold text-slate-400">로그인 상태를 확인하는 중입니다.</p>
+    </section>
   </div>
 </div>
 
-<!-- Admin Dashboard -->
 <div id="dashboard" class="hidden fade-in">
-
-  <!-- Top Nav -->
-  <header class="bg-white border-b border-slate-100 sticky top-0 z-10">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+  <header class="sticky top-0 z-10 border-b border-slate-100 bg-white/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
       <div class="flex items-center gap-3">
-        <img src="logo.png?v=20260609-jesus" alt="지저스 미션 컨퍼런스" class="h-12">
+        <img src="logo.png?v=20260609-jesus" alt="지저스 미션 컨퍼런스" class="h-14">
         <div>
-          <div class="font-extrabold text-slate-800">관리자 페이지</div>
-          <div class="text-xs text-orange-500 font-semibold">JESUS Mission Conference 2026</div>
+          <div class="font-black text-slate-900">통합 관리자 모드</div>
+          <div id="admin-user-label" class="text-xs font-semibold text-orange-500">Firebase 연결 중</div>
         </div>
       </div>
-      <div class="flex items-center gap-3">
-        <span id="data-source" class="text-xs bg-slate-100 text-slate-500 font-bold px-3 py-1.5 rounded-full"></span>
-        <button onclick="loadData()" class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm font-bold transition">🔄 새로고침</button>
-        <button onclick="exportCSV()"
-          class="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm font-bold transition flex items-center gap-1.5">
-          📥 CSV 내보내기
-        </button>
-        <button onclick="logout()"
-          class="px-4 py-2 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 text-sm font-bold transition">
-          로그아웃
-        </button>
+      <div class="flex flex-wrap items-center gap-2">
+        <button data-tab="notice-panel" class="admin-tab is-active rounded-xl px-4 py-2 text-sm font-extrabold transition" type="button">공지사항 관리</button>
+        <button data-tab="registration-panel" class="admin-tab rounded-xl bg-slate-100 px-4 py-2 text-sm font-extrabold text-slate-600 transition" type="button">신청현황</button>
+        <button onclick="refreshAll()" class="rounded-xl bg-slate-100 px-4 py-2 text-sm font-extrabold text-slate-600 hover:bg-slate-200" type="button">새로고침</button>
+        <button onclick="logout()" class="rounded-xl bg-red-50 px-4 py-2 text-sm font-extrabold text-red-600 hover:bg-red-100" type="button">로그아웃</button>
       </div>
     </div>
   </header>
 
   <main class="max-w-7xl mx-auto px-6 py-8">
+    <section id="notice-panel" class="admin-panel">
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-[420px_1fr]">
+        <form id="notice-form" class="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
+          <h2 class="text-xl font-black text-slate-900">새 공지 작성</h2>
+          <p class="mt-2 text-sm text-slate-500">홈페이지의 행사 공지사항 게시판에 바로 표시됩니다.</p>
+          <div class="mt-6 space-y-4">
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">분류</label>
+              <select id="notice-category" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100">
+                <option>공지</option>
+                <option>등록</option>
+                <option>일정</option>
+                <option>현장안내</option>
+              </select>
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">제목</label>
+              <input id="notice-title" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="공지 제목" required>
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">내용</label>
+              <textarea id="notice-body" rows="7" class="w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm leading-6 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="공지 내용을 입력하세요." required></textarea>
+            </div>
+            <label class="flex items-center gap-2 text-sm font-bold text-slate-700">
+              <input id="notice-pinned" type="checkbox" class="rounded border-slate-300 text-orange-500 focus:ring-orange-400">
+              중요 공지로 표시
+            </label>
+            <button class="w-full rounded-2xl bg-orange-500 py-3.5 font-extrabold text-white hover:bg-orange-600" type="submit">공지 등록</button>
+            <p id="notice-message" class="hidden rounded-xl px-4 py-3 text-sm font-bold"></p>
+          </div>
+        </form>
 
-    <!-- Stats Cards -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8" id="stats"></div>
-
-    <!-- Table -->
-    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
-      <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between">
-        <h2 class="font-extrabold text-slate-800">신청자 목록</h2>
-        <span id="count-badge" class="text-xs bg-orange-100 text-orange-700 font-bold px-3 py-1 rounded-full"></span>
+        <div class="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
+          <div class="mb-5 flex items-center justify-between">
+            <h2 class="text-xl font-black text-slate-900">등록된 공지사항</h2>
+            <span id="notice-count" class="rounded-full bg-orange-100 px-3 py-1 text-xs font-extrabold text-orange-700">0건</span>
+          </div>
+          <div id="admin-notice-list" class="space-y-3">
+            <div class="rounded-2xl bg-slate-50 p-6 text-center text-sm font-bold text-slate-400">공지사항을 불러오는 중입니다.</div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <!-- Empty state -->
-      <div id="empty-state" class="hidden py-20 text-center">
-        <div class="text-5xl mb-4">📋</div>
-        <p class="text-slate-400 font-medium">아직 신청자가 없습니다.</p>
+    <section id="registration-panel" class="admin-panel hidden">
+      <div class="mb-6 grid grid-cols-2 gap-4 md:grid-cols-4" id="stats"></div>
+      <div class="overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm">
+        <div class="flex flex-col gap-3 border-b border-slate-100 px-6 py-5 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2 class="text-xl font-black text-slate-900">신청현황</h2>
+            <p id="data-source" class="mt-1 text-sm font-bold text-slate-400">Firebase Firestore</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <span id="count-badge" class="rounded-full bg-orange-100 px-3 py-1 text-xs font-extrabold text-orange-700"></span>
+            <button onclick="exportCSV()" class="rounded-xl bg-slate-100 px-4 py-2 text-sm font-extrabold text-slate-600 hover:bg-slate-200" type="button">CSV 내보내기</button>
+          </div>
+        </div>
+        <div id="empty-state" class="hidden py-20 text-center">
+          <div class="text-5xl mb-4">📋</div>
+          <p class="font-bold text-slate-400">아직 신청자가 없습니다.</p>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm" id="reg-table">
+            <thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500">
+              <tr>
+                <th class="px-5 py-3 text-left font-bold">#</th>
+                <th class="px-5 py-3 text-left font-bold">이름</th>
+                <th class="px-5 py-3 text-left font-bold">연락처</th>
+                <th class="px-5 py-3 text-left font-bold">이메일</th>
+                <th class="px-5 py-3 text-left font-bold">소속</th>
+                <th class="px-5 py-3 text-left font-bold">참석 집회</th>
+                <th class="px-5 py-3 text-left font-bold">메모</th>
+                <th class="px-5 py-3 text-left font-bold">신청일시</th>
+              </tr>
+            </thead>
+            <tbody id="reg-tbody" class="divide-y divide-slate-50"></tbody>
+          </table>
+        </div>
       </div>
-
-      <!-- Table -->
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm" id="reg-table">
-          <thead class="bg-slate-50 text-xs text-slate-500 uppercase tracking-wider">
-            <tr>
-              <th class="px-5 py-3 text-left font-bold">#</th>
-              <th class="px-5 py-3 text-left font-bold">이름</th>
-              <th class="px-5 py-3 text-left font-bold">연락처</th>
-              <th class="px-5 py-3 text-left font-bold">이메일</th>
-              <th class="px-5 py-3 text-left font-bold">소속</th>
-              <th class="px-5 py-3 text-left font-bold">참석 집회</th>
-              <th class="px-5 py-3 text-left font-bold">메모</th>
-              <th class="px-5 py-3 text-left font-bold">신청일시</th>
-              <th class="px-5 py-3 text-left font-bold">삭제</th>
-            </tr>
-          </thead>
-          <tbody id="reg-tbody" class="divide-y divide-slate-50"></tbody>
-        </table>
-      </div>
-    </div>
+    </section>
   </main>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<script src="firebase-client.js"></script>
 <script>
 const STORAGE_KEY = 'jmc2026_registrations';
-// ADMIN_PW 와 SHEETS_URL 은 config.js 에서 로드
-
 const SESSION_SHORT = {
   '첫째날 저녁 집회': '첫날 저녁',
   '둘째날 오전 집회': '둘째날 오전',
   '둘째날 오후 집회': '둘째날 오후',
 };
 
-function tryLogin() {
-  const pw = document.getElementById('pw-input').value;
-  if (pw === ADMIN_PW) {
-    document.getElementById('login-screen').classList.add('hidden');
-    document.getElementById('dashboard').classList.remove('hidden');
-    loadData();
-  } else {
-    document.getElementById('pw-err').classList.remove('hidden');
+let authMode = 'login';
+let adminUnlocked = false;
+let unsubscribeNotices = null;
+let unsubscribeRegistrations = null;
+let currentRegistrations = [];
+
+function esc(value) {
+  return String(value || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function showLoginMessage(message) {
+  const el = document.getElementById('login-message');
+  el.textContent = message;
+  el.classList.remove('hidden');
+}
+
+function clearLoginMessage() {
+  const el = document.getElementById('login-message');
+  el.textContent = '';
+  el.classList.add('hidden');
+}
+
+function setAuthMode(mode) {
+  authMode = mode;
+  const signup = mode === 'signup';
+  document.getElementById('admin-name').classList.toggle('hidden', !signup);
+  document.getElementById('admin-auth-submit').textContent = signup ? '회원가입' : '로그인';
+  document.getElementById('admin-login-tab').className = signup
+    ? 'rounded-xl py-2 text-slate-500'
+    : 'rounded-xl bg-white py-2 text-slate-900 shadow-sm';
+  document.getElementById('admin-signup-tab').className = signup
+    ? 'rounded-xl bg-white py-2 text-slate-900 shadow-sm'
+    : 'rounded-xl py-2 text-slate-500';
+}
+
+function enterAdmin() {
+  clearLoginMessage();
+  const user = window.JMCFirebase.currentUser();
+  const pw = document.getElementById('admin-pw-input').value;
+  if (!user) {
+    showLoginMessage('먼저 Firebase 계정으로 로그인해 주세요.');
+    return;
   }
+  if (pw !== ADMIN_PW) {
+    showLoginMessage('관리자 비밀번호가 올바르지 않습니다.');
+    return;
+  }
+  adminUnlocked = true;
+  document.getElementById('login-screen').classList.add('hidden');
+  document.getElementById('dashboard').classList.remove('hidden');
+  document.getElementById('admin-user-label').textContent = user.email || user.displayName || '관리자';
+  refreshAll();
 }
 
 function logout() {
+  adminUnlocked = false;
+  if (unsubscribeNotices) unsubscribeNotices();
+  if (unsubscribeRegistrations) unsubscribeRegistrations();
+  window.JMCFirebase.signOut();
   document.getElementById('dashboard').classList.add('hidden');
   document.getElementById('login-screen').classList.remove('hidden');
-  document.getElementById('pw-input').value = '';
+  document.getElementById('admin-pw-input').value = '';
+}
+
+function refreshAll() {
+  if (!adminUnlocked) return;
+  loadNotices();
+  loadRegistrations();
+}
+
+function formatNoticeDate(notice) {
+  if (notice.createdAt && notice.createdAt.toDate) return notice.createdAt.toDate().toLocaleString('ko-KR');
+  return notice.createdAtText || '';
+}
+
+function loadNotices() {
+  if (unsubscribeNotices) unsubscribeNotices();
+  unsubscribeNotices = window.JMCFirebase.watchNotices(renderNotices, () => {
+    document.getElementById('admin-notice-list').innerHTML = '<div class="rounded-2xl bg-red-50 p-6 text-sm font-bold text-red-600">공지사항을 불러오지 못했습니다.</div>';
+  });
+}
+
+function renderNotices(notices) {
+  document.getElementById('notice-count').textContent = `${notices.length}건`;
+  const list = document.getElementById('admin-notice-list');
+  if (!notices.length) {
+    list.innerHTML = '<div class="rounded-2xl bg-slate-50 p-6 text-center text-sm font-bold text-slate-400">등록된 공지사항이 없습니다.</div>';
+    return;
+  }
+  list.innerHTML = notices.map((notice) => `
+    <article class="rounded-2xl border border-slate-100 p-5">
+      <div class="mb-3 flex flex-wrap items-center gap-2">
+        ${notice.pinned ? '<span class="rounded-full bg-orange-100 px-3 py-1 text-xs font-extrabold text-orange-700">중요</span>' : ''}
+        <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-extrabold text-slate-600">${esc(notice.category || '공지')}</span>
+        <span class="ml-auto text-xs font-bold text-slate-400">${esc(formatNoticeDate(notice))}</span>
+      </div>
+      <h3 class="font-black text-slate-900">${esc(notice.title)}</h3>
+      <p class="mt-2 whitespace-pre-line text-sm leading-6 text-slate-600">${esc(notice.body)}</p>
+      <button onclick="removeNotice('${esc(notice.id)}')" class="mt-4 rounded-xl bg-red-50 px-3 py-2 text-xs font-extrabold text-red-600 hover:bg-red-100" type="button">삭제</button>
+    </article>
+  `).join('');
+}
+
+async function removeNotice(id) {
+  if (!confirm('이 공지사항을 삭제하시겠습니까?')) return;
+  await window.JMCFirebase.deleteNotice(id);
+}
+
+function showNoticeMessage(message, ok) {
+  const el = document.getElementById('notice-message');
+  el.textContent = message;
+  el.className = `rounded-xl px-4 py-3 text-sm font-bold ${ok ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`;
+}
+
+function normalizeRegistration(record, fallbackId) {
+  return {
+    id: record.id || fallbackId,
+    timestamp: record.createdAtText || record.timestamp || (record.createdAt && record.createdAt.toDate ? record.createdAt.toDate().toLocaleString('ko-KR') : ''),
+    name: record.name || '',
+    phone: record.phone || '',
+    email: record.email || '',
+    church: record.church || '',
+    sessions: Array.isArray(record.sessions) ? record.sessions : [],
+    note: record.note || ''
+  };
+}
+
+function loadRegistrations() {
+  const badge = document.getElementById('count-badge');
+  badge.textContent = '불러오는 중…';
+  if (unsubscribeRegistrations) unsubscribeRegistrations();
+  unsubscribeRegistrations = window.JMCFirebase.watchRegistrations((records) => {
+    const regs = records.map(normalizeRegistration);
+    renderDashboard(regs, 'Firebase Firestore');
+  }, () => loadLegacyRegistrations());
 }
 
 function getLocalRegs() {
   return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
 }
 
-// Google Sheets 또는 localStorage 에서 데이터 로드
-function loadData() {
-  const badge = document.getElementById('count-badge');
-  badge.textContent = '불러오는 중…';
-
+function loadLegacyRegistrations() {
   if (typeof SHEETS_URL !== 'undefined' && SHEETS_URL) {
     fetch(`${SHEETS_URL}?pw=${encodeURIComponent(ADMIN_PW)}`)
       .then(r => r.json())
       .then(data => {
         if (data.error) throw new Error(data.error);
-        // Sheets 응답을 내부 포맷으로 변환
         const regs = data.map((row, i) => ({
-          id:        i,
+          id: i,
           timestamp: row['신청일시'] || '',
-          name:      row['이름']     || '',
-          phone:     row['연락처']   || '',
-          email:     row['이메일']   || '',
-          church:    row['소속']     || '',
-          sessions:  [
-            row['첫날 저녁(7:30)']      === 'O' ? '첫째날 저녁 집회' : null,
-            row['둘째날 오전(10:30)']   === 'O' ? '둘째날 오전 집회' : null,
-            row['둘째날 오후(2:00)']    === 'O' ? '둘째날 오후 집회' : null,
+          name: row['이름'] || '',
+          phone: row['연락처'] || '',
+          email: row['이메일'] || '',
+          church: row['소속'] || '',
+          sessions: [
+            row['첫날 저녁(7:30)'] === 'O' ? '첫째날 저녁 집회' : null,
+            row['둘째날 오전(10:30)'] === 'O' ? '둘째날 오전 집회' : null,
+            row['둘째날 오후(2:00)'] === 'O' ? '둘째날 오후 집회' : null,
           ].filter(Boolean),
           note: row['메모'] || '',
         }));
         renderDashboard(regs, '구글 시트');
       })
-      .catch(() => {
-        // Sheets 실패 시 localStorage 폴백
-        renderDashboard(getLocalRegs(), '로컬');
-      });
+      .catch(() => renderDashboard(getLocalRegs(), '로컬 데이터'));
   } else {
-    renderDashboard(getLocalRegs(), '로컬');
+    renderDashboard(getLocalRegs(), '로컬 데이터');
   }
 }
 
 function renderDashboard(regs, source) {
-  // 데이터 출처 표시
-  const src = document.getElementById('data-source');
-  if (src) src.textContent = source === '구글 시트' ? '📊 구글 시트 연동 중' : '💾 로컬 데이터';
-
-  // Stats
+  currentRegistrations = regs;
+  document.getElementById('data-source').textContent = source;
   const s1 = regs.filter(r => r.sessions?.includes('첫째날 저녁 집회')).length;
   const s2 = regs.filter(r => r.sessions?.includes('둘째날 오전 집회')).length;
   const s3 = regs.filter(r => r.sessions?.includes('둘째날 오후 집회')).length;
-
   document.getElementById('stats').innerHTML = `
     ${statCard('👥', '총 신청자', regs.length + '명', 'orange')}
     ${statCard('🌙', '첫날 저녁', s1 + '명', 'blue')}
     ${statCard('☀️', '둘째날 오전', s2 + '명', 'amber')}
     ${statCard('🌤️', '둘째날 오후', s3 + '명', 'green')}
   `;
-
   document.getElementById('count-badge').textContent = `총 ${regs.length}명`;
-
-  if (regs.length === 0) {
-    document.getElementById('empty-state').classList.remove('hidden');
-    document.getElementById('reg-table').classList.add('hidden');
-    return;
-  }
-  document.getElementById('empty-state').classList.add('hidden');
-  document.getElementById('reg-table').classList.remove('hidden');
-
-  const tbody = document.getElementById('reg-tbody');
-  tbody.innerHTML = [...regs].reverse().map((r, i) => `
+  document.getElementById('empty-state').classList.toggle('hidden', regs.length !== 0);
+  document.getElementById('reg-table').classList.toggle('hidden', regs.length === 0);
+  document.getElementById('reg-tbody').innerHTML = regs.map((r, i) => `
     <tr class="hover:bg-orange-50/40 transition">
-      <td class="px-5 py-4 text-slate-400 font-mono text-xs">${regs.length - i}</td>
+      <td class="px-5 py-4 text-xs font-mono text-slate-400">${regs.length - i}</td>
       <td class="px-5 py-4 font-bold text-slate-800">${esc(r.name)}</td>
       <td class="px-5 py-4 text-slate-600">${esc(r.phone)}</td>
-      <td class="px-5 py-4 text-slate-500 text-xs">${esc(r.email || '—')}</td>
+      <td class="px-5 py-4 text-xs text-slate-500">${esc(r.email || '—')}</td>
       <td class="px-5 py-4 text-slate-600">${esc(r.church)}</td>
-      <td class="px-5 py-4">
-        <div class="flex flex-wrap gap-1">
-          ${(r.sessions||[]).map(s => `<span class="px-2 py-0.5 rounded-full bg-orange-100 text-orange-700 text-xs font-bold">${SESSION_SHORT[s]||s}</span>`).join('')}
-        </div>
-      </td>
-      <td class="px-5 py-4 text-slate-400 text-xs max-w-[140px] truncate">${esc(r.note || '—')}</td>
-      <td class="px-5 py-4 text-slate-400 text-xs whitespace-nowrap">${esc(r.timestamp)}</td>
-      <td class="px-5 py-4">
-        <button onclick="deleteReg(${r.id})" class="text-red-400 hover:text-red-600 text-xs font-bold transition">삭제</button>
-      </td>
+      <td class="px-5 py-4"><div class="flex flex-wrap gap-1">${(r.sessions||[]).map(s => `<span class="rounded-full bg-orange-100 px-2 py-0.5 text-xs font-bold text-orange-700">${SESSION_SHORT[s]||esc(s)}</span>`).join('')}</div></td>
+      <td class="px-5 py-4 max-w-[180px] truncate text-xs text-slate-400">${esc(r.note || '—')}</td>
+      <td class="px-5 py-4 whitespace-nowrap text-xs text-slate-400">${esc(r.timestamp)}</td>
     </tr>
   `).join('');
 }
@@ -225,49 +388,83 @@ function renderDashboard(regs, source) {
 function statCard(icon, label, value, color) {
   const colors = {
     orange: 'bg-orange-50 border-orange-100 text-orange-600',
-    blue:   'bg-blue-50 border-blue-100 text-blue-600',
-    amber:  'bg-amber-50 border-amber-100 text-amber-600',
-    green:  'bg-green-50 border-green-100 text-green-600',
+    blue: 'bg-blue-50 border-blue-100 text-blue-600',
+    amber: 'bg-amber-50 border-amber-100 text-amber-600',
+    green: 'bg-green-50 border-green-100 text-green-600',
   };
-  return `
-    <div class="rounded-2xl border p-5 ${colors[color]}">
-      <div class="text-2xl mb-2">${icon}</div>
-      <div class="text-2xl font-extrabold">${value}</div>
-      <div class="text-xs font-semibold mt-0.5 opacity-70">${label}</div>
-    </div>`;
-}
-
-function deleteReg(id) {
-  if (!confirm('이 신청을 삭제하시겠습니까?')) return;
-  const regs = getRegs().filter(r => r.id !== id);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(regs));
-  renderDashboard();
+  return `<div class="rounded-2xl border p-5 ${colors[color]}"><div class="text-2xl mb-2">${icon}</div><div class="text-2xl font-extrabold">${value}</div><div class="mt-0.5 text-xs font-semibold opacity-70">${label}</div></div>`;
 }
 
 function exportCSV() {
-  const regs = getRegs();
-  if (regs.length === 0) { alert('신청자가 없습니다.'); return; }
-  const headers = ['번호','이름','연락처','이메일','소속','첫날저녁','둘째날오전','둘째날오후','메모','신청일시'];
+  const regs = currentRegistrations;
+  if (!regs.length) { alert('신청자가 없습니다.'); return; }
+  const headers = ['번호','이름','연락처','이메일','소속','참석집회','메모','신청일시'];
   const rows = regs.map((r, i) => [
-    i + 1,
-    r.name, r.phone, r.email, r.church,
-    r.sessions?.includes('첫째날 저녁 집회') ? 'O' : '',
-    r.sessions?.includes('둘째날 오전 집회') ? 'O' : '',
-    r.sessions?.includes('둘째날 오후 집회') ? 'O' : '',
-    r.note, r.timestamp
+    i + 1, r.name, r.phone, r.email, r.church, (r.sessions || []).join('/'), r.note, r.timestamp
   ].map(v => `"${String(v||'').replace(/"/g,'""')}"`));
-
   const csv = '\uFEFF' + [headers, ...rows].map(r => r.join(',')).join('\n');
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = `jmc2026_신청자_${new Date().toLocaleDateString('ko-KR').replace(/\s/g,'')}.csv`;
+  a.download = `jmc2026_신청현황_${new Date().toLocaleDateString('ko-KR').replace(/\s/g,'')}.csv`;
   a.click();
 }
 
-function esc(s) {
-  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-}
+document.getElementById('admin-login-tab').addEventListener('click', () => setAuthMode('login'));
+document.getElementById('admin-signup-tab').addEventListener('click', () => setAuthMode('signup'));
+document.getElementById('admin-auth-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  clearLoginMessage();
+  try {
+    const email = document.getElementById('admin-email').value.trim();
+    const password = document.getElementById('admin-password').value;
+    const name = document.getElementById('admin-name').value.trim();
+    if (authMode === 'signup') {
+      await window.JMCFirebase.signUp(email, password, name);
+    } else {
+      await window.JMCFirebase.signIn(email, password);
+    }
+  } catch (err) {
+    showLoginMessage(err.message || '로그인 처리 중 문제가 발생했습니다.');
+  }
+});
+document.getElementById('admin-google').addEventListener('click', async () => {
+  clearLoginMessage();
+  try {
+    await window.JMCFirebase.signInGoogle();
+  } catch (err) {
+    showLoginMessage(err.message || 'Google 로그인을 완료하지 못했습니다.');
+  }
+});
+document.getElementById('notice-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  try {
+    await window.JMCFirebase.createNotice({
+      category: document.getElementById('notice-category').value,
+      title: document.getElementById('notice-title').value,
+      body: document.getElementById('notice-body').value,
+      pinned: document.getElementById('notice-pinned').checked
+    });
+    event.currentTarget.reset();
+    showNoticeMessage('공지사항이 등록되었습니다.', true);
+  } catch (err) {
+    showNoticeMessage(err.message || '공지사항을 저장하지 못했습니다.', false);
+  }
+});
+document.querySelectorAll('.admin-tab').forEach((tab) => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.admin-tab').forEach(btn => btn.classList.remove('is-active'));
+    tab.classList.add('is-active');
+    document.querySelectorAll('.admin-panel').forEach(panel => panel.classList.add('hidden'));
+    document.getElementById(tab.dataset.tab).classList.remove('hidden');
+  });
+});
+window.JMCFirebase.onAuth((user) => {
+  document.getElementById('auth-state').textContent = user
+    ? `로그인됨: ${user.email || user.displayName || 'Firebase 사용자'}`
+    : 'Firebase 계정으로 로그인해 주세요.';
+  if (!user && adminUnlocked) logout();
+});
 </script>
 </body>
 </html>

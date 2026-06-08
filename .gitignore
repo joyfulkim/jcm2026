@@ -1,0 +1,6 @@
+.DS_Store
+.firebase/
+firebase-debug.log
+.claude/
+.local-backup-before-github-sync-20260513/
+stitch/

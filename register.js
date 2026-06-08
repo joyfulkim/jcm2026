@@ -33,10 +33,10 @@ function buildModal() {
       <!-- Header -->
       <div class="sticky top-0 z-10 bg-orange-50/90 backdrop-blur-sm flex items-center justify-between px-7 pt-7 pb-4 border-b border-orange-100">
         <div class="flex items-center gap-3">
-          <img src="logo.png" alt="JMC" class="h-9 w-auto">
+            <img src="logo.png?v=20260609-jesus" alt="JMC" class="h-11 w-auto">
           <div>
             <div class="font-extrabold text-[#001F3F] text-lg leading-tight">참석 신청</div>
-            <div class="text-xs text-orange-500 font-semibold">Joyful Mission Conference 2026</div>
+            <div class="text-xs text-orange-500 font-semibold">JESUS Mission Conference 2026</div>
           </div>
         </div>
         <button onclick="closeRegModal()" class="w-8 h-8 flex items-center justify-center rounded-full text-slate-400 hover:bg-orange-100 hover:text-slate-600 transition text-xl font-bold">&times;</button>
@@ -102,7 +102,7 @@ function buildModal() {
       <div id="reg-success" class="hidden px-7 py-14 flex-col items-center text-center">
         <div class="text-6xl mb-5">🎉</div>
         <h3 class="text-2xl font-extrabold text-[#001F3F] mb-2">신청이 완료됐습니다!</h3>
-        <p class="text-slate-500 text-sm leading-relaxed mb-8">조이플 미션 컨퍼런스 2026에<br>함께해 주셔서 감사합니다.<br>현장에서 만나요!</p>
+        <p class="text-slate-500 text-sm leading-relaxed mb-8">지저스 미션 컨퍼런스 2026에<br>함께해 주셔서 감사합니다.<br>현장에서 만나요!</p>
         <button onclick="closeRegModal()" class="px-8 py-3 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 transition">확인</button>
       </div>
 
@@ -169,7 +169,12 @@ function submitReg(e) {
   all.push(record);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
 
-  // 2) Google Sheets 전송 (GET 방식 — Apps Script CORS/redirect 이슈 우회)
+  // 2) Firebase Firestore 저장
+  if (window.JMCFirebase && typeof window.JMCFirebase.addRegistration === 'function') {
+    window.JMCFirebase.addRegistration(record).catch(() => {});
+  }
+
+  // 3) Google Sheets 전송 (GET 방식 — Apps Script CORS/redirect 이슈 우회)
   if (typeof SHEETS_URL !== 'undefined' && SHEETS_URL) {
     const params = new URLSearchParams({
       action:   'add',

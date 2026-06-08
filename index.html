@@ -105,6 +105,7 @@
 <a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: 20px;" href="partners.html">동역기관</a>
 </nav>
 <div class="flex items-center gap-4">
+<button data-auth-open class="hidden lg:block px-5 py-2 rounded-xl border border-slate-200 bg-white text-slate-700 font-bold hover:bg-slate-50 transition-all duration-200" style="font-size: 16px;">로그인</button>
 <button class="hidden lg:block px-6 py-2 rounded-xl bg-primary-container text-white font-bold hover:scale-95 transition-all duration-200" style="font-size: 20px;">등록하기</button>
 <button id="mobile-menu-btn" class="lg:hidden text-slate-900" onclick="toggleMobileMenu()">
 <span class="material-symbols-outlined">menu</span>
@@ -122,6 +123,7 @@
 <a class="text-slate-700 font-bold py-3 border-b border-slate-100 text-[20px] hover:text-orange-600 transition-colors" href="directions.html">오시는 길</a>
 <a class="text-slate-700 font-bold py-3 border-b border-slate-100 text-[20px] hover:text-orange-600 transition-colors" href="partners.html">동역기관</a>
 <div class="pt-3">
+<button data-auth-open class="mb-2 w-full px-6 py-3 rounded-xl border border-slate-200 bg-white text-slate-700 font-bold text-[18px] hover:bg-slate-50 transition-all duration-200">로그인</button>
 <button class="w-full px-6 py-3 rounded-xl bg-primary-container text-on-primary-container font-bold text-[20px] hover:scale-95 transition-all duration-200">등록하기</button>
 </div>
 </div>
@@ -194,6 +196,25 @@ function toggleMobileMenu() {
 <span class="text-secondary-fixed text-base lg:text-xl font-black block mb-1 lg:mb-2">성서침례대학원대학교</span>
 <span class="text-white/70 font-medium text-sm lg:text-base">패트릭 채플관</span>
 </div>
+</div>
+</div>
+</section>
+<!-- Notice Board Section -->
+<section class="py-20 bg-surface-container-low">
+<div class="max-w-7xl mx-auto px-8">
+<div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+<div>
+<span class="inline-flex items-center rounded-full bg-orange-100 px-3 py-1 text-xs font-extrabold text-orange-700">Notice</span>
+<h2 class="mt-4 text-3xl font-extrabold text-secondary md:text-4xl">행사 공지사항</h2>
+<p class="mt-3 max-w-2xl text-on-surface-variant">컨퍼런스 일정, 등록, 현장 안내와 관련된 최신 공지를 확인하세요.</p>
+</div>
+<a class="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-extrabold text-white hover:bg-slate-800" href="admin.html">
+관리자 모드
+<span class="material-symbols-outlined text-base">admin_panel_settings</span>
+</a>
+</div>
+<div id="notice-list" class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+<div class="rounded-2xl border border-slate-200 bg-white p-6 text-slate-500 shadow-sm">공지사항을 불러오는 중입니다.</div>
 </div>
 </div>
 </section>
@@ -320,7 +341,13 @@ function toggleMobileMenu() {
 </div>
 </footer>
 <script src="config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<script src="firebase-client.js"></script>
+<script src="auth-widget.js"></script>
 <script src="register.js"></script>
+<script src="notices.js"></script>
 <script src="chat-widget.js"></script>
 <script>
 const promoVideoOpen = document.getElementById('promo-video-open');

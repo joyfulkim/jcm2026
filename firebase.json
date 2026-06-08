@@ -1,0 +1,26 @@
+{
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      "firestore.rules",
+      "apps-script.gs",
+      "DESIGN.md",
+      "jesus-mission-logo.png",
+      "firebase-debug.log",
+      ".DS_Store",
+      ".git/**",
+      ".claude/**",
+      ".local-backup-before-github-sync-20260513/**",
+      "**/.*",
+      "**/node_modules/**",
+      "stitch/**"
+    ],
+    "cleanUrls": false,
+    "trailingSlash": false
+  },
+  "firestore": {
+    "rules": "firestore.rules"
+  }
+}
