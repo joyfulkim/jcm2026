@@ -44,9 +44,39 @@
           border: 0;
           background: #000;
         }
+        html.github-video-splash .github-sound-button {
+          display: inline-flex !important;
+          position: fixed;
+          left: 50%;
+          bottom: 28px;
+          z-index: 2;
+          transform: translateX(-50%);
+          align-items: center;
+          justify-content: center;
+          min-width: 168px;
+          min-height: 52px;
+          padding: 14px 22px;
+          border: 1px solid rgba(255, 255, 255, 0.45);
+          border-radius: 9999px;
+          background: rgba(0, 0, 0, 0.62);
+          color: #fff;
+          font: 800 16px/1.2 Pretendard, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          cursor: pointer;
+        }
+        html.github-video-splash .github-sound-button:hover {
+          background: rgba(255, 107, 0, 0.9);
+          border-color: rgba(255, 255, 255, 0.75);
+        }
     </style>
 <script>
       (function () {
+        const videoId = '0Y7R_dPp0A0';
+        const autoplayUrl = 'https://www.youtube.com/embed/' + videoId
+          + '?autoplay=1&mute=1&playsinline=1&controls=1&loop=1&playlist=' + videoId
+          + '&rel=0&modestbranding=1&enablejsapi=1&origin=' + encodeURIComponent(window.location.origin);
         const isGitHubPages = window.location.hostname === 'joyfulkim.github.io'
           && window.location.pathname.startsWith('/jcm2026');
         if (!isGitHubPages) return;
@@ -55,7 +85,23 @@
         window.addEventListener('DOMContentLoaded', function () {
           document.title = '지저스 미션 컨퍼런스 홍보영상';
           document.body.className = '';
-          document.body.innerHTML = '<iframe class="github-video-frame" src="https://www.youtube.com/embed/0Y7R_dPp0A0?autoplay=1&mute=1&playsinline=1&controls=1&loop=1&playlist=0Y7R_dPp0A0&rel=0&modestbranding=1" title="지저스 미션 컨퍼런스 홍보영상" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+          document.body.innerHTML = '<iframe id="github-video-frame" class="github-video-frame" src="' + autoplayUrl + '" title="지저스 미션 컨퍼런스 홍보영상" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><button id="github-sound-button" class="github-sound-button" type="button">소리 켜기</button>';
+
+          const soundButton = document.getElementById('github-sound-button');
+          const videoFrame = document.getElementById('github-video-frame');
+          soundButton.addEventListener('click', function () {
+            const playerMessage = function (func, args) {
+              videoFrame.contentWindow.postMessage(JSON.stringify({
+                event: 'command',
+                func: func,
+                args: args || []
+              }), '*');
+            };
+            playerMessage('unMute');
+            playerMessage('setVolume', [100]);
+            playerMessage('playVideo');
+            soundButton.style.display = 'none';
+          });
         });
       })();
     </script>
