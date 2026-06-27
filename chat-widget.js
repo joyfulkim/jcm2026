@@ -4,6 +4,7 @@
   window.__JMC_CHAT_WIDGET__ = true;
 
   const STORAGE_KEY = 'jmc2026_chat_inquiries';
+  const KAKAO_OPEN_CHAT_URL = 'https://open.kakao.com/o/saU5t2vi';
 
   const style = document.createElement('style');
   style.textContent = `
@@ -82,10 +83,10 @@
         </form>
       </div>
       <span class="jmc-chat-label">실시간 문의</span>
-      <button type="button" class="jmc-chat-button" id="jmc-chat-button" aria-label="실시간 문의 열기" aria-controls="jmc-chat-panel" aria-expanded="false">
+      <a class="jmc-chat-button" id="jmc-chat-button" href="${KAKAO_OPEN_CHAT_URL}" target="_blank" rel="noopener" aria-label="카카오톡 실시간 문의 열기">
         <span class="material-symbols-outlined">chat_bubble</span>
         <span class="jmc-chat-badge" aria-hidden="true"></span>
-      </button>
+      </a>
     `;
   }
 
@@ -145,10 +146,6 @@
     root.innerHTML = buildWidget();
     document.body.appendChild(root);
 
-    document.getElementById('jmc-chat-button').addEventListener('click', () => {
-      const panel = document.getElementById('jmc-chat-panel');
-      panel.classList.contains('is-open') ? closeChat() : openChat();
-    });
     document.getElementById('jmc-chat-close').addEventListener('click', closeChat);
 
     document.querySelectorAll('.jmc-chat-chip').forEach((chip) => {

@@ -7,10 +7,10 @@
 <link rel="apple-touch-icon" href="favicon.png"/>
 <meta property="og:title" content="지저스 미션 컨퍼런스 ㅣ 2026"/>
 <meta property="og:description" content="더 넓은 세상을 향한 선교의 비전, 함께 꿈꾸고 동역하는 시간입니다. 2026년 10월 9-10일 성서침례대학원대학교 패트릭 채플관"/>
-<meta property="og:image" content="https://joyfulkim.github.io/jcm2026/og.png"/>
+<meta property="og:image" content="https://jmc2026-2b5e0.web.app/og-kakao-20260610.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
-<meta property="og:url" content="https://joyfulkim.github.io/jcm2026/"/>
+<meta property="og:url" content="https://jmc2026-2b5e0.web.app/"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="지저스 미션 컨퍼런스"/>
 <meta name="twitter:card" content="summary_large_image"/>
@@ -104,37 +104,54 @@
 </head>
 <body class="bg-surface text-on-surface">
 <!-- TopNavBar -->
-<header class="bg-surface/80 dark:bg-slate-900/80 backdrop-blur-md font-['Plus_Jakarta_Sans','Pretendard'] text-body-lg docked full-width top-0 sticky no-line tonal-shift-bg z-50">
+<header class="bg-[#071226] border-b border-white/10 backdrop-blur-md shadow-[0_12px_36px_rgba(2,6,23,0.22)] font-['Plus_Jakarta_Sans','Pretendard'] text-body-lg docked full-width top-0 sticky no-line tonal-shift-bg z-50">
 <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full">
-<a href="index.html" class="flex items-center gap-2.5"><img src="logo.png?v=20260609-jesus" alt="지저스 미션 컨퍼런스" class="h-14 w-auto"/><span class="font-extrabold text-slate-900 leading-none tracking-tight whitespace-nowrap" style="font-size: 20px;">지저스 미션 컨퍼런스</span></a>
-<nav class="hidden lg:flex gap-8 items-center">
-<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: 20px;" href="index.html">홈</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: 20px;" href="invitation.html">초청의 글</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: 20px;" href="organization.html">조직</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: 20px;" href="speakers.html">강사 소개</a>
-<a class="text-orange-600 dark:text-orange-500 font-bold border-b-2 border-orange-600" style="font-size: 20px;" href="#">일정</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: 20px;" href="directions.html">오시는 길</a>
-<a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: 20px;" href="partners.html">동역기관</a>
+<a href="index.html" class="flex items-center gap-2.5"><img src="jesus-mission-symbol-transparent.png?v=20260609-header-transparent" alt="지저스 미션 컨퍼런스" class="h-14 w-auto"/><span class="font-extrabold text-white leading-none tracking-tight whitespace-nowrap" style="font-size: 20px;">지저스 미션 컨퍼런스</span></a>
+<nav class="hidden lg:flex gap-5 items-center">
+<a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 20px;" href="index.html">홈</a>
+<a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 20px;" href="invitation.html">초청의 글</a>
+<a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 20px;" href="ci.html">CI소개</a>
+<a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 20px;" href="organization.html">조직</a>
+<a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 20px;" href="speakers.html">강사 소개</a>
+<a class="text-amber-300 font-bold border-b-2 border-amber-300" style="font-size: 20px;" href="#">일정</a>
+<div class="group relative">
+<button class="flex items-center gap-1 text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 20px;" type="button">
+게시판
+<span class="material-symbols-outlined text-base">expand_more</span>
+</button>
+<div class="invisible absolute left-0 top-full z-50 mt-0 w-44 rounded-2xl border border-white/10 bg-[#071226] p-2 opacity-0 shadow-2xl transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+<a class="block rounded-xl px-4 py-3 text-sm font-extrabold text-white/80 hover:bg-white/10 hover:text-amber-200" href="notices.html">공지사항</a>
+<a class="block rounded-xl px-4 py-3 text-sm font-extrabold text-white/80 hover:bg-white/10 hover:text-amber-200" href="qna.html">문의/답변</a>
+</div>
+</div>
+<a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 20px;" href="directions.html">오시는 길</a>
 </nav>
 <div class="flex items-center gap-4">
-<button class="hidden lg:block px-6 py-2 rounded-xl bg-primary-container text-white font-bold hover:scale-95 transition-all duration-200" style="font-size: 20px;">등록하기</button>
-<button id="mobile-menu-btn" class="lg:hidden text-slate-900" onclick="toggleMobileMenu()">
+<a class="hidden lg:block px-3 py-1 rounded-lg bg-[#39ff14] text-[#06111f] font-black shadow-[0_0_16px_rgba(57,255,20,0.55)] ring-1 ring-[#b6ff00]/70 hover:scale-95 hover:bg-[#7cff4d] transition-all duration-200" style="font-size: 13px;" href="staff-lounge.html">STAFF 라운지</a>
+<button id="mobile-menu-btn" class="lg:hidden text-white" onclick="toggleMobileMenu()">
 <span class="material-symbols-outlined">menu</span>
 </button>
 </div>
 </div>
 <!-- Mobile Dropdown Menu -->
-<div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-surface/98 backdrop-blur-md">
+<div id="mobile-menu" class="hidden lg:hidden border-t border-white/10 bg-[#071226] backdrop-blur-md">
 <div class="flex flex-col px-8 py-4 gap-1">
-<a class="text-slate-700 font-bold py-3 border-b border-slate-100 text-[20px] hover:text-orange-600 transition-colors" href="index.html">홈</a>
-<a class="text-slate-700 font-bold py-3 border-b border-slate-100 text-[20px] hover:text-orange-600 transition-colors" href="invitation.html">초청의 글</a>
-<a class="text-slate-700 font-bold py-3 border-b border-slate-100 text-[20px] hover:text-orange-600 transition-colors" href="organization.html">조직</a>
-<a class="text-slate-700 font-bold py-3 border-b border-slate-100 text-[20px] hover:text-orange-600 transition-colors" href="speakers.html">강사 소개</a>
-<a class="text-orange-600 font-bold py-3 border-b border-slate-100 text-[20px]" href="#">일정</a>
-<a class="text-slate-700 font-bold py-3 border-b border-slate-100 text-[20px] hover:text-orange-600 transition-colors" href="directions.html">오시는 길</a>
-<a class="text-slate-700 font-bold py-3 border-b border-slate-100 text-[20px] hover:text-orange-600 transition-colors" href="partners.html">동역기관</a>
+<a class="text-white/80 font-bold py-3 border-b border-white/10 text-[20px] hover:text-amber-200 transition-colors" href="index.html">홈</a>
+<a class="text-white/80 font-bold py-3 border-b border-white/10 text-[20px] hover:text-amber-200 transition-colors" href="invitation.html">초청의 글</a>
+<a class="text-white/80 font-bold py-3 border-b border-white/10 text-[20px] hover:text-amber-200 transition-colors" href="ci.html">CI소개</a>
+<a class="text-white/80 font-bold py-3 border-b border-white/10 text-[20px] hover:text-amber-200 transition-colors" href="organization.html">조직</a>
+<a class="text-white/80 font-bold py-3 border-b border-white/10 text-[20px] hover:text-amber-200 transition-colors" href="speakers.html">강사 소개</a>
+<a class="text-amber-300 font-bold py-3 border-b border-white/10 text-[20px]" href="#">일정</a>
+<div class="border-b border-white/10 py-3">
+<div class="text-white/80 font-bold text-[20px]">게시판</div>
+<div class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+<a class="rounded-xl bg-white/10 px-4 py-3 text-center text-base font-extrabold text-white/80 hover:text-amber-200" href="notices.html">공지사항</a>
+<a class="rounded-xl bg-white/10 px-4 py-3 text-center text-base font-extrabold text-white/80 hover:text-amber-200" href="qna.html">문의/답변</a>
+</div>
+</div>
+<a class="text-white/80 font-bold py-3 border-b border-white/10 text-[20px] hover:text-amber-200 transition-colors" href="directions.html">오시는 길</a>
 <div class="pt-3">
-<button class="w-full px-6 py-3 rounded-xl bg-primary-container text-on-primary-container font-bold text-[20px] hover:scale-95 transition-all duration-200">등록하기</button>
+<a class="block w-full px-3 py-1.5 rounded-lg bg-[#39ff14] text-center text-[#06111f] font-black text-[13px] shadow-[0_0_16px_rgba(57,255,20,0.55)] ring-1 ring-[#b6ff00]/70 hover:scale-95 hover:bg-[#7cff4d] transition-all duration-200" href="staff-lounge.html">STAFF 라운지</a>
 </div>
 </div>
 </div>
@@ -210,9 +227,9 @@ function toggleMobileMenu() {
 <p class="text-on-surface-variant text-lg leading-relaxed mb-6">컨퍼런스의 시작을 알리는 뜨거운 경배와 찬양의 시간입니다. 주강사님의 오프닝 메시지를 통해 이번 대회의 비전을 공유합니다.</p>
 <div class="flex flex-wrap gap-3">
 <span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">예배인도/히엘워십</span>
-<span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">사회 / 이승록 목사(해외선교총무/조이플 미션 이사)</span>
-<span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">환영사/김경석 목사(성침진흥위원장)</span>
-<span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">말씀강사/김택수 총장(성서침례대학원대학교)</span>
+<span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">사회 / 이승록 목사</span>
+<span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">환영사 및 기도/김경석 목사</span>
+<span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">말씀강사/김택수 총장</span>
 </div>
 </div>
 </div>
@@ -248,10 +265,10 @@ function toggleMobileMenu() {
 <p class="text-on-surface-variant text-lg leading-relaxed mb-6 relative z-10">세계 각국의 선교 현장 소식을 생생하게 듣고 함께 기도하는 축제의 밤입니다. 화려한 영상과 간증이 함께합니다.</p>
 <div class="flex flex-wrap gap-3 relative z-10">
 <span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">예배인도/히엘워십</span>
-<span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">사회 / 이상돈 목사 (조이플 미션 이사회 회장)</span>
+<span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">사회 / 이상돈 목사</span>
 <span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">선교간증/김파울 선교사, 여병무 선교사</span>
-<span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">축사/정민철 이사장(학교법인 성서침례학원)</span>
-<span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">강사 / 박창신 목사 (선교위원회 위원장)</span>
+<span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">축사 및 기도/정민철 목사</span>
+<span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">말씀강사 / 박창신 목사</span>
 </div>
 </div>
 </div>
@@ -274,7 +291,7 @@ function toggleMobileMenu() {
 <div class="flex flex-wrap gap-3">
 <span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">찬양인도/세컨워십</span>
 <span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">사회 / 박상준 목사(국내선교 총무)</span>
-<span class="px-4 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold">섹션발표/김명순 목사(전문인선교), 최정기 교수(교육선교), 김파울 선교사(해외선교), 장량 선교사(국내선교), 여병무 선교사(몽골)</span>
+<span class="px-4 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold">섹션발표/김명순 목사(전문인선교), 최정기 교수(교육선교), 김경석 목사(교회내선교), 김파울 선교사(필리핀), 장량 선교사(국내선교), 여병무 선교사(몽골), 류현택 선교사(일본)</span>
 </div>
 </div>
 </div>
@@ -306,9 +323,9 @@ function toggleMobileMenu() {
 <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">storefront</span></div>
 <div><span class="text-xs font-extrabold text-primary tracking-widest uppercase mb-1 block">Expo</span><h3 class="text-2xl font-bold text-[#001F3F]">선교박람회</h3></div>
 </div>
-<p class="text-on-surface-variant text-lg leading-relaxed mb-6">각 선교 단체들의 활동을 소개하고 직접 만날 수 있는 박람회입니다. 다양한 선교지 정보를 한자리에서 확인하세요.</p>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-6">선교단체와 선교사들의 다양한 선교사역들을 직접 소개받고, 정보들을 얻을수 있습니다.</p>
 <div class="flex flex-wrap gap-3">
-<span class="px-4 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold">선교부스/ 박세호 선교사(카렌 및 이주민 선교), 박세용 선교사(N국 선교), 강전구 목사(이주민 쉼터사역), 여병무 선교사(나비독서토론공동체), 김파울 선교사(필리핀 선교) 등</span>
+<span class="px-4 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold">부스운영/ 박세호 선교사(이주민/카렌), 박세용 선교사(N국), 김파울 선교사 (필리핀/로고스 친교회), 강전구 목사(조엘선교회)외 국내외 파송 선교사 부스(총 30개)</span>
 </div>
 </div>
 </div>
@@ -329,6 +346,8 @@ function toggleMobileMenu() {
 <span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">예배인도/세컨워십</span>
 <span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">사회 / 김경석 목사 (조이플 미션 운영이사)</span>
 <span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">강사 / 유병현 목사 (함께세워가는교회 담임)</span>
+<span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">초청과 결단의시간</span>
+<span class="px-4 py-1.5 rounded-full bg-primary/10 text-primary text-xs font-bold">선물추첨</span>
 </div>
 </div>
 </div>
@@ -400,5 +419,6 @@ function switchDay(day) {
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
 <script src="firebase-client.js"></script>
 <script src="register.js"></script>
+<script src="language-selector.js?v=20260610-fit"></script>
 <script src="chat-widget.js"></script>
 </body></html>

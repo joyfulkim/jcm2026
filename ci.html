@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<title>지저스 미션 컨퍼런스 ㅣ CI소개</title>
+<link rel="icon" type="image/png" href="favicon.png"/>
+<link rel="apple-touch-icon" href="favicon.png"/>
+<meta property="og:title" content="지저스 미션 컨퍼런스 ㅣ CI소개"/>
+<meta property="og:description" content="지저스 미션 컨퍼런스 로고에 담긴 복음의 중심, 세계를 향한 비전, 선교의 여정을 소개합니다."/>
+<meta property="og:image" content="https://jmc2026-2b5e0.web.app/og-kakao-20260610.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:url" content="https://jmc2026-2b5e0.web.app/ci.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="지저스 미션 컨퍼런스"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  img { max-width: 100%; }
+  body { font-family: 'Pretendard', sans-serif; -webkit-font-smoothing: antialiased; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .editorial-shadow { box-shadow: 0 20px 40px -12px rgba(25, 28, 29, 0.12); }
+  .ci-logo-glow { box-shadow: 0 28px 80px rgba(0, 76, 173, 0.18); }
+  .ci-callout { border-radius: 0.75rem; }
+  .ci-hero-video {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100vw;
+    height: 56.25vw;
+    min-width: 177.78vh;
+    min-height: 100vh;
+    transform: translate(-50%, -50%);
+    border: 0;
+  }
+  .ci-mark-bg {
+    background:
+      radial-gradient(circle at 50% 38%, rgba(255, 190, 76, 0.18), transparent 24rem),
+      radial-gradient(circle at 46% 54%, rgba(37, 150, 235, 0.18), transparent 22rem),
+      linear-gradient(180deg, #ffffff 0%, #f3f8ff 100%);
+  }
+</style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#a04100",
+          "primary-container": "#ff6b00",
+          "primary-fixed": "#ffdbcc",
+          "on-primary-container": "#572000",
+          "on-primary-fixed-variant": "#7a3000",
+          "secondary": "#476083",
+          "secondary-fixed": "#d4e3ff",
+          "on-secondary-fixed-variant": "#2f486a",
+          "surface": "#f8f9fa",
+          "surface-container-lowest": "#ffffff",
+          "surface-container-low": "#f3f4f5",
+          "surface-container-high": "#e7e8e9",
+          "on-surface": "#191c1d",
+          "on-surface-variant": "#5a4136",
+          "outline-variant": "#e2bfb0",
+          "background": "#f8f9fa"
+        },
+        borderRadius: {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        }
+      }
+    }
+  }
+</script>
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden">
+
+<!-- Header -->
+<header class="bg-[#071226] border-b border-white/10 backdrop-blur-md shadow-[0_12px_36px_rgba(2,6,23,0.22)] font-['Plus_Jakarta_Sans','Pretendard'] text-body-lg docked full-width top-0 sticky no-line tonal-shift-bg z-50">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full">
+  <a href="index.html" class="flex items-center gap-2.5">
+    <img src="jesus-mission-symbol-transparent.png?v=20260609-header-transparent" alt="지저스 미션 컨퍼런스" class="h-14 w-auto"/>
+    <span class="font-extrabold text-white leading-none tracking-tight whitespace-nowrap" style="font-size: 20px;">지저스 미션 컨퍼런스</span>
+  </a>
+  <nav class="hidden lg:flex gap-5 items-center">
+    <a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 19px;" href="index.html">홈</a>
+    <a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 19px;" href="invitation.html">초청의 글</a>
+    <a class="text-amber-300 font-bold border-b-2 border-amber-300" style="font-size: 19px;" href="ci.html">CI소개</a>
+    <a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 19px;" href="organization.html">조직</a>
+    <a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 19px;" href="speakers.html">강사 소개</a>
+    <a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 19px;" href="schedule.html">일정</a>
+    <div class="group relative">
+      <button class="flex items-center gap-1 text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 19px;" type="button">
+        게시판
+        <span class="material-symbols-outlined text-base">expand_more</span>
+      </button>
+      <div class="invisible absolute left-0 top-full z-50 mt-0 w-44 rounded-2xl border border-white/10 bg-[#071226] p-2 opacity-0 shadow-2xl transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+        <a class="block rounded-xl px-4 py-3 text-sm font-extrabold text-white/80 hover:bg-white/10 hover:text-amber-200" href="notices.html">공지사항</a>
+        <a class="block rounded-xl px-4 py-3 text-sm font-extrabold text-white/80 hover:bg-white/10 hover:text-amber-200" href="qna.html">문의/답변</a>
+      </div>
+    </div>
+    <a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 19px;" href="directions.html">오시는 길</a>
+  </nav>
+  <div class="flex items-center gap-4">
+    <a class="hidden lg:block px-3 py-1 rounded-lg bg-[#39ff14] text-[#06111f] font-black shadow-[0_0_16px_rgba(57,255,20,0.55)] ring-1 ring-[#b6ff00]/70 hover:scale-95 hover:bg-[#7cff4d] transition-all duration-200" style="font-size: 13px;" href="staff-lounge.html">STAFF 라운지</a>
+    <button id="mobile-menu-btn" class="lg:hidden text-white" onclick="toggleMobileMenu()">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+</div>
+<div id="mobile-menu" class="hidden lg:hidden border-t border-white/10 bg-[#071226] backdrop-blur-md">
+  <div class="flex flex-col px-8 py-4 gap-1">
+    <a class="py-3 text-white/80 hover:text-amber-200 font-bold text-[20px] transition-colors" href="index.html">홈</a>
+    <a class="py-3 text-white/80 hover:text-amber-200 font-bold text-[20px] transition-colors" href="invitation.html">초청의 글</a>
+    <a class="py-3 text-amber-300 font-bold text-[20px] border-b-2 border-amber-300" href="ci.html">CI소개</a>
+    <a class="py-3 text-white/80 hover:text-amber-200 font-bold text-[20px] transition-colors" href="organization.html">조직</a>
+    <a class="py-3 text-white/80 hover:text-amber-200 font-bold text-[20px] transition-colors" href="speakers.html">강사 소개</a>
+    <a class="py-3 text-white/80 hover:text-amber-200 font-bold text-[20px] transition-colors" href="schedule.html">일정</a>
+    <div class="border-y border-white/10 py-3">
+      <div class="text-white/80 font-bold text-[20px]">게시판</div>
+      <div class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+        <a class="rounded-xl bg-white/10 px-4 py-3 text-center text-base font-extrabold text-white/80 hover:text-amber-200" href="notices.html">공지사항</a>
+        <a class="rounded-xl bg-white/10 px-4 py-3 text-center text-base font-extrabold text-white/80 hover:text-amber-200" href="qna.html">문의/답변</a>
+      </div>
+    </div>
+    <a class="py-3 text-white/80 hover:text-amber-200 font-bold text-[20px] transition-colors" href="directions.html">오시는 길</a>
+    <div class="pt-3"><a class="block w-full px-3 py-1.5 rounded-lg bg-[#39ff14] text-center text-[#06111f] font-black text-[13px] shadow-[0_0_16px_rgba(57,255,20,0.55)] ring-1 ring-[#b6ff00]/70 hover:scale-95 hover:bg-[#7cff4d] transition-all duration-200" href="staff-lounge.html">STAFF 라운지</a></div>
+  </div>
+</div>
+</header>
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('mobile-menu-btn').querySelector('span');
+  menu.classList.toggle('hidden');
+  btn.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+}
+</script>
+
+<main>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-secondary py-24 md:py-28">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://img.youtube.com/vi/0Y7R_dPp0A0/maxresdefault.jpg');">
+      <iframe
+        class="ci-hero-video pointer-events-none opacity-70"
+        src="https://www.youtube-nocookie.com/embed/0Y7R_dPp0A0?autoplay=1&mute=1&controls=0&loop=1&playlist=0Y7R_dPp0A0&playsinline=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1"
+        title="JMC 2026 CI 소개 배경 영상"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        aria-hidden="true"
+        tabindex="-1"></iframe>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/75 to-secondary/35"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-8">
+      <span class="inline-flex items-center rounded-full bg-white/15 px-4 py-2 text-sm font-extrabold text-white">Corporate Identity</span>
+      <h1 class="mt-6 text-4xl md:text-6xl font-extrabold text-white tracking-tight">CI소개</h1>
+      <p class="mt-5 max-w-3xl text-lg md:text-xl text-white/80 leading-relaxed break-words">
+        지저스 미션 컨퍼런스 로고는 복음의 중심, 세계를 향한 비전, 그리고 선교의 여정을 담았습니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- Logo Story -->
+  <section class="max-w-7xl mx-auto px-5 md:px-8 py-20">
+    <div class="text-center mb-14">
+      <span class="text-primary font-extrabold tracking-widest text-sm uppercase">JMC 2026 Logo Design</span>
+      <h2 class="mt-3 text-3xl md:text-5xl font-extrabold text-on-surface">지저스 미션 컨퍼런스 로고 디자인 설명</h2>
+      <p class="mx-auto mt-5 max-w-3xl text-on-surface-variant leading-relaxed break-words">
+        십자가에서 시작된 복음의 빛이 세계를 향해 나아가고, 믿음의 여정이 선교의 길로 이어지는 정체성을 시각화했습니다.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.05fr_1fr] lg:items-center">
+      <div class="space-y-5">
+        <article class="ci-callout editorial-shadow bg-surface-container-lowest border border-outline-variant/60 p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-900 text-lg font-black text-white">1</div>
+            <div>
+              <h3 class="text-xl font-extrabold text-blue-950">십자가</h3>
+              <p class="mt-3 leading-7 text-on-surface-variant break-words">로고 중심의 십자가는 예수 그리스도가 컨퍼런스의 중심임을 나타냅니다. 모든 사역과 선교의 출발점과 목적이 복음에 있음을 상징합니다.</p>
+            </div>
+          </div>
+        </article>
+        <article class="ci-callout editorial-shadow bg-surface-container-lowest border border-outline-variant/60 p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-700 text-lg font-black text-white">3</div>
+            <div>
+              <h3 class="text-xl font-extrabold text-blue-950">세계</h3>
+              <p class="mt-3 leading-7 text-on-surface-variant break-words">지구와 대륙의 형상은 열방을 향한 시선을 담고 있습니다. 복음이 한 지역에 머무르지 않고 온 세계로 확장되는 선교적 비전을 표현합니다.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="ci-mark-bg editorial-shadow rounded-xl border border-blue-100 p-8 md:p-12">
+        <div class="mx-auto flex aspect-square max-w-md items-center justify-center rounded-full border border-blue-200/70 bg-white/75 p-8 ci-logo-glow">
+          <img class="h-full w-full object-contain" src="ci-symbol-transparent.png?v=20260609-transparent" alt="지저스 미션 컨퍼런스 로고"/>
+        </div>
+        <div class="mt-8 grid grid-cols-3 gap-3 text-center text-sm font-extrabold text-blue-900">
+          <div class="rounded-lg bg-white/80 px-3 py-3">복음</div>
+          <div class="rounded-lg bg-white/80 px-3 py-3">세계</div>
+          <div class="rounded-lg bg-white/80 px-3 py-3">선교</div>
+        </div>
+      </div>
+
+      <div class="space-y-5">
+        <article class="ci-callout editorial-shadow bg-surface-container-lowest border border-outline-variant/60 p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-amber-500 text-lg font-black text-white">2</div>
+            <div>
+              <h3 class="text-xl font-extrabold text-blue-950">빛</h3>
+              <p class="mt-3 leading-7 text-on-surface-variant break-words">십자가 위로 비추는 빛은 하나님의 영광과 진리의 빛, 그리고 세상을 향해 퍼져 나가는 복음의 소망을 의미합니다.</p>
+            </div>
+          </div>
+        </article>
+        <article class="ci-callout editorial-shadow bg-surface-container-lowest border border-outline-variant/60 p-6">
+          <div class="flex items-start gap-4">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sky-600 text-lg font-black text-white">4</div>
+            <div>
+              <h3 class="text-xl font-extrabold text-blue-950">길</h3>
+              <p class="mt-3 leading-7 text-on-surface-variant break-words">아래에서 십자가로 이어지는 길은 믿음의 여정과 선교의 길을 상징합니다. 사람들을 예수께로 인도하고, 교회가 세상 속으로 나아가는 사명을 보여줍니다.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Color and Message -->
+  <section class="bg-surface-container-low py-20">
+    <div class="max-w-7xl mx-auto px-5 md:px-8">
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+        <article class="ci-callout editorial-shadow bg-surface-container-lowest border border-outline-variant/60 p-8">
+          <div class="flex items-center gap-4">
+            <div class="flex h-14 w-14 items-center justify-center rounded-lg bg-blue-900 text-white">
+              <span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">palette</span>
+            </div>
+            <div>
+              <span class="text-sm font-extrabold uppercase tracking-widest text-primary">Color Identity</span>
+              <h2 class="mt-1 text-3xl font-extrabold text-on-surface">푸른 색상</h2>
+            </div>
+          </div>
+          <p class="mt-6 leading-8 text-on-surface-variant break-words">
+            블루 계열의 색상은 신뢰, 소망, 평안, 그리고 미래지향적 비전을 나타냅니다. 컨퍼런스가 추구하는 건강한 리더십과 선교적 확장을 담아냅니다.
+          </p>
+          <div class="mt-7 grid grid-cols-3 gap-3">
+            <div class="h-20 rounded-lg bg-[#083b8a]"></div>
+            <div class="h-20 rounded-lg bg-[#0072ce]"></div>
+            <div class="h-20 rounded-lg bg-[#27a8e8]"></div>
+          </div>
+        </article>
+
+        <article class="ci-callout editorial-shadow bg-white border border-blue-200 p-8">
+          <div class="grid grid-cols-1 gap-7 md:grid-cols-[150px_1fr] md:items-center">
+            <div class="rounded-xl bg-gradient-to-br from-blue-950 to-sky-500 p-5">
+              <img class="w-full object-contain" src="ci-symbol-transparent.png?v=20260609-transparent" alt="지저스 미션 컨퍼런스 로고 심볼"/>
+            </div>
+            <div>
+              <span class="text-sm font-extrabold uppercase tracking-widest text-primary">Design Message</span>
+              <h2 class="mt-2 text-3xl md:text-4xl font-extrabold text-blue-950">디자인 메시지</h2>
+              <p class="mt-5 text-lg leading-8 text-blue-950 break-words">
+                지저스 미션 컨퍼런스의 로고는 예수 그리스도를 중심으로, 복음의 빛을 품고, 세계를 향해 나아가는 선교적 공동체라는 정체성을 시각적으로 표현한 것입니다.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 full-width py-12">
+  <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto w-full gap-8">
+    <div>
+      <div class="text-lg font-semibold text-slate-800 dark:text-slate-200 mb-2">지저스 미션 컨퍼런스</div>
+      <div class="text-slate-500 dark:text-slate-400 font-['Plus_Jakarta_Sans','Pretendard'] text-label-md">© 2026 지저스 미션 컨퍼런스. All rights reserved.</div>
+    </div>
+    <div class="flex gap-8 font-['Plus_Jakarta_Sans','Pretendard'] text-label-md">
+      <a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 underline transition-all" href="#">이용약관</a>
+      <a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 underline transition-all" href="#">개인정보처리방침</a>
+      <a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 underline transition-all" href="#">문의하기</a>
+    </div>
+  </div>
+</footer>
+<script src="config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<script src="firebase-client.js"></script>
+<script src="register.js"></script>
+<script src="language-selector.js?v=20260610-fit"></script>
+<script src="chat-widget.js?v=20260609-kakao"></script>
+</body></html>

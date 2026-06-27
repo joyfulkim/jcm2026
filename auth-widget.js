@@ -76,10 +76,31 @@
     document.getElementById('auth-modal').classList.remove('flex');
   }
 
+  function compactHeaderButton(button) {
+    if (button.dataset.authStyle === 'plain') {
+      const isDesktop = button.dataset.authVariant === 'desktop';
+      button.className = isDesktop
+        ? 'hidden h-9 items-center text-[13px] font-extrabold text-white/80 transition hover:text-amber-200 xl:inline-flex'
+        : 'inline-flex h-10 items-center px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200 sm:col-span-2';
+      button.style.fontSize = '';
+      return;
+    }
+    if (button.classList.contains('lg:block')) {
+      button.className = 'hidden h-7 max-w-[112px] truncate rounded-lg border border-white/20 bg-white/10 px-3 text-left font-bold leading-none text-white transition-all duration-200 hover:bg-white/15 lg:block';
+      button.style.fontSize = '13px';
+      return;
+    }
+    button.className = 'mb-2 w-full rounded-lg border border-white/20 bg-white/10 px-3 py-1.5 text-center text-[13px] font-bold text-white transition-all duration-200 hover:bg-white/15';
+  }
+
   function updateButtons(user) {
     document.querySelectorAll('[data-auth-open]').forEach((button) => {
-      button.textContent = user ? (user.displayName || user.email || '내 계정') : '로그인';
-      button.onclick = user ? () => window.JMCFirebase.signOut() : openAuth;
+      compactHeaderButton(button);
+      const label = user ? (user.displayName || user.email || '내 계정') : '로그인';
+      button.textContent = label;
+      button.title = user ? '관리자 페이지로' : '로그인';
+      button.setAttribute('aria-label', user ? `${label} - 관리자 페이지로 이동` : '로그인');
+      button.onclick = user ? () => { window.location.href = 'admin.html'; } : openAuth;
     });
   }
 
@@ -87,6 +108,7 @@
     document.body.insertAdjacentHTML('beforeend', buildModal());
 
     document.querySelectorAll('[data-auth-open]').forEach((button) => {
+      compactHeaderButton(button);
       button.onclick = openAuth;
     });
     document.getElementById('auth-close').addEventListener('click', closeAuth);

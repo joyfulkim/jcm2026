@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<title>지저스 미션 컨퍼런스 ㅣ 팀별 업무매뉴얼</title>
+<link rel="icon" type="image/png" href="favicon.png"/>
+<link rel="apple-touch-icon" href="favicon.png"/>
+<meta property="og:title" content="지저스 미션 컨퍼런스 ㅣ 팀별 업무매뉴얼"/>
+<meta property="og:description" content="지저스 미션 컨퍼런스 2026 실행위원 팀별 업무매뉴얼입니다."/>
+<meta property="og:image" content="https://jmc2026-2b5e0.web.app/og-kakao-20260610.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:url" content="https://jmc2026-2b5e0.web.app/team-manual.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="지저스 미션 컨퍼런스"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Pretendard', sans-serif; -webkit-font-smoothing: antialiased; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  .editorial-shadow { box-shadow: 0 20px 40px -12px rgba(25, 28, 29, 0.14); }
+  .manual-section { scroll-margin-top: 110px; }
+  .manual-table th { background: #eaf4ff; color: #081f2e; }
+  .manual-table th, .manual-table td { border-bottom: 1px solid #d8e3ea; padding: 0.9rem 1rem; text-align: left; vertical-align: top; }
+</style>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#1f5bff",
+          "primary-container": "#ff6b00",
+          "primary-fixed": "#e7f0ff",
+          "on-primary-fixed-variant": "#123d9a",
+          "secondary": "#071226",
+          "surface": "#f7fafc",
+          "surface-container-lowest": "#ffffff",
+          "surface-container-low": "#edf5fb",
+          "surface-container-high": "#dcebf5",
+          "on-surface": "#071926",
+          "on-surface-variant": "#4a5963",
+          "outline-variant": "#cfdee8",
+          "background": "#f7fafc"
+        }
+      }
+    }
+  }
+</script>
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden">
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-[#071226] shadow-[0_12px_36px_rgba(2,6,23,0.22)]">
+  <div class="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-6 py-3 md:px-8">
+    <a href="index.html" class="flex min-w-0 items-center gap-2.5">
+      <img src="jesus-mission-symbol-transparent.png?v=20260609-header-transparent" alt="지저스 미션 컨퍼런스" class="h-14 w-auto shrink-0"/>
+      <span class="truncate text-xl font-extrabold leading-none tracking-tight text-white">지저스 미션 컨퍼런스</span>
+    </a>
+    <nav class="hidden flex-1 items-center justify-end gap-3 xl:flex" aria-label="스탭 업무 메뉴">
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="staff-lounge.html"><span class="material-symbols-outlined text-[18px]">home</span><span class="whitespace-nowrap">스탭라운지</span></a>
+      <a aria-current="page" class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-amber-300 transition hover:-translate-y-0.5 hover:text-amber-200" href="team-manual.html"><span class="material-symbols-outlined text-[18px]">clinical_notes</span><span class="whitespace-nowrap">팀별 메뉴얼</span></a>
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="event-cue-sheets.html"><span class="material-symbols-outlined text-[18px]">event_note</span><span class="whitespace-nowrap">행사 큐시트</span></a>
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="team-reports.html"><span class="material-symbols-outlined text-[18px]">edit_document</span><span class="whitespace-nowrap">팀보고서</span></a>
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="team-budgets.html"><span class="material-symbols-outlined text-[18px]">request_quote</span><span class="whitespace-nowrap">팀예산</span></a>
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="expense-proofs.html"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span class="whitespace-nowrap">지출증빙</span></a>
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="staff-resources.html"><span class="material-symbols-outlined text-[18px]">folder_open</span><span class="whitespace-nowrap">스탭자료실</span></a>
+      <button data-auth-open data-auth-style="plain" data-auth-variant="desktop" class="hidden h-9 items-center text-[13px] font-extrabold text-white/80 transition hover:text-amber-200 xl:inline-flex" type="button">로그인</button>
+    </nav>
+    <button id="mobile-menu-btn" class="xl:hidden text-white" onclick="toggleMobileMenu()" type="button" aria-label="모바일 메뉴 열기">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden border-t border-white/10 bg-[#071226] xl:hidden">
+    <div class="grid grid-cols-1 gap-2 px-6 py-4 sm:grid-cols-2">
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="staff-lounge.html"><span class="material-symbols-outlined text-[19px]">home</span><span>스탭라운지</span></a>
+      <a aria-current="page" class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-amber-300" href="team-manual.html"><span class="material-symbols-outlined text-[19px]">clinical_notes</span><span>팀별 메뉴얼</span></a>
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="event-cue-sheets.html"><span class="material-symbols-outlined text-[19px]">event_note</span><span>행사 큐시트</span></a>
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="team-reports.html"><span class="material-symbols-outlined text-[19px]">edit_document</span><span>팀보고서</span></a>
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="team-budgets.html"><span class="material-symbols-outlined text-[19px]">request_quote</span><span>팀예산</span></a>
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="expense-proofs.html"><span class="material-symbols-outlined text-[19px]">receipt_long</span><span>지출증빙</span></a>
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="staff-resources.html"><span class="material-symbols-outlined text-[19px]">folder_open</span><span>스탭자료실</span></a>
+      <button data-auth-open data-auth-style="plain" data-auth-variant="mobile" class="inline-flex h-10 items-center px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200 sm:col-span-2" type="button">로그인</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="relative flex h-[300px] items-center overflow-hidden bg-[#071226]">
+    <div class="absolute inset-0 opacity-25">
+      <img src="hero-worship-photo.png" alt="" class="h-full w-full object-cover grayscale-[20%] contrast-[1.1]"/>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#071226] via-[#071226]/95 to-[#071226]/70"></div>
+    <div class="relative z-10 mx-auto w-full max-w-7xl px-6 text-left md:px-8">
+      <span class="inline-flex rounded-full bg-white/10 px-4 py-2 text-left text-sm font-extrabold uppercase tracking-[0.22em] text-amber-300">JMC 2026 Staff Manual</span>
+      <h1 class="mt-4 max-w-4xl text-left text-4xl font-black tracking-tight text-white md:text-5xl">실행위원 팀별 업무매뉴얼</h1>
+      <p class="mt-3 max-w-3xl text-left text-lg font-semibold leading-relaxed text-white/78">복음은 멈추지 않는다. 흔들리는 시대, 계속되는 하나님의 선교.</p>
+      <div class="mt-5 flex flex-wrap justify-start gap-3 text-left">
+        <a href="#manual-overview" class="inline-flex items-center gap-2 rounded-xl bg-orange-500 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-orange-600">
+          <span class="material-symbols-outlined text-base">menu_book</span>
+          매뉴얼 보기
+        </a>
+        <a href="jmc-team-manual.pdf" download="JMC2026_team_manual.pdf" class="inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/10 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-white/15">
+          <span class="material-symbols-outlined text-base">download</span>
+          원본 PDF 다운로드
+        </a>
+      </div>
+      <div class="hidden">
+        <div class="rounded-2xl border border-white/10 bg-white/10 p-5">
+          <div class="text-3xl font-black text-white">5</div>
+          <div class="mt-1 text-xs font-bold text-white/65">실행위원</div>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/10 p-5">
+          <div class="text-3xl font-black text-white">15</div>
+          <div class="mt-1 text-xs font-bold text-white/65">산하 실무팀</div>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/10 p-5">
+          <div class="text-3xl font-black text-white">3</div>
+          <div class="mt-1 text-xs font-bold text-white/65">핵심 관리축</div>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/10 p-5">
+          <div class="text-3xl font-black text-white">1</div>
+          <div class="mt-1 text-xs font-bold text-white/65">공동 목적</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-6 py-10 md:px-8">
+    <div id="manual-auth-status" class="rounded-3xl border border-outline-variant/70 bg-white p-8 text-center editorial-shadow">
+      <p class="text-sm font-extrabold text-primary">권한 확인 중</p>
+      <p class="mt-3 text-on-surface-variant">스탭권한을 확인하고 팀별 업무매뉴얼을 불러오고 있습니다.</p>
+    </div>
+  </section>
+
+  <div id="manual-root" class="hidden">
+    <section class="border-y border-outline-variant/70 bg-white">
+      <div class="mx-auto grid max-w-7xl gap-5 px-6 py-7 md:grid-cols-2 md:px-8 lg:grid-cols-5">
+        <a href="#manual-overview" class="rounded-xl bg-surface-container-low px-4 py-3 text-sm font-extrabold text-on-surface transition hover:bg-primary-fixed">개요</a>
+        <a href="#manual-principles" class="rounded-xl bg-surface-container-low px-4 py-3 text-sm font-extrabold text-on-surface transition hover:bg-primary-fixed">운영 원칙</a>
+        <a href="#manual-governance" class="rounded-xl bg-surface-container-low px-4 py-3 text-sm font-extrabold text-on-surface transition hover:bg-primary-fixed">책임 체계</a>
+        <a href="#manual-teams" class="rounded-xl bg-surface-container-low px-4 py-3 text-sm font-extrabold text-on-surface transition hover:bg-primary-fixed">팀별 매뉴얼</a>
+        <a href="#manual-checklist" class="rounded-xl bg-surface-container-low px-4 py-3 text-sm font-extrabold text-on-surface transition hover:bg-primary-fixed">최종 체크리스트</a>
+      </div>
+    </section>
+
+    <section id="manual-overview" class="manual-section mx-auto max-w-7xl px-6 py-16 md:px-8">
+      <div class="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <span class="text-sm font-extrabold uppercase tracking-[0.22em] text-primary">Overview</span>
+          <h2 class="mt-3 text-4xl font-black tracking-tight md:text-5xl">컨퍼런스 운영을 하나의 체계로 정렬하기</h2>
+        </div>
+        <div class="space-y-5 text-lg font-semibold leading-8 text-on-surface-variant">
+          <p>본 보고서는 지저스 미션 컨퍼런스 2026의 실행위원 조직을 기준으로, 각 실행위원 산하 팀의 업무 범위와 현장 운영 지침을 정리한 실무 매뉴얼입니다.</p>
+          <p>컨퍼런스의 모든 준비는 단순한 행사 진행을 넘어 복음의 증언과 선교적 동원을 섬기는 사역입니다. 각 팀은 자신의 업무를 행정 업무로만 이해하지 않고, 참가자가 하나님 앞에서 부르심을 확인하도록 돕는 사역의 자리로 이해해야 합니다.</p>
+          <p>본 매뉴얼은 실행위원, 팀장, 봉사자가 함께 공유하고 점검할 수 있도록 설계되었으며, 행사 전 준비회의와 당일 운영 브리핑, 행사 후 평가회 자료로 활용할 수 있습니다.</p>
+          <p>행사의 규모가 커질수록 중요한 것은 더 많은 사람이 움직이는 것이 아니라, 같은 방향과 같은 기준으로 움직이는 것입니다. 따라서 본 문서는 팀별 세부 업무뿐 아니라 보고 체계, 협업 기준, 안전·재정·개인정보 규정, 행사 후 평가 기준까지 함께 제시합니다.</p>
+        </div>
+      </div>
+      <blockquote class="mt-10 rounded-3xl border-l-8 border-primary bg-white p-8 text-2xl font-black leading-relaxed text-primary editorial-shadow">조직은 역할의 나열이 아니라, 복음의 목적을 향한 질서 있는 동역입니다.</blockquote>
+      <div class="mt-10 rounded-3xl border border-outline-variant/70 bg-white p-6 editorial-shadow">
+        <h3 class="text-xl font-black">문서 정보</h3>
+        <div class="mt-5 grid gap-3 text-sm font-bold text-on-surface-variant md:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-2xl bg-surface-container-low p-4">운영 보고서 · McKinsey-style report format</div>
+          <div class="rounded-2xl bg-surface-container-low p-4">작성 기준일 2026-06-15</div>
+          <div class="rounded-2xl bg-surface-container-low p-4">꿈을심는교회 / 조이플 미션</div>
+          <div class="rounded-2xl bg-surface-container-low p-4">Prepared for JMC 2026</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="manual-section bg-white py-16" id="manual-contents">
+      <div class="mx-auto max-w-7xl px-6 md:px-8">
+        <span class="text-sm font-extrabold uppercase tracking-[0.22em] text-primary">Contents</span>
+        <h2 class="mt-3 text-4xl font-black tracking-tight">목차</h2>
+        <div class="mt-8 grid gap-4 md:grid-cols-2">
+          <a href="#manual-principles" class="rounded-2xl border border-outline-variant/70 p-5 font-extrabold transition hover:border-primary">01 문서 목적과 운영 원칙</a>
+          <a href="#manual-governance" class="rounded-2xl border border-outline-variant/70 p-5 font-extrabold transition hover:border-primary">02 전체 조직 구조와 책임 범위</a>
+          <a href="#manual-team-summary" class="rounded-2xl border border-outline-variant/70 p-5 font-extrabold transition hover:border-primary">03 실행위원별 팀 구성 요약</a>
+          <a href="#manual-teams" class="rounded-2xl border border-outline-variant/70 p-5 font-extrabold transition hover:border-primary">04 팀별 상세 업무 매뉴얼</a>
+          <a href="#manual-collaboration" class="rounded-2xl border border-outline-variant/70 p-5 font-extrabold transition hover:border-primary">05 팀 간 협업 규정</a>
+          <a href="#manual-reporting" class="rounded-2xl border border-outline-variant/70 p-5 font-extrabold transition hover:border-primary">06 회의 및 보고 규정</a>
+          <a href="#manual-control" class="rounded-2xl border border-outline-variant/70 p-5 font-extrabold transition hover:border-primary">07 재정·안전·개인정보 규정</a>
+          <a href="#manual-after" class="rounded-2xl border border-outline-variant/70 p-5 font-extrabold transition hover:border-primary">08 행사 후 마무리와 평가</a>
+          <a href="#manual-field" class="rounded-2xl border border-outline-variant/70 p-5 font-extrabold transition hover:border-primary">09 팀장·봉사자 공통 지침</a>
+          <a href="#manual-checklist" class="rounded-2xl border border-outline-variant/70 p-5 font-extrabold transition hover:border-primary">10 핵심 운영 체크리스트</a>
+        </div>
+        <p class="mt-6 text-sm font-semibold leading-6 text-on-surface-variant">본 보고서는 실행위원 조직표와 팀별 역할 정의를 바탕으로 작성되었습니다. 실제 행사장 구조, 참가자 수, 예산, 강사 일정, 협력기관 변동에 따라 세부 실행안은 조정될 수 있습니다.</p>
+      </div>
+    </section>
+
+    <section class="manual-section mx-auto max-w-7xl px-6 py-16 md:px-8" id="manual-summary">
+      <span class="text-sm font-extrabold uppercase tracking-[0.22em] text-primary">Executive Summary</span>
+      <h2 class="mt-3 text-4xl font-black tracking-tight">한눈에 보는 실행 체계</h2>
+      <p class="mt-4 max-w-4xl text-lg font-semibold leading-8 text-on-surface-variant">5명의 실행위원과 15개 실무팀이 참가자 편의, 진행, 예배, 프로그램, 재정과 미디어를 분담합니다.</p>
+      <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-3xl bg-[#071226] p-6 text-white editorial-shadow"><div class="text-4xl font-black">5</div><p class="mt-2 font-extrabold">실행위원</p><p class="mt-1 text-sm text-white/65">최종 책임 단위</p></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><div class="text-4xl font-black text-primary">15</div><p class="mt-2 font-extrabold">산하 실무팀</p><p class="mt-1 text-sm text-on-surface-variant">현장 실행 단위</p></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><div class="text-4xl font-black text-primary">3</div><p class="mt-2 font-extrabold">핵심 관리축</p><p class="mt-1 text-sm text-on-surface-variant">사전·현장·후속</p></div>
+        <div class="rounded-3xl bg-[#071226] p-6 text-white editorial-shadow"><div class="text-4xl font-black">1</div><p class="mt-2 font-extrabold">공동 목적</p><p class="mt-1 text-sm text-white/65">복음과 선교</p></div>
+      </div>
+      <div class="mt-8 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+        <div class="rounded-3xl bg-white p-7 editorial-shadow">
+          <h3 class="text-2xl font-black">운영의 핵심 축</h3>
+          <div class="mt-5 grid gap-3 sm:grid-cols-2">
+            <span class="rounded-xl bg-primary-fixed px-4 py-3 font-extrabold text-on-primary-fixed-variant">사전준비</span>
+            <span class="rounded-xl bg-primary-fixed px-4 py-3 font-extrabold text-on-primary-fixed-variant">당일운영</span>
+            <span class="rounded-xl bg-primary-fixed px-4 py-3 font-extrabold text-on-primary-fixed-variant">정산평가</span>
+            <span class="rounded-xl bg-primary-fixed px-4 py-3 font-extrabold text-on-primary-fixed-variant">팀간연결</span>
+          </div>
+        </div>
+        <div class="rounded-3xl bg-white p-7 editorial-shadow">
+          <h3 class="text-2xl font-black">핵심 원칙</h3>
+          <ul class="mt-5 space-y-3 text-sm font-semibold leading-6 text-on-surface-variant">
+            <li>모든 준비는 기도와 말씀, 복음의 목적을 중심으로 한다.</li>
+            <li>각 팀은 정해진 역할과 보고 체계 안에서 움직인다.</li>
+            <li>팀 간 업무가 겹칠 경우 사전 조율과 기록을 원칙으로 한다.</li>
+            <li>안전, 개인정보, 재정 증빙은 행사 품질의 기본 기준이다.</li>
+            <li>행사 후 평가는 다음 사역을 위한 축적 자료로 남긴다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="manual-section bg-white py-16" id="manual-principles">
+      <div class="mx-auto max-w-7xl px-6 md:px-8">
+        <span class="text-sm font-extrabold uppercase tracking-[0.22em] text-primary">Operating Principles</span>
+        <h2 class="mt-3 text-4xl font-black tracking-tight">전체 운영 원칙</h2>
+        <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div class="rounded-3xl border border-outline-variant/70 bg-white p-6"><h3 class="text-xl font-black">영적 원칙</h3><p class="mt-4 font-semibold leading-7 text-on-surface-variant">모든 준비와 운영은 기도와 말씀, 복음의 목적을 중심으로 합니다.</p></div>
+          <div class="rounded-3xl border border-outline-variant/70 bg-white p-6"><h3 class="text-xl font-black">질서 원칙</h3><p class="mt-4 font-semibold leading-7 text-on-surface-variant">각 팀은 정해진 역할과 보고 체계 안에서 움직이며 임의 변경을 지양합니다.</p></div>
+          <div class="rounded-3xl border border-outline-variant/70 bg-white p-6"><h3 class="text-xl font-black">협업 원칙</h3><p class="mt-4 font-semibold leading-7 text-on-surface-variant">업무가 겹치는 지점은 반드시 사전 조율하고 공유 문서에 기록합니다.</p></div>
+          <div class="rounded-3xl border border-outline-variant/70 bg-white p-6"><h3 class="text-xl font-black">안전 원칙</h3><p class="mt-4 font-semibold leading-7 text-on-surface-variant">참가자의 안전, 건강, 비상 상황 대응을 현장 판단의 최우선으로 둡니다.</p></div>
+          <div class="rounded-3xl border border-outline-variant/70 bg-white p-6"><h3 class="text-xl font-black">재정 원칙</h3><p class="mt-4 font-semibold leading-7 text-on-surface-variant">모든 예산 집행은 사전 승인, 증빙 제출, 정산 보고 절차를 따릅니다.</p></div>
+          <div class="rounded-3xl border border-outline-variant/70 bg-white p-6"><h3 class="text-xl font-black">기록 원칙</h3><p class="mt-4 font-semibold leading-7 text-on-surface-variant">회의, 결정, 예산, 현장 이슈, 사고와 조치 사항은 문서로 남깁니다.</p></div>
+        </div>
+        <h3 class="mt-12 text-3xl font-black">보고 체계</h3>
+        <div class="mt-5 overflow-x-auto rounded-2xl border border-outline-variant/70 bg-white">
+          <table class="manual-table min-w-[760px] w-full text-sm">
+            <thead><tr><th>단계</th><th>역할</th><th>보고 기준</th></tr></thead>
+            <tbody>
+              <tr><td class="font-extrabold">실행위원장</td><td>전체 방향과 최종 의사결정</td><td>중대 변경, 예산 초과, 안전 사고, 외부 공식 대응</td></tr>
+              <tr><td class="font-extrabold">실행위원</td><td>산하 팀 총괄 및 조율</td><td>팀별 진행 상황, 필요한 지원, 위험 요소</td></tr>
+              <tr><td class="font-extrabold">팀장</td><td>실무 배정과 현장 실행</td><td>준비율, 인력 배치, 물품 현황, 당일 이슈</td></tr>
+              <tr><td class="font-extrabold">팀원·봉사자</td><td>담당 위치 수행</td><td>이상 상황 발견 즉시 팀장에게 보고</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="manual-section mx-auto max-w-7xl px-6 py-16 md:px-8" id="manual-governance">
+      <span class="text-sm font-extrabold uppercase tracking-[0.22em] text-primary">Governance</span>
+      <h2 class="mt-3 text-4xl font-black tracking-tight">실행위원별 최종 책임</h2>
+      <p class="mt-4 max-w-4xl text-lg font-semibold leading-8 text-on-surface-variant">조직의 안정성은 팀 이름보다 책임 범위의 선명함에서 나옵니다. 각 실행위원은 산하 팀의 진행 상황을 취합하여 실행위원장에게 보고합니다.</p>
+      <div class="mt-8 overflow-x-auto rounded-2xl border border-outline-variant/70 bg-white">
+        <table class="manual-table min-w-[900px] w-full text-sm">
+          <thead><tr><th>실행위원</th><th>담당 팀</th><th>최종 책임</th></tr></thead>
+          <tbody>
+            <tr><td class="font-extrabold">박상복 목사</td><td>숙박식사팀, 시설관리팀, 안전의료팀</td><td>참가자 편의·공간·안전의 현장 기반을 세우는 실행위원</td></tr>
+            <tr><td class="font-extrabold">이승록 목사</td><td>대외협력팀, 진행운영팀, 박람회준비팀</td><td>대외 협력·현장 진행·선교박람회 흐름을 조율하는 실행위원</td></tr>
+            <tr><td class="font-extrabold">오성현 목사</td><td>찬양예배팀, 등록안내팀, 결신자관리팀</td><td>예배 흐름·등록·결신자 후속 관리를 담당하는 실행위원</td></tr>
+            <tr><td class="font-extrabold">김파울 목사</td><td>해외협력팀, 기획프로그램팀, 강사의전팀</td><td>해외 협력·프로그램 기획·강사 의전을 연결하는 실행위원</td></tr>
+            <tr><td class="font-extrabold">김명순 목사</td><td>재정지원팀, 디자인홍보팀, 방송미디어팀</td><td>재정·홍보 디자인·방송미디어 기록을 총괄하는 실행위원장</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-8 grid gap-5 lg:grid-cols-2">
+        <div class="rounded-3xl bg-white p-7 editorial-shadow">
+          <h3 class="text-2xl font-black">의사결정 기준</h3>
+          <ul class="mt-5 space-y-3 text-sm font-semibold leading-6 text-on-surface-variant">
+            <li>일반 업무는 담당 팀장이 실행하고 실행위원에게 보고합니다.</li>
+            <li>예산, 일정, 외부 공문, 안전 사고는 실행위원장 승인 또는 보고가 필요합니다.</li>
+          </ul>
+        </div>
+        <div class="rounded-3xl bg-white p-7 editorial-shadow">
+          <h3 class="text-2xl font-black">현장 소통 기준</h3>
+          <ul class="mt-5 space-y-3 text-sm font-semibold leading-6 text-on-surface-variant">
+            <li>공식 공지는 하나의 단톡방 또는 공유 문서로 통일합니다.</li>
+            <li>구두 요청 후에는 반드시 기록을 남깁니다.</li>
+            <li>변경 사항은 관련 팀 전체에 동시에 공유합니다.</li>
+            <li>당일 돌발 상황은 진행운영팀을 중심으로 공유하고 관련 팀이 즉시 대응합니다.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="manual-section bg-white py-16" id="manual-team-summary">
+      <div class="mx-auto max-w-7xl px-6 md:px-8">
+        <span class="text-sm font-extrabold uppercase tracking-[0.22em] text-primary">Team Manual</span>
+        <h2 class="mt-3 text-4xl font-black tracking-tight">팀별 업무 매뉴얼</h2>
+        <p class="mt-4 max-w-4xl text-lg font-semibold leading-8 text-on-surface-variant">각 실행위원 산하 팀의 목적, 주요 업무, 운영 지침, 사전 체크리스트를 정리했습니다.</p>
+        <div class="mt-8 space-y-8">
+          <article class="rounded-3xl border border-outline-variant/70 p-6">
+            <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between"><div><span class="text-sm font-extrabold text-primary">EXECUTIVE COMMITTEE · 01</span><h3 class="mt-2 text-3xl font-black">박상복 목사</h3><p class="mt-2 font-semibold text-on-surface-variant">참가자 편의·공간·안전의 현장 기반을 세우는 실행위원</p><p class="mt-2 text-sm font-extrabold">성서침례대학원대학교 석좌서정</p></div><div class="flex flex-wrap gap-2 text-xs font-extrabold text-primary"><span class="rounded-full border border-primary px-3 py-1">숙박식사팀</span><span class="rounded-full border border-primary px-3 py-1">시설관리팀</span><span class="rounded-full border border-primary px-3 py-1">안전의료팀</span></div></div>
+            <div class="mt-6 grid gap-4 md:grid-cols-3">
+              <div class="rounded-2xl bg-surface-container-low p-5"><h4 class="text-xl font-black">숙박식사팀</h4><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">참가자 숙박, 식사, 간식과 현장 편의를 준비합니다.</p><p class="mt-4 text-sm font-bold leading-6">최종 인원 기준 식수·객실·간식 수량을 관리하고, 강사·스태프·참가자 구분에 따라 안내합니다.</p></div>
+              <div class="rounded-2xl bg-surface-container-low p-5"><h4 class="text-xl font-black">시설관리팀</h4><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">공간 배치, 장비, 통신과 행사장 환경을 관리합니다.</p><p class="mt-4 text-sm font-bold leading-6">장소별 배치도, 전기·조명·냉난방, 안내 사인, 주차와 청소 동선을 사전에 점검합니다.</p></div>
+              <div class="rounded-2xl bg-surface-container-low p-5"><h4 class="text-xl font-black">안전의료팀</h4><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">안전 점검, 비상 대응, 응급 의료 지원을 담당합니다.</p><p class="mt-4 text-sm font-bold leading-6">비상구, 구급함, 119 연락체계와 인근 병원 정보를 확보하고 사고 발생 시 기록합니다.</p></div>
+            </div>
+            <div class="mt-6 overflow-x-auto rounded-2xl border border-outline-variant/70"><table class="manual-table min-w-[820px] w-full text-sm"><thead><tr><th>팀</th><th>준비 단계</th><th>행사 당일</th><th>행사 후</th></tr></thead><tbody><tr><td class="font-extrabold">숙박식사팀</td><td>숙박 대상자 명단과 객실 배정표 작성</td><td>식사 인원 2주 전/1주 전/2일 전 단계별 확정</td><td>식권·명단·간식·생수·정산 증빙 관리</td></tr><tr><td class="font-extrabold">시설관리팀</td><td>예배실·강의실·등록대·식당 배치도 확정</td><td>음향·프로젝터·와이파이·멀티탭 점검</td><td>행사 후 원상복구 및 분실물 정리</td></tr><tr><td class="font-extrabold">안전의료팀</td><td>위험 요소·비상구·통로 점검</td><td>구급함·AED 위치·119 담당자 지정</td><td>사고 보고서 작성 및 후속 조치</td></tr></tbody></table></div>
+          </article>
+
+          <article class="rounded-3xl border border-outline-variant/70 p-6">
+            <span class="text-sm font-extrabold text-primary">EXECUTIVE COMMITTEE · 02</span><h3 class="mt-2 text-3xl font-black">이승록 목사</h3><p class="mt-2 font-semibold text-on-surface-variant">대외 협력·현장 진행·선교박람회 흐름을 조율하는 실행위원</p><p class="mt-2 text-sm font-extrabold">선교위원회 총무</p>
+            <div class="mt-6 grid gap-4 md:grid-cols-3">
+              <div class="rounded-2xl bg-surface-container-low p-5"><h4 class="text-xl font-black">대외협력팀</h4><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">동역 교회, 기관, 외부 협력자와의 소통을 담당합니다.</p><p class="mt-4 text-sm font-bold leading-6">공식 초청, 공문, 협력기관 연락, 주요 인사 참석 확인과 감사 인사를 담당합니다.</p></div>
+              <div class="rounded-2xl bg-surface-container-low p-5"><h4 class="text-xl font-black">진행운영팀</h4><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">전체 일정 진행, 순서 전환, 현장 운영 흐름을 관리합니다.</p><p class="mt-4 text-sm font-bold leading-6">큐시트와 타임테이블을 기준으로 현장 지연, 전환, 돌발 상황을 조정합니다.</p></div>
+              <div class="rounded-2xl bg-surface-container-low p-5"><h4 class="text-xl font-black">박람회준비팀</h4><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">선교박람회 부스 구성, 참여 안내, 현장 세팅을 준비합니다.</p><p class="mt-4 text-sm font-bold leading-6">참여 단체 모집, 부스 배치, 전기·테이블·안내문과 철수 원칙을 관리합니다.</p></div>
+            </div>
+            <div class="mt-6 overflow-x-auto rounded-2xl border border-outline-variant/70"><table class="manual-table min-w-[820px] w-full text-sm"><thead><tr><th>팀</th><th>준비 단계</th><th>행사 당일</th><th>행사 후</th></tr></thead><tbody><tr><td class="font-extrabold">대외협력팀</td><td>협력 교회·기관 명단 작성</td><td>초청장·협조문·감사문 발송</td><td>행사 후 협력 관계 후속 관리</td></tr><tr><td class="font-extrabold">진행운영팀</td><td>전체 타임테이블·큐시트 작성</td><td>사회자·방송·찬양·강사 의전팀 공유</td><td>현장 운영 단톡방·무전 채널 관리</td></tr><tr><td class="font-extrabold">박람회준비팀</td><td>참여 단체 명단과 부스 배치도 확정</td><td>전기 사용·배너·홍보물 사전 신청</td><td>철수 시간 안내와 원상복구 확인</td></tr></tbody></table></div>
+          </article>
+
+          <article class="rounded-3xl border border-outline-variant/70 p-6">
+            <span class="text-sm font-extrabold text-primary">EXECUTIVE COMMITTEE · 03</span><h3 class="mt-2 text-3xl font-black">오성현 목사</h3><p class="mt-2 font-semibold text-on-surface-variant">예배 흐름·등록·결신자 후속 관리를 담당하는 실행위원</p><p class="mt-2 text-sm font-extrabold">성침전국위원회 총무</p>
+            <div class="mt-6 grid gap-4 md:grid-cols-3">
+              <div class="rounded-2xl bg-surface-container-low p-5"><h4 class="text-xl font-black">찬양예배팀</h4><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">찬양, 예배 순서, 예배팀 협업과 현장 예배 흐름을 섬깁니다.</p><p class="mt-4 text-sm font-bold leading-6">주제 찬양, 예배 순서, 대표기도, 자막, 리허설과 예배 전 기도를 준비합니다.</p></div>
+              <div class="rounded-2xl bg-surface-container-low p-5"><h4 class="text-xl font-black">등록안내팀</h4><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">참가 등록, 접수 확인, 현장 안내와 문의 응대를 담당합니다.</p><p class="mt-4 text-sm font-bold leading-6">등록대는 컨퍼런스의 첫인상이므로 정확성, 친절성, 개인정보 보호를 우선합니다.</p></div>
+              <div class="rounded-2xl bg-surface-container-low p-5"><h4 class="text-xl font-black">결신자관리팀</h4><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">결신자 확인, 상담 연결, 후속 양육 안내를 지원합니다.</p><p class="mt-4 text-sm font-bold leading-6">결신과 헌신은 강요하지 않고, 복음 설명과 기도, 교회 연결을 정중히 돕습니다.</p></div>
+            </div>
+            <div class="mt-6 overflow-x-auto rounded-2xl border border-outline-variant/70"><table class="manual-table min-w-[820px] w-full text-sm"><thead><tr><th>팀</th><th>준비 단계</th><th>행사 당일</th><th>행사 후</th></tr></thead><tbody><tr><td class="font-extrabold">찬양예배팀</td><td>주제에 맞는 찬양곡과 예배 순서 확정</td><td>악보·가사·성경본문 방송팀 전달</td><td>예배 전 기도회와 시간 준수</td></tr><tr><td class="font-extrabold">등록안내팀</td><td>사전등록·현장등록 명단 준비</td><td>명찰·순서지·식권·안내자료 배부</td><td>개인정보 출력물 관리와 폐기</td></tr><tr><td class="font-extrabold">결신자관리팀</td><td>결신 카드·상담 공간·담당자 명단 준비</td><td>상담 내용과 개인정보 비밀 보장</td><td>결신자 수와 후속 필요 사항 보고</td></tr></tbody></table></div>
+          </article>
+
+          <article class="rounded-3xl border border-outline-variant/70 p-6">
+            <span class="text-sm font-extrabold text-primary">EXECUTIVE COMMITTEE · 04</span><h3 class="mt-2 text-3xl font-black">김파울 목사</h3><p class="mt-2 font-semibold text-on-surface-variant">해외 협력·프로그램 기획·강사 의전을 연결하는 실행위원</p><p class="mt-2 text-sm font-extrabold">필리핀 선교사</p>
+            <div class="mt-6 grid gap-4 md:grid-cols-3">
+              <div class="rounded-2xl bg-surface-container-low p-5"><h4 class="text-xl font-black">해외협력팀</h4><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">해외 선교사, 현지 사역자, 국제 협력 사역을 연결합니다.</p><p class="mt-4 text-sm font-bold leading-6">선교지 소개, 영상 메시지, 통번역, 보안 검토와 후속 기도 네트워크를 준비합니다.</p></div>
+              <div class="rounded-2xl bg-surface-container-low p-5"><h4 class="text-xl font-black">기획프로그램팀</h4><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">세션 구성, 프로그램 흐름, 발표 콘텐츠를 기획합니다.</p><p class="mt-4 text-sm font-bold leading-6">컨퍼런스 주제와 참가자 경험을 중심으로 강의, 간증, 기도, 워크숍 흐름을 설계합니다.</p></div>
+              <div class="rounded-2xl bg-surface-container-low p-5"><h4 class="text-xl font-black">강사의전팀</h4><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">강사 일정, 이동, 대기, 현장 안내와 의전을 담당합니다.</p><p class="mt-4 text-sm font-bold leading-6">강사별 담당자를 배정하고, 일정·대기실·강의자료·사례비 전달을 정중히 관리합니다.</p></div>
+            </div>
+            <div class="mt-6 overflow-x-auto rounded-2xl border border-outline-variant/70"><table class="manual-table min-w-[820px] w-full text-sm"><thead><tr><th>팀</th><th>준비 단계</th><th>행사 당일</th><th>행사 후</th></tr></thead><tbody><tr><td class="font-extrabold">해외협력팀</td><td>해외 선교사·현지 사역자 명단 작성</td><td>시차 고려 온라인 참여 일정 조율</td><td>후속 기도제목과 협력 과제 정리</td></tr><tr><td class="font-extrabold">기획프로그램팀</td><td>전체 프로그램안과 세션별 목표 작성</td><td>강사별 주제·시간·자료 마감 관리</td><td>설문지와 평가 자료 준비</td></tr><tr><td class="font-extrabold">강사의전팀</td><td>강사별 전담 의전 담당자 지정</td><td>도착·식사·강의·출발 일정표 작성</td><td>PPT·포인터·마이크·사례비 확인</td></tr></tbody></table></div>
+          </article>
+
+          <article class="rounded-3xl border border-outline-variant/70 p-6">
+            <span class="text-sm font-extrabold text-primary">EXECUTIVE COMMITTEE · 05</span><h3 class="mt-2 text-3xl font-black">김명순 목사</h3><p class="mt-2 font-semibold text-on-surface-variant">재정·홍보 디자인·방송미디어 기록을 총괄하는 실행위원장</p><p class="mt-2 text-sm font-extrabold">꿈을심는교회 담임 / 조이플 미션 대표</p>
+            <div class="mt-6 grid gap-4 md:grid-cols-3">
+              <div class="rounded-2xl bg-surface-container-low p-5"><h4 class="text-xl font-black">재정지원팀</h4><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">예산, 후원, 정산과 재정 집행을 지원합니다.</p><p class="mt-4 text-sm font-bold leading-6">모든 지출은 사전 승인, 증빙 제출, 정산 보고의 원칙으로 운영합니다.</p></div>
+              <div class="rounded-2xl bg-surface-container-low p-5"><h4 class="text-xl font-black">디자인홍보팀</h4><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">홍보물, 온라인 콘텐츠, 안내 이미지를 제작합니다.</p><p class="mt-4 text-sm font-bold leading-6">공식 명칭, 날짜, 장소, 강사명은 2회 이상 검수하고 저작권을 확인합니다.</p></div>
+              <div class="rounded-2xl bg-surface-container-low p-5"><h4 class="text-xl font-black">방송미디어팀</h4><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">영상, 음향, 사진 기록과 현장 송출을 담당합니다.</p><p class="mt-4 text-sm font-bold leading-6">음향·영상·자막·녹화·사진·백업을 담당하고 행사 후 후속 콘텐츠를 제작합니다.</p></div>
+            </div>
+            <div class="mt-6 overflow-x-auto rounded-2xl border border-outline-variant/70"><table class="manual-table min-w-[820px] w-full text-sm"><thead><tr><th>팀</th><th>준비 단계</th><th>행사 당일</th><th>행사 후</th></tr></thead><tbody><tr><td class="font-extrabold">재정지원팀</td><td>팀별 예산 요청 취합과 예산안 작성</td><td>후원자 명단·입금·감사 인사 관리</td><td>전체 결산 보고서 작성</td></tr><tr><td class="font-extrabold">디자인홍보팀</td><td>메인 포스터·카드뉴스·강사 소개 이미지 제작</td><td>현수막·배너·명찰·프로그램북 디자인</td><td>오탈자·저작권·파일 규격 최종 검수</td></tr><tr><td class="font-extrabold">방송미디어팀</td><td>음향·카메라·프로젝터·노트북 점검</td><td>찬양 가사·성경본문·PPT 자막 준비</td><td>원본 파일 2곳 이상 백업</td></tr></tbody></table></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="manual-section mx-auto max-w-7xl px-6 py-16 md:px-8" id="manual-teams">
+      <span class="text-sm font-extrabold uppercase tracking-[0.22em] text-primary">Detailed Manual</span>
+      <h2 class="mt-3 text-4xl font-black tracking-tight">팀별 세부 지침</h2>
+      <div class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><h3 class="text-xl font-black">숙박식사팀</h3><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">최종 인원 기준 식수·객실·간식 수량을 관리하고, 강사·스태프·참가자 구분에 따라 안내합니다.</p><ul class="mt-4 space-y-2 text-sm font-bold leading-6"><li>□ 숙박 대상자 명단과 객실 배정표 작성</li><li>□ 식사 인원 2주 전/1주 전/2일 전 단계별 확정</li><li>□ 알레르기·특별식단·위생관리 확인</li><li>□ 식권·명단·간식·생수·정산 증빙 관리</li></ul></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><h3 class="text-xl font-black">시설관리팀</h3><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">장소별 배치도, 전기·조명·냉난방, 안내 사인, 주차와 청소 동선을 사전에 점검합니다.</p><ul class="mt-4 space-y-2 text-sm font-bold leading-6"><li>□ 예배실·강의실·등록대·식당 배치도 확정</li><li>□ 음향·프로젝터·와이파이·멀티탭 점검</li><li>□ 주차·화장실·동선 안내 사인 설치</li><li>□ 행사 후 원상복구 및 분실물 정리</li></ul></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><h3 class="text-xl font-black">안전의료팀</h3><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">비상구, 구급함, 119 연락체계와 인근 병원 정보를 확보하고 사고 발생 시 기록합니다.</p><ul class="mt-4 space-y-2 text-sm font-bold leading-6"><li>□ 위험 요소·비상구·통로 점검</li><li>□ 구급함·AED 위치·119 담당자 지정</li><li>□ 고령자·질환자·어린이 동선 배려</li><li>□ 사고 보고서 작성 및 후속 조치</li></ul></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><h3 class="text-xl font-black">대외협력팀</h3><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">공식 초청, 공문, 협력기관 연락, 주요 인사 참석 확인과 감사 인사를 담당합니다.</p><ul class="mt-4 space-y-2 text-sm font-bold leading-6"><li>□ 협력 교회·기관 명단 작성</li><li>□ 초청장·협조문·감사문 발송</li><li>□ 외부 약속·비용 사항 사전 승인</li><li>□ 행사 후 협력 관계 후속 관리</li></ul></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><h3 class="text-xl font-black">진행운영팀</h3><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">큐시트와 타임테이블을 기준으로 현장 지연, 전환, 돌발 상황을 조정합니다.</p><ul class="mt-4 space-y-2 text-sm font-bold leading-6"><li>□ 전체 타임테이블·큐시트 작성</li><li>□ 사회자·방송·찬양·강사 의전팀 공유</li><li>□ 시간 지연·순서 변경 시 즉시 보고</li><li>□ 현장 운영 단톡방·무전 채널 관리</li></ul></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><h3 class="text-xl font-black">박람회준비팀</h3><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">참여 단체 모집, 부스 배치, 전기·테이블·안내문과 철수 원칙을 관리합니다.</p><ul class="mt-4 space-y-2 text-sm font-bold leading-6"><li>□ 참여 단체 명단과 부스 배치도 확정</li><li>□ 전기 사용·배너·홍보물 사전 신청</li><li>□ 상업성·보안성·공간 형평성 검토</li><li>□ 철수 시간 안내와 원상복구 확인</li></ul></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><h3 class="text-xl font-black">찬양예배팀</h3><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">주제 찬양, 예배 순서, 대표기도, 자막, 리허설과 예배 전 기도를 준비합니다.</p><ul class="mt-4 space-y-2 text-sm font-bold leading-6"><li>□ 주제에 맞는 찬양곡과 예배 순서 확정</li><li>□ 악보·가사·성경본문 방송팀 전달</li><li>□ 마이크·악기·자막 리허설 진행</li><li>□ 예배 전 기도회와 시간 준수</li></ul></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><h3 class="text-xl font-black">등록안내팀</h3><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">등록대는 컨퍼런스의 첫인상이므로 정확성, 친절성, 개인정보 보호를 우선합니다.</p><ul class="mt-4 space-y-2 text-sm font-bold leading-6"><li>□ 사전등록·현장등록 명단 준비</li><li>□ 명찰·순서지·식권·안내자료 배부</li><li>□ 등록대 창구를 사전/현장/문의로 구분</li><li>□ 개인정보 출력물 관리와 폐기</li></ul></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><h3 class="text-xl font-black">결신자관리팀</h3><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">결신과 헌신은 강요하지 않고, 복음 설명과 기도, 교회 연결을 정중히 돕습니다.</p><ul class="mt-4 space-y-2 text-sm font-bold leading-6"><li>□ 결신 카드·상담 공간·담당자 명단 준비</li><li>□ 상담 내용과 개인정보 비밀 보장</li><li>□ 지역 교회·양육 담당자 연결</li><li>□ 결신자 수와 후속 필요 사항 보고</li></ul></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><h3 class="text-xl font-black">해외협력팀</h3><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">선교지 소개, 영상 메시지, 통번역, 보안 검토와 후속 기도 네트워크를 준비합니다.</p><ul class="mt-4 space-y-2 text-sm font-bold leading-6"><li>□ 해외 선교사·현지 사역자 명단 작성</li><li>□ 시차 고려 온라인 참여 일정 조율</li><li>□ 민감 지역 정보 공개 범위 제한</li><li>□ 후속 기도제목과 협력 과제 정리</li></ul></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><h3 class="text-xl font-black">기획프로그램팀</h3><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">컨퍼런스 주제와 참가자 경험을 중심으로 강의, 간증, 기도, 워크숍 흐름을 설계합니다.</p><ul class="mt-4 space-y-2 text-sm font-bold leading-6"><li>□ 전체 프로그램안과 세션별 목표 작성</li><li>□ 강사별 주제·시간·자료 마감 관리</li><li>□ 선택강의·간증·기도회 흐름 구성</li><li>□ 설문지와 평가 자료 준비</li></ul></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><h3 class="text-xl font-black">강사의전팀</h3><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">강사별 담당자를 배정하고, 일정·대기실·강의자료·사례비 전달을 정중히 관리합니다.</p><ul class="mt-4 space-y-2 text-sm font-bold leading-6"><li>□ 강사별 전담 의전 담당자 지정</li><li>□ 도착·식사·강의·출발 일정표 작성</li><li>□ 대기실·물·간식·명찰·순서지 준비</li><li>□ PPT·포인터·마이크·사례비 확인</li></ul></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><h3 class="text-xl font-black">재정지원팀</h3><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">모든 지출은 사전 승인, 증빙 제출, 정산 보고의 원칙으로 운영합니다.</p><ul class="mt-4 space-y-2 text-sm font-bold leading-6"><li>□ 팀별 예산 요청 취합과 예산안 작성</li><li>□ 후원자 명단·입금·감사 인사 관리</li><li>□ 지출 신청서와 증빙 제출 방식 안내</li><li>□ 전체 결산 보고서 작성</li></ul></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><h3 class="text-xl font-black">디자인홍보팀</h3><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">공식 명칭, 날짜, 장소, 강사명은 2회 이상 검수하고 저작권을 확인합니다.</p><ul class="mt-4 space-y-2 text-sm font-bold leading-6"><li>□ 메인 포스터·카드뉴스·강사 소개 이미지 제작</li><li>□ 현수막·배너·명찰·프로그램북 디자인</li><li>□ SNS·홈페이지·카카오톡 홍보물 배포</li><li>□ 오탈자·저작권·파일 규격 최종 검수</li></ul></div>
+        <div class="rounded-3xl bg-white p-6 editorial-shadow"><h3 class="text-xl font-black">방송미디어팀</h3><p class="mt-3 text-sm font-semibold leading-6 text-on-surface-variant">음향·영상·자막·녹화·사진·백업을 담당하고 행사 후 후속 콘텐츠를 제작합니다.</p><ul class="mt-4 space-y-2 text-sm font-bold leading-6"><li>□ 음향·카메라·프로젝터·노트북 점검</li><li>□ 찬양 가사·성경본문·PPT 자막 준비</li><li>□ 녹화·사진·라이브 송출 담당자 배정</li><li>□ 원본 파일 2곳 이상 백업</li></ul></div>
+      </div>
+    </section>
+
+    <section class="manual-section bg-white py-16" id="manual-collaboration">
+      <div class="mx-auto max-w-7xl px-6 md:px-8">
+        <span class="text-sm font-extrabold uppercase tracking-[0.22em] text-primary">Collaboration Rule</span>
+        <h2 class="mt-3 text-4xl font-black tracking-tight">팀 간 협업 규정</h2>
+        <p class="mt-4 max-w-4xl text-lg font-semibold leading-8 text-on-surface-variant">컨퍼런스 운영에서 가장 많은 오류는 “내 팀 업무”와 “다른 팀 업무”의 경계에서 발생합니다. 아래 업무는 반드시 협업팀과 사전 조율해야 합니다.</p>
+        <div class="mt-8 overflow-x-auto rounded-2xl border border-outline-variant/70 bg-white">
+          <table class="manual-table min-w-[980px] w-full text-sm">
+            <thead><tr><th>협업 업무</th><th>관련 팀</th><th>운영 지침</th></tr></thead>
+            <tbody>
+              <tr><td class="font-extrabold">강사 강의 준비</td><td>강사의전팀 · 방송미디어팀 · 진행운영팀</td><td>요청 내용, 마감일, 예산 여부, 최종 승인자를 공유 문서에 기록합니다.</td></tr>
+              <tr><td class="font-extrabold">예배 진행</td><td>찬양예배팀 · 방송미디어팀 · 진행운영팀</td><td>요청 내용, 마감일, 예산 여부, 최종 승인자를 공유 문서에 기록합니다.</td></tr>
+              <tr><td class="font-extrabold">등록과 식사</td><td>등록안내팀 · 숙박식사팀 · 재정지원팀</td><td>요청 내용, 마감일, 예산 여부, 최종 승인자를 공유 문서에 기록합니다.</td></tr>
+              <tr><td class="font-extrabold">박람회 운영</td><td>박람회준비팀 · 시설관리팀 · 디자인홍보팀</td><td>요청 내용, 마감일, 예산 여부, 최종 승인자를 공유 문서에 기록합니다.</td></tr>
+              <tr><td class="font-extrabold">결신자 상담</td><td>결신자관리팀 · 찬양예배팀 · 진행운영팀</td><td>요청 내용, 마감일, 예산 여부, 최종 승인자를 공유 문서에 기록합니다.</td></tr>
+              <tr><td class="font-extrabold">홍보물 제작</td><td>디자인홍보팀 · 기획프로그램팀 · 대외협력팀</td><td>요청 내용, 마감일, 예산 여부, 최종 승인자를 공유 문서에 기록합니다.</td></tr>
+              <tr><td class="font-extrabold">예산 집행</td><td>모든 팀 · 재정지원팀</td><td>요청 내용, 마감일, 예산 여부, 최종 승인자를 공유 문서에 기록합니다.</td></tr>
+              <tr><td class="font-extrabold">안전 대응</td><td>안전의료팀 · 시설관리팀 · 진행운영팀</td><td>요청 내용, 마감일, 예산 여부, 최종 승인자를 공유 문서에 기록합니다.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <blockquote class="mt-8 rounded-3xl border-l-8 border-primary bg-primary-fixed p-7 text-2xl font-black leading-relaxed text-primary">협업 요청은 친절하게, 결정 사항은 명확하게, 변경 내용은 즉시 공유합니다.</blockquote>
+      </div>
+    </section>
+
+    <section class="manual-section mx-auto max-w-7xl px-6 py-16 md:px-8" id="manual-reporting">
+      <span class="text-sm font-extrabold uppercase tracking-[0.22em] text-primary">Meeting & Reporting</span>
+      <h2 class="mt-3 text-4xl font-black tracking-tight">회의 및 보고 규정</h2>
+      <div class="mt-8 grid gap-8 lg:grid-cols-2">
+        <div class="overflow-x-auto rounded-2xl border border-outline-variant/70 bg-white">
+          <table class="manual-table min-w-[520px] w-full text-sm"><thead><tr><th>시기</th><th>주요 내용</th></tr></thead><tbody><tr><td class="font-extrabold">행사 8주 전</td><td>전체 조직 확정, 팀별 역할 배정</td></tr><tr><td class="font-extrabold">행사 6주 전</td><td>프로그램 초안, 예산 초안, 홍보 계획 점검</td></tr><tr><td class="font-extrabold">행사 4주 전</td><td>등록 현황, 강사 일정, 장소 준비 점검</td></tr><tr><td class="font-extrabold">행사 2주 전</td><td>팀별 세부 체크리스트 점검</td></tr><tr><td class="font-extrabold">행사 1주 전</td><td>최종 리허설 및 비상 대응 점검</td></tr><tr><td class="font-extrabold">행사 후 1주 이내</td><td>평가회, 정산, 감사 인사, 자료 정리</td></tr></tbody></table>
+        </div>
+        <div class="overflow-x-auto rounded-2xl border border-outline-variant/70 bg-white">
+          <table class="manual-table min-w-[520px] w-full text-sm"><thead><tr><th>항목</th><th>기재 내용</th></tr></thead><tbody><tr><td class="font-extrabold">팀명</td><td>예: 등록안내팀</td></tr><tr><td class="font-extrabold">담당 실행위원</td><td>예: 오성현 목사</td></tr><tr><td class="font-extrabold">팀장</td><td>이름 / 연락처</td></tr><tr><td class="font-extrabold">현재 진행 상황</td><td>완료 / 진행 중 / 지연</td></tr><tr><td class="font-extrabold">필요한 지원</td><td>예산, 인력, 장비, 공간 등</td></tr><tr><td class="font-extrabold">문제 사항</td><td>해결 필요 이슈</td></tr><tr><td class="font-extrabold">다음 일정</td><td>마감일 및 담당자</td></tr></tbody></table>
+        </div>
+      </div>
+    </section>
+
+    <section class="manual-section bg-white py-16" id="manual-control">
+      <div class="mx-auto max-w-7xl px-6 md:px-8">
+        <span class="text-sm font-extrabold uppercase tracking-[0.22em] text-primary">Control Tower</span>
+        <h2 class="mt-3 text-4xl font-black tracking-tight">재정·안전·개인정보 규정</h2>
+        <div class="mt-8 grid gap-5 lg:grid-cols-3">
+          <div class="rounded-3xl bg-surface-container-low p-6"><h3 class="text-2xl font-black">재정 규정</h3><ul class="mt-5 space-y-3 text-sm font-semibold leading-6 text-on-surface-variant"><li>모든 지출은 사전 승인 후 집행합니다.</li><li>영수증 없는 지출은 원칙적으로 정산하지 않습니다.</li><li>현금 사용은 최소화하고 사용 내역을 기록합니다.</li><li>행사 후 전체 정산 보고서를 작성합니다.</li></ul></div>
+          <div class="rounded-3xl bg-surface-container-low p-6"><h3 class="text-2xl font-black">안전 규정</h3><ul class="mt-5 space-y-3 text-sm font-semibold leading-6 text-on-surface-variant"><li>응급 환자 발생 시 119 신고가 우선입니다.</li><li>비상구와 통로는 항상 비워 둡니다.</li><li>사고 발생 시 시간, 장소, 내용, 조치 사항을 기록합니다.</li><li>야간 프로그램은 조명과 귀가 동선을 확인합니다.</li></ul></div>
+          <div class="rounded-3xl bg-surface-container-low p-6"><h3 class="text-2xl font-black">개인정보 규정</h3><ul class="mt-5 space-y-3 text-sm font-semibold leading-6 text-on-surface-variant"><li>등록자, 결신자, 강사, 후원자 정보는 담당자만 열람합니다.</li><li>출력 명단은 공개 장소에 방치하지 않습니다.</li><li>상담 내용은 외부에 공유하지 않습니다.</li><li>불필요한 출력물은 행사 후 폐기합니다.</li></ul></div>
+        </div>
+        <div class="mt-8 rounded-3xl bg-[#071226] p-7 text-white">
+          <h3 class="text-2xl font-black">비상 대응 체계</h3>
+          <p class="mt-4 text-lg font-bold leading-8 text-white/80">현장 발견자 → 담당 팀장 → 담당 실행위원 → 실행위원장 → 필요 시 119 / 병원 / 경찰 / 보호자 연락</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="manual-section mx-auto max-w-7xl px-6 py-16 md:px-8" id="manual-after">
+      <span class="text-sm font-extrabold uppercase tracking-[0.22em] text-primary">After Action Review</span>
+      <h2 class="mt-3 text-4xl font-black tracking-tight">행사 후 마무리 규정</h2>
+      <p class="mt-4 max-w-4xl text-lg font-semibold leading-8 text-on-surface-variant">행사의 마무리는 정리가 아니라 다음 사역을 위한 축적입니다. 각 팀은 행사 후 1주 이내에 결과를 제출합니다.</p>
+      <div class="mt-8 overflow-x-auto rounded-2xl border border-outline-variant/70 bg-white">
+        <table class="manual-table min-w-[760px] w-full text-sm"><thead><tr><th>팀</th><th>마무리 업무</th></tr></thead><tbody>
+          <tr><td class="font-extrabold">숙박식사팀</td><td>식사비 정산, 숙소 정리, 잔여 물품 정리</td></tr><tr><td class="font-extrabold">시설관리팀</td><td>장소 원상복구, 장비 반납, 분실물 확인</td></tr><tr><td class="font-extrabold">안전의료팀</td><td>사고 보고서 정리, 의료 대응 기록 보관</td></tr><tr><td class="font-extrabold">대외협력팀</td><td>협력 기관 감사 인사</td></tr><tr><td class="font-extrabold">진행운영팀</td><td>전체 진행 평가 및 개선점 정리</td></tr><tr><td class="font-extrabold">박람회준비팀</td><td>참여 단체 감사 인사, 부스 평가</td></tr><tr><td class="font-extrabold">찬양예배팀</td><td>예배 평가, 악보·자료 정리</td></tr><tr><td class="font-extrabold">등록안내팀</td><td>최종 참석자 수 정리</td></tr><tr><td class="font-extrabold">결신자관리팀</td><td>후속 양육 연결</td></tr><tr><td class="font-extrabold">해외협력팀</td><td>해외 사역자 감사 및 후속 기도제목 정리</td></tr><tr><td class="font-extrabold">기획프로그램팀</td><td>설문 분석, 차기 제안 정리</td></tr><tr><td class="font-extrabold">강사의전팀</td><td>강사 감사 인사, 사례비 확인</td></tr><tr><td class="font-extrabold">재정지원팀</td><td>전체 정산 보고</td></tr><tr><td class="font-extrabold">디자인홍보팀</td><td>디자인 원본 파일 정리</td></tr><tr><td class="font-extrabold">방송미디어팀</td><td>영상·사진 백업 및 편집</td></tr>
+        </tbody></table>
+      </div>
+    </section>
+
+    <section class="manual-section bg-white py-16" id="manual-field">
+      <div class="mx-auto max-w-7xl px-6 md:px-8">
+        <span class="text-sm font-extrabold uppercase tracking-[0.22em] text-primary">Field Guide</span>
+        <h2 class="mt-3 text-4xl font-black tracking-tight">팀장·봉사자 공통 지침</h2>
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+          <div class="rounded-3xl bg-surface-container-low p-7"><h3 class="text-2xl font-black">팀장 공통 지침</h3><ul class="mt-5 space-y-3 text-sm font-semibold leading-6 text-on-surface-variant"><li>팀장은 팀별 업무의 최종 실무 책임자입니다.</li><li>팀원 배정, 일정 관리, 업무 분담을 명확히 해야 합니다.</li><li>팀별 회의 내용을 담당 실행위원에게 보고해야 합니다.</li><li>문제가 발생하면 즉시 상위 책임자와 상의해야 합니다.</li><li>행사 후 평가, 정산, 자료 제출을 완료해야 합니다.</li></ul></div>
+          <div class="rounded-3xl bg-surface-container-low p-7"><h3 class="text-2xl font-black">봉사자 공통 지침</h3><ul class="mt-5 space-y-3 text-sm font-semibold leading-6 text-on-surface-variant"><li>정해진 시간보다 최소 30분 일찍 도착합니다.</li><li>맡은 위치를 임의로 이탈하지 않습니다.</li><li>참가자에게 친절하고 정중하게 응대합니다.</li><li>모르는 질문은 추측하지 않고 담당자에게 연결합니다.</li><li>긴급 상황은 즉시 팀장에게 알립니다.</li></ul></div>
+        </div>
+        <h3 class="mt-10 text-3xl font-black">현장 공유용 10가지 원칙</h3>
+        <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          <span class="rounded-xl border border-outline-variant/70 bg-white p-4 text-sm font-extrabold">□ 기도로 준비한다.</span><span class="rounded-xl border border-outline-variant/70 bg-white p-4 text-sm font-extrabold">□ 시간표를 지킨다.</span><span class="rounded-xl border border-outline-variant/70 bg-white p-4 text-sm font-extrabold">□ 내 역할을 분명히 안다.</span><span class="rounded-xl border border-outline-variant/70 bg-white p-4 text-sm font-extrabold">□ 팀장에게 보고한다.</span><span class="rounded-xl border border-outline-variant/70 bg-white p-4 text-sm font-extrabold">□ 참가자를 친절히 섬긴다.</span><span class="rounded-xl border border-outline-variant/70 bg-white p-4 text-sm font-extrabold">□ 안전을 최우선으로 한다.</span><span class="rounded-xl border border-outline-variant/70 bg-white p-4 text-sm font-extrabold">□ 모든 지출은 증빙을 남긴다.</span><span class="rounded-xl border border-outline-variant/70 bg-white p-4 text-sm font-extrabold">□ 돌발 상황은 즉시 공유한다.</span><span class="rounded-xl border border-outline-variant/70 bg-white p-4 text-sm font-extrabold">□ 행사 후 반드시 정리하고 평가한다.</span><span class="rounded-xl border border-outline-variant/70 bg-white p-4 text-sm font-extrabold">□ 모든 목적은 복음과 선교에 있다.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="manual-section bg-[#071226] py-16 text-white" id="manual-checklist">
+      <div class="mx-auto max-w-7xl px-6 md:px-8">
+        <span class="text-sm font-extrabold uppercase tracking-[0.22em] text-primary">Final Checklist</span>
+        <h2 class="mt-3 text-4xl font-black tracking-tight">핵심 운영 체크리스트</h2>
+        <p class="mt-4 max-w-4xl text-lg font-semibold leading-8 text-white/70">행사 전 최종 점검 회의에서 아래 항목을 기준으로 팀별 준비 상태를 확인합니다.</p>
+        <div class="mt-8 grid gap-3 md:grid-cols-2">
+          <span class="rounded-xl border border-white/10 bg-white/5 p-4 font-bold">□ 등록: 명단, 명찰, 안내자료, 현장접수</span><span class="rounded-xl border border-white/10 bg-white/5 p-4 font-bold">□ 예배: 찬양, 기도, 자막, 음향, 순서</span><span class="rounded-xl border border-white/10 bg-white/5 p-4 font-bold">□ 강사: 일정, 이동, 대기실, 사례비, PPT</span><span class="rounded-xl border border-white/10 bg-white/5 p-4 font-bold">□ 식사: 인원, 식권, 식단, 간식, 쓰레기</span><span class="rounded-xl border border-white/10 bg-white/5 p-4 font-bold">□ 시설: 공간 배치, 장비, 안내판, 주차</span><span class="rounded-xl border border-white/10 bg-white/5 p-4 font-bold">□ 안전: 구급함, 비상구, 연락망, 병원</span><span class="rounded-xl border border-white/10 bg-white/5 p-4 font-bold">□ 박람회: 부스 배치, 참여 단체, 전기, 안내</span><span class="rounded-xl border border-white/10 bg-white/5 p-4 font-bold">□ 홍보: 포스터, 카드뉴스, SNS, 프로그램북</span><span class="rounded-xl border border-white/10 bg-white/5 p-4 font-bold">□ 방송: 음향, 영상, 녹화, 사진, 백업</span><span class="rounded-xl border border-white/10 bg-white/5 p-4 font-bold">□ 재정: 예산, 승인, 증빙, 정산</span><span class="rounded-xl border border-white/10 bg-white/5 p-4 font-bold">□ 결신: 상담, 카드, 기도, 후속 양육</span><span class="rounded-xl border border-white/10 bg-white/5 p-4 font-bold">□ 평가: 설문, 회의, 보고서, 감사 인사</span>
+        </div>
+        <blockquote class="mt-10 border-l-8 border-primary pl-7 text-3xl font-black leading-relaxed text-primary">모든 팀이 완벽해야 행사가 완벽한 것이 아니라, 모든 팀이 서로 연결되어야 현장이 안정됩니다.</blockquote>
+      </div>
+    </section>
+
+    <section class="bg-white py-16">
+      <div class="mx-auto max-w-7xl px-6 text-center md:px-8">
+        <p class="text-sm font-extrabold uppercase tracking-[0.24em] text-primary">Jesus Mission Conference 2026</p>
+        <h2 class="mt-4 text-4xl font-black tracking-tight">복음은 멈추지 않는다</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-lg font-semibold leading-8 text-on-surface-variant">흔들리는 시대, 계속되는 하나님의 선교. 실행위원 팀별 업무매뉴얼 · 운영 보고서.</p>
+        <div class="mt-8 flex justify-center">
+          <a href="staff-lounge.html" class="inline-flex items-center gap-2 rounded-xl bg-[#071226] px-5 py-3 text-sm font-extrabold text-white transition hover:bg-slate-800"><span class="material-symbols-outlined text-base">arrow_back</span>스탭 라운지로</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="bg-slate-50 py-12">
+  <div class="mx-auto flex w-full max-w-7xl flex-col justify-between gap-6 px-8 md:flex-row md:items-center">
+    <div>
+      <div class="text-lg font-semibold text-slate-800">지저스 미션 컨퍼런스</div>
+      <div class="mt-2 text-sm text-slate-500">© 2026 지저스 미션 컨퍼런스. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<script src="firebase-client.js?v=20260617-staff-notices"></script>
+<script src="auth-widget.js?v=20260619-staff-header"></script>
+<script src="language-selector.js?v=20260619-staff-hero-left"></script>
+<script src="chat-widget.js"></script>
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('mobile-menu-btn').querySelector('span');
+  menu.classList.toggle('hidden');
+  btn.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+}
+
+function esc(value) {
+  return String(value || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function showManualStatus(type, title, body, actionHtml = '') {
+  const colors = {
+    loading: 'border-outline-variant/70 bg-white text-primary',
+    denied: 'border-red-100 bg-red-50 text-red-600',
+    login: 'border-orange-100 bg-orange-50 text-orange-700'
+  };
+  const status = document.getElementById('manual-auth-status');
+  status.className = `rounded-3xl border p-8 text-center editorial-shadow ${colors[type] || colors.loading}`;
+  status.innerHTML = `
+    <p class="text-lg font-black">${esc(title)}</p>
+    <p class="mx-auto mt-3 max-w-xl text-sm font-semibold leading-6 text-slate-600">${esc(body)}</p>
+    ${actionHtml}
+  `;
+  status.classList.remove('hidden');
+  document.getElementById('manual-root').classList.add('hidden');
+}
+
+function showManual(profile, user) {
+  document.getElementById('manual-auth-status').classList.add('hidden');
+  document.getElementById('manual-root').classList.remove('hidden');
+}
+
+window.JMCFirebase.finishRedirectSignIn().catch(() => {});
+window.JMCFirebase.onAuth(async (user) => {
+  if (!user) {
+    showManualStatus('login', '로그인이 필요합니다', '팀별 업무매뉴얼은 팀장과 팀원 스탭권한을 받은 계정만 이용할 수 있습니다.', '<button id="manual-login-action" class="mt-6 rounded-xl bg-orange-500 px-6 py-3 text-sm font-extrabold text-white hover:bg-orange-600" type="button">로그인 / 회원가입</button>');
+    setTimeout(() => {
+      const loginAction = document.getElementById('manual-login-action');
+      const headerLogin = document.querySelector('header [data-auth-open]');
+      if (loginAction && headerLogin) loginAction.onclick = () => headerLogin.click();
+    }, 0);
+    return;
+  }
+  try {
+    const profile = await window.JMCFirebase.getCurrentUserProfile();
+    const hasStaffAccess = profile && (profile.staff || profile.isAdmin || profile.teamRole === 'leader' || profile.teamRole === 'member');
+    if (hasStaffAccess) {
+      showManual(profile, user);
+      return;
+    }
+    showManualStatus('denied', '스탭권한이 필요합니다', '로그인은 완료되었지만 아직 팀별 업무매뉴얼 접근 권한이 없습니다. 관리자에게 팀장 또는 팀원 스탭권한 부여를 요청해 주세요.');
+  } catch (err) {
+    showManualStatus('denied', '권한 확인 실패', err.message || '스탭권한을 확인하지 못했습니다.');
+  }
+});
+</script>
+</body>
+</html>

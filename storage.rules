@@ -1,0 +1,90 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isPrimaryAdmin() {
+      return request.auth != null
+        && request.auth.token.email != null
+        && request.auth.token.email.lower() == 'kms@jfm.kr';
+    }
+
+    function isSubAdmin() {
+      return request.auth != null
+        && firestore.exists(/databases/(default)/documents/users/$(request.auth.uid))
+        && (
+          firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.subAdmin == true
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.isSubAdmin == true
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.adminRole == 'subadmin'
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.adminRole == 'sub-admin'
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.accessRole == 'subadmin'
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.accessRole == 'sub-admin'
+        )
+        || hasEmail()
+        && firestore.exists(/databases/(default)/documents/users/$(request.auth.token.email.lower()))
+        && (
+          firestore.get(/databases/(default)/documents/users/$(request.auth.token.email.lower())).data.subAdmin == true
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.token.email.lower())).data.isSubAdmin == true
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.token.email.lower())).data.adminRole == 'subadmin'
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.token.email.lower())).data.adminRole == 'sub-admin'
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.token.email.lower())).data.accessRole == 'subadmin'
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.token.email.lower())).data.accessRole == 'sub-admin'
+        );
+    }
+
+    function isAdmin() {
+      return isPrimaryAdmin() || isSubAdmin();
+    }
+
+    function hasEmail() {
+      return request.auth != null
+        && request.auth.token.email != null;
+    }
+
+    function isStaff() {
+      return isAdmin()
+        || request.auth != null
+        && firestore.exists(/databases/(default)/documents/users/$(request.auth.uid))
+        && (
+          firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.staff == true
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.executive == true
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.subAdmin == true
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.teamRole == 'leader'
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.teamRole == 'member'
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.teamRole == 'executive'
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.teamRole == 'chair'
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.uid)).data.adminRole == 'subadmin'
+        )
+        || hasEmail()
+        && firestore.exists(/databases/(default)/documents/users/$(request.auth.token.email.lower()))
+        && (
+          firestore.get(/databases/(default)/documents/users/$(request.auth.token.email.lower())).data.staff == true
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.token.email.lower())).data.executive == true
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.token.email.lower())).data.subAdmin == true
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.token.email.lower())).data.teamRole == 'leader'
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.token.email.lower())).data.teamRole == 'member'
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.token.email.lower())).data.teamRole == 'executive'
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.token.email.lower())).data.teamRole == 'chair'
+          || firestore.get(/databases/(default)/documents/users/$(request.auth.token.email.lower())).data.adminRole == 'subadmin'
+        );
+    }
+
+    match /staff-resources/{allPaths=**} {
+      allow read: if isAdmin() || isStaff();
+      allow create, update: if isAdmin()
+        && request.resource != null
+        && request.resource.size <= 500 * 1024 * 1024;
+      allow delete: if isAdmin();
+    }
+
+    match /expense-proofs/{allPaths=**} {
+      allow read: if isAdmin() || isStaff();
+      allow create, update: if isAdmin() || (
+        isStaff()
+        && request.resource != null
+        && request.resource.size <= 25 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*')
+      );
+      allow delete: if isAdmin();
+    }
+  }
+}

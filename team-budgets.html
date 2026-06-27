@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>지저스 미션 컨퍼런스 ㅣ 팀예산 청구 게시판</title>
+<meta name="description" content="지저스 미션 컨퍼런스 2026 스탭 팀예산 청구 게시판입니다."/>
+<meta property="og:title" content="지저스 미션 컨퍼런스 ㅣ 팀예산 청구 게시판"/>
+<meta property="og:description" content="팀장 청구, 실행위원 승인, 실행위원장 결재, 집행 완료를 관리하는 스탭 전용 예산 게시판입니다."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://jmc2026-2b5e0.web.app/team-budgets.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Noto Sans KR', 'sans-serif'] },
+        colors: {
+          primary: '#2563eb',
+          secondary: '#071226',
+          background: '#f7f7f5',
+          'on-surface': '#1f2937',
+          'on-surface-variant': '#64748b',
+          'surface-container-low': '#f8fafc',
+          'surface-container-lowest': '#ffffff',
+          'outline-variant': '#e2e8f0',
+          'primary-fixed': '#dbeafe',
+          'on-primary-fixed-variant': '#1d4ed8'
+        },
+        boxShadow: { editorial: '0 18px 50px rgba(15, 23, 42, 0.08)' }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans KR', sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden">
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-[#071226] shadow-[0_12px_36px_rgba(2,6,23,0.22)]">
+  <div class="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-6 py-3 md:px-8">
+    <a href="index.html" class="flex min-w-0 items-center gap-2.5">
+      <img src="jesus-mission-symbol-transparent.png?v=20260609-header-transparent" alt="지저스 미션 컨퍼런스" class="h-14 w-auto shrink-0"/>
+      <span class="truncate text-xl font-extrabold leading-none tracking-tight text-white">지저스 미션 컨퍼런스</span>
+    </a>
+    <nav class="hidden flex-1 items-center justify-end gap-3 xl:flex" aria-label="스탭 업무 메뉴">
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="staff-lounge.html"><span class="material-symbols-outlined text-[18px]">home</span><span class="whitespace-nowrap">스탭라운지</span></a>
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="team-manual.html"><span class="material-symbols-outlined text-[18px]">clinical_notes</span><span class="whitespace-nowrap">팀별 메뉴얼</span></a>
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="event-cue-sheets.html"><span class="material-symbols-outlined text-[18px]">event_note</span><span class="whitespace-nowrap">행사 큐시트</span></a>
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="team-reports.html"><span class="material-symbols-outlined text-[18px]">edit_document</span><span class="whitespace-nowrap">팀보고서</span></a>
+      <a aria-current="page" class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-amber-300 transition hover:-translate-y-0.5 hover:text-amber-200" href="team-budgets.html"><span class="material-symbols-outlined text-[18px]">request_quote</span><span class="whitespace-nowrap">팀예산</span></a>
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="expense-proofs.html"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span class="whitespace-nowrap">지출증빙</span></a>
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="staff-resources.html"><span class="material-symbols-outlined text-[18px]">folder_open</span><span class="whitespace-nowrap">스탭자료실</span></a>
+      <button data-auth-open data-auth-style="plain" data-auth-variant="desktop" class="hidden h-9 items-center text-[13px] font-extrabold text-white/80 transition hover:text-amber-200 xl:inline-flex" type="button">로그인</button>
+    </nav>
+    <button id="mobile-menu-btn" class="xl:hidden text-white" onclick="toggleMobileMenu()" type="button" aria-label="모바일 메뉴 열기">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden border-t border-white/10 bg-[#071226] xl:hidden">
+    <div class="grid grid-cols-1 gap-2 px-6 py-4 sm:grid-cols-2">
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="staff-lounge.html"><span class="material-symbols-outlined text-[19px]">home</span><span>스탭라운지</span></a>
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="team-manual.html"><span class="material-symbols-outlined text-[19px]">clinical_notes</span><span>팀별 메뉴얼</span></a>
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="event-cue-sheets.html"><span class="material-symbols-outlined text-[19px]">event_note</span><span>행사 큐시트</span></a>
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="team-reports.html"><span class="material-symbols-outlined text-[19px]">edit_document</span><span>팀보고서</span></a>
+      <a aria-current="page" class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-amber-300" href="team-budgets.html"><span class="material-symbols-outlined text-[19px]">request_quote</span><span>팀예산</span></a>
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="expense-proofs.html"><span class="material-symbols-outlined text-[19px]">receipt_long</span><span>지출증빙</span></a>
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="staff-resources.html"><span class="material-symbols-outlined text-[19px]">folder_open</span><span>스탭자료실</span></a>
+      <button data-auth-open data-auth-style="plain" data-auth-variant="mobile" class="inline-flex h-10 items-center px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200 sm:col-span-2" type="button">로그인</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="relative flex h-[300px] items-center overflow-hidden bg-secondary">
+    <div class="absolute inset-0 opacity-20">
+      <img src="hero-worship-photo.png" alt="" class="h-full w-full object-cover grayscale-[20%] contrast-[1.1]"/>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#071226] via-[#071226]/95 to-[#071226]/70"></div>
+    <div class="relative z-10 mx-auto w-full max-w-7xl px-6 text-left md:px-8">
+      <span class="inline-flex rounded-full bg-white/10 px-4 py-2 text-left text-sm font-extrabold uppercase tracking-[0.18em] text-blue-200">Budget Approval Board</span>
+      <h1 class="mt-4 max-w-4xl text-left text-4xl font-black tracking-tight text-white md:text-5xl">팀예산 청구 게시판</h1>
+      <p class="mt-3 max-w-3xl text-left text-lg font-semibold leading-8 text-white/75">팀장의 예산 청구부터 실행위원 승인, 실행위원장 결재, 집행 완료까지 한 게시판에서 기록합니다.</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16">
+    <div id="budget-auth-status" class="rounded-3xl border border-outline-variant/50 bg-surface-container-lowest p-8 text-center shadow-editorial">
+      <p class="text-sm font-extrabold text-primary">권한 확인 중</p>
+      <p class="mt-3 text-on-surface-variant">로그인 상태와 스탭권한을 확인하고 있습니다.</p>
+    </div>
+
+    <div id="budget-root" class="hidden space-y-8">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <span class="text-sm font-extrabold uppercase tracking-widest text-primary">Budget Request Form</span>
+          <h2 class="mt-3 text-3xl font-black text-on-surface md:text-4xl">팀예산 청구 양식</h2>
+        </div>
+        <p id="budget-user-label" class="w-fit rounded-full bg-primary-fixed px-4 py-2 text-sm font-extrabold text-on-primary-fixed-variant"></p>
+      </div>
+
+      <div id="budget-stats" class="grid grid-cols-2 gap-3 lg:grid-cols-4"></div>
+
+      <div class="grid grid-cols-1 gap-6 xl:grid-cols-[0.85fr_1.15fr]">
+        <form id="team-budget-form" class="rounded-3xl border border-outline-variant/60 bg-white p-5 shadow-editorial md:p-6">
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined rounded-2xl bg-blue-50 p-3 text-blue-600">request_quote</span>
+            <div>
+              <h3 class="text-2xl font-black text-on-surface">예산 청구서 작성</h3>
+              <p class="mt-1 text-sm font-semibold text-on-surface-variant">청구 금액과 집행 근거를 남기면 결재 단계가 자동으로 생성됩니다.</p>
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+            <label class="block md:col-span-2">
+              <span class="text-sm font-extrabold text-slate-700">청구 제목</span>
+              <input id="budget-title" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100" placeholder="예: 등록안내팀 명찰 제작비 청구" required>
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">팀명</span>
+              <select id="budget-team-name" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100" required></select>
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">청구 금액</span>
+              <input id="budget-amount" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100" inputmode="numeric" placeholder="예: 250000" required>
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">청구일</span>
+              <input id="budget-request-date" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100" type="date">
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">필요 집행일</span>
+              <input id="budget-required-date" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100" type="date">
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">담당 실행위원</span>
+              <input id="budget-executive" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100" placeholder="예: 오성현 목사">
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">청구 팀장</span>
+              <input id="budget-leader" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100" placeholder="팀장 이름" required>
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">예산 구분</span>
+              <select id="budget-category" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100">
+                <option>운영비</option>
+                <option>홍보/디자인</option>
+                <option>시설/장비</option>
+                <option>식사/숙박</option>
+                <option>강사/의전</option>
+                <option>기타</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">지급 대상</span>
+              <input id="budget-payee" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100" placeholder="업체명 또는 지급 대상">
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">지급 방식</span>
+              <select id="budget-payment-method" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100">
+                <option>계좌이체</option>
+                <option>카드 결제</option>
+                <option>현금 지급</option>
+                <option>사후 정산</option>
+                <option>기타</option>
+              </select>
+            </label>
+            <label class="block md:col-span-2">
+              <span class="text-sm font-extrabold text-slate-700">계좌/지급 정보</span>
+              <input id="budget-account" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100" placeholder="계좌번호, 예금주, 세금계산서 여부 등">
+            </label>
+            <label class="block md:col-span-2">
+              <span class="text-sm font-extrabold text-slate-700">청구 사유</span>
+              <textarea id="budget-reason" rows="3" class="mt-2 w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold leading-6 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100" placeholder="예산이 필요한 이유와 행사 운영상 필요성" required></textarea>
+            </label>
+            <label class="block md:col-span-2">
+              <span class="text-sm font-extrabold text-slate-700">세부 산출 내역</span>
+              <textarea id="budget-breakdown" rows="4" class="mt-2 w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold leading-6 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100" placeholder="예: 명찰 300개 x 700원 = 210,000원"></textarea>
+            </label>
+            <label class="block md:col-span-2">
+              <span class="text-sm font-extrabold text-slate-700">견적서/증빙 링크</span>
+              <input id="budget-attachment" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100" type="url" placeholder="https://...">
+            </label>
+          </div>
+          <button id="team-budget-submit" class="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl bg-blue-600 py-3.5 font-extrabold text-white transition hover:bg-blue-700" type="submit">
+            <span class="material-symbols-outlined text-lg">send</span>
+            예산 청구 등록
+          </button>
+          <p id="team-budget-message" class="mt-4 hidden rounded-xl px-4 py-3 text-sm font-bold"></p>
+        </form>
+
+        <section class="rounded-3xl border border-outline-variant/60 bg-white p-5 shadow-editorial md:p-6">
+          <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <span class="text-sm font-extrabold uppercase tracking-widest text-primary">Budget Board</span>
+              <h3 class="mt-2 text-2xl font-black text-on-surface">예산 청구 목록</h3>
+            </div>
+            <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+              <select id="budget-filter-team" class="rounded-xl border border-slate-200 px-3 py-2 text-sm font-bold outline-none focus:border-blue-400">
+                <option value="">전체 팀</option>
+              </select>
+              <select id="budget-filter-status" class="rounded-xl border border-slate-200 px-3 py-2 text-sm font-bold outline-none focus:border-blue-400">
+                <option value="">전체 결재 상태</option>
+                <option value="leader_requested">팀장 청구</option>
+                <option value="executive_approved">실행위원 승인</option>
+                <option value="chair_approved">실행위원장 결재</option>
+                <option value="executed">집행 완료</option>
+                <option value="revision_requested">보완 요청</option>
+                <option value="rejected">반려</option>
+              </select>
+            </div>
+          </div>
+          <div id="team-budget-board" class="mt-6 space-y-4">
+            <div class="rounded-2xl bg-slate-50 p-8 text-center text-sm font-bold text-slate-400">예산 청구서를 불러오는 중입니다.</div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="mt-10 bg-slate-50 py-12">
+  <div class="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-8 px-8 md:flex-row">
+    <div>
+      <div class="mb-2 text-lg font-semibold text-slate-800">지저스 미션 컨퍼런스</div>
+      <div class="text-sm text-slate-500">© 2026 지저스 미션 컨퍼런스. All rights reserved.</div>
+    </div>
+    <a href="staff-lounge.html" class="inline-flex items-center gap-2 rounded-xl bg-[#071226] px-5 py-3 text-sm font-extrabold text-white transition hover:bg-slate-800"><span class="material-symbols-outlined text-base">arrow_back</span>스탭 라운지로</a>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<script src="firebase-client.js?v=20260617-team-budgets"></script>
+<script src="auth-widget.js?v=20260619-staff-header"></script>
+<script src="language-selector.js?v=20260619-staff-hero-left"></script>
+<script src="chat-widget.js"></script>
+<script>
+const TEAM_NAMES = [
+  '숙박식사팀', '시설관리팀', '안전의료팀',
+  '대외협력팀', '진행운영팀', '박람회준비팀',
+  '찬양예배팀', '등록안내팀', '결신자관리팀',
+  '해외협력팀', '기획프로그램팀', '강사의전팀',
+  '재정지원팀', '디자인홍보팀', '방송미디어팀'
+];
+const STATUS_LABELS = {
+  leader_requested: '팀장 청구',
+  executive_approved: '실행위원 승인',
+  chair_approved: '실행위원장 결재',
+  executed: '집행 완료',
+  revision_requested: '보완 요청',
+  rejected: '반려'
+};
+const ACTIONS = [
+  { value: 'comment', label: '일반 댓글' },
+  { value: 'executive_approved', label: '실행위원 승인' },
+  { value: 'chair_approved', label: '실행위원장 결재' },
+  { value: 'executed', label: '집행 완료' },
+  { value: 'revision_requested', label: '보완 요청' },
+  { value: 'rejected', label: '반려' }
+];
+let currentProfile = null;
+let currentBudgetRequests = [];
+let unsubscribeBudgetRequests = null;
+let openBudgetId = '';
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('mobile-menu-btn').querySelector('span');
+  menu.classList.toggle('hidden');
+  btn.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+}
+
+function esc(value) {
+  return String(value || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function escAttr(value) {
+  return esc(value).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function value(id) {
+  return document.getElementById(id).value;
+}
+
+function todayValue() {
+  const now = new Date();
+  const offset = now.getTimezoneOffset();
+  return new Date(now.getTime() - offset * 60000).toISOString().slice(0, 10);
+}
+
+function money(value) {
+  const amount = Number(String(value || '').replace(/[^\d]/g, '')) || 0;
+  return amount ? `${amount.toLocaleString('ko-KR')}원` : '0원';
+}
+
+function hasStaffAccess(profile) {
+  return !!profile && (profile.staff || profile.isAdmin || profile.teamRole === 'leader' || profile.teamRole === 'member');
+}
+
+function populateTeamSelects() {
+  const options = '<option value="">선택해 주세요</option>' + TEAM_NAMES.map(team => `<option>${esc(team)}</option>`).join('');
+  document.getElementById('budget-team-name').innerHTML = options;
+  document.getElementById('budget-filter-team').innerHTML = '<option value="">전체 팀</option>' + TEAM_NAMES.map(team => `<option>${esc(team)}</option>`).join('');
+}
+
+function showStatus(type, title, body, actionHtml) {
+  const colors = {
+    loading: 'border-outline-variant/50 bg-surface-container-lowest text-on-surface',
+    login: 'border-blue-100 bg-blue-50 text-blue-800',
+    denied: 'border-red-100 bg-red-50 text-red-700'
+  };
+  const status = document.getElementById('budget-auth-status');
+  status.className = `rounded-3xl border p-8 text-center shadow-editorial ${colors[type] || colors.loading}`;
+  status.innerHTML = `
+    <p class="text-lg font-black">${esc(title)}</p>
+    <p class="mx-auto mt-3 max-w-xl text-sm font-semibold leading-6">${esc(body)}</p>
+    ${actionHtml || ''}
+  `;
+  status.classList.remove('hidden');
+  document.getElementById('budget-root').classList.add('hidden');
+}
+
+function showBudgetRoot(profile) {
+  document.getElementById('budget-auth-status').classList.add('hidden');
+  document.getElementById('budget-root').classList.remove('hidden');
+  document.getElementById('budget-user-label').textContent = profile.email || profile.displayName || '스탭';
+  document.getElementById('budget-request-date').value = todayValue();
+}
+
+function workflowItem(item, key) {
+  const base = { checked: false, label: STATUS_LABELS[key] || key };
+  return item && item.workflow && item.workflow[key] ? { ...base, ...item.workflow[key] } : base;
+}
+
+function checked(item, key) {
+  return !!workflowItem(item, key).checked;
+}
+
+function formatDate(item) {
+  if (item.updatedAt && item.updatedAt.toDate) return item.updatedAt.toDate().toLocaleString('ko-KR');
+  if (item.createdAt && item.createdAt.toDate) return item.createdAt.toDate().toLocaleString('ko-KR');
+  return item.updatedAtText || item.createdAtText || '';
+}
+
+function statCard(label, value, tone) {
+  const tones = {
+    total: 'border-slate-100 bg-white text-slate-800',
+    executive: 'border-blue-100 bg-blue-50 text-blue-700',
+    chair: 'border-purple-100 bg-purple-50 text-purple-700',
+    executed: 'border-emerald-100 bg-emerald-50 text-emerald-700'
+  };
+  return `<div class="rounded-2xl border p-5 ${tones[tone] || tones.total}"><div class="text-2xl font-black">${value}</div><div class="mt-1 text-xs font-extrabold opacity-75">${label}</div></div>`;
+}
+
+function renderStats(items) {
+  const executedAmount = items.filter(item => item.status === 'executed').reduce((sum, item) => sum + (Number(item.amountNumber) || 0), 0);
+  document.getElementById('budget-stats').innerHTML = `
+    ${statCard('전체 청구', `${items.length}건`, 'total')}
+    ${statCard('실행위원 승인', `${items.filter(item => checked(item, 'executive_approved')).length}건`, 'executive')}
+    ${statCard('위원장 결재', `${items.filter(item => checked(item, 'chair_approved')).length}건`, 'chair')}
+    ${statCard('집행 금액', money(executedAmount), 'executed')}
+  `;
+}
+
+function statusBadge(status) {
+  const palette = {
+    leader_requested: 'border-blue-100 bg-blue-50 text-blue-700',
+    executive_approved: 'border-indigo-100 bg-indigo-50 text-indigo-700',
+    chair_approved: 'border-purple-100 bg-purple-50 text-purple-700',
+    executed: 'border-emerald-100 bg-emerald-50 text-emerald-700',
+    revision_requested: 'border-amber-100 bg-amber-50 text-amber-700',
+    rejected: 'border-red-100 bg-red-50 text-red-700'
+  };
+  return `<span class="rounded-full border px-3 py-1 text-xs font-extrabold ${palette[status] || palette.leader_requested}">${esc(STATUS_LABELS[status] || status || '팀장 청구')}</span>`;
+}
+
+function stepPill(item, key, label, tone) {
+  const done = checked(item, key);
+  const palettes = {
+    blue: done ? 'border-blue-200 bg-blue-50 text-blue-700' : 'border-slate-200 bg-slate-50 text-slate-400',
+    indigo: done ? 'border-indigo-200 bg-indigo-50 text-indigo-700' : 'border-slate-200 bg-slate-50 text-slate-400',
+    purple: done ? 'border-purple-200 bg-purple-50 text-purple-700' : 'border-slate-200 bg-slate-50 text-slate-400',
+    emerald: done ? 'border-emerald-200 bg-emerald-50 text-emerald-700' : 'border-slate-200 bg-slate-50 text-slate-400'
+  };
+  return `
+    <span class="inline-flex items-center gap-1 rounded-full border px-3 py-1 text-xs font-extrabold ${palettes[tone]}">
+      <span class="material-symbols-outlined text-sm">${done ? 'task_alt' : 'radio_button_unchecked'}</span>
+      ${label}
+    </span>
+  `;
+}
+
+function fieldBlock(label, body) {
+  return `
+    <div class="rounded-2xl bg-slate-50 p-4">
+      <p class="text-xs font-extrabold uppercase tracking-widest text-slate-500">${esc(label)}</p>
+      <p class="mt-2 whitespace-pre-line text-sm font-semibold leading-6 text-slate-700">${esc(body || '미입력')}</p>
+    </div>
+  `;
+}
+
+function historyHtml(entry) {
+  const isStatus = entry.action && entry.action !== 'comment';
+  const labelClass = isStatus ? 'bg-blue-50 text-blue-700' : 'bg-slate-100 text-slate-600';
+  return `
+    <div class="border-l-2 border-slate-200 pl-3">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="rounded-full px-2.5 py-1 text-xs font-extrabold ${labelClass}">${esc(entry.label || '댓글')}</span>
+        <span class="text-sm font-black text-slate-800">${esc(entry.actorName || entry.actorEmail || '스탭')}</span>
+        <span class="text-xs font-bold text-slate-400">${esc(entry.atText || '')}</span>
+      </div>
+      <p class="mt-2 whitespace-pre-line text-sm font-semibold leading-6 text-slate-600">${esc(entry.body)}</p>
+    </div>
+  `;
+}
+
+function actionOptions(item) {
+  const status = item.status || 'leader_requested';
+  return ACTIONS.map((action) => {
+    let preferred = action.value === 'comment';
+    if (status === 'leader_requested') preferred = action.value === 'executive_approved';
+    if (status === 'executive_approved') preferred = action.value === 'chair_approved';
+    if (status === 'chair_approved') preferred = action.value === 'executed';
+    return `<option value="${action.value}" ${preferred ? 'selected' : ''}>${action.label}</option>`;
+  }).join('');
+}
+
+function detailHtml(item) {
+  const history = Array.isArray(item.history) ? item.history.slice().reverse() : [];
+  return `
+    <div class="mt-4 border-t border-slate-100 pt-4">
+      <div class="grid grid-cols-1 gap-3 lg:grid-cols-2">
+        ${fieldBlock('청구 금액', money(item.amount || item.amountNumber))}
+        ${fieldBlock('예산 구분', item.category)}
+        ${fieldBlock('담당 실행위원', item.assignedExecutive)}
+        ${fieldBlock('청구 팀장', item.teamLeaderName)}
+        ${fieldBlock('청구일', item.requestDate)}
+        ${fieldBlock('필요 집행일', item.requiredDate)}
+        ${fieldBlock('지급 대상', item.payee)}
+        ${fieldBlock('지급 방식', item.paymentMethod)}
+        <div class="lg:col-span-2">${fieldBlock('계좌/지급 정보', item.accountInfo)}</div>
+        <div class="lg:col-span-2">${fieldBlock('청구 사유', item.requestReason)}</div>
+        <div class="lg:col-span-2">${fieldBlock('세부 산출 내역', item.budgetBreakdown)}</div>
+      </div>
+      ${item.attachmentUrl ? `<a href="${escAttr(item.attachmentUrl)}" target="_blank" rel="noopener" class="mt-4 inline-flex items-center gap-2 rounded-xl bg-slate-100 px-4 py-3 text-sm font-extrabold text-slate-700 transition hover:bg-slate-200"><span class="material-symbols-outlined text-base">attach_file</span>견적서/증빙 링크 열기</a>` : ''}
+      <div class="mt-5 rounded-2xl bg-white p-4 ring-1 ring-slate-100">
+        <p class="text-sm font-black text-slate-900">결재 및 집행 이력</p>
+        <div class="mt-4 space-y-4">
+          ${history.length ? history.map(historyHtml).join('') : '<p class="rounded-xl bg-slate-50 p-4 text-sm font-bold text-slate-400">아직 이력이 없습니다.</p>'}
+        </div>
+        <form data-budget-action-form="${escAttr(item.id)}" class="mt-5 grid grid-cols-1 gap-3 md:grid-cols-[170px_1fr_auto]">
+          <select name="action" class="rounded-xl border border-slate-200 px-3 py-3 text-sm font-bold outline-none focus:border-blue-400">
+            ${actionOptions(item)}
+          </select>
+          <textarea name="body" rows="2" class="resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold leading-6 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100" placeholder="승인, 결재, 집행 또는 보완 내용을 입력하세요." required></textarea>
+          <button class="rounded-xl bg-slate-900 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-slate-700" type="submit">등록</button>
+        </form>
+      </div>
+    </div>
+  `;
+}
+
+function filteredBudgets() {
+  const team = document.getElementById('budget-filter-team').value;
+  const status = document.getElementById('budget-filter-status').value;
+  return currentBudgetRequests.filter((item) => {
+    if (team && item.teamName !== team) return false;
+    if (status && item.status !== status) return false;
+    return true;
+  });
+}
+
+function renderBoard() {
+  renderStats(currentBudgetRequests);
+  const items = filteredBudgets();
+  const board = document.getElementById('team-budget-board');
+  if (!items.length) {
+    board.innerHTML = '<div class="rounded-2xl bg-slate-50 p-8 text-center text-sm font-bold text-slate-400">조건에 맞는 예산 청구서가 없습니다.</div>';
+    return;
+  }
+  board.innerHTML = items.map((item) => {
+    const open = openBudgetId === item.id;
+    return `
+      <article class="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
+        <button data-budget-toggle="${escAttr(item.id)}" class="flex w-full flex-col gap-3 text-left lg:flex-row lg:items-start lg:justify-between" type="button">
+          <div class="min-w-0">
+            <div class="flex flex-wrap items-center gap-2">
+              ${statusBadge(item.status)}
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-extrabold text-slate-600">${esc(item.teamName || '팀 미기록')}</span>
+              <span class="rounded-full bg-blue-100 px-3 py-1 text-xs font-extrabold text-blue-700">${money(item.amount || item.amountNumber)}</span>
+            </div>
+            <h4 class="mt-3 text-lg font-black text-slate-900">${esc(item.title)}</h4>
+            <p class="mt-1 text-sm font-bold text-slate-500">청구 ${esc(item.authorName || item.authorEmail || item.teamLeaderName || '스탭')} · ${esc(formatDate(item))}</p>
+          </div>
+          <div class="flex shrink-0 flex-wrap gap-2">
+            ${stepPill(item, 'leader_requested', '팀장', 'blue')}
+            ${stepPill(item, 'executive_approved', '실행위원', 'indigo')}
+            ${stepPill(item, 'chair_approved', '위원장', 'purple')}
+            ${stepPill(item, 'executed', '집행', 'emerald')}
+            <span class="material-symbols-outlined text-slate-400">${open ? 'expand_less' : 'expand_more'}</span>
+          </div>
+        </button>
+        ${open ? detailHtml(item) : ''}
+      </article>
+    `;
+  }).join('');
+}
+
+function renderBudgets(items) {
+  currentBudgetRequests = Array.isArray(items) ? items : [];
+  if (openBudgetId && !currentBudgetRequests.some(item => item.id === openBudgetId)) openBudgetId = '';
+  renderBoard();
+}
+
+function loadBudgets() {
+  if (unsubscribeBudgetRequests) unsubscribeBudgetRequests();
+  unsubscribeBudgetRequests = window.JMCFirebase.watchTeamBudgetRequests(renderBudgets, () => {
+    document.getElementById('team-budget-board').innerHTML = '<div class="rounded-2xl bg-red-50 p-6 text-sm font-bold text-red-600">예산 청구서를 불러오지 못했습니다.</div>';
+  });
+}
+
+function showMessage(type, text) {
+  const el = document.getElementById('team-budget-message');
+  el.textContent = text;
+  el.className = `mt-4 rounded-xl px-4 py-3 text-sm font-bold ${type === 'ok' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`;
+}
+
+document.getElementById('team-budget-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const submit = document.getElementById('team-budget-submit');
+  submit.disabled = true;
+  submit.classList.add('opacity-60');
+  try {
+    const docRef = await window.JMCFirebase.createTeamBudgetRequest({
+      title: value('budget-title'),
+      teamName: value('budget-team-name'),
+      assignedExecutive: value('budget-executive'),
+      teamLeaderName: value('budget-leader'),
+      requestDate: value('budget-request-date'),
+      requiredDate: value('budget-required-date'),
+      amount: value('budget-amount'),
+      category: value('budget-category'),
+      payee: value('budget-payee'),
+      paymentMethod: value('budget-payment-method'),
+      accountInfo: value('budget-account'),
+      requestReason: value('budget-reason'),
+      budgetBreakdown: value('budget-breakdown'),
+      attachmentUrl: value('budget-attachment')
+    });
+    event.target.reset();
+    document.getElementById('budget-request-date').value = todayValue();
+    openBudgetId = docRef && docRef.id ? docRef.id : '';
+    showMessage('ok', '예산 청구서가 등록되었습니다.');
+  } catch (err) {
+    showMessage('error', err.message || '예산 청구서를 등록하지 못했습니다.');
+  } finally {
+    submit.disabled = false;
+    submit.classList.remove('opacity-60');
+  }
+});
+
+document.addEventListener('click', (event) => {
+  const button = event.target.closest('[data-budget-toggle]');
+  if (!button) return;
+  const id = button.dataset.budgetToggle;
+  openBudgetId = openBudgetId === id ? '' : id;
+  renderBoard();
+});
+
+document.addEventListener('submit', async (event) => {
+  const form = event.target.closest('[data-budget-action-form]');
+  if (!form) return;
+  event.preventDefault();
+  const id = form.dataset.budgetActionForm;
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+  button.classList.add('opacity-60');
+  try {
+    await window.JMCFirebase.updateTeamBudgetRequest(id, {
+      action: form.elements.action.value,
+      body: form.elements.body.value
+    });
+    form.reset();
+  } catch (err) {
+    alert(err.message || '처리 내용을 등록하지 못했습니다.');
+  } finally {
+    button.disabled = false;
+    button.classList.remove('opacity-60');
+  }
+});
+
+document.getElementById('budget-filter-team').addEventListener('change', renderBoard);
+document.getElementById('budget-filter-status').addEventListener('change', renderBoard);
+
+populateTeamSelects();
+window.JMCFirebase.finishRedirectSignIn().catch(() => {});
+window.JMCFirebase.onAuth(async (user) => {
+  if (!user) {
+    showStatus('login', '로그인이 필요합니다', '팀예산 청구 게시판은 스탭권한을 받은 계정만 이용할 수 있습니다.', '<button id="budget-login-action" class="mt-6 rounded-xl bg-blue-600 px-6 py-3 text-sm font-extrabold text-white hover:bg-blue-700" type="button">로그인 / 회원가입</button>');
+    setTimeout(() => {
+      const loginAction = document.getElementById('budget-login-action');
+      const headerLogin = document.querySelector('header [data-auth-open]');
+      if (loginAction && headerLogin) loginAction.onclick = () => headerLogin.click();
+    }, 0);
+    return;
+  }
+  try {
+    currentProfile = await window.JMCFirebase.getCurrentUserProfile();
+    if (hasStaffAccess(currentProfile)) {
+      showBudgetRoot(currentProfile);
+      loadBudgets();
+      return;
+    }
+    showStatus('denied', '스탭권한이 필요합니다', '로그인은 완료되었지만 아직 팀예산 청구 게시판 접근 권한이 없습니다. 관리자에게 스탭권한 부여를 요청해 주세요.');
+  } catch (err) {
+    showStatus('denied', '권한 확인 실패', err.message || '권한 정보를 불러오지 못했습니다.');
+  }
+});
+</script>
+</body>
+</html>

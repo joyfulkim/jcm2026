@@ -33,7 +33,7 @@ function buildModal() {
       <!-- Header -->
       <div class="sticky top-0 z-10 bg-orange-50/90 backdrop-blur-sm flex items-center justify-between px-7 pt-7 pb-4 border-b border-orange-100">
         <div class="flex items-center gap-3">
-            <img src="logo.png?v=20260609-jesus" alt="JMC" class="h-11 w-auto">
+            <img src="jesus-mission-symbol-transparent.png?v=20260609-header-transparent" alt="JMC" class="h-11 w-auto">
           <div>
             <div class="font-extrabold text-[#001F3F] text-lg leading-tight">참석 신청</div>
             <div class="text-xs text-orange-500 font-semibold">JESUS Mission Conference 2026</div>

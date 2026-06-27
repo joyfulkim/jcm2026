@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>지저스 미션 컨퍼런스 ㅣ 지출 증빙 게시판</title>
+<meta name="description" content="지저스 미션 컨퍼런스 2026 스탭 지출 증빙서류 제출 게시판입니다."/>
+<meta property="og:title" content="지저스 미션 컨퍼런스 ㅣ 지출 증빙 게시판"/>
+<meta property="og:description" content="영수증 사진을 업로드하고 지출 증빙 내역을 게시판으로 확인하는 스탭 전용 페이지입니다."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://jmc2026-2b5e0.web.app/expense-proofs.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Noto Sans KR', 'sans-serif'] },
+        colors: {
+          primary: '#e11d48',
+          secondary: '#071226',
+          background: '#f7f7f5',
+          'on-surface': '#1f2937',
+          'on-surface-variant': '#64748b',
+          'surface-container-low': '#f8fafc',
+          'surface-container-lowest': '#ffffff',
+          'outline-variant': '#e2e8f0',
+          'primary-fixed': '#ffe4e6',
+          'on-primary-fixed-variant': '#be123c'
+        },
+        boxShadow: { editorial: '0 18px 50px rgba(15, 23, 42, 0.08)' }
+      }
+    }
+  }
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans KR', sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden">
+
+<header class="sticky top-0 z-50 border-b border-white/10 bg-[#071226] shadow-[0_12px_36px_rgba(2,6,23,0.22)]">
+  <div class="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-6 py-3 md:px-8">
+    <a href="index.html" class="flex min-w-0 items-center gap-2.5">
+      <img src="jesus-mission-symbol-transparent.png?v=20260609-header-transparent" alt="지저스 미션 컨퍼런스" class="h-14 w-auto shrink-0"/>
+      <span class="truncate text-xl font-extrabold leading-none tracking-tight text-white">지저스 미션 컨퍼런스</span>
+    </a>
+    <nav class="hidden flex-1 items-center justify-end gap-3 xl:flex" aria-label="스탭 업무 메뉴">
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="staff-lounge.html"><span class="material-symbols-outlined text-[18px]">home</span><span class="whitespace-nowrap">스탭라운지</span></a>
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="team-manual.html"><span class="material-symbols-outlined text-[18px]">clinical_notes</span><span class="whitespace-nowrap">팀별 메뉴얼</span></a>
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="event-cue-sheets.html"><span class="material-symbols-outlined text-[18px]">event_note</span><span class="whitespace-nowrap">행사 큐시트</span></a>
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="team-reports.html"><span class="material-symbols-outlined text-[18px]">edit_document</span><span class="whitespace-nowrap">팀보고서</span></a>
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="team-budgets.html"><span class="material-symbols-outlined text-[18px]">request_quote</span><span class="whitespace-nowrap">팀예산</span></a>
+      <a aria-current="page" class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-amber-300 transition hover:-translate-y-0.5 hover:text-amber-200" href="expense-proofs.html"><span class="material-symbols-outlined text-[18px]">receipt_long</span><span class="whitespace-nowrap">지출증빙</span></a>
+      <a class="inline-flex h-9 items-center gap-1.5 text-[13px] font-extrabold text-white/80 transition hover:-translate-y-0.5 hover:text-amber-200" href="staff-resources.html"><span class="material-symbols-outlined text-[18px]">folder_open</span><span class="whitespace-nowrap">스탭자료실</span></a>
+      <button data-auth-open data-auth-style="plain" data-auth-variant="desktop" class="hidden h-9 items-center text-[13px] font-extrabold text-white/80 transition hover:text-amber-200 xl:inline-flex" type="button">로그인</button>
+    </nav>
+    <button id="mobile-menu-btn" class="xl:hidden text-white" onclick="toggleMobileMenu()" type="button" aria-label="모바일 메뉴 열기">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden border-t border-white/10 bg-[#071226] xl:hidden">
+    <div class="grid grid-cols-1 gap-2 px-6 py-4 sm:grid-cols-2">
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="staff-lounge.html"><span class="material-symbols-outlined text-[19px]">home</span><span>스탭라운지</span></a>
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="team-manual.html"><span class="material-symbols-outlined text-[19px]">clinical_notes</span><span>팀별 메뉴얼</span></a>
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="event-cue-sheets.html"><span class="material-symbols-outlined text-[19px]">event_note</span><span>행사 큐시트</span></a>
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="team-reports.html"><span class="material-symbols-outlined text-[19px]">edit_document</span><span>팀보고서</span></a>
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="team-budgets.html"><span class="material-symbols-outlined text-[19px]">request_quote</span><span>팀예산</span></a>
+      <a aria-current="page" class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-amber-300" href="expense-proofs.html"><span class="material-symbols-outlined text-[19px]">receipt_long</span><span>지출증빙</span></a>
+      <a class="inline-flex h-10 items-center gap-2 px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200" href="staff-resources.html"><span class="material-symbols-outlined text-[19px]">folder_open</span><span>스탭자료실</span></a>
+      <button data-auth-open data-auth-style="plain" data-auth-variant="mobile" class="inline-flex h-10 items-center px-1 text-left text-sm font-extrabold text-white/80 transition hover:text-amber-200 sm:col-span-2" type="button">로그인</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="relative flex h-[300px] items-center overflow-hidden bg-secondary">
+    <div class="absolute inset-0 opacity-20">
+      <img src="hero-worship-photo.png" alt="" class="h-full w-full object-cover grayscale-[20%] contrast-[1.1]"/>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#071226] via-[#071226]/95 to-[#071226]/70"></div>
+    <div class="relative z-10 mx-auto w-full max-w-7xl px-6 text-left md:px-8">
+      <span class="inline-flex rounded-full bg-white/10 px-4 py-2 text-left text-sm font-extrabold uppercase tracking-[0.18em] text-rose-200">Expense Proof Board</span>
+      <h1 class="mt-4 max-w-4xl text-left text-4xl font-black tracking-tight text-white md:text-5xl">지출 증빙 게시판</h1>
+      <p class="mt-3 max-w-3xl text-left text-lg font-semibold leading-8 text-white/75">영수증 사진을 업로드하고 팀별 지출 증빙 내역을 게시판으로 확인합니다.</p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-7xl px-5 py-12 md:px-8 md:py-16">
+    <div id="proof-auth-status" class="rounded-3xl border border-outline-variant/50 bg-surface-container-lowest p-8 text-center shadow-editorial">
+      <p class="text-sm font-extrabold text-primary">권한 확인 중</p>
+      <p class="mt-3 text-on-surface-variant">로그인 상태와 스탭권한을 확인하고 있습니다.</p>
+    </div>
+
+    <div id="proof-root" class="hidden space-y-8">
+      <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <span class="text-sm font-extrabold uppercase tracking-widest text-primary">Receipt Upload</span>
+          <h2 class="mt-3 text-3xl font-black text-on-surface md:text-4xl">영수증 사진 제출</h2>
+        </div>
+        <p id="proof-user-label" class="w-fit rounded-full bg-primary-fixed px-4 py-2 text-sm font-extrabold text-on-primary-fixed-variant"></p>
+      </div>
+
+      <div id="proof-stats" class="grid grid-cols-2 gap-3 lg:grid-cols-4"></div>
+
+      <div class="grid grid-cols-1 gap-6 xl:grid-cols-[0.85fr_1.15fr]">
+        <form id="expense-proof-form" class="rounded-3xl border border-outline-variant/60 bg-white p-5 shadow-editorial md:p-6">
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined rounded-2xl bg-rose-50 p-3 text-rose-600">receipt_long</span>
+            <div>
+              <h3 class="text-2xl font-black text-on-surface">증빙서류 제출</h3>
+              <p class="mt-1 text-sm font-semibold text-on-surface-variant">영수증 사진을 첨부하고 지출 내용을 기록합니다.</p>
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+            <label class="block md:col-span-2">
+              <span class="text-sm font-extrabold text-slate-700">제목</span>
+              <input id="proof-title" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100" placeholder="예: 등록안내팀 명찰 제작 영수증" required>
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">팀명</span>
+              <select id="proof-team-name" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100" required></select>
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">지출 금액</span>
+              <input id="proof-amount" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100" inputmode="numeric" placeholder="예: 250000" required>
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">지출자</span>
+              <input id="proof-spender" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100" placeholder="이름" required>
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">지출일</span>
+              <input id="proof-expense-date" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100" type="date">
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">지출 구분</span>
+              <select id="proof-category" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100">
+                <option>운영비</option>
+                <option>홍보/디자인</option>
+                <option>시설/장비</option>
+                <option>식사/숙박</option>
+                <option>강사/의전</option>
+                <option>기타</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">거래처</span>
+              <input id="proof-vendor" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100" placeholder="업체명 또는 구매처">
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">결제 방식</span>
+              <select id="proof-payment-method" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100">
+                <option>카드 결제</option>
+                <option>계좌이체</option>
+                <option>현금 지급</option>
+                <option>개인 선지출</option>
+                <option>기타</option>
+              </select>
+            </label>
+            <label class="block">
+              <span class="text-sm font-extrabold text-slate-700">관련 예산/청구</span>
+              <input id="proof-budget-ref" class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100" placeholder="예: 명찰 제작비 청구">
+            </label>
+            <label class="block md:col-span-2">
+              <span class="text-sm font-extrabold text-slate-700">사용 목적</span>
+              <textarea id="proof-purpose" rows="3" class="mt-2 w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold leading-6 outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100" placeholder="지출 목적과 사용 내역" required></textarea>
+            </label>
+            <label class="block md:col-span-2">
+              <span class="text-sm font-extrabold text-slate-700">비고</span>
+              <textarea id="proof-note" rows="2" class="mt-2 w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold leading-6 outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100" placeholder="추가 설명 또는 확인 요청 사항"></textarea>
+            </label>
+            <label class="block md:col-span-2">
+              <span class="text-sm font-extrabold text-slate-700">영수증 사진</span>
+              <input id="proof-receipt-file" class="mt-2 w-full rounded-xl border border-dashed border-rose-200 bg-rose-50/50 px-4 py-4 text-sm font-bold text-slate-600 file:mr-4 file:rounded-xl file:border-0 file:bg-rose-600 file:px-4 file:py-2.5 file:text-sm file:font-extrabold file:text-white hover:file:bg-rose-700" type="file" accept="image/*" capture="environment" required>
+            </label>
+            <div id="proof-image-preview" class="hidden md:col-span-2 rounded-2xl border border-slate-100 bg-slate-50 p-3">
+              <img id="proof-image-preview-img" src="" alt="영수증 미리보기" class="max-h-80 w-full rounded-xl object-contain bg-white">
+            </div>
+          </div>
+
+          <button id="expense-proof-submit" class="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl bg-rose-600 py-3.5 font-extrabold text-white transition hover:bg-rose-700" type="submit">
+            <span class="material-symbols-outlined text-lg">upload</span>
+            증빙 제출
+          </button>
+          <div id="proof-progress" class="mt-4 hidden rounded-2xl bg-slate-50 p-4">
+            <div class="mb-2 flex justify-between text-xs font-extrabold text-slate-500">
+              <span>업로드 진행률</span>
+              <span id="proof-progress-text">0%</span>
+            </div>
+            <div class="h-3 overflow-hidden rounded-full bg-slate-200">
+              <div id="proof-progress-bar" class="h-full w-0 rounded-full bg-rose-600 transition-all"></div>
+            </div>
+          </div>
+          <p id="expense-proof-message" class="mt-4 hidden rounded-xl px-4 py-3 text-sm font-bold"></p>
+        </form>
+
+        <section class="rounded-3xl border border-outline-variant/60 bg-white p-5 shadow-editorial md:p-6">
+          <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <span class="text-sm font-extrabold uppercase tracking-widest text-primary">Proof Board</span>
+              <h3 class="mt-2 text-2xl font-black text-on-surface">지출 증빙 목록</h3>
+            </div>
+            <div class="grid grid-cols-1 gap-2 sm:grid-cols-2">
+              <select id="proof-filter-team" class="rounded-xl border border-slate-200 px-3 py-2 text-sm font-bold outline-none focus:border-rose-400">
+                <option value="">전체 팀</option>
+              </select>
+              <select id="proof-filter-status" class="rounded-xl border border-slate-200 px-3 py-2 text-sm font-bold outline-none focus:border-rose-400">
+                <option value="">전체 상태</option>
+                <option value="submitted">제출됨</option>
+                <option value="verified">확인 완료</option>
+                <option value="revision_requested">보완 요청</option>
+              </select>
+            </div>
+          </div>
+          <div id="expense-proof-board" class="mt-6 space-y-4">
+            <div class="rounded-2xl bg-slate-50 p-8 text-center text-sm font-bold text-slate-400">지출 증빙을 불러오는 중입니다.</div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="mt-10 bg-slate-50 py-12">
+  <div class="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-8 px-8 md:flex-row">
+    <div>
+      <div class="mb-2 text-lg font-semibold text-slate-800">지저스 미션 컨퍼런스</div>
+      <div class="text-sm text-slate-500">© 2026 지저스 미션 컨퍼런스. All rights reserved.</div>
+    </div>
+    <a href="staff-lounge.html" class="inline-flex items-center gap-2 rounded-xl bg-[#071226] px-5 py-3 text-sm font-extrabold text-white transition hover:bg-slate-800"><span class="material-symbols-outlined text-base">arrow_back</span>스탭 라운지로</a>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
+<script src="firebase-client.js?v=20260617-expense-proofs"></script>
+<script src="auth-widget.js?v=20260619-staff-header"></script>
+<script src="language-selector.js?v=20260619-staff-hero-left"></script>
+<script src="chat-widget.js"></script>
+<script>
+const TEAM_NAMES = [
+  '숙박식사팀', '시설관리팀', '안전의료팀',
+  '대외협력팀', '진행운영팀', '박람회준비팀',
+  '찬양예배팀', '등록안내팀', '결신자관리팀',
+  '해외협력팀', '기획프로그램팀', '강사의전팀',
+  '재정지원팀', '디자인홍보팀', '방송미디어팀'
+];
+const STATUS_LABELS = {
+  submitted: '제출됨',
+  verified: '확인 완료',
+  revision_requested: '보완 요청'
+};
+let currentProfile = null;
+let currentProofs = [];
+let unsubscribeProofs = null;
+let openProofId = '';
+let previewUrl = '';
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('mobile-menu-btn').querySelector('span');
+  menu.classList.toggle('hidden');
+  btn.textContent = menu.classList.contains('hidden') ? 'menu' : 'close';
+}
+
+function esc(value) {
+  return String(value || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function escAttr(value) {
+  return esc(value).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function value(id) {
+  return document.getElementById(id).value;
+}
+
+function todayValue() {
+  const now = new Date();
+  const offset = now.getTimezoneOffset();
+  return new Date(now.getTime() - offset * 60000).toISOString().slice(0, 10);
+}
+
+function money(value) {
+  const amount = Number(String(value || '').replace(/[^\d]/g, '')) || 0;
+  return amount ? `${amount.toLocaleString('ko-KR')}원` : '0원';
+}
+
+function hasStaffAccess(profile) {
+  return !!profile && (profile.staff || profile.isAdmin || profile.teamRole === 'leader' || profile.teamRole === 'member');
+}
+
+function populateTeamSelects() {
+  const options = '<option value="">선택해 주세요</option>' + TEAM_NAMES.map(team => `<option>${esc(team)}</option>`).join('');
+  document.getElementById('proof-team-name').innerHTML = options;
+  document.getElementById('proof-filter-team').innerHTML = '<option value="">전체 팀</option>' + TEAM_NAMES.map(team => `<option>${esc(team)}</option>`).join('');
+}
+
+function setProgress(percent) {
+  const safe = Math.max(0, Math.min(100, Math.round(Number(percent) || 0)));
+  document.getElementById('proof-progress').classList.remove('hidden');
+  document.getElementById('proof-progress-text').textContent = `${safe}%`;
+  document.getElementById('proof-progress-bar').style.width = `${safe}%`;
+}
+
+function resetProgress() {
+  document.getElementById('proof-progress').classList.add('hidden');
+  document.getElementById('proof-progress-text').textContent = '0%';
+  document.getElementById('proof-progress-bar').style.width = '0%';
+}
+
+function showStatus(type, title, body, actionHtml) {
+  const colors = {
+    loading: 'border-outline-variant/50 bg-surface-container-lowest text-on-surface',
+    login: 'border-rose-100 bg-rose-50 text-rose-800',
+    denied: 'border-red-100 bg-red-50 text-red-700'
+  };
+  const status = document.getElementById('proof-auth-status');
+  status.className = `rounded-3xl border p-8 text-center shadow-editorial ${colors[type] || colors.loading}`;
+  status.innerHTML = `
+    <p class="text-lg font-black">${esc(title)}</p>
+    <p class="mx-auto mt-3 max-w-xl text-sm font-semibold leading-6">${esc(body)}</p>
+    ${actionHtml || ''}
+  `;
+  status.classList.remove('hidden');
+  document.getElementById('proof-root').classList.add('hidden');
+}
+
+function showProofRoot(profile) {
+  document.getElementById('proof-auth-status').classList.add('hidden');
+  document.getElementById('proof-root').classList.remove('hidden');
+  document.getElementById('proof-user-label').textContent = profile.email || profile.displayName || '스탭';
+  document.getElementById('proof-expense-date').value = todayValue();
+}
+
+function proofImageUrl(item) {
+  return item && item.receiptImage ? item.receiptImage.downloadURL || item.receiptImage.dataUrl || '' : '';
+}
+
+function formatDate(item) {
+  if (item.updatedAt && item.updatedAt.toDate) return item.updatedAt.toDate().toLocaleString('ko-KR');
+  if (item.createdAt && item.createdAt.toDate) return item.createdAt.toDate().toLocaleString('ko-KR');
+  return item.updatedAtText || item.createdAtText || '';
+}
+
+function statCard(label, value, tone) {
+  const tones = {
+    total: 'border-slate-100 bg-white text-slate-800',
+    submitted: 'border-rose-100 bg-rose-50 text-rose-700',
+    verified: 'border-emerald-100 bg-emerald-50 text-emerald-700',
+    amount: 'border-amber-100 bg-amber-50 text-amber-700'
+  };
+  return `<div class="rounded-2xl border p-5 ${tones[tone] || tones.total}"><div class="text-2xl font-black">${value}</div><div class="mt-1 text-xs font-extrabold opacity-75">${label}</div></div>`;
+}
+
+function renderStats(items) {
+  const totalAmount = items.reduce((sum, item) => sum + (Number(item.amountNumber) || 0), 0);
+  document.getElementById('proof-stats').innerHTML = `
+    ${statCard('전체 증빙', `${items.length}건`, 'total')}
+    ${statCard('제출됨', `${items.filter(item => item.status === 'submitted').length}건`, 'submitted')}
+    ${statCard('확인 완료', `${items.filter(item => item.status === 'verified').length}건`, 'verified')}
+    ${statCard('증빙 금액', money(totalAmount), 'amount')}
+  `;
+}
+
+function statusBadge(status) {
+  const palette = {
+    submitted: 'border-rose-100 bg-rose-50 text-rose-700',
+    verified: 'border-emerald-100 bg-emerald-50 text-emerald-700',
+    revision_requested: 'border-amber-100 bg-amber-50 text-amber-700'
+  };
+  return `<span class="rounded-full border px-3 py-1 text-xs font-extrabold ${palette[status] || palette.submitted}">${esc(STATUS_LABELS[status] || status || '제출됨')}</span>`;
+}
+
+function fieldBlock(label, body) {
+  return `
+    <div class="rounded-2xl bg-slate-50 p-4">
+      <p class="text-xs font-extrabold uppercase tracking-widest text-slate-500">${esc(label)}</p>
+      <p class="mt-2 whitespace-pre-line text-sm font-semibold leading-6 text-slate-700">${esc(body || '미입력')}</p>
+    </div>
+  `;
+}
+
+function commentHtml(comment) {
+  const labelClass = comment.status === 'verified'
+    ? 'bg-emerald-50 text-emerald-700'
+    : comment.status === 'revision_requested'
+      ? 'bg-amber-50 text-amber-700'
+      : 'bg-slate-100 text-slate-600';
+  return `
+    <div class="border-l-2 border-slate-200 pl-3">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="rounded-full px-2.5 py-1 text-xs font-extrabold ${labelClass}">${esc(comment.label || '댓글')}</span>
+        <span class="text-sm font-black text-slate-800">${esc(comment.actorName || comment.actorEmail || '스탭')}</span>
+        <span class="text-xs font-bold text-slate-400">${esc(comment.atText || '')}</span>
+      </div>
+      <p class="mt-2 whitespace-pre-line text-sm font-semibold leading-6 text-slate-600">${esc(comment.body)}</p>
+    </div>
+  `;
+}
+
+function detailHtml(item) {
+  const image = proofImageUrl(item);
+  const comments = Array.isArray(item.comments) ? item.comments.slice().reverse() : [];
+  return `
+    <div class="mt-4 border-t border-slate-100 pt-4">
+      ${image ? `<div class="rounded-2xl bg-slate-50 p-3"><img src="${escAttr(image)}" alt="${escAttr(item.title || '영수증 사진')}" class="max-h-[560px] w-full rounded-xl object-contain bg-white"></div>` : ''}
+      <div class="mt-4 grid grid-cols-1 gap-3 lg:grid-cols-2">
+        ${fieldBlock('지출 금액', money(item.amount || item.amountNumber))}
+        ${fieldBlock('지출 구분', item.category)}
+        ${fieldBlock('지출자', item.spenderName)}
+        ${fieldBlock('지출일', item.expenseDate)}
+        ${fieldBlock('거래처', item.vendor)}
+        ${fieldBlock('결제 방식', item.paymentMethod)}
+        ${fieldBlock('관련 예산/청구', item.budgetRef)}
+        ${fieldBlock('업로드 파일', item.receiptImage ? `${item.receiptImage.fileName || '영수증'} · ${item.receiptImage.fileSizeText || ''}` : '')}
+        <div class="lg:col-span-2">${fieldBlock('사용 목적', item.purpose)}</div>
+        <div class="lg:col-span-2">${fieldBlock('비고', item.note)}</div>
+      </div>
+      <div class="mt-5 rounded-2xl bg-white p-4 ring-1 ring-slate-100">
+        <p class="text-sm font-black text-slate-900">확인 및 댓글</p>
+        <div class="mt-4 space-y-4">
+          ${comments.length ? comments.map(commentHtml).join('') : '<p class="rounded-xl bg-slate-50 p-4 text-sm font-bold text-slate-400">아직 댓글이 없습니다.</p>'}
+        </div>
+        <form data-proof-comment-form="${escAttr(item.id)}" class="mt-5 grid grid-cols-1 gap-3 md:grid-cols-[150px_1fr_auto]">
+          <select name="status" class="rounded-xl border border-slate-200 px-3 py-3 text-sm font-bold outline-none focus:border-rose-400">
+            <option value="comment">일반 댓글</option>
+            <option value="verified">확인 완료</option>
+            <option value="revision_requested">보완 요청</option>
+          </select>
+          <textarea name="body" rows="2" class="resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm font-semibold leading-6 outline-none focus:border-rose-400 focus:ring-2 focus:ring-rose-100" placeholder="확인 내용 또는 보완 요청을 입력하세요." required></textarea>
+          <button class="rounded-xl bg-slate-900 px-5 py-3 text-sm font-extrabold text-white transition hover:bg-slate-700" type="submit">등록</button>
+        </form>
+      </div>
+    </div>
+  `;
+}
+
+function filteredProofs() {
+  const team = document.getElementById('proof-filter-team').value;
+  const status = document.getElementById('proof-filter-status').value;
+  return currentProofs.filter((item) => {
+    if (team && item.teamName !== team) return false;
+    if (status && item.status !== status) return false;
+    return true;
+  });
+}
+
+function renderBoard() {
+  renderStats(currentProofs);
+  const items = filteredProofs();
+  const board = document.getElementById('expense-proof-board');
+  if (!items.length) {
+    board.innerHTML = '<div class="rounded-2xl bg-slate-50 p-8 text-center text-sm font-bold text-slate-400">조건에 맞는 지출 증빙이 없습니다.</div>';
+    return;
+  }
+  board.innerHTML = items.map((item) => {
+    const open = openProofId === item.id;
+    const image = proofImageUrl(item);
+    return `
+      <article class="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
+        <button data-proof-toggle="${escAttr(item.id)}" class="flex w-full flex-col gap-4 text-left md:flex-row md:items-start md:justify-between" type="button">
+          <div class="flex min-w-0 gap-3">
+            ${image ? `<img src="${escAttr(image)}" alt="" class="h-20 w-20 shrink-0 rounded-xl object-cover bg-slate-100">` : '<div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-xl bg-slate-100"><span class="material-symbols-outlined text-slate-400">image</span></div>'}
+            <div class="min-w-0">
+              <div class="flex flex-wrap items-center gap-2">
+                ${statusBadge(item.status)}
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-extrabold text-slate-600">${esc(item.teamName || '팀 미기록')}</span>
+                <span class="rounded-full bg-rose-100 px-3 py-1 text-xs font-extrabold text-rose-700">${money(item.amount || item.amountNumber)}</span>
+              </div>
+              <h4 class="mt-3 text-lg font-black text-slate-900">${esc(item.title)}</h4>
+              <p class="mt-1 text-sm font-bold text-slate-500">제출 ${esc(item.uploaderName || item.uploaderEmail || item.spenderName || '스탭')} · ${esc(formatDate(item))}</p>
+            </div>
+          </div>
+          <span class="material-symbols-outlined shrink-0 text-slate-400">${open ? 'expand_less' : 'expand_more'}</span>
+        </button>
+        ${open ? detailHtml(item) : ''}
+      </article>
+    `;
+  }).join('');
+}
+
+function renderProofs(items) {
+  currentProofs = Array.isArray(items) ? items : [];
+  if (openProofId && !currentProofs.some(item => item.id === openProofId)) openProofId = '';
+  renderBoard();
+}
+
+function loadProofs() {
+  if (unsubscribeProofs) unsubscribeProofs();
+  unsubscribeProofs = window.JMCFirebase.watchExpenseProofs(renderProofs, () => {
+    document.getElementById('expense-proof-board').innerHTML = '<div class="rounded-2xl bg-red-50 p-6 text-sm font-bold text-red-600">지출 증빙을 불러오지 못했습니다.</div>';
+  });
+}
+
+function showMessage(type, text) {
+  const el = document.getElementById('expense-proof-message');
+  el.textContent = text;
+  el.className = `mt-4 rounded-xl px-4 py-3 text-sm font-bold ${type === 'ok' ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`;
+}
+
+document.getElementById('proof-receipt-file').addEventListener('change', (event) => {
+  const file = event.target.files[0];
+  const preview = document.getElementById('proof-image-preview');
+  const image = document.getElementById('proof-image-preview-img');
+  if (previewUrl) URL.revokeObjectURL(previewUrl);
+  if (!file) {
+    preview.classList.add('hidden');
+    image.src = '';
+    return;
+  }
+  previewUrl = URL.createObjectURL(file);
+  image.src = previewUrl;
+  preview.classList.remove('hidden');
+});
+
+document.getElementById('expense-proof-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const submit = document.getElementById('expense-proof-submit');
+  const receiptFile = document.getElementById('proof-receipt-file').files[0] || null;
+  submit.disabled = true;
+  submit.classList.add('opacity-60');
+  resetProgress();
+  try {
+    const docRef = await window.JMCFirebase.createExpenseProof({
+      title: value('proof-title'),
+      teamName: value('proof-team-name'),
+      spenderName: value('proof-spender'),
+      expenseDate: value('proof-expense-date'),
+      amount: value('proof-amount'),
+      category: value('proof-category'),
+      vendor: value('proof-vendor'),
+      paymentMethod: value('proof-payment-method'),
+      purpose: value('proof-purpose'),
+      budgetRef: value('proof-budget-ref'),
+      note: value('proof-note'),
+      receiptFile,
+      onProgress: setProgress
+    });
+    event.target.reset();
+    document.getElementById('proof-expense-date').value = todayValue();
+    document.getElementById('proof-image-preview').classList.add('hidden');
+    if (previewUrl) URL.revokeObjectURL(previewUrl);
+    previewUrl = '';
+    openProofId = docRef && docRef.id ? docRef.id : '';
+    showMessage('ok', '지출 증빙이 제출되었습니다.');
+  } catch (err) {
+    showMessage('error', err.message || '지출 증빙을 제출하지 못했습니다.');
+  } finally {
+    submit.disabled = false;
+    submit.classList.remove('opacity-60');
+  }
+});
+
+document.addEventListener('click', (event) => {
+  const button = event.target.closest('[data-proof-toggle]');
+  if (!button) return;
+  const id = button.dataset.proofToggle;
+  openProofId = openProofId === id ? '' : id;
+  renderBoard();
+});
+
+document.addEventListener('submit', async (event) => {
+  const form = event.target.closest('[data-proof-comment-form]');
+  if (!form) return;
+  event.preventDefault();
+  const id = form.dataset.proofCommentForm;
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+  button.classList.add('opacity-60');
+  try {
+    await window.JMCFirebase.addExpenseProofComment(id, {
+      status: form.elements.status.value,
+      body: form.elements.body.value
+    });
+    form.reset();
+  } catch (err) {
+    alert(err.message || '댓글을 등록하지 못했습니다.');
+  } finally {
+    button.disabled = false;
+    button.classList.remove('opacity-60');
+  }
+});
+
+document.getElementById('proof-filter-team').addEventListener('change', renderBoard);
+document.getElementById('proof-filter-status').addEventListener('change', renderBoard);
+
+populateTeamSelects();
+window.JMCFirebase.finishRedirectSignIn().catch(() => {});
+window.JMCFirebase.onAuth(async (user) => {
+  if (!user) {
+    showStatus('login', '로그인이 필요합니다', '지출 증빙 게시판은 스탭권한을 받은 계정만 이용할 수 있습니다.', '<button id="proof-login-action" class="mt-6 rounded-xl bg-rose-600 px-6 py-3 text-sm font-extrabold text-white hover:bg-rose-700" type="button">로그인 / 회원가입</button>');
+    setTimeout(() => {
+      const loginAction = document.getElementById('proof-login-action');
+      const headerLogin = document.querySelector('header [data-auth-open]');
+      if (loginAction && headerLogin) loginAction.onclick = () => headerLogin.click();
+    }, 0);
+    return;
+  }
+  try {
+    currentProfile = await window.JMCFirebase.getCurrentUserProfile();
+    if (hasStaffAccess(currentProfile)) {
+      showProofRoot(currentProfile);
+      loadProofs();
+      return;
+    }
+    showStatus('denied', '스탭권한이 필요합니다', '로그인은 완료되었지만 아직 지출 증빙 게시판 접근 권한이 없습니다. 관리자에게 스탭권한 부여를 요청해 주세요.');
+  } catch (err) {
+    showStatus('denied', '권한 확인 실패', err.message || '권한 정보를 불러오지 못했습니다.');
+  }
+});
+</script>
+</body>
+</html>

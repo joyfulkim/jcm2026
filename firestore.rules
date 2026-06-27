@@ -2,14 +2,83 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    function isAdmin() {
+    function isPrimaryAdmin() {
       return request.auth != null
         && request.auth.token.email != null
         && request.auth.token.email.lower() == 'kms@jfm.kr';
     }
 
+    function isSubAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && (
+          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.subAdmin == true
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.isSubAdmin == true
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.adminRole == 'subadmin'
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.adminRole == 'sub-admin'
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.accessRole == 'subadmin'
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.accessRole == 'sub-admin'
+        )
+        || hasEmail()
+        && exists(/databases/$(database)/documents/users/$(request.auth.token.email.lower()))
+        && (
+          get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.subAdmin == true
+          || get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.isSubAdmin == true
+          || get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.adminRole == 'subadmin'
+          || get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.adminRole == 'sub-admin'
+          || get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.accessRole == 'subadmin'
+          || get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.accessRole == 'sub-admin'
+        );
+    }
+
+    function isAdmin() {
+      return isPrimaryAdmin() || isSubAdmin();
+    }
+
+    function isSelf(userId) {
+      return request.auth != null && request.auth.uid == userId;
+    }
+
+    function hasEmail() {
+      return request.auth != null
+        && request.auth.token.email != null;
+    }
+
+    function isStaff() {
+      return isAdmin()
+        || request.auth != null
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && (
+          get(/databases/$(database)/documents/users/$(request.auth.uid)).data.staff == true
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.executive == true
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.subAdmin == true
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.teamRole == 'leader'
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.teamRole == 'member'
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.teamRole == 'executive'
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.teamRole == 'chair'
+          || get(/databases/$(database)/documents/users/$(request.auth.uid)).data.adminRole == 'subadmin'
+        )
+        || hasEmail()
+        && exists(/databases/$(database)/documents/users/$(request.auth.token.email.lower()))
+        && (
+          get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.staff == true
+          || get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.executive == true
+          || get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.subAdmin == true
+          || get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.teamRole == 'leader'
+          || get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.teamRole == 'member'
+          || get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.teamRole == 'executive'
+          || get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.teamRole == 'chair'
+          || get(/databases/$(database)/documents/users/$(request.auth.token.email.lower())).data.adminRole == 'subadmin'
+        );
+    }
+
     match /notices/{noticeId} {
       allow read: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /staffNotices/{noticeId} {
+      allow read: if isAdmin() || isStaff();
       allow create, update, delete: if isAdmin();
     }
 
@@ -19,7 +88,66 @@ service cloud.firestore {
     }
 
     match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+      allow read: if isPrimaryAdmin()
+        || isSelf(userId)
+        || (hasEmail() && request.auth.token.email.lower() == userId);
+      allow create: if isPrimaryAdmin()
+        || (
+          isSelf(userId)
+          && !request.resource.data.keys().hasAny([
+            'staff', 'staffUpdatedAt', 'staffUpdatedBy',
+            'executive', 'executiveUpdatedAt', 'executiveUpdatedBy',
+            'subAdmin', 'subAdminUpdatedAt', 'subAdminUpdatedBy',
+            'teamRole', 'role', 'staffRole', 'accessRole', 'adminRole', 'committeeRole',
+            'isExecutive', 'isChair', 'isSubAdmin'
+          ])
+        );
+      allow update: if isPrimaryAdmin()
+        || (
+          isSelf(userId)
+          && !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+            'staff', 'staffUpdatedAt', 'staffUpdatedBy',
+            'executive', 'executiveUpdatedAt', 'executiveUpdatedBy',
+            'subAdmin', 'subAdminUpdatedAt', 'subAdminUpdatedBy',
+            'teamRole', 'role', 'staffRole', 'accessRole', 'adminRole', 'committeeRole',
+            'isExecutive', 'isChair', 'isSubAdmin'
+          ])
+        );
+      allow delete: if isPrimaryAdmin();
+    }
+
+    match /staffResources/{resourceId} {
+      allow read: if isAdmin() || isStaff();
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /approvalRequests/{requestId} {
+      allow read, create, update: if isAdmin() || isStaff();
+      allow delete: if isAdmin();
+    }
+
+    match /teamReports/{reportId} {
+      allow read, create, update: if isAdmin() || isStaff();
+      allow delete: if isAdmin();
+    }
+
+    match /teamBudgets/{budgetId} {
+      allow read, create, update: if isAdmin() || isStaff();
+      allow delete: if isAdmin();
+    }
+
+    match /expenseProofs/{proofId} {
+      allow read, create, update: if isAdmin() || isStaff();
+      allow delete: if isAdmin();
+    }
+
+    match /conferenceBudgetRows/{rowId} {
+      allow read, create, update, delete: if isAdmin();
+    }
+
+    match /eventCueSheets/{sheetId} {
+      allow read, create, update: if isAdmin() || isStaff();
+      allow delete: if isAdmin();
     }
   }
 }

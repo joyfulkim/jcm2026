@@ -22,10 +22,10 @@
   <div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] overflow-hidden rounded-[2rem] bg-white shadow-2xl fade-in">
     <section class="bg-slate-900 p-10 text-white flex flex-col justify-between">
       <div>
-        <img src="logo.png?v=20260609-jesus" alt="지저스 미션 컨퍼런스" class="h-20 mb-8">
+        <img src="jesus-mission-symbol-transparent.png?v=20260609-header-transparent" alt="지저스 미션 컨퍼런스" class="h-20 mb-8">
         <p class="text-sm font-extrabold uppercase tracking-[0.25em] text-orange-300">Admin Mode</p>
         <h1 class="mt-4 text-4xl font-black leading-tight">통합 관리자 모드</h1>
-        <p class="mt-5 text-slate-300 leading-7">공지사항 작성과 신청현황 확인을 한 곳에서 관리합니다.</p>
+        <p class="mt-5 text-slate-300 leading-7">공지사항, 신청현황, 스탭 자료와 스탭권한을 한 곳에서 관리합니다.</p>
       </div>
       <a href="index.html" class="mt-10 inline-flex items-center gap-2 text-sm font-bold text-slate-300 hover:text-white">
         <span class="material-symbols-outlined text-base">arrow_back</span>
@@ -36,17 +36,30 @@
     <section class="p-8 md:p-10">
       <div class="mb-7">
         <h2 class="text-2xl font-black text-slate-900">로그인</h2>
-        <p class="mt-2 text-sm text-slate-500">관리자 Google 계정으로 로그인하면 바로 관리자 모드로 이동합니다.</p>
+        <p class="mt-2 text-sm text-slate-500">관리자 계정으로 로그인하면 통합 관리 화면으로 이동합니다.</p>
       </div>
 
       <div class="rounded-3xl bg-slate-50 p-6">
         <div class="mb-5 rounded-2xl bg-white px-5 py-4 text-center text-sm leading-6 text-slate-600">
-          관리자 모드 접근은 미션 컨퍼런스 실행위원만 가능합니다.
+          관리자 모드 접근은 미션 컨퍼런스 관리자 계정만 가능합니다.
         </div>
       <button id="admin-google" class="flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-900 py-4 font-extrabold text-white hover:bg-slate-800" type="button">
         <span class="material-symbols-outlined text-base">account_circle</span>
         Google 계정으로 관리자 로그인
       </button>
+      <div class="my-5 flex items-center gap-3">
+        <div class="h-px flex-1 bg-slate-200"></div>
+        <span class="text-xs font-extrabold text-slate-400">또는</span>
+        <div class="h-px flex-1 bg-slate-200"></div>
+      </div>
+      <form id="admin-email-form" class="space-y-3">
+        <input id="admin-email" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" type="email" placeholder="이메일" required>
+        <input id="admin-password" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" type="password" placeholder="비밀번호" required>
+        <button class="flex w-full items-center justify-center gap-2 rounded-2xl bg-orange-500 py-3.5 font-extrabold text-white hover:bg-orange-600" type="submit">
+          <span class="material-symbols-outlined text-base">login</span>
+          이메일로 로그인
+        </button>
+      </form>
       </div>
       <p id="login-message" class="mt-4 hidden rounded-xl bg-red-50 px-4 py-3 text-sm font-bold text-red-600"></p>
       <p id="auth-state" class="mt-4 text-center text-xs font-bold text-slate-400">로그인 상태를 확인하는 중입니다.</p>
@@ -58,15 +71,22 @@
   <header class="sticky top-0 z-10 border-b border-slate-100 bg-white/90 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
       <div class="flex items-center gap-3">
-        <img src="logo.png?v=20260609-jesus" alt="지저스 미션 컨퍼런스" class="h-14">
+        <a href="index.html" aria-label="메인 홈페이지로 이동" class="shrink-0 rounded-xl transition hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2">
+          <img src="jesus-mission-symbol-transparent.png?v=20260609-header-transparent" alt="지저스 미션 컨퍼런스" class="h-14">
+        </a>
         <div>
           <div class="font-black text-slate-900">통합 관리자 모드</div>
           <div id="admin-user-label" class="text-xs font-semibold text-orange-500">Firebase 연결 중</div>
         </div>
       </div>
       <div class="flex flex-wrap items-center gap-2">
-        <button data-tab="notice-panel" class="admin-tab is-active rounded-xl px-4 py-2 text-sm font-extrabold transition" type="button">공지사항 관리</button>
-        <button data-tab="registration-panel" class="admin-tab rounded-xl bg-slate-100 px-4 py-2 text-sm font-extrabold text-slate-600 transition" type="button">신청현황</button>
+        <a href="index.html" class="rounded-xl bg-slate-100 px-4 py-2 text-sm font-extrabold text-slate-600 transition hover:bg-slate-200">홈</a>
+        <button data-tab="notice-panel" data-admin-only class="admin-tab is-active rounded-xl px-4 py-2 text-sm font-extrabold transition" type="button">공지사항 관리</button>
+        <button data-tab="staff-notice-panel" data-admin-only class="admin-tab rounded-xl bg-slate-100 px-4 py-2 text-sm font-extrabold text-slate-600 transition" type="button">스탭 공지사항</button>
+        <button data-tab="staff-resource-panel" data-admin-only class="admin-tab rounded-xl bg-slate-100 px-4 py-2 text-sm font-extrabold text-slate-600 transition" type="button">스탭자료실</button>
+        <button data-tab="staff-user-panel" data-primary-admin-only class="admin-tab rounded-xl bg-slate-100 px-4 py-2 text-sm font-extrabold text-slate-600 transition" type="button">스탭권한</button>
+        <button data-tab="budget-settlement-panel" data-admin-only class="admin-tab rounded-xl bg-slate-100 px-4 py-2 text-sm font-extrabold text-slate-600 transition" type="button">예산 및 결산</button>
+        <button data-tab="registration-panel" data-admin-only class="admin-tab rounded-xl bg-slate-100 px-4 py-2 text-sm font-extrabold text-slate-600 transition" type="button">신청현황</button>
         <button onclick="refreshAll()" class="rounded-xl bg-slate-100 px-4 py-2 text-sm font-extrabold text-slate-600 hover:bg-slate-200" type="button">새로고침</button>
         <button onclick="logout()" class="rounded-xl bg-red-50 px-4 py-2 text-sm font-extrabold text-red-600 hover:bg-red-100" type="button">로그아웃</button>
       </div>
@@ -97,6 +117,20 @@
               <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">내용</label>
               <textarea id="notice-body" rows="7" class="w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm leading-6 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="공지 내용을 입력하세요." required></textarea>
             </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">이미지 첨부</label>
+              <div class="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-4">
+                <input id="notice-image" type="file" accept="image/png,image/jpeg,image/webp" class="w-full text-sm font-bold text-slate-600 file:mr-4 file:rounded-xl file:border-0 file:bg-slate-900 file:px-4 file:py-2.5 file:text-sm file:font-extrabold file:text-white hover:file:bg-slate-800">
+                <p class="mt-2 text-xs font-semibold leading-5 text-slate-400">PNG, JPG, WebP 이미지를 1장 첨부할 수 있습니다.</p>
+                <div id="notice-image-preview" class="mt-4 hidden overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                  <img id="notice-image-preview-img" class="max-h-64 w-full object-contain bg-slate-100" alt="첨부 이미지 미리보기">
+                  <div class="flex items-center justify-between gap-3 px-4 py-3">
+                    <span id="notice-image-preview-name" class="min-w-0 truncate text-xs font-bold text-slate-500"></span>
+                    <button id="notice-image-remove" class="shrink-0 rounded-xl bg-red-50 px-3 py-2 text-xs font-extrabold text-red-600 hover:bg-red-100" type="button">이미지 삭제</button>
+                  </div>
+                </div>
+              </div>
+            </div>
             <label class="flex items-center gap-2 text-sm font-bold text-slate-700">
               <input id="notice-pinned" type="checkbox" class="rounded border-slate-300 text-orange-500 focus:ring-orange-400">
               중요 공지로 표시
@@ -113,6 +147,282 @@
           </div>
           <div id="admin-notice-list" class="space-y-3">
             <div class="rounded-2xl bg-slate-50 p-6 text-center text-sm font-bold text-slate-400">공지사항을 불러오는 중입니다.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="staff-notice-panel" class="admin-panel hidden">
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-[420px_1fr]">
+        <form id="staff-notice-form" class="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
+          <h2 class="text-xl font-black text-slate-900">새 스탭 공지 작성</h2>
+          <p class="mt-2 text-sm leading-6 text-slate-500">스탭 라운지 안에서만 보이는 별도 공지사항입니다.</p>
+          <div class="mt-6 space-y-4">
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">분류</label>
+              <select id="staff-notice-category" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100">
+                <option>스탭 공지</option>
+                <option>팀장 공지</option>
+                <option>긴급</option>
+                <option>자료 안내</option>
+                <option>운영 안내</option>
+              </select>
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">제목</label>
+              <input id="staff-notice-title" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="스탭 공지 제목" required>
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">내용</label>
+              <textarea id="staff-notice-body" rows="8" class="w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm leading-6 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="스탭에게 전달할 내용을 입력하세요." required></textarea>
+            </div>
+            <label class="flex items-center gap-2 text-sm font-bold text-slate-700">
+              <input id="staff-notice-pinned" type="checkbox" class="rounded border-slate-300 text-orange-500 focus:ring-orange-400">
+              중요 스탭 공지로 표시
+            </label>
+            <button class="w-full rounded-2xl bg-orange-500 py-3.5 font-extrabold text-white hover:bg-orange-600" type="submit">스탭 공지 등록</button>
+            <p id="staff-notice-message" class="hidden rounded-xl px-4 py-3 text-sm font-bold"></p>
+          </div>
+        </form>
+
+        <div class="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
+          <div class="mb-5 flex items-center justify-between">
+            <h2 class="text-xl font-black text-slate-900">등록된 스탭 공지사항</h2>
+            <span id="staff-notice-count" class="rounded-full bg-orange-100 px-3 py-1 text-xs font-extrabold text-orange-700">0건</span>
+          </div>
+          <div id="admin-staff-notice-list" class="space-y-3">
+            <div class="rounded-2xl bg-slate-50 p-6 text-center text-sm font-bold text-slate-400">스탭 공지사항을 불러오는 중입니다.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="staff-resource-panel" class="admin-panel hidden">
+      <div class="grid grid-cols-1 gap-6 lg:grid-cols-[420px_1fr]">
+        <form id="staff-resource-form" class="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
+          <h2 class="text-xl font-black text-slate-900">스탭 자료 업로드</h2>
+          <p class="mt-2 text-sm leading-6 text-slate-500">스탭권한을 받은 회원만 자료실에서 다운로드할 수 있습니다.</p>
+          <div class="mt-6 space-y-4">
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">자료명</label>
+              <input id="staff-resource-title" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="예: 운영사무국 체크리스트" required>
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">본문</label>
+              <textarea id="staff-resource-description" rows="4" class="w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm leading-6 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="자료 설명 또는 사용 안내를 입력하세요."></textarea>
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">본문 이미지</label>
+              <div class="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-4">
+                <input id="staff-resource-body-image" type="file" accept="image/jpeg,image/png,image/webp,image/gif" class="w-full text-sm font-bold text-slate-600 file:mr-4 file:rounded-xl file:border-0 file:bg-white file:px-4 file:py-2.5 file:text-sm file:font-extrabold file:text-slate-700 hover:file:bg-slate-100">
+                <p class="mt-2 text-xs font-semibold leading-5 text-slate-400">본문에 함께 노출할 이미지를 첨부할 수 있습니다. JPG, PNG, WebP, GIF 20MB 이하</p>
+              </div>
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">파일</label>
+              <div class="rounded-2xl border border-dashed border-slate-200 bg-slate-50 p-4">
+                <input id="staff-resource-file" type="file" class="w-full text-sm font-bold text-slate-600 file:mr-4 file:rounded-xl file:border-0 file:bg-slate-900 file:px-4 file:py-2.5 file:text-sm file:font-extrabold file:text-white hover:file:bg-slate-800" required>
+                <p class="mt-2 text-xs font-semibold leading-5 text-slate-400">PDF, 문서, 이미지 등 500MB 이하 스탭 공유 자료를 업로드할 수 있습니다.</p>
+              </div>
+            </div>
+            <button id="staff-resource-submit" class="w-full rounded-2xl bg-orange-500 py-3.5 font-extrabold text-white hover:bg-orange-600" type="submit">자료 업로드</button>
+            <div id="staff-resource-progress" class="hidden rounded-2xl bg-slate-50 p-4">
+              <div class="flex items-center justify-between text-xs font-extrabold text-slate-500">
+                <span>업로드 진행률</span>
+                <span id="staff-resource-progress-text">0%</span>
+              </div>
+              <div class="mt-3 h-3 overflow-hidden rounded-full bg-slate-200">
+                <div id="staff-resource-progress-bar" class="h-full w-0 rounded-full bg-orange-500 transition-all"></div>
+              </div>
+            </div>
+            <p id="staff-resource-message" class="hidden rounded-xl px-4 py-3 text-sm font-bold"></p>
+          </div>
+        </form>
+
+        <div class="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
+          <div class="mb-5 flex items-center justify-between">
+            <h2 class="text-xl font-black text-slate-900">등록된 스탭 자료</h2>
+            <span id="staff-resource-count" class="rounded-full bg-orange-100 px-3 py-1 text-xs font-extrabold text-orange-700">0건</span>
+          </div>
+          <div id="admin-staff-resource-list" class="space-y-3">
+            <div class="rounded-2xl bg-slate-50 p-6 text-center text-sm font-bold text-slate-400">자료를 불러오는 중입니다.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="staff-user-panel" class="admin-panel hidden" data-primary-admin-only>
+      <div class="overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm">
+        <div class="flex flex-col gap-3 border-b border-slate-100 px-6 py-5 md:flex-row md:items-center md:justify-between">
+          <div>
+            <h2 class="text-xl font-black text-slate-900">회원 스탭·실행위원·부관리자 권한 관리</h2>
+            <p class="mt-1 text-sm font-bold text-slate-400">사이트에 가입한 모든 회원에게 스탭 접근, 실행위원 열람, 부관리자 운영 권한을 부여합니다.</p>
+          </div>
+          <span id="staff-user-count" class="w-fit rounded-full bg-orange-100 px-3 py-1 text-xs font-extrabold text-orange-700">0명</span>
+        </div>
+        <div id="admin-user-list" class="divide-y divide-slate-100">
+          <div class="p-8 text-center text-sm font-bold text-slate-400">회원 목록을 불러오는 중입니다.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="approval-panel" class="admin-panel hidden">
+      <div class="grid grid-cols-1 gap-6 xl:grid-cols-[430px_1fr]">
+        <form id="approval-form" class="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <h2 class="text-xl font-black text-slate-900">보고서 전자결재 요청</h2>
+              <p class="mt-2 text-sm leading-6 text-slate-500">팀별 보고서를 기록으로 남기고 담당 실행위원 검토 단계로 올립니다.</p>
+            </div>
+            <span class="material-symbols-outlined rounded-2xl bg-orange-50 p-3 text-orange-500">approval_delegation</span>
+          </div>
+          <div class="mt-6 space-y-4">
+            <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div>
+                <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">팀명</label>
+                <input id="approval-team-name" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="예: 등록팀" required>
+              </div>
+              <div>
+                <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">작성자</label>
+                <input id="approval-team-lead" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="작성자 이름" required>
+              </div>
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">작성자 이메일</label>
+              <input id="approval-team-email" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" type="email" placeholder="name@example.com">
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">보고서 제목</label>
+              <input id="approval-title" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="예: 등록팀 1차 운영 보고서" required>
+            </div>
+            <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <div>
+                <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">보고서 구분</label>
+                <select id="approval-report-type" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100">
+                  <option>팀 보고</option>
+                  <option>예산 청구</option>
+                  <option>지출 증빙</option>
+                  <option>운영 보고</option>
+                  <option>재정 보고</option>
+                  <option>사역 보고</option>
+                  <option>사고/안전 보고</option>
+                  <option>결산 보고</option>
+                  <option>기타 보고</option>
+                </select>
+              </div>
+              <div>
+                <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">보고 기준일</label>
+                <input id="approval-due-date" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" type="date">
+              </div>
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">담당 실행위원</label>
+              <input id="approval-executive" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="검토 담당자 이름">
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">주요 내용</label>
+              <textarea id="approval-report-findings" rows="4" class="w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm leading-6 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="보고서의 핵심 내용, 수치, 확인 사항을 입력하세요."></textarea>
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">보고 요약</label>
+              <textarea id="approval-report-summary" rows="6" class="w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm leading-6 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="보고 목적, 진행 결과, 결재자가 확인해야 할 내용을 입력하세요." required></textarea>
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">후속 조치</label>
+              <textarea id="approval-report-next-steps" rows="3" class="w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm leading-6 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="승인 후 필요한 조치나 요청 사항을 입력하세요."></textarea>
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">첨부 링크</label>
+              <input id="approval-report-attachment" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" type="url" placeholder="https://...">
+            </div>
+            <div>
+              <label class="mb-1.5 block text-xs font-extrabold uppercase tracking-widest text-slate-500">참고 메모</label>
+              <textarea id="approval-note" rows="3" class="w-full resize-y rounded-xl border border-slate-200 px-4 py-3 text-sm leading-6 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="검토자가 알아야 할 참고사항"></textarea>
+            </div>
+            <button id="approval-submit" class="flex w-full items-center justify-center gap-2 rounded-2xl bg-orange-500 py-3.5 font-extrabold text-white hover:bg-orange-600" type="submit">
+              <span class="material-symbols-outlined text-base">send</span>
+              보고서 상신
+            </button>
+            <p id="approval-message" class="hidden rounded-xl px-4 py-3 text-sm font-bold"></p>
+          </div>
+        </form>
+
+        <div class="space-y-6">
+          <div class="grid grid-cols-2 gap-4 md:grid-cols-4" id="approval-stats"></div>
+          <div class="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
+            <div class="flex flex-col gap-3 border-b border-slate-100 pb-5 md:flex-row md:items-center md:justify-between">
+              <div>
+                <h2 class="text-xl font-black text-slate-900">결재 진행 현황</h2>
+                <p class="mt-1 text-sm font-bold text-slate-400">모든 처리 단계와 승인 이력이 문서별로 보관됩니다.</p>
+              </div>
+              <span id="approval-count" class="w-fit rounded-full bg-orange-100 px-3 py-1 text-xs font-extrabold text-orange-700">0건</span>
+            </div>
+            <div id="approval-list" class="mt-5 space-y-4">
+              <div class="rounded-2xl bg-slate-50 p-6 text-center text-sm font-bold text-slate-400">결재 문서를 불러오는 중입니다.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="budget-settlement-panel" class="admin-panel hidden">
+      <div class="space-y-6">
+        <div class="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
+          <div class="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
+            <div>
+              <h2 class="text-xl font-black text-slate-900">예산 및 결산</h2>
+              <p class="mt-2 text-sm font-bold text-slate-400">컨퍼런스 예상 지출, 집행 현황, 최종 결산을 항목별로 관리합니다.</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <button id="budget-row-seed" class="inline-flex items-center gap-1 rounded-xl bg-slate-900 px-4 py-2 text-sm font-extrabold text-white hover:bg-slate-800" type="button">
+                <span class="material-symbols-outlined text-base">playlist_add_check</span>
+                기본 예산표 적용
+              </button>
+              <button id="budget-row-add" class="inline-flex items-center gap-1 rounded-xl bg-orange-500 px-4 py-2 text-sm font-extrabold text-white hover:bg-orange-600" type="button">
+                <span class="material-symbols-outlined text-base">add</span>
+                새 항목
+              </button>
+            </div>
+          </div>
+          <div id="budget-settlement-stats" class="mt-6 grid grid-cols-2 gap-3 lg:grid-cols-5"></div>
+          <p id="budget-settlement-message" class="mt-4 hidden rounded-xl px-4 py-3 text-sm font-bold"></p>
+        </div>
+
+        <div class="overflow-hidden rounded-3xl border border-slate-100 bg-white shadow-sm">
+          <div class="flex flex-col gap-2 border-b border-slate-100 px-6 py-5 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h3 class="text-lg font-black text-slate-900">컨퍼런스 지출 항목</h3>
+              <p id="budget-settlement-note" class="mt-1 text-sm font-bold text-slate-400">예산표를 불러오는 중입니다.</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <span id="budget-settlement-count" class="w-fit rounded-full bg-orange-100 px-3 py-1 text-xs font-extrabold text-orange-700">0건</span>
+              <button id="budget-save-all" class="inline-flex items-center gap-1 rounded-xl bg-orange-500 px-4 py-2 text-sm font-extrabold text-white hover:bg-orange-600" type="button">
+                <span class="material-symbols-outlined text-base">save</span>
+                저장하기
+              </button>
+            </div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="min-w-[1320px] w-full text-[13px]">
+              <thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500">
+                <tr>
+                  <th class="w-14 px-2 py-2 text-left font-bold">순서</th>
+                  <th class="w-52 px-2 py-2 text-left font-bold">구분</th>
+                  <th class="w-48 px-2 py-2 text-left font-bold">지출항목</th>
+                  <th class="w-44 px-2 py-2 text-left font-bold">예산</th>
+                  <th class="w-44 px-2 py-2 text-left font-bold">집행</th>
+                  <th class="w-44 px-2 py-2 text-left font-bold">결산</th>
+                  <th class="w-44 px-2 py-2 text-left font-bold">잔액</th>
+                  <th class="w-48 px-2 py-2 text-left font-bold">비고</th>
+                  <th class="w-24 px-2 py-2 text-left font-bold">관리</th>
+                </tr>
+              </thead>
+              <tbody id="budget-settlement-tbody" class="divide-y divide-slate-50">
+                <tr>
+                  <td colspan="9" class="px-5 py-10 text-center text-sm font-bold text-slate-400">예산표를 불러오는 중입니다.</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
@@ -160,7 +470,8 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
-<script src="firebase-client.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
+<script src="firebase-client.js?v=20260617-budget-settlement"></script>
 <script>
 const STORAGE_KEY = 'jmc2026_registrations';
 const ADMIN_EMAIL = 'kms@jfm.kr';
@@ -169,14 +480,272 @@ const SESSION_SHORT = {
   '둘째날 오전 집회': '둘째날 오전',
   '둘째날 오후 집회': '둘째날 오후',
 };
+const DEFAULT_CONFERENCE_BUDGET_ROWS = [
+  {
+    id: 'facility-venue',
+    sortOrder: 10,
+    category: '장소/시설',
+    item: '채플 및 강의실 사용·관리',
+    detail: '패트릭 채플, 강의실, 공용공간 사용 준비와 현장 정리',
+    budgetAmount: 3500000,
+    note: '학교 협의 후 조정'
+  },
+  {
+    id: 'facility-av-lighting',
+    sortOrder: 20,
+    category: '장소/시설',
+    item: '음향·영상·조명 장비 보강',
+    detail: '메인 집회 음향, 프로젝션, 조명, 예비 케이블과 장비 렌탈',
+    budgetAmount: 4200000,
+    note: '방송미디어팀 연동'
+  },
+  {
+    id: 'facility-signage',
+    sortOrder: 30,
+    category: '장소/시설',
+    item: '안내데스크·부스·동선 사인물',
+    detail: '현장 안내 표지, 접수 동선, 팀별 부스 안내물',
+    budgetAmount: 1200000,
+    note: '디자인홍보팀 시안 필요'
+  },
+  {
+    id: 'promotion-design',
+    sortOrder: 40,
+    category: '홍보/디자인',
+    item: '포스터·카드뉴스·현수막 디자인',
+    detail: '다국어 홍보물, 온라인 이미지, 무대/현장 현수막 디자인',
+    budgetAmount: 2000000,
+    note: '한국어·영어·일본어·중국어 포함'
+  },
+  {
+    id: 'promotion-printing',
+    sortOrder: 50,
+    category: '홍보/디자인',
+    item: '인쇄물 제작',
+    detail: '포스터, 배너, 명찰, 프로그램북, 순서지, 안내 리플렛',
+    budgetAmount: 3200000,
+    note: '수량 확정 후 재산정'
+  },
+  {
+    id: 'registration-kit',
+    sortOrder: 60,
+    category: '등록/안내',
+    item: '등록 시스템·명찰·안내 패키지',
+    detail: '등록 확인, 명찰 목걸이, 봉투, 안내 자료, 현장 데스크 비품',
+    budgetAmount: 1500000,
+    note: '등록안내팀 집행'
+  },
+  {
+    id: 'worship-praise',
+    sortOrder: 70,
+    category: '예배/찬양',
+    item: '찬양팀 사례·리허설·악보/음원',
+    detail: '찬양팀 사례, 리허설 준비, 악보, 음원, 예배 소모품',
+    budgetAmount: 2500000,
+    note: '찬양예배팀 관리'
+  },
+  {
+    id: 'speaker-honorarium',
+    sortOrder: 80,
+    category: '강사/의전',
+    item: '말씀강사 사례비',
+    detail: '주강사 및 세션 강사 사례, 감사 선물',
+    budgetAmount: 6000000,
+    note: '강사의전팀 확인'
+  },
+  {
+    id: 'speaker-hospitality',
+    sortOrder: 90,
+    category: '강사/의전',
+    item: '강사 교통·숙박·식사·의전',
+    detail: '강사 이동, 숙소, 식사, 대기실, 의전 차량과 안내',
+    budgetAmount: 3500000,
+    note: '초청 범위 확정 후 조정'
+  },
+  {
+    id: 'mission-global',
+    sortOrder: 100,
+    category: '선교/해외협력',
+    item: '선교사 간증·통역·온라인 송출 지원',
+    detail: '선교간증 사례, 통역, 해외 협력 커뮤니케이션, 송출 지원',
+    budgetAmount: 2800000,
+    note: '해외협력팀 연동'
+  },
+  {
+    id: 'meal-snack',
+    sortOrder: 110,
+    category: '식사/간식',
+    item: '스탭 및 참석자 간식·음료',
+    detail: '스탭 식사 보조, 참석자 간식, 생수, 커피, 현장 음료',
+    budgetAmount: 3000000,
+    note: '숙박식사팀 집행'
+  },
+  {
+    id: 'lodging-transport',
+    sortOrder: 120,
+    category: '숙박/교통',
+    item: '외부 스탭 숙박·셔틀 지원',
+    detail: '외부 협력 스탭 숙박, 이동 차량, 주차·셔틀 안내 지원',
+    budgetAmount: 3500000,
+    note: '숙박 규모에 따라 조정'
+  },
+  {
+    id: 'expo-booth',
+    sortOrder: 130,
+    category: '박람회',
+    item: '선교 박람회 부스 제작·전기·비품',
+    detail: '부스 구조물, 테이블, 전기, 안내 배너, 참여 기관 비품',
+    budgetAmount: 3000000,
+    note: '박람회준비팀 관리'
+  },
+  {
+    id: 'media-recording',
+    sortOrder: 140,
+    category: '방송/미디어',
+    item: '사진·영상 촬영·편집·아카이브',
+    detail: '행사 스케치, 강의 녹화, 사진 촬영, 하이라이트 영상 제작',
+    budgetAmount: 3300000,
+    note: '행사 후 자료 보관 포함'
+  },
+  {
+    id: 'safety-medical',
+    sortOrder: 150,
+    category: '안전/의료',
+    item: '구급함·보험·안전요원·비상물품',
+    detail: '응급키트, 안전 안내, 보험성 비용, 비상 상황 대응 물품',
+    budgetAmount: 1300000,
+    note: '안전의료팀 집행'
+  },
+  {
+    id: 'operation-admin',
+    sortOrder: 160,
+    category: '행정/운영',
+    item: '문구·소모품·회의비·운영비',
+    detail: '운영사무국 문구, 복사용지, 사전 회의비, 현장 운영 소모품',
+    budgetAmount: 3500000,
+    note: '영수증 증빙 필수'
+  },
+  {
+    id: 'contingency',
+    sortOrder: 170,
+    category: '예비비',
+    item: '돌발 상황 예비비',
+    detail: '현장 추가 구매, 장비 교체, 긴급 교통비 등 돌발 지출',
+    budgetAmount: 3000000,
+    note: '실행위원장 승인 후 집행'
+  }
+];
 
 let adminUnlocked = false;
 let unsubscribeNotices = null;
+let unsubscribeStaffNotices = null;
 let unsubscribeRegistrations = null;
+let unsubscribeStaffResources = null;
+let unsubscribeUsers = null;
+let unsubscribeApprovals = null;
+let unsubscribeBudgetRows = null;
+let currentProfile = null;
 let currentRegistrations = [];
+let currentStaffResources = [];
+let currentUsers = [];
+let currentApprovalRequests = [];
+let currentBudgetRows = [];
+let selectedNoticeImage = null;
 
 function esc(value) {
   return String(value || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function escAttr(value) {
+  return esc(value).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+function isNoticeImage(image) {
+  return !!image
+    && typeof image.dataUrl === 'string'
+    && /^data:image\/(jpeg|png|webp);base64,/.test(image.dataUrl)
+    && image.dataUrl.length <= 700000;
+}
+
+function readFileAsDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(new Error('이미지를 읽지 못했습니다.'));
+    reader.readAsDataURL(file);
+  });
+}
+
+function loadImage(dataUrl) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => resolve(image);
+    image.onerror = () => reject(new Error('이미지 파일을 확인해 주세요.'));
+    image.src = dataUrl;
+  });
+}
+
+async function resizeNoticeImage(file) {
+  const allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+  if (!allowedTypes.includes(file.type)) {
+    throw new Error('PNG, JPG, WebP 이미지만 첨부할 수 있습니다.');
+  }
+  if (file.size > 10 * 1024 * 1024) {
+    throw new Error('10MB 이하 이미지만 첨부할 수 있습니다.');
+  }
+
+  const sourceDataUrl = await readFileAsDataUrl(file);
+  const sourceImage = await loadImage(sourceDataUrl);
+  const maxSide = 1200;
+  const scale = Math.min(1, maxSide / Math.max(sourceImage.naturalWidth, sourceImage.naturalHeight));
+  const width = Math.max(1, Math.round(sourceImage.naturalWidth * scale));
+  const height = Math.max(1, Math.round(sourceImage.naturalHeight * scale));
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, width, height);
+  ctx.drawImage(sourceImage, 0, 0, width, height);
+
+  let dataUrl = '';
+  for (const quality of [0.82, 0.72, 0.62]) {
+    dataUrl = canvas.toDataURL('image/jpeg', quality);
+    if (dataUrl.length <= 700000) break;
+  }
+  if (dataUrl.length > 700000) {
+    throw new Error('이미지 용량이 큽니다. 더 작은 이미지를 첨부해 주세요.');
+  }
+
+  return {
+    dataUrl,
+    name: file.name || 'notice-image.jpg',
+    type: 'image/jpeg',
+    width,
+    height,
+    size: Math.round((dataUrl.length * 3) / 4)
+  };
+}
+
+function updateNoticeImagePreview() {
+  const preview = document.getElementById('notice-image-preview');
+  const image = document.getElementById('notice-image-preview-img');
+  const name = document.getElementById('notice-image-preview-name');
+  if (!selectedNoticeImage) {
+    preview.classList.add('hidden');
+    image.removeAttribute('src');
+    name.textContent = '';
+    return;
+  }
+  image.src = selectedNoticeImage.dataUrl;
+  name.textContent = selectedNoticeImage.name || '첨부 이미지';
+  preview.classList.remove('hidden');
+}
+
+function clearNoticeImage() {
+  selectedNoticeImage = null;
+  document.getElementById('notice-image').value = '';
+  updateNoticeImagePreview();
 }
 
 function showLoginMessage(message) {
@@ -195,19 +764,107 @@ function isAdminUser(user) {
   return !!user && String(user.email || '').toLowerCase() === ADMIN_EMAIL;
 }
 
-function unlockAdmin(user) {
+function isSubAdminProfile(profile) {
+  if (!profile) return false;
+  const roleValues = [
+    profile.adminRole,
+    profile.role,
+    profile.staffRole,
+    profile.accessRole
+  ].map(value => String(value || '').toLowerCase());
+  return !!profile.subAdmin || !!profile.isSubAdmin || roleValues.includes('subadmin') || roleValues.includes('sub-admin');
+}
+
+function canManageAdminContent() {
+  return !!currentProfile && (!!currentProfile.isAdmin || isSubAdminProfile(currentProfile));
+}
+
+function canManageUserPermissions() {
+  return !!currentProfile && !!currentProfile.isAdmin;
+}
+
+function setActiveTab(panelId) {
+  document.querySelectorAll('.admin-tab').forEach((btn) => {
+    const active = btn.dataset.tab === panelId;
+    btn.classList.toggle('is-active', active);
+    btn.classList.toggle('bg-slate-100', !active);
+    btn.classList.toggle('text-slate-600', !active);
+  });
+  document.querySelectorAll('.admin-panel').forEach(panel => panel.classList.add('hidden'));
+  document.getElementById(panelId).classList.remove('hidden');
+}
+
+function getApprovalShortcut() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('approval') || '';
+}
+
+function requestedAdminPanel() {
+  if (window.location.hash === '#approval-panel' || getApprovalShortcut()) return 'approval-panel';
+  return '';
+}
+
+function applyApprovalShortcut() {
+  const shortcut = getApprovalShortcut();
+  if (!shortcut) return;
+  const shortcuts = {
+    'team-report': {
+      type: '팀 보고',
+      titlePlaceholder: '예: 등록안내팀 주간 팀보고서'
+    },
+    budget: {
+      type: '예산 청구',
+      titlePlaceholder: '예: 등록안내팀 추가 예산 청구'
+    },
+    'expense-proof': {
+      type: '지출 증빙',
+      titlePlaceholder: '예: 등록안내팀 지출 증빙서류 제출'
+    }
+  };
+  const config = shortcuts[shortcut];
+  if (!config) return;
+  const reportType = document.getElementById('approval-report-type');
+  const title = document.getElementById('approval-title');
+  if (reportType) reportType.value = config.type;
+  if (title && !title.value) title.placeholder = config.titlePlaceholder;
+}
+
+function applyAdminAccess() {
+  const adminOnly = canManageAdminContent();
+  const primaryAdminOnly = canManageUserPermissions();
+  document.querySelectorAll('[data-admin-only]').forEach((el) => {
+    el.classList.toggle('hidden', !adminOnly);
+  });
+  document.querySelectorAll('[data-primary-admin-only]').forEach((el) => {
+    el.classList.toggle('hidden', !primaryAdminOnly);
+  });
+  const requested = requestedAdminPanel();
+  setActiveTab(requested || (adminOnly ? 'notice-panel' : 'approval-panel'));
+  applyApprovalShortcut();
+}
+
+function unlockAdmin(user, profile) {
   clearLoginMessage();
+  currentProfile = profile || null;
   adminUnlocked = true;
   document.getElementById('login-screen').classList.add('hidden');
   document.getElementById('dashboard').classList.remove('hidden');
-  document.getElementById('admin-user-label').textContent = user.email || user.displayName || '관리자';
+  const adminLabel = profile && profile.isAdmin ? '전체관리자' : '부관리자';
+  document.getElementById('admin-user-label').textContent = `${user.email || user.displayName || '관리자'} · ${adminLabel}`;
+  applyAdminAccess();
   refreshAll();
 }
 
 function logout() {
   adminUnlocked = false;
+  currentProfile = null;
   if (unsubscribeNotices) unsubscribeNotices();
+  if (unsubscribeStaffNotices) unsubscribeStaffNotices();
   if (unsubscribeRegistrations) unsubscribeRegistrations();
+  if (unsubscribeStaffResources) unsubscribeStaffResources();
+  if (unsubscribeUsers) unsubscribeUsers();
+  if (unsubscribeApprovals) unsubscribeApprovals();
+  if (unsubscribeBudgetRows) unsubscribeBudgetRows();
   window.JMCFirebase.signOut();
   document.getElementById('dashboard').classList.add('hidden');
   document.getElementById('login-screen').classList.remove('hidden');
@@ -215,8 +872,15 @@ function logout() {
 
 function refreshAll() {
   if (!adminUnlocked) return;
-  loadNotices();
-  loadRegistrations();
+  loadApprovals();
+  if (canManageAdminContent()) {
+    loadNotices();
+    loadStaffNotices();
+    loadRegistrations();
+    loadStaffResources();
+    loadBudgetRows();
+  }
+  if (canManageUserPermissions()) loadUsers();
 }
 
 function formatNoticeDate(notice) {
@@ -247,6 +911,7 @@ function renderNotices(notices) {
       </div>
       <h3 class="font-black text-slate-900">${esc(notice.title)}</h3>
       <p class="mt-2 whitespace-pre-line text-sm leading-6 text-slate-600">${esc(notice.body)}</p>
+      ${isNoticeImage(notice.image) ? `<img src="${escAttr(notice.image.dataUrl)}" alt="${escAttr(notice.title)} 첨부 이미지" class="mt-4 max-h-72 w-full rounded-2xl border border-slate-100 bg-slate-50 object-contain">` : ''}
       <button onclick="removeNotice('${esc(notice.id)}')" class="mt-4 rounded-xl bg-red-50 px-3 py-2 text-xs font-extrabold text-red-600 hover:bg-red-100" type="button">삭제</button>
     </article>
   `).join('');
@@ -257,10 +922,648 @@ async function removeNotice(id) {
   await window.JMCFirebase.deleteNotice(id);
 }
 
+function loadStaffNotices() {
+  if (unsubscribeStaffNotices) unsubscribeStaffNotices();
+  unsubscribeStaffNotices = window.JMCFirebase.watchStaffNotices(renderStaffNotices, () => {
+    document.getElementById('admin-staff-notice-list').innerHTML = '<div class="rounded-2xl bg-red-50 p-6 text-sm font-bold text-red-600">스탭 공지사항을 불러오지 못했습니다.</div>';
+  });
+}
+
+function renderStaffNotices(notices) {
+  document.getElementById('staff-notice-count').textContent = `${notices.length}건`;
+  const list = document.getElementById('admin-staff-notice-list');
+  if (!notices.length) {
+    list.innerHTML = '<div class="rounded-2xl bg-slate-50 p-6 text-center text-sm font-bold text-slate-400">등록된 스탭 공지사항이 없습니다.</div>';
+    return;
+  }
+  list.innerHTML = notices.map((notice) => `
+    <article class="rounded-2xl border border-slate-100 p-5">
+      <div class="mb-3 flex flex-wrap items-center gap-2">
+        ${notice.pinned ? '<span class="rounded-full bg-orange-100 px-3 py-1 text-xs font-extrabold text-orange-700">중요</span>' : ''}
+        <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-extrabold text-slate-600">${esc(notice.category || '스탭 공지')}</span>
+        <span class="ml-auto text-xs font-bold text-slate-400">${esc(formatNoticeDate(notice))}</span>
+      </div>
+      <h3 class="font-black text-slate-900">${esc(notice.title)}</h3>
+      <p class="mt-2 whitespace-pre-line text-sm leading-6 text-slate-600">${esc(notice.body)}</p>
+      <button onclick="removeStaffNotice('${esc(notice.id)}')" class="mt-4 rounded-xl bg-red-50 px-3 py-2 text-xs font-extrabold text-red-600 hover:bg-red-100" type="button">삭제</button>
+    </article>
+  `).join('');
+}
+
+async function removeStaffNotice(id) {
+  if (!confirm('이 스탭 공지사항을 삭제하시겠습니까?')) return;
+  await window.JMCFirebase.deleteStaffNotice(id);
+}
+
 function showNoticeMessage(message, ok) {
   const el = document.getElementById('notice-message');
   el.textContent = message;
   el.className = `rounded-xl px-4 py-3 text-sm font-bold ${ok ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`;
+}
+
+function showStaffNoticeMessage(message, ok) {
+  const el = document.getElementById('staff-notice-message');
+  el.textContent = message;
+  el.className = `rounded-xl px-4 py-3 text-sm font-bold ${ok ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`;
+}
+
+function showStaffResourceMessage(message, ok) {
+  const el = document.getElementById('staff-resource-message');
+  el.textContent = message;
+  el.className = `rounded-xl px-4 py-3 text-sm font-bold ${ok ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`;
+}
+
+function showApprovalMessage(message, ok) {
+  const el = document.getElementById('approval-message');
+  el.textContent = message;
+  el.className = `rounded-xl px-4 py-3 text-sm font-bold ${ok ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`;
+}
+
+function setStaffResourceProgress(percent, visible = true) {
+  const progress = Math.max(0, Math.min(100, Math.round(Number(percent) || 0)));
+  const wrap = document.getElementById('staff-resource-progress');
+  const bar = document.getElementById('staff-resource-progress-bar');
+  const text = document.getElementById('staff-resource-progress-text');
+  wrap.classList.toggle('hidden', !visible);
+  bar.style.width = `${progress}%`;
+  text.textContent = `${progress}%`;
+}
+
+function formatResourceDate(resource) {
+  if (resource.createdAt && resource.createdAt.toDate) return resource.createdAt.toDate().toLocaleString('ko-KR');
+  return resource.createdAtText || '';
+}
+
+function loadStaffResources() {
+  if (unsubscribeStaffResources) unsubscribeStaffResources();
+  unsubscribeStaffResources = window.JMCFirebase.watchStaffResources(renderStaffResources, () => {
+    document.getElementById('admin-staff-resource-list').innerHTML = '<div class="rounded-2xl bg-red-50 p-6 text-sm font-bold text-red-600">스탭 자료를 불러오지 못했습니다.</div>';
+  });
+}
+
+function renderStaffResources(resources) {
+  currentStaffResources = resources;
+  document.getElementById('staff-resource-count').textContent = `${resources.length}건`;
+  const list = document.getElementById('admin-staff-resource-list');
+  if (!resources.length) {
+    list.innerHTML = '<div class="rounded-2xl bg-slate-50 p-6 text-center text-sm font-bold text-slate-400">등록된 스탭 자료가 없습니다.</div>';
+    return;
+  }
+  list.innerHTML = resources.map((resource) => `
+    <article class="rounded-2xl border border-slate-100 p-5">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="rounded-full bg-orange-100 px-3 py-1 text-xs font-extrabold text-orange-700">${esc(resource.fileSizeText || '')}</span>
+        <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-extrabold text-slate-600">${esc(resource.fileName || '파일')}</span>
+        <span class="ml-auto text-xs font-bold text-slate-400">${esc(formatResourceDate(resource))}</span>
+      </div>
+      <h3 class="mt-3 font-black text-slate-900">${esc(resource.title)}</h3>
+      ${resource.bodyImage && resource.bodyImage.downloadURL ? `<img class="mt-3 aspect-video w-full rounded-2xl object-cover" src="${escAttr(resource.bodyImage.downloadURL)}" alt="">` : ''}
+      ${resource.description ? `<p class="mt-2 whitespace-pre-line text-sm leading-6 text-slate-600">${esc(resource.description)}</p>` : ''}
+      <div class="mt-4 flex flex-wrap gap-2">
+        <button onclick="downloadStaffResource('${escAttr(resource.id)}')" class="rounded-xl bg-slate-900 px-3 py-2 text-xs font-extrabold text-white hover:bg-slate-800" type="button">다운로드 확인</button>
+        <button onclick="removeStaffResource('${escAttr(resource.id)}')" class="rounded-xl bg-red-50 px-3 py-2 text-xs font-extrabold text-red-600 hover:bg-red-100" type="button">삭제</button>
+      </div>
+    </article>
+  `).join('');
+}
+
+async function downloadStaffResource(id) {
+  const resource = currentStaffResources.find((item) => item.id === id);
+  if (!resource) return;
+  const url = await window.JMCFirebase.getStaffResourceDownloadURL(resource);
+  window.open(url, '_blank', 'noopener');
+}
+
+async function removeStaffResource(id) {
+  const resource = currentStaffResources.find((item) => item.id === id);
+  if (!resource || !confirm('이 스탭 자료를 삭제하시겠습니까?')) return;
+  await window.JMCFirebase.deleteStaffResource(resource);
+}
+
+function loadUsers() {
+  if (unsubscribeUsers) unsubscribeUsers();
+  unsubscribeUsers = window.JMCFirebase.watchUsers(renderUsers, () => {
+    document.getElementById('admin-user-list').innerHTML = '<div class="p-8 text-sm font-bold text-red-600">회원 목록을 불러오지 못했습니다.</div>';
+  });
+}
+
+function renderUsers(users) {
+  currentUsers = users;
+  document.getElementById('staff-user-count').textContent = `${users.length}명`;
+  const list = document.getElementById('admin-user-list');
+  if (!users.length) {
+    list.innerHTML = '<div class="p-8 text-center text-sm font-bold text-slate-400">회원가입한 사용자가 아직 없습니다.</div>';
+    return;
+  }
+  list.innerHTML = users.map((user) => {
+    const isStaff = !!user.staff;
+    const userRole = String(user.teamRole || user.role || user.staffRole || '').toLowerCase();
+    const adminRole = String(user.adminRole || user.accessRole || '').toLowerCase();
+    const isExecutive = !!user.executive || !!user.isExecutive || userRole === 'executive' || userRole === 'chair';
+    const isSubAdmin = !!user.subAdmin || !!user.isSubAdmin || adminRole === 'subadmin' || adminRole === 'sub-admin';
+    const isAdmin = String(user.email || '').toLowerCase() === ADMIN_EMAIL;
+    return `
+      <article class="flex flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between">
+        <div class="min-w-0">
+          <div class="flex flex-wrap items-center gap-2">
+            <h3 class="font-black text-slate-900">${esc(user.displayName || '이름 없음')}</h3>
+            ${isAdmin ? '<span class="rounded-full bg-slate-900 px-3 py-1 text-xs font-extrabold text-white">관리자</span>' : ''}
+            ${isSubAdmin ? '<span class="rounded-full bg-emerald-100 px-3 py-1 text-xs font-extrabold text-emerald-700">부관리자</span>' : ''}
+            ${isExecutive ? '<span class="rounded-full bg-blue-100 px-3 py-1 text-xs font-extrabold text-blue-700">실행위원</span>' : ''}
+            ${isStaff ? '<span class="rounded-full bg-orange-100 px-3 py-1 text-xs font-extrabold text-orange-700">스탭</span>' : '<span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-extrabold text-slate-500">일반회원</span>'}
+          </div>
+          <p class="mt-1 truncate text-sm font-semibold text-slate-500">${esc(user.email || '')}</p>
+          <p class="mt-1 text-xs font-bold text-slate-400">UID: ${esc(user.id)}</p>
+        </div>
+        <div class="flex w-full flex-col gap-2 md:w-auto md:flex-row">
+          <button onclick="toggleStaffUser('${escAttr(user.id)}', ${isStaff ? 'false' : 'true'})" class="w-full rounded-xl ${isStaff ? 'bg-red-50 text-red-600 hover:bg-red-100' : 'bg-orange-500 text-white hover:bg-orange-600'} px-4 py-3 text-sm font-extrabold md:w-auto" type="button" ${isAdmin ? 'disabled title="관리자 계정은 항상 접근 가능합니다."' : ''}>
+            ${isStaff ? '스탭권한 해제' : '스탭권한 부여'}
+          </button>
+          <button onclick="toggleExecutiveUser('${escAttr(user.id)}', ${isExecutive ? 'false' : 'true'})" class="w-full rounded-xl ${isExecutive ? 'bg-blue-50 text-blue-700 hover:bg-blue-100' : 'bg-slate-900 text-white hover:bg-slate-800'} px-4 py-3 text-sm font-extrabold md:w-auto" type="button" ${isAdmin ? 'disabled title="관리자는 항상 팀장 명단을 볼 수 있습니다."' : ''}>
+            ${isAdmin ? '관리자 열람 가능' : (isExecutive ? '실행위원 해제' : '실행위원 부여')}
+          </button>
+          <button onclick="toggleSubAdminUser('${escAttr(user.id)}', ${isSubAdmin ? 'false' : 'true'})" class="w-full rounded-xl ${isSubAdmin ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100' : 'bg-indigo-600 text-white hover:bg-indigo-700'} px-4 py-3 text-sm font-extrabold md:w-auto" type="button" ${isAdmin ? 'disabled title="전체관리자 계정은 부관리자로 변경할 수 없습니다."' : ''}>
+            ${isAdmin ? '전체관리자' : (isSubAdmin ? '부관리자 해제' : '부관리자 부여')}
+          </button>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
+
+async function toggleStaffUser(userId, staff) {
+  await window.JMCFirebase.setUserStaff(userId, staff);
+}
+
+async function toggleExecutiveUser(userId, executive) {
+  await window.JMCFirebase.setUserExecutive(userId, executive);
+}
+
+async function toggleSubAdminUser(userId, subAdmin) {
+  await window.JMCFirebase.setUserSubAdmin(userId, subAdmin);
+}
+
+function formatApprovalDate(item) {
+  if (item.updatedAt && item.updatedAt.toDate) return item.updatedAt.toDate().toLocaleString('ko-KR');
+  if (item.createdAt && item.createdAt.toDate) return item.createdAt.toDate().toLocaleString('ko-KR');
+  return item.updatedAtText || item.createdAtText || '';
+}
+
+function approvalReportType(item) {
+  return item.reportType || item.documentType || '보고서';
+}
+
+function approvalReportSummary(item) {
+  return item.reportSummary || item.workPlan || '';
+}
+
+function approvalReportFindings(item) {
+  return item.reportFindings || item.budgetBreakdown || '';
+}
+
+function approvalReportDate(item) {
+  return item.reportDate || item.dueDate || '';
+}
+
+function approvalStatusMeta(status) {
+  const map = {
+    executive_review: {
+      label: '담당 실행위원 검토',
+      badge: 'bg-blue-50 text-blue-700 border-blue-100',
+      step: 2
+    },
+    revision_requested: {
+      label: '보완 요청',
+      badge: 'bg-amber-50 text-amber-700 border-amber-100',
+      step: 1
+    },
+    chair_review: {
+      label: '실행위원장 승인 요청',
+      badge: 'bg-purple-50 text-purple-700 border-purple-100',
+      step: 3
+    },
+    final_approved: {
+      label: '최종 승인',
+      badge: 'bg-green-50 text-green-700 border-green-100',
+      step: 4
+    },
+    rejected: {
+      label: '반려',
+      badge: 'bg-red-50 text-red-700 border-red-100',
+      step: 0
+    }
+  };
+  return map[status] || map.executive_review;
+}
+
+function approvalStatCard(label, value, tone) {
+  const colors = {
+    total: 'bg-slate-50 border-slate-100 text-slate-700',
+    review: 'bg-blue-50 border-blue-100 text-blue-700',
+    chair: 'bg-purple-50 border-purple-100 text-purple-700',
+    done: 'bg-green-50 border-green-100 text-green-700'
+  };
+  return `<div class="rounded-2xl border p-5 ${colors[tone] || colors.total}"><div class="text-2xl font-extrabold">${value}</div><div class="mt-1 text-xs font-semibold opacity-75">${label}</div></div>`;
+}
+
+function loadApprovals() {
+  if (unsubscribeApprovals) unsubscribeApprovals();
+  unsubscribeApprovals = window.JMCFirebase.watchApprovalRequests(renderApprovalRequests, () => {
+    document.getElementById('approval-list').innerHTML = '<div class="rounded-2xl bg-red-50 p-6 text-sm font-bold text-red-600">전자결재 문서를 불러오지 못했습니다.</div>';
+  });
+}
+
+function renderApprovalStats(items) {
+  const executive = items.filter(item => item.status === 'executive_review').length;
+  const chair = items.filter(item => item.status === 'chair_review').length;
+  const done = items.filter(item => item.status === 'final_approved').length;
+  document.getElementById('approval-stats').innerHTML = `
+    ${approvalStatCard('전체 문서', `${items.length}건`, 'total')}
+    ${approvalStatCard('실행위원 검토', `${executive}건`, 'review')}
+    ${approvalStatCard('위원장 승인 대기', `${chair}건`, 'chair')}
+    ${approvalStatCard('최종 승인', `${done}건`, 'done')}
+  `;
+}
+
+function approvalStepHtml(item) {
+  const meta = approvalStatusMeta(item.status);
+  const steps = [
+    { no: 1, label: '보고서 작성' },
+    { no: 2, label: '실행위원 검토' },
+    { no: 3, label: '위원장 승인' }
+  ];
+  return `
+    <div class="grid grid-cols-1 gap-2 text-xs font-extrabold text-slate-500 sm:grid-cols-2">
+      ${steps.map((step) => {
+        const done = item.status === 'final_approved' || meta.step > step.no;
+        const active = meta.step === step.no;
+        const classes = done
+          ? 'border-green-100 bg-green-50 text-green-700'
+          : active
+            ? 'border-orange-100 bg-orange-50 text-orange-700'
+            : 'border-slate-100 bg-slate-50 text-slate-400';
+        return `<div class="rounded-xl border px-3 py-2 ${classes}">${step.no}. ${step.label}</div>`;
+      }).join('')}
+    </div>
+  `;
+}
+
+function approvalActionsHtml(item) {
+  const id = escAttr(item.id);
+  const buttons = [];
+  if (item.status === 'executive_review') {
+    buttons.push(`<button onclick="changeApprovalStatus('${id}', 'chair_review')" class="inline-flex items-center gap-1 rounded-xl bg-blue-600 px-3 py-2 text-xs font-extrabold text-white hover:bg-blue-700" type="button"><span class="material-symbols-outlined text-sm">task_alt</span>실행위원 승인</button>`);
+    buttons.push(`<button onclick="changeApprovalStatus('${id}', 'revision_requested')" class="inline-flex items-center gap-1 rounded-xl bg-amber-50 px-3 py-2 text-xs font-extrabold text-amber-700 hover:bg-amber-100" type="button"><span class="material-symbols-outlined text-sm">edit_note</span>보완 요청</button>`);
+  }
+  if (item.status === 'revision_requested') {
+    buttons.push(`<button onclick="changeApprovalStatus('${id}', 'executive_review')" class="inline-flex items-center gap-1 rounded-xl bg-orange-500 px-3 py-2 text-xs font-extrabold text-white hover:bg-orange-600" type="button"><span class="material-symbols-outlined text-sm">send</span>보완 후 재상신</button>`);
+  }
+  if (item.status === 'chair_review') {
+    buttons.push(`<button onclick="changeApprovalStatus('${id}', 'final_approved')" class="inline-flex items-center gap-1 rounded-xl bg-green-600 px-3 py-2 text-xs font-extrabold text-white hover:bg-green-700" type="button"><span class="material-symbols-outlined text-sm">verified</span>위원장 최종 승인</button>`);
+    buttons.push(`<button onclick="changeApprovalStatus('${id}', 'rejected')" class="inline-flex items-center gap-1 rounded-xl bg-red-50 px-3 py-2 text-xs font-extrabold text-red-600 hover:bg-red-100" type="button"><span class="material-symbols-outlined text-sm">block</span>반려</button>`);
+  }
+  if (canManageAdminContent()) {
+    buttons.push(`<button onclick="removeApprovalRequest('${id}')" class="inline-flex items-center gap-1 rounded-xl bg-slate-100 px-3 py-2 text-xs font-extrabold text-slate-600 hover:bg-slate-200" type="button"><span class="material-symbols-outlined text-sm">delete</span>삭제</button>`);
+  }
+  if (!buttons.length) return '';
+  return `<div class="mt-4 flex flex-wrap gap-2">${buttons.join('')}</div>`;
+}
+
+function approvalHistoryHtml(history) {
+  const items = Array.isArray(history) ? history.slice().reverse() : [];
+  if (!items.length) return '<p class="mt-3 text-xs font-bold text-slate-400">아직 처리 이력이 없습니다.</p>';
+  return `
+    <div class="mt-4 rounded-2xl bg-slate-50 p-4">
+      <p class="mb-3 text-xs font-extrabold uppercase tracking-widest text-slate-500">처리 이력</p>
+      <div class="space-y-3">
+        ${items.map((entry) => `
+          <div class="border-l-2 border-slate-200 pl-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-sm font-black text-slate-800">${esc(entry.label || entry.action)}</span>
+              <span class="text-xs font-bold text-slate-400">${esc(entry.atText || '')}</span>
+            </div>
+            <p class="mt-1 text-xs font-semibold text-slate-500">${esc(entry.actorEmail || entry.actorName || '처리자 미기록')}</p>
+            ${entry.note ? `<p class="mt-1 whitespace-pre-line text-xs leading-5 text-slate-600">${esc(entry.note)}</p>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function renderApprovalRequests(items) {
+  currentApprovalRequests = items;
+  renderApprovalStats(items);
+  document.getElementById('approval-count').textContent = `${items.length}건`;
+  const list = document.getElementById('approval-list');
+  if (!items.length) {
+    list.innerHTML = '<div class="rounded-2xl bg-slate-50 p-6 text-center text-sm font-bold text-slate-400">등록된 전자결재 문서가 없습니다.</div>';
+    return;
+  }
+  list.innerHTML = items.map((item) => {
+    const meta = approvalStatusMeta(item.status);
+    return `
+      <article class="rounded-2xl border border-slate-100 p-5">
+        <div class="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+          <div class="min-w-0">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="rounded-full border px-3 py-1 text-xs font-extrabold ${meta.badge}">${esc(meta.label)}</span>
+              <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-extrabold text-slate-600">${esc(item.teamName || '팀 미기록')}</span>
+              <span class="rounded-full bg-orange-100 px-3 py-1 text-xs font-extrabold text-orange-700">${esc(approvalReportType(item))}</span>
+            </div>
+            <h3 class="mt-3 text-lg font-black text-slate-900">${esc(item.title)}</h3>
+            <p class="mt-1 text-sm font-bold text-slate-500">작성자 ${esc(item.teamLeadName || '미기록')} · 담당 실행위원 ${esc(item.assignedExecutive || '미지정')}</p>
+          </div>
+          <time class="shrink-0 text-xs font-bold text-slate-400">${esc(formatApprovalDate(item))}</time>
+        </div>
+        <div class="mt-4">
+          ${approvalStepHtml(item)}
+        </div>
+        <div class="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-2">
+          <div class="rounded-2xl bg-slate-50 p-4">
+            <p class="text-xs font-extrabold uppercase tracking-widest text-slate-500">보고 요약</p>
+            <p class="mt-2 whitespace-pre-line text-sm leading-6 text-slate-700">${esc(approvalReportSummary(item))}</p>
+          </div>
+          <div class="rounded-2xl bg-slate-50 p-4">
+            <p class="text-xs font-extrabold uppercase tracking-widest text-slate-500">주요 내용</p>
+            <p class="mt-2 whitespace-pre-line text-sm leading-6 text-slate-700">${esc(approvalReportFindings(item) || '미입력')}</p>
+            ${approvalReportDate(item) ? `<p class="mt-3 text-xs font-bold text-slate-500">보고 기준일: ${esc(approvalReportDate(item))}</p>` : ''}
+            ${item.reportNextSteps ? `<p class="mt-3 text-xs font-bold leading-5 text-slate-600">후속 조치: ${esc(item.reportNextSteps)}</p>` : ''}
+            ${item.reportAttachmentUrl ? `<a href="${escAttr(item.reportAttachmentUrl)}" target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-1 rounded-xl bg-white px-3 py-2 text-xs font-extrabold text-slate-700 hover:bg-slate-100"><span class="material-symbols-outlined text-sm">attach_file</span>첨부 링크 열기</a>` : ''}
+          </div>
+        </div>
+        ${item.note ? `<p class="mt-3 rounded-2xl bg-orange-50 px-4 py-3 text-sm font-bold leading-6 text-orange-700">${esc(item.note)}</p>` : ''}
+        ${approvalActionsHtml(item)}
+        ${approvalHistoryHtml(item.history)}
+      </article>
+    `;
+  }).join('');
+}
+
+async function changeApprovalStatus(id, status) {
+  const item = currentApprovalRequests.find((request) => request.id === id);
+  if (!item) return;
+  const meta = approvalStatusMeta(status);
+  const note = prompt(`${meta.label} 처리 메모를 입력하세요.`, '');
+  if (note === null) return;
+  try {
+    await window.JMCFirebase.updateApprovalRequestStatus(id, status, note);
+  } catch (err) {
+    alert(err.message || '결재 상태를 변경하지 못했습니다.');
+  }
+}
+
+async function removeApprovalRequest(id) {
+  if (!canManageAdminContent()) return;
+  if (!confirm('이 전자결재 문서를 삭제하시겠습니까?')) return;
+  await window.JMCFirebase.deleteApprovalRequest(id);
+}
+
+function formatWon(value) {
+  const amount = Number(value) || 0;
+  const sign = amount < 0 ? '-' : '';
+  return `${sign}${Math.abs(amount).toLocaleString('ko-KR')}원`;
+}
+
+function parseWonInput(value) {
+  return Number(String(value || '').replace(/[^\d]/g, '')) || 0;
+}
+
+function formatBudgetInput(value) {
+  const amount = Number(value) || 0;
+  return amount ? amount.toLocaleString('ko-KR') : '';
+}
+
+function budgetBalance(row) {
+  const budget = Number(row.budgetAmount) || 0;
+  const executed = Number(row.executedAmount) || 0;
+  const settlement = Number(row.settlementAmount) || 0;
+  return budget - (settlement || executed);
+}
+
+function budgetStatCard(label, value, tone) {
+  const colors = {
+    budget: 'bg-orange-50 border-orange-100 text-orange-700',
+    executed: 'bg-blue-50 border-blue-100 text-blue-700',
+    settlement: 'bg-emerald-50 border-emerald-100 text-emerald-700',
+    balance: 'bg-slate-50 border-slate-100 text-slate-700',
+    count: 'bg-violet-50 border-violet-100 text-violet-700'
+  };
+  return `<div class="rounded-2xl border p-4 ${colors[tone] || colors.balance}"><div class="text-lg font-extrabold">${esc(value)}</div><div class="mt-1 text-xs font-semibold opacity-75">${esc(label)}</div></div>`;
+}
+
+function renderBudgetStats(rows) {
+  const totals = rows.reduce((sum, row) => {
+    sum.budget += Number(row.budgetAmount) || 0;
+    sum.executed += Number(row.executedAmount) || 0;
+    sum.settlement += Number(row.settlementAmount) || 0;
+    sum.balance += budgetBalance(row);
+    return sum;
+  }, { budget: 0, executed: 0, settlement: 0, balance: 0 });
+  document.getElementById('budget-settlement-stats').innerHTML = `
+    ${budgetStatCard('전체 예산', formatWon(totals.budget), 'budget')}
+    ${budgetStatCard('집행 합계', formatWon(totals.executed), 'executed')}
+    ${budgetStatCard('결산 합계', formatWon(totals.settlement), 'settlement')}
+    ${budgetStatCard('잔액 합계', formatWon(totals.balance), 'balance')}
+    ${budgetStatCard('항목 수', `${rows.length}건`, 'count')}
+  `;
+}
+
+function budgetRowHtml(row) {
+  const id = row.id || '';
+  const isTemplate = !!row.isTemplate;
+  const isDraft = String(id).startsWith('draft-');
+  const balance = budgetBalance(row);
+  const rowTone = isTemplate ? 'bg-amber-50/20' : isDraft ? 'bg-blue-50/20' : 'bg-white';
+  return `
+    <tr class="${rowTone}" data-budget-row data-row-id="${escAttr(id)}" data-template="${isTemplate ? 'true' : 'false'}">
+      <td class="px-2 py-2 align-top">
+        <input data-budget-field="sortOrder" inputmode="numeric" class="w-full rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-bold text-slate-700 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" value="${escAttr(row.sortOrder || '')}">
+      </td>
+      <td class="px-2 py-2 align-top" colspan="2">
+        <div class="grid grid-cols-[minmax(120px,0.85fr)_minmax(160px,1.15fr)] gap-1">
+          <input data-budget-field="category" class="w-full rounded-lg border border-slate-200 px-2 py-1.5 text-xs font-bold text-slate-700 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" value="${escAttr(row.category || '')}" placeholder="구분">
+          <input data-budget-field="item" class="w-full rounded-lg border border-slate-200 px-2 py-1.5 text-sm font-bold text-slate-900 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" value="${escAttr(row.item || '')}" placeholder="지출항목">
+          <textarea data-budget-field="detail" rows="1" class="col-span-2 h-9 min-h-9 w-full resize-y overflow-y-auto rounded-lg border border-slate-200 bg-white px-2 py-1 text-xs leading-4 text-slate-500 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="세부항목">${esc(row.detail || '')}</textarea>
+        </div>
+      </td>
+      <td class="px-2 py-2 align-top">
+        <input data-budget-field="budgetAmount" inputmode="numeric" class="w-full rounded-lg border border-slate-200 px-2 py-1.5 text-right text-sm font-extrabold tabular-nums text-orange-700 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" value="${escAttr(formatBudgetInput(row.budgetAmount))}" placeholder="0">
+      </td>
+      <td class="px-2 py-2 align-top">
+        <input data-budget-field="executedAmount" inputmode="numeric" class="w-full rounded-lg border border-slate-200 px-2 py-1.5 text-right text-sm font-extrabold tabular-nums text-blue-700 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" value="${escAttr(formatBudgetInput(row.executedAmount))}" placeholder="0">
+      </td>
+      <td class="px-2 py-2 align-top">
+        <input data-budget-field="settlementAmount" inputmode="numeric" class="w-full rounded-lg border border-slate-200 px-2 py-1.5 text-right text-sm font-extrabold tabular-nums text-emerald-700 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" value="${escAttr(formatBudgetInput(row.settlementAmount))}" placeholder="0">
+      </td>
+      <td class="px-2 py-2 align-top">
+        <div data-budget-balance class="rounded-lg ${balance < 0 ? 'bg-red-50 text-red-600' : 'bg-slate-50 text-slate-700'} px-2 py-1.5 text-right text-sm font-extrabold tabular-nums">${esc(formatWon(balance))}</div>
+      </td>
+      <td class="px-2 py-2 align-top">
+        <textarea data-budget-field="note" rows="1" class="h-9 min-h-9 w-full resize-y overflow-y-auto rounded-lg border border-slate-200 px-2 py-1 text-xs leading-4 text-slate-600 outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100" placeholder="비고">${esc(row.note || '')}</textarea>
+      </td>
+      <td class="px-2 py-2 align-top">
+        <div class="flex flex-col gap-1">
+          <button data-budget-row-save class="inline-flex items-center justify-center gap-1 rounded-lg bg-orange-500 px-2 py-1.5 text-xs font-extrabold text-white hover:bg-orange-600" type="button">
+            <span class="material-symbols-outlined text-sm">save</span>
+            저장
+          </button>
+          ${!isTemplate ? `<button data-budget-row-delete class="inline-flex items-center justify-center gap-1 rounded-lg bg-slate-100 px-2 py-1.5 text-xs font-extrabold text-slate-600 hover:bg-slate-200" type="button"><span class="material-symbols-outlined text-sm">delete</span>${isDraft ? '취소' : '삭제'}</button>` : ''}
+        </div>
+      </td>
+    </tr>
+  `;
+}
+
+function renderBudgetRows(rows) {
+  const savedRows = Array.isArray(rows) ? rows.slice() : [];
+  currentBudgetRows = savedRows;
+  const hasSavedRows = savedRows.length > 0;
+  const displayRows = hasSavedRows
+    ? savedRows.sort((a, b) => (Number(a.sortOrder) || 0) - (Number(b.sortOrder) || 0))
+    : DEFAULT_CONFERENCE_BUDGET_ROWS.map(row => ({
+        ...row,
+        executedAmount: 0,
+        settlementAmount: 0,
+        isTemplate: true
+      }));
+  renderBudgetStats(displayRows);
+  document.getElementById('budget-settlement-count').textContent = hasSavedRows ? `${displayRows.length}건` : `${displayRows.length}건 · 기본안`;
+  document.getElementById('budget-settlement-note').textContent = hasSavedRows
+    ? '저장된 예산표입니다.'
+    : '기본 예산표를 적용하면 저장됩니다.';
+  document.getElementById('budget-settlement-tbody').innerHTML = displayRows.map(budgetRowHtml).join('');
+}
+
+function loadBudgetRows() {
+  if (unsubscribeBudgetRows) unsubscribeBudgetRows();
+  unsubscribeBudgetRows = window.JMCFirebase.watchConferenceBudgetRows(renderBudgetRows, () => {
+    document.getElementById('budget-settlement-tbody').innerHTML = '<tr><td colspan="9" class="px-5 py-10 text-center text-sm font-bold text-red-600">예산표를 불러오지 못했습니다.</td></tr>';
+  });
+}
+
+function showBudgetMessage(message, ok) {
+  const el = document.getElementById('budget-settlement-message');
+  el.textContent = message;
+  el.className = `mt-4 rounded-xl px-4 py-3 text-sm font-bold ${ok ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-600'}`;
+}
+
+function readBudgetRow(rowEl) {
+  const rowId = rowEl.dataset.rowId || '';
+  const value = (field) => rowEl.querySelector(`[data-budget-field="${field}"]`)?.value || '';
+  return {
+    id: rowId.startsWith('draft-') ? '' : rowId,
+    sortOrder: parseWonInput(value('sortOrder')),
+    category: value('category').trim(),
+    item: value('item').trim(),
+    detail: value('detail').trim(),
+    budgetAmount: parseWonInput(value('budgetAmount')),
+    executedAmount: parseWonInput(value('executedAmount')),
+    settlementAmount: parseWonInput(value('settlementAmount')),
+    note: value('note').trim()
+  };
+}
+
+function refreshBudgetBalance(rowEl) {
+  const balanceEl = rowEl.querySelector('[data-budget-balance]');
+  if (!balanceEl) return;
+  const row = readBudgetRow(rowEl);
+  const balance = budgetBalance(row);
+  balanceEl.textContent = formatWon(balance);
+  balanceEl.className = `rounded-lg ${balance < 0 ? 'bg-red-50 text-red-600' : 'bg-slate-50 text-slate-700'} px-2 py-1.5 text-right text-sm font-extrabold tabular-nums`;
+}
+
+function addBudgetSettlementDraft() {
+  const nextSort = Math.max(
+    0,
+    ...currentBudgetRows.map(row => Number(row.sortOrder) || 0),
+    ...DEFAULT_CONFERENCE_BUDGET_ROWS.map(row => Number(row.sortOrder) || 0)
+  ) + 10;
+  currentBudgetRows = [
+    {
+      id: `draft-${Date.now()}`,
+      sortOrder: nextSort,
+      category: '',
+      item: '',
+      detail: '',
+      budgetAmount: 0,
+      executedAmount: 0,
+      settlementAmount: 0,
+      note: ''
+    },
+    ...currentBudgetRows
+  ];
+  renderBudgetRows(currentBudgetRows);
+}
+
+async function saveBudgetSettlementRow(rowEl, button) {
+  const record = readBudgetRow(rowEl);
+  if (!record.category || !record.item) {
+    showBudgetMessage('구분과 지출항목은 반드시 입력해 주세요.', false);
+    return;
+  }
+  try {
+    button.disabled = true;
+    button.innerHTML = '<span class="material-symbols-outlined text-sm">hourglass_top</span>저장 중';
+    await window.JMCFirebase.saveConferenceBudgetRow(record);
+    showBudgetMessage('예산 항목이 저장되었습니다.', true);
+  } catch (err) {
+    showBudgetMessage(err.message || '예산 항목을 저장하지 못했습니다.', false);
+  } finally {
+    button.disabled = false;
+    button.innerHTML = '<span class="material-symbols-outlined text-sm">save</span>저장';
+  }
+}
+
+async function saveAllBudgetSettlementRows(button) {
+  const rows = Array.from(document.querySelectorAll('#budget-settlement-tbody [data-budget-row]'));
+  if (!rows.length) {
+    showBudgetMessage('저장할 예산 항목이 없습니다.', false);
+    return;
+  }
+  const records = rows.map(readBudgetRow);
+  const invalid = records.find(record => !record.category || !record.item);
+  if (invalid) {
+    showBudgetMessage('모든 항목의 구분과 지출항목을 입력한 뒤 저장해 주세요.', false);
+    return;
+  }
+  try {
+    button.disabled = true;
+    button.innerHTML = '<span class="material-symbols-outlined text-base">hourglass_top</span>저장 중';
+    await Promise.all(records.map(record => window.JMCFirebase.saveConferenceBudgetRow(record)));
+    showBudgetMessage(`${records.length}개 예산 항목이 저장되었습니다.`, true);
+  } catch (err) {
+    showBudgetMessage(err.message || '예산 항목 전체 저장을 완료하지 못했습니다.', false);
+  } finally {
+    button.disabled = false;
+    button.innerHTML = '<span class="material-symbols-outlined text-base">save</span>저장하기';
+  }
+}
+
+async function deleteBudgetSettlementRow(rowEl) {
+  const rowId = rowEl.dataset.rowId || '';
+  if (rowId.startsWith('draft-')) {
+    currentBudgetRows = currentBudgetRows.filter(row => row.id !== rowId);
+    renderBudgetRows(currentBudgetRows);
+    return;
+  }
+  if (!rowId || !confirm('이 예산 항목을 삭제하시겠습니까?')) return;
+  try {
+    await window.JMCFirebase.deleteConferenceBudgetRow(rowId);
+    showBudgetMessage('예산 항목이 삭제되었습니다.', true);
+  } catch (err) {
+    showBudgetMessage(err.message || '예산 항목을 삭제하지 못했습니다.', false);
+  }
+}
+
+async function seedBudgetSettlementRows() {
+  if (currentBudgetRows.length && !confirm('기본 예산표를 적용하면 같은 기본 항목은 기본 금액으로 다시 저장됩니다. 계속할까요?')) return;
+  try {
+    await window.JMCFirebase.seedConferenceBudgetRows(DEFAULT_CONFERENCE_BUDGET_ROWS);
+    showBudgetMessage('기본 예산표가 저장되었습니다.', true);
+  } catch (err) {
+    showBudgetMessage(err.message || '기본 예산표를 저장하지 못했습니다.', false);
+  }
 }
 
 function normalizeRegistration(record, fallbackId) {
@@ -386,40 +1689,164 @@ document.getElementById('admin-google').addEventListener('click', async () => {
     }
   }
 });
+document.getElementById('admin-email-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  clearLoginMessage();
+  const email = document.getElementById('admin-email').value.trim();
+  const password = document.getElementById('admin-password').value;
+  try {
+    await window.JMCFirebase.signIn(email, password);
+  } catch (err) {
+    showLoginMessage(err.message || '이메일 로그인을 완료하지 못했습니다.');
+  }
+});
+document.getElementById('notice-image').addEventListener('change', async (event) => {
+  const file = event.target.files && event.target.files[0];
+  if (!file) {
+    clearNoticeImage();
+    return;
+  }
+  try {
+    selectedNoticeImage = await resizeNoticeImage(file);
+    updateNoticeImagePreview();
+    showNoticeMessage('이미지가 첨부되었습니다.', true);
+  } catch (err) {
+    clearNoticeImage();
+    showNoticeMessage(err.message || '이미지를 첨부하지 못했습니다.', false);
+  }
+});
+document.getElementById('notice-image-remove').addEventListener('click', clearNoticeImage);
 document.getElementById('notice-form').addEventListener('submit', async (event) => {
   event.preventDefault();
+  const form = event.currentTarget;
   try {
     await window.JMCFirebase.createNotice({
       category: document.getElementById('notice-category').value,
       title: document.getElementById('notice-title').value,
       body: document.getElementById('notice-body').value,
-      pinned: document.getElementById('notice-pinned').checked
+      pinned: document.getElementById('notice-pinned').checked,
+      image: selectedNoticeImage
     });
-    event.currentTarget.reset();
+    form.reset();
+    clearNoticeImage();
     showNoticeMessage('공지사항이 등록되었습니다.', true);
   } catch (err) {
     showNoticeMessage(err.message || '공지사항을 저장하지 못했습니다.', false);
   }
 });
+document.getElementById('staff-notice-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  try {
+    await window.JMCFirebase.createStaffNotice({
+      category: document.getElementById('staff-notice-category').value,
+      title: document.getElementById('staff-notice-title').value,
+      body: document.getElementById('staff-notice-body').value,
+      pinned: document.getElementById('staff-notice-pinned').checked
+    });
+    form.reset();
+    showStaffNoticeMessage('스탭 공지사항이 등록되었습니다.', true);
+  } catch (err) {
+    showStaffNoticeMessage(err.message || '스탭 공지사항을 저장하지 못했습니다.', false);
+  }
+});
+document.getElementById('staff-resource-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const submit = document.getElementById('staff-resource-submit');
+  const file = document.getElementById('staff-resource-file').files[0];
+  const bodyImage = document.getElementById('staff-resource-body-image').files[0] || null;
+  try {
+    submit.disabled = true;
+    submit.textContent = '업로드 중...';
+    setStaffResourceProgress(0, true);
+    await window.JMCFirebase.createStaffResource({
+      title: document.getElementById('staff-resource-title').value,
+      description: document.getElementById('staff-resource-description').value,
+      file,
+      bodyImage,
+      onProgress: (percent) => setStaffResourceProgress(percent, true)
+    });
+    form.reset();
+    setStaffResourceProgress(100, true);
+    showStaffResourceMessage('스탭 자료가 업로드되었습니다.', true);
+  } catch (err) {
+    showStaffResourceMessage(err.message || '스탭 자료를 업로드하지 못했습니다.', false);
+  } finally {
+    submit.disabled = false;
+    submit.textContent = '자료 업로드';
+  }
+});
+document.getElementById('approval-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  const submit = document.getElementById('approval-submit');
+  try {
+    submit.disabled = true;
+    submit.innerHTML = '<span class="material-symbols-outlined text-base">hourglass_top</span>상신 중...';
+    await window.JMCFirebase.createApprovalRequest({
+      documentType: 'report',
+      teamName: document.getElementById('approval-team-name').value,
+      teamLeadName: document.getElementById('approval-team-lead').value,
+      teamLeadEmail: document.getElementById('approval-team-email').value,
+      title: document.getElementById('approval-title').value,
+      reportType: document.getElementById('approval-report-type').value,
+      reportDate: document.getElementById('approval-due-date').value,
+      assignedExecutive: document.getElementById('approval-executive').value,
+      reportFindings: document.getElementById('approval-report-findings').value,
+      reportSummary: document.getElementById('approval-report-summary').value,
+      reportNextSteps: document.getElementById('approval-report-next-steps').value,
+      reportAttachmentUrl: document.getElementById('approval-report-attachment').value,
+      note: document.getElementById('approval-note').value
+    });
+    form.reset();
+    showApprovalMessage('보고서가 담당 실행위원 검토 단계로 상신되었습니다.', true);
+  } catch (err) {
+    showApprovalMessage(err.message || '보고서를 상신하지 못했습니다.', false);
+  } finally {
+    submit.disabled = false;
+    submit.innerHTML = '<span class="material-symbols-outlined text-base">send</span>보고서 상신';
+  }
+});
+document.getElementById('budget-row-add').addEventListener('click', addBudgetSettlementDraft);
+document.getElementById('budget-row-seed').addEventListener('click', seedBudgetSettlementRows);
+document.getElementById('budget-save-all').addEventListener('click', (event) => saveAllBudgetSettlementRows(event.currentTarget));
+document.getElementById('budget-settlement-tbody').addEventListener('input', (event) => {
+  if (!event.target.matches('[data-budget-field="budgetAmount"], [data-budget-field="executedAmount"], [data-budget-field="settlementAmount"]')) return;
+  refreshBudgetBalance(event.target.closest('[data-budget-row]'));
+});
+document.getElementById('budget-settlement-tbody').addEventListener('click', (event) => {
+  const saveButton = event.target.closest('[data-budget-row-save]');
+  if (saveButton) {
+    saveBudgetSettlementRow(saveButton.closest('[data-budget-row]'), saveButton);
+    return;
+  }
+  const deleteButton = event.target.closest('[data-budget-row-delete]');
+  if (deleteButton) {
+    deleteBudgetSettlementRow(deleteButton.closest('[data-budget-row]'));
+  }
+});
 document.querySelectorAll('.admin-tab').forEach((tab) => {
   tab.addEventListener('click', () => {
-    document.querySelectorAll('.admin-tab').forEach(btn => btn.classList.remove('is-active'));
-    tab.classList.add('is-active');
-    document.querySelectorAll('.admin-panel').forEach(panel => panel.classList.add('hidden'));
-    document.getElementById(tab.dataset.tab).classList.remove('hidden');
+    setActiveTab(tab.dataset.tab);
   });
 });
 window.JMCFirebase.finishRedirectSignIn().catch(() => {});
-window.JMCFirebase.onAuth((user) => {
+window.JMCFirebase.onAuth(async (user) => {
   document.getElementById('auth-state').textContent = user
     ? `로그인됨: ${user.email || user.displayName || 'Firebase 사용자'}`
-    : '관리자 Google 계정으로 로그인해 주세요.';
-  if (user && isAdminUser(user)) {
-    unlockAdmin(user);
-    return;
-  }
-  if (user && !isAdminUser(user)) {
-    showLoginMessage(`${user.email || '현재 계정'} 계정은 관리자 권한이 없습니다. ${ADMIN_EMAIL} 계정으로 로그인해 주세요.`);
+    : '관리자 계정으로 로그인해 주세요.';
+  if (user) {
+    try {
+      const profile = await window.JMCFirebase.getCurrentUserProfile();
+      if (profile && (profile.isAdmin || isSubAdminProfile(profile))) {
+        unlockAdmin(user, profile);
+        return;
+      }
+      showLoginMessage(`${user.email || '현재 계정'} 계정은 관리자 또는 부관리자 권한이 없습니다.`);
+    } catch (err) {
+      showLoginMessage(err.message || '권한을 확인하지 못했습니다.');
+    }
   }
   if (!user && adminUnlocked) logout();
 });

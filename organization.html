@@ -6,10 +6,10 @@
 <link rel="apple-touch-icon" href="favicon.png"/>
 <meta property="og:title" content="지저스 미션 컨퍼런스 ㅣ 조직"/>
 <meta property="og:description" content="지저스 미션 컨퍼런스 2026을 함께 준비하는 조직위원회와 실행위원회를 소개합니다."/>
-<meta property="og:image" content="https://joyfulkim.github.io/jcm2026/og.png"/>
+<meta property="og:image" content="https://jmc2026-2b5e0.web.app/og-kakao-20260610.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
-<meta property="og:url" content="https://joyfulkim.github.io/jcm2026/organization.html"/>
+<meta property="og:url" content="https://jmc2026-2b5e0.web.app/organization.html"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="지저스 미션 컨퍼런스"/>
 <meta name="twitter:card" content="summary_large_image"/>
@@ -33,6 +33,14 @@
     width: 2px;
     height: 34px;
     background: rgba(160, 65, 0, 0.24);
+  }
+  .team-manual-trigger .material-symbols-outlined {
+    font-size: 1.15rem;
+    transition: transform 180ms ease;
+  }
+  .team-manual-trigger:hover .material-symbols-outlined,
+  .team-manual-trigger:focus-visible .material-symbols-outlined {
+    transform: translateX(2px);
   }
 </style>
 <script id="tailwind-config">
@@ -71,38 +79,57 @@
 <body class="bg-background text-on-surface overflow-x-hidden">
 
 <!-- Header -->
-<header class="bg-surface/80 dark:bg-slate-900/80 backdrop-blur-md font-['Plus_Jakarta_Sans','Pretendard'] text-body-lg docked full-width top-0 sticky no-line tonal-shift-bg z-50">
+<header class="bg-[#071226] border-b border-white/10 backdrop-blur-md shadow-[0_12px_36px_rgba(2,6,23,0.22)] font-['Plus_Jakarta_Sans','Pretendard'] text-body-lg docked full-width top-0 sticky no-line tonal-shift-bg z-50">
 <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto w-full">
   <a href="index.html" class="flex items-center gap-2.5">
-    <img src="logo.png?v=20260609-jesus" alt="지저스 미션 컨퍼런스" class="h-14 w-auto"/>
-    <span class="font-extrabold text-slate-900 leading-none tracking-tight whitespace-nowrap" style="font-size: 20px;">지저스 미션 컨퍼런스</span>
+    <img src="jesus-mission-symbol-transparent.png?v=20260609-header-transparent" alt="지저스 미션 컨퍼런스" class="h-14 w-auto"/>
+    <span class="font-extrabold text-white leading-none tracking-tight whitespace-nowrap" style="font-size: 20px;">지저스 미션 컨퍼런스</span>
   </a>
-  <nav class="hidden lg:flex gap-6 items-center">
-    <a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: 19px;" href="index.html">홈</a>
-    <a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: 19px;" href="invitation.html">초청의 글</a>
-    <a class="text-orange-600 dark:text-orange-500 font-bold border-b-2 border-orange-600" style="font-size: 19px;" href="organization.html">조직</a>
-    <a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: 19px;" href="speakers.html">강사 소개</a>
-    <a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: 19px;" href="schedule.html">일정</a>
-    <a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: 19px;" href="directions.html">오시는 길</a>
-    <a class="text-slate-600 dark:text-slate-400 hover:text-orange-600 transition-colors font-bold" style="font-size: 19px;" href="partners.html">동역기관</a>
+  <nav class="hidden lg:flex gap-5 items-center">
+    <a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 19px;" href="index.html">홈</a>
+    <a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 19px;" href="invitation.html">초청의 글</a>
+    <a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 19px;" href="ci.html">CI소개</a>
+<a class="text-amber-300 font-bold border-b-2 border-amber-300" style="font-size: 19px;" href="organization.html">조직</a>
+    <a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 19px;" href="speakers.html">강사 소개</a>
+    <a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 19px;" href="schedule.html">일정</a>
+    <div class="group relative">
+      <button class="flex items-center gap-1 text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 19px;" type="button">
+        게시판
+        <span class="material-symbols-outlined text-base">expand_more</span>
+      </button>
+      <div class="invisible absolute left-0 top-full z-50 mt-0 w-44 rounded-2xl border border-white/10 bg-[#071226] p-2 opacity-0 shadow-2xl transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+        <a class="block rounded-xl px-4 py-3 text-sm font-extrabold text-white/80 hover:bg-white/10 hover:text-amber-200" href="notices.html">공지사항</a>
+        <a class="block rounded-xl px-4 py-3 text-sm font-extrabold text-white/80 hover:bg-white/10 hover:text-amber-200" href="qna.html">문의/답변</a>
+      </div>
+    </div>
+    <a class="text-white/80 hover:text-amber-200 transition-colors font-bold" style="font-size: 19px;" href="directions.html">오시는 길</a>
   </nav>
   <div class="flex items-center gap-4">
-    <button class="hidden lg:block px-6 py-2 rounded-xl bg-primary-container text-white font-bold hover:scale-95 transition-all duration-200" style="font-size: 20px;">등록하기</button>
-    <button id="mobile-menu-btn" class="lg:hidden text-slate-900" onclick="toggleMobileMenu()">
+    <button data-auth-open class="hidden h-7 max-w-[112px] truncate rounded-lg border border-white/20 bg-white/10 px-3 text-left font-bold leading-none text-white transition-all duration-200 hover:bg-white/15 lg:block" style="font-size: 13px;" type="button">로그인</button>
+    <a class="hidden lg:block px-3 py-1 rounded-lg bg-[#39ff14] text-[#06111f] font-black shadow-[0_0_16px_rgba(57,255,20,0.55)] ring-1 ring-[#b6ff00]/70 hover:scale-95 hover:bg-[#7cff4d] transition-all duration-200" style="font-size: 13px;" href="staff-lounge.html">STAFF 라운지</a>
+    <button id="mobile-menu-btn" class="lg:hidden text-white" onclick="toggleMobileMenu()">
       <span class="material-symbols-outlined">menu</span>
     </button>
   </div>
 </div>
-<div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-surface/98 backdrop-blur-md">
+<div id="mobile-menu" class="hidden lg:hidden border-t border-white/10 bg-[#071226] backdrop-blur-md">
   <div class="flex flex-col px-8 py-4 gap-1">
-    <a class="py-3 text-slate-600 hover:text-orange-600 font-bold text-[20px] transition-colors" href="index.html">홈</a>
-    <a class="py-3 text-slate-600 hover:text-orange-600 font-bold text-[20px] transition-colors" href="invitation.html">초청의 글</a>
-    <a class="py-3 text-orange-600 font-bold text-[20px] border-b-2 border-orange-600" href="organization.html">조직</a>
-    <a class="py-3 text-slate-600 hover:text-orange-600 font-bold text-[20px] transition-colors" href="speakers.html">강사 소개</a>
-    <a class="py-3 text-slate-600 hover:text-orange-600 font-bold text-[20px] transition-colors" href="schedule.html">일정</a>
-    <a class="py-3 text-slate-600 hover:text-orange-600 font-bold text-[20px] transition-colors" href="directions.html">오시는 길</a>
-    <a class="py-3 text-slate-600 hover:text-orange-600 font-bold text-[20px] transition-colors" href="partners.html">동역기관</a>
-    <div class="pt-3"><button class="w-full px-6 py-3 rounded-xl bg-primary-container text-white font-bold text-[20px] hover:scale-95 transition-all duration-200">등록하기</button></div>
+    <a class="py-3 text-white/80 hover:text-amber-200 font-bold text-[20px] transition-colors" href="index.html">홈</a>
+    <a class="py-3 text-white/80 hover:text-amber-200 font-bold text-[20px] transition-colors" href="invitation.html">초청의 글</a>
+    <a class="py-3 text-white/80 hover:text-amber-200 font-bold text-[20px] transition-colors" href="ci.html">CI소개</a>
+<a class="py-3 text-amber-300 font-bold text-[20px] border-b-2 border-amber-300" href="organization.html">조직</a>
+    <a class="py-3 text-white/80 hover:text-amber-200 font-bold text-[20px] transition-colors" href="speakers.html">강사 소개</a>
+    <a class="py-3 text-white/80 hover:text-amber-200 font-bold text-[20px] transition-colors" href="schedule.html">일정</a>
+    <div class="border-y border-white/10 py-3">
+      <div class="text-white/80 font-bold text-[20px]">게시판</div>
+      <div class="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+        <a class="rounded-xl bg-white/10 px-4 py-3 text-center text-base font-extrabold text-white/80 hover:text-amber-200" href="notices.html">공지사항</a>
+        <a class="rounded-xl bg-white/10 px-4 py-3 text-center text-base font-extrabold text-white/80 hover:text-amber-200" href="qna.html">문의/답변</a>
+      </div>
+    </div>
+    <a class="py-3 text-white/80 hover:text-amber-200 font-bold text-[20px] transition-colors" href="directions.html">오시는 길</a>
+    <button data-auth-open class="mb-2 w-full rounded-lg border border-white/20 bg-white/10 px-3 py-1.5 text-center text-[13px] font-bold text-white transition-all duration-200 hover:bg-white/15" type="button">로그인</button>
+    <div class="pt-3"><a class="block w-full px-3 py-1.5 rounded-lg bg-[#39ff14] text-center text-[#06111f] font-black text-[13px] shadow-[0_0_16px_rgba(57,255,20,0.55)] ring-1 ring-[#b6ff00]/70 hover:scale-95 hover:bg-[#7cff4d] transition-all duration-200" href="staff-lounge.html">STAFF 라운지</a></div>
   </div>
 </div>
 </header>
@@ -210,40 +237,40 @@ function toggleMobileMenu() {
           <span class="text-primary font-extrabold tracking-widest text-sm uppercase">Executive Team</span>
           <h2 class="mt-3 text-3xl md:text-4xl font-extrabold text-on-surface">실행위원회</h2>
         </div>
-        <p class="max-w-xl text-on-surface-variant leading-relaxed break-words">예배, 포럼, 선교박람회, 등록과 현장 운영을 실제로 움직이는 실행 조직입니다.</p>
+        <p class="max-w-xl text-on-surface-variant leading-relaxed break-words">컨퍼런스 실행과 현장 운영을 맡은 실행위원입니다.</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow">
           <div class="h-40 rounded-lg overflow-hidden mb-5">
-            <img class="w-full h-full object-cover grayscale-[10%]" src="executive-kim-myungsoon.jpg" alt="김명순 목사"/>
+            <img class="w-full h-full object-cover grayscale-[10%]" src="executive-park-sangbok.jpg" alt="박상복 목사"/>
           </div>
-          <p class="text-xs font-extrabold text-primary tracking-widest">실행총괄</p>
-          <h3 class="mt-2 text-xl font-extrabold text-on-surface">김명순 목사</h3>
-          <p class="mt-1 text-sm font-semibold text-on-surface-variant">조이플 미션 대표</p>
+          <p class="text-xs font-extrabold text-primary tracking-widest">실행위원/부위원장</p>
+          <h3 class="mt-2 text-xl font-extrabold text-on-surface">박상복 목사</h3>
+          <p class="mt-1 text-sm font-semibold text-on-surface-variant">성서침례대학원대학교 서무처장</p>
+        </article>
+        <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow">
+          <div class="h-40 rounded-lg overflow-hidden mb-5">
+            <img class="w-full h-full object-cover grayscale-[10%]" src="executive-kim-paul.jpg" alt="김파울 목사"/>
+          </div>
+          <p class="text-xs font-extrabold text-primary tracking-widest">실행위원/디렉터</p>
+          <h3 class="mt-2 text-xl font-extrabold text-on-surface">김파울 목사 <span class="align-middle text-[11px] font-semibold text-on-surface-variant">(로고스 펠로우십 대표)</span></h3>
+          <p class="mt-1 text-sm font-semibold text-on-surface-variant">필리핀 선교사</p>
         </article>
         <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow">
           <div class="h-40 rounded-lg overflow-hidden mb-5">
             <img class="w-full h-full object-cover grayscale-[10%]" src="executive-lee-seungrok.jpg" alt="이승록 목사"/>
           </div>
-          <p class="text-xs font-extrabold text-primary tracking-widest">선교위원회</p>
-          <h3 class="mt-2 text-xl font-extrabold text-on-surface">이승록 목사</h3>
+          <p class="text-xs font-extrabold text-primary tracking-widest">실행위원/디렉터</p>
+          <h3 class="mt-2 text-xl font-extrabold text-on-surface">이승록 목사 <span class="align-middle text-[11px] font-semibold text-on-surface-variant">(서울성서침례교회 담임)</span></h3>
           <p class="mt-1 text-sm font-semibold text-on-surface-variant">선교위원회 총무</p>
-        </article>
-        <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow">
-          <div class="h-40 rounded-lg overflow-hidden mb-5">
-            <img class="w-full h-full object-cover grayscale-[10%]" src="executive-kim-paul.jpg" alt="김파울 선교사"/>
-          </div>
-          <p class="text-xs font-extrabold text-primary tracking-widest">해외선교</p>
-          <h3 class="mt-2 text-xl font-extrabold text-on-surface">김파울 선교사</h3>
-          <p class="mt-1 text-sm font-semibold text-on-surface-variant">필리핀</p>
         </article>
         <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow">
           <div class="h-40 rounded-lg overflow-hidden mb-5">
             <img class="w-full h-full object-cover grayscale-[10%]" src="executive-oh-sunghyun.jpg" alt="오성현 목사"/>
           </div>
-          <p class="text-xs font-extrabold text-primary tracking-widest">성침진흥위원회</p>
-          <h3 class="mt-2 text-xl font-extrabold text-on-surface">오성현 목사</h3>
+          <p class="text-xs font-extrabold text-primary tracking-widest">실행위원</p>
+          <h3 class="mt-2 text-xl font-extrabold text-on-surface">오성현 목사 <span class="align-middle text-[11px] font-semibold text-on-surface-variant">(다시사는교회 담임)</span></h3>
           <p class="mt-1 text-sm font-semibold text-on-surface-variant">성침진흥위원회 총무</p>
         </article>
       </div>
@@ -251,105 +278,211 @@ function toggleMobileMenu() {
   </section>
 
   <!-- Operations Office -->
-  <section class="max-w-7xl mx-auto px-5 md:px-8 py-20">
+  <section id="operations-office" class="max-w-7xl mx-auto px-5 md:px-8 py-20 scroll-mt-28">
     <div class="text-center mb-12">
       <span class="text-primary font-extrabold tracking-widest text-sm uppercase">Operations Office</span>
       <h2 class="mt-3 text-3xl md:text-4xl font-extrabold text-on-surface">운영사무국</h2>
-      <p class="mt-4 text-on-surface-variant leading-relaxed break-words">컨퍼런스의 기획, 현장 운영, 지원 업무를 팀별로 나누어 섬깁니다.</p>
+      <p class="mt-4 text-on-surface-variant leading-relaxed break-words">각 운영 팀을 담당 실행위원별로 분류했습니다.</p>
+      <p id="team-leader-access-note" class="mx-auto mt-4 max-w-2xl rounded-2xl border border-orange-100 bg-orange-50 px-5 py-3 text-sm font-bold text-orange-700">팀장 명단은 관리자와 실행위원 로그인 후 표시됩니다.</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
-      <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow">
-        <div class="flex items-start gap-4">
-          <div class="w-14 h-14 rounded-lg bg-primary-fixed flex items-center justify-center text-3xl shrink-0" aria-hidden="true">🧭</div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 items-stretch">
+      <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow h-full">
+        <div class="pb-5 border-b border-outline-variant/60 flex items-center gap-4">
+          <img class="w-[5.2rem] h-[5.2rem] rounded-lg object-cover grayscale-[10%] shrink-0" src="executive-park-sangbok.jpg" alt="박상복 목사"/>
           <div>
-            <h3 class="text-lg font-extrabold text-on-surface">기획프로그램팀</h3>
-            <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">전체 프로그램 구성과 세션 흐름을 기획합니다.</p>
+            <p class="text-sm font-extrabold text-primary tracking-widest">실행위원</p>
+            <h3 class="mt-1 text-3xl font-extrabold text-on-surface">박상복 목사</h3>
+            <p class="mt-1 text-sm font-semibold text-on-surface-variant">성서침례대학원대학교 서무처장</p>
           </div>
         </div>
+        <ul class="mt-5 space-y-5">
+          <li class="pl-4 border-l-4 border-primary-container">
+              <button type="button" class="team-manual-trigger flex w-full items-center justify-between gap-3 rounded-lg text-left text-xl font-extrabold text-on-surface transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container" data-team="숙박식사팀">
+                <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">숙박식사팀 <span class="team-leader-name hidden text-base font-bold text-slate-500" data-team-leader-for="숙박식사팀"></span></span>
+                <span class="material-symbols-outlined text-primary-container">chevron_right</span>
+              </button>
+              <p class="mt-2 text-xl text-on-surface-variant leading-relaxed">참가자 숙박, 식사, 간식과 현장 편의를 준비합니다.</p>
+          </li>
+          <li class="pl-4 border-l-4 border-primary-container">
+              <button type="button" class="team-manual-trigger flex w-full items-center justify-between gap-3 rounded-lg text-left text-xl font-extrabold text-on-surface transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container" data-team="시설관리팀">
+                <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">시설관리팀 <span class="team-leader-name hidden text-base font-bold text-slate-500" data-team-leader-for="시설관리팀"></span></span>
+                <span class="material-symbols-outlined text-primary-container">chevron_right</span>
+              </button>
+              <p class="mt-2 text-xl text-on-surface-variant leading-relaxed">공간 배치, 장비, 동선과 행사장 환경을 관리합니다.</p>
+          </li>
+          <li class="pl-4 border-l-4 border-primary-container">
+              <button type="button" class="team-manual-trigger flex w-full items-center justify-between gap-3 rounded-lg text-left text-xl font-extrabold text-on-surface transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container" data-team="안전의료팀">
+                <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">안전의료팀 <span class="team-leader-name hidden text-base font-bold text-slate-500" data-team-leader-for="안전의료팀"></span></span>
+                <span class="material-symbols-outlined text-primary-container">chevron_right</span>
+              </button>
+              <p class="mt-2 text-xl text-on-surface-variant leading-relaxed">안전 점검, 비상 대응, 응급 의료 지원을 담당합니다.</p>
+          </li>
+        </ul>
       </article>
-      <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow">
-        <div class="flex items-start gap-4">
-          <div class="w-14 h-14 rounded-lg bg-secondary-fixed flex items-center justify-center text-3xl shrink-0" aria-hidden="true">🎬</div>
+
+      <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow h-full">
+        <div class="pb-5 border-b border-outline-variant/60 flex items-center gap-4">
+          <img class="w-[5.2rem] h-[5.2rem] rounded-lg object-cover grayscale-[10%] shrink-0" src="executive-lee-seungrok.jpg" alt="이승록 목사"/>
           <div>
-            <h3 class="text-lg font-extrabold text-on-surface">운영진행팀</h3>
-            <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">일정 진행, 순서 전환, 현장 큐시트를 관리합니다.</p>
+            <p class="text-sm font-extrabold text-primary tracking-widest">실행위원</p>
+            <h3 class="mt-1 text-3xl font-extrabold text-on-surface">이승록 목사</h3>
+            <p class="mt-1 text-sm font-semibold text-on-surface-variant">선교위원회 총무</p>
           </div>
         </div>
+        <ul class="mt-5 space-y-5">
+          <li class="pl-4 border-l-4 border-secondary">
+              <button type="button" class="team-manual-trigger flex w-full items-center justify-between gap-3 rounded-lg text-left text-xl font-extrabold text-on-surface transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container" data-team="대외협력팀">
+                <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">대외협력팀 <span class="team-leader-name hidden text-base font-bold text-slate-500" data-team-leader-for="대외협력팀"></span></span>
+                <span class="material-symbols-outlined text-secondary">chevron_right</span>
+              </button>
+              <p class="mt-2 text-xl text-on-surface-variant leading-relaxed">동역 교회, 기관, 외부 협력자와의 소통을 맡습니다.</p>
+          </li>
+          <li class="pl-4 border-l-4 border-secondary">
+              <button type="button" class="team-manual-trigger flex w-full items-center justify-between gap-3 rounded-lg text-left text-xl font-extrabold text-on-surface transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container" data-team="진행운영팀">
+                <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">진행운영팀 <span class="team-leader-name hidden text-base font-bold text-slate-500" data-team-leader-for="진행운영팀"></span></span>
+                <span class="material-symbols-outlined text-secondary">chevron_right</span>
+              </button>
+              <p class="mt-2 text-xl text-on-surface-variant leading-relaxed">전체 일정 진행, 순서 전환, 현장 운영 흐름을 관리합니다.</p>
+          </li>
+          <li class="pl-4 border-l-4 border-secondary">
+              <button type="button" class="team-manual-trigger flex w-full items-center justify-between gap-3 rounded-lg text-left text-xl font-extrabold text-on-surface transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container" data-team="박람회준비팀">
+                <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">박람회준비팀 <span class="team-leader-name hidden text-base font-bold text-slate-500" data-team-leader-for="박람회준비팀"></span></span>
+                <span class="material-symbols-outlined text-secondary">chevron_right</span>
+              </button>
+              <p class="mt-2 text-xl text-on-surface-variant leading-relaxed">선교박람회 부스 구성, 참여 안내, 현장 세팅을 준비합니다.</p>
+          </li>
+        </ul>
       </article>
-      <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow">
-        <div class="flex items-start gap-4">
-          <div class="w-14 h-14 rounded-lg bg-primary-fixed flex items-center justify-center text-3xl shrink-0" aria-hidden="true">💳</div>
+
+      <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow h-full">
+        <div class="pb-5 border-b border-outline-variant/60 flex items-center gap-4">
+          <img class="w-[5.2rem] h-[5.2rem] rounded-lg object-cover grayscale-[10%] shrink-0" src="executive-oh-sunghyun.jpg" alt="오성현 목사"/>
           <div>
-            <h3 class="text-lg font-extrabold text-on-surface">재정지원팀</h3>
-            <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">예산, 후원, 정산과 재정 집행을 지원합니다.</p>
+            <p class="text-sm font-extrabold text-primary tracking-widest">실행위원</p>
+            <h3 class="mt-1 text-3xl font-extrabold text-on-surface">오성현 목사</h3>
+            <p class="mt-1 text-sm font-semibold text-on-surface-variant">성침진흥위원회 총무</p>
           </div>
         </div>
+        <ul class="mt-5 space-y-5">
+          <li class="pl-4 border-l-4 border-primary-container">
+              <button type="button" class="team-manual-trigger flex w-full items-center justify-between gap-3 rounded-lg text-left text-xl font-extrabold text-on-surface transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container" data-team="찬양예배팀">
+                <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">찬양예배팀 <span class="team-leader-name hidden text-base font-bold text-slate-500" data-team-leader-for="찬양예배팀"></span></span>
+                <span class="material-symbols-outlined text-primary-container">chevron_right</span>
+              </button>
+              <p class="mt-2 text-xl text-on-surface-variant leading-relaxed">찬양, 예배 순서, 예배팀 협업과 현장 예배 흐름을 섬깁니다.</p>
+          </li>
+          <li class="pl-4 border-l-4 border-primary-container">
+              <button type="button" class="team-manual-trigger flex w-full items-center justify-between gap-3 rounded-lg text-left text-xl font-extrabold text-on-surface transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container" data-team="등록안내팀">
+                <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">등록안내팀 <span class="team-leader-name hidden text-base font-bold text-slate-500" data-team-leader-for="등록안내팀"></span></span>
+                <span class="material-symbols-outlined text-primary-container">chevron_right</span>
+              </button>
+              <p class="mt-2 text-xl text-on-surface-variant leading-relaxed">참가 등록, 접수 확인, 현장 안내와 문의 응대를 담당합니다.</p>
+          </li>
+          <li class="pl-4 border-l-4 border-primary-container">
+              <button type="button" class="team-manual-trigger flex w-full items-center justify-between gap-3 rounded-lg text-left text-xl font-extrabold text-on-surface transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container" data-team="결신자관리팀">
+                <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">결신자관리팀 <span class="team-leader-name hidden text-base font-bold text-slate-500" data-team-leader-for="결신자관리팀"></span></span>
+                <span class="material-symbols-outlined text-primary-container">chevron_right</span>
+              </button>
+              <p class="mt-2 text-xl text-on-surface-variant leading-relaxed">결신자 확인, 상담 연결, 후속 양육 안내를 지원합니다.</p>
+          </li>
+        </ul>
       </article>
-      <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow">
-        <div class="flex items-start gap-4">
-          <div class="w-14 h-14 rounded-lg bg-secondary-fixed flex items-center justify-center text-3xl shrink-0" aria-hidden="true">🎨</div>
+
+      <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow h-full">
+        <div class="pb-5 border-b border-outline-variant/60 flex items-center gap-4">
+          <img class="w-[5.2rem] h-[5.2rem] rounded-lg object-cover grayscale-[10%] shrink-0" src="executive-kim-paul.jpg" alt="김파울 목사"/>
           <div>
-            <h3 class="text-lg font-extrabold text-on-surface">디자인홍보팀</h3>
-            <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">홍보물, 안내 이미지, 온라인 콘텐츠를 제작합니다.</p>
+            <p class="text-sm font-extrabold text-primary tracking-widest">실행위원</p>
+            <h3 class="mt-1 text-3xl font-extrabold text-on-surface">김파울 목사</h3>
+            <p class="mt-1 text-sm font-semibold text-on-surface-variant">필리핀 선교사</p>
           </div>
         </div>
+        <ul class="mt-5 space-y-5">
+          <li class="pl-4 border-l-4 border-secondary">
+              <button type="button" class="team-manual-trigger flex w-full items-center justify-between gap-3 rounded-lg text-left text-xl font-extrabold text-on-surface transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container" data-team="해외협력팀">
+                <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">해외협력팀 <span class="team-leader-name hidden text-base font-bold text-slate-500" data-team-leader-for="해외협력팀"></span></span>
+                <span class="material-symbols-outlined text-secondary">chevron_right</span>
+              </button>
+              <p class="mt-2 text-xl text-on-surface-variant leading-relaxed">해외 선교사, 현지 사역자, 국제 협력 사역을 연결합니다.</p>
+          </li>
+          <li class="pl-4 border-l-4 border-secondary">
+              <button type="button" class="team-manual-trigger flex w-full items-center justify-between gap-3 rounded-lg text-left text-xl font-extrabold text-on-surface transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container" data-team="기획프로그램팀">
+                <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">기획프로그램팀 <span class="team-leader-name hidden text-base font-bold text-slate-500" data-team-leader-for="기획프로그램팀"></span></span>
+                <span class="material-symbols-outlined text-secondary">chevron_right</span>
+              </button>
+              <p class="mt-2 text-xl text-on-surface-variant leading-relaxed">세션 구성, 프로그램 흐름, 발표 콘텐츠를 기획합니다.</p>
+          </li>
+          <li class="pl-4 border-l-4 border-secondary">
+              <button type="button" class="team-manual-trigger flex w-full items-center justify-between gap-3 rounded-lg text-left text-xl font-extrabold text-on-surface transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container" data-team="강사의전팀">
+                <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">강사의전팀 <span class="team-leader-name hidden text-base font-bold text-slate-500" data-team-leader-for="강사의전팀"></span></span>
+                <span class="material-symbols-outlined text-secondary">chevron_right</span>
+              </button>
+              <p class="mt-2 text-xl text-on-surface-variant leading-relaxed">강사 일정, 이동, 대기, 현장 안내와 의전을 담당합니다.</p>
+          </li>
+        </ul>
       </article>
-      <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow">
-        <div class="flex items-start gap-4">
-          <div class="w-14 h-14 rounded-lg bg-primary-fixed flex items-center justify-center text-3xl shrink-0" aria-hidden="true">📝</div>
+
+      <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow h-full md:col-span-2 xl:col-span-1">
+        <div class="pb-5 border-b border-outline-variant/60 flex items-center gap-4">
+          <img class="w-[5.2rem] h-[5.2rem] rounded-lg object-cover grayscale-[10%] shrink-0" src="speaker-kim-myungsoon.jpg" alt="김명순 목사"/>
           <div>
-            <h3 class="text-lg font-extrabold text-on-surface">등록팀</h3>
-            <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">참가 등록, 명단 확인, 현장 접수를 담당합니다.</p>
+            <p class="text-sm font-extrabold text-primary tracking-widest">실행위원장</p>
+            <h3 class="mt-1 text-3xl font-extrabold text-on-surface">김명순 목사</h3>
+            <p class="mt-1 text-sm font-semibold text-on-surface-variant">꿈을심는교회 담임 / 조이플 미션 대표</p>
           </div>
         </div>
-      </article>
-      <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow">
-        <div class="flex items-start gap-4">
-          <div class="w-14 h-14 rounded-lg bg-secondary-fixed flex items-center justify-center text-3xl shrink-0" aria-hidden="true">📍</div>
-          <div>
-            <h3 class="text-lg font-extrabold text-on-surface">현장관리팀</h3>
-            <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">공간 배치, 동선, 안내 표지와 현장 질서를 관리합니다.</p>
-          </div>
-        </div>
-      </article>
-      <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow">
-        <div class="flex items-start gap-4">
-          <div class="w-14 h-14 rounded-lg bg-primary-fixed flex items-center justify-center text-3xl shrink-0" aria-hidden="true">🎥</div>
-          <div>
-            <h3 class="text-lg font-extrabold text-on-surface">미디어팀</h3>
-            <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">영상, 음향, 사진 기록과 송출을 담당합니다.</p>
-          </div>
-        </div>
-      </article>
-      <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow">
-        <div class="flex items-start gap-4">
-          <div class="w-14 h-14 rounded-lg bg-secondary-fixed flex items-center justify-center text-3xl shrink-0" aria-hidden="true">🎵</div>
-          <div>
-            <h3 class="text-lg font-extrabold text-on-surface">찬양·예배팀</h3>
-            <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">찬양, 예배 순서, 예배팀 협업을 섬깁니다.</p>
-          </div>
-        </div>
-      </article>
-      <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow">
-        <div class="flex items-start gap-4">
-          <div class="w-14 h-14 rounded-lg bg-primary-fixed flex items-center justify-center text-3xl shrink-0" aria-hidden="true">🍽️</div>
-          <div>
-            <h3 class="text-lg font-extrabold text-on-surface">숙박·식사팀</h3>
-            <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">식사, 간식, 숙박 안내와 참가자 편의를 지원합니다.</p>
-          </div>
-        </div>
-      </article>
-      <article class="org-card bg-surface-container-lowest border border-outline-variant/50 p-5 editorial-shadow">
-        <div class="flex items-start gap-4">
-          <div class="w-14 h-14 rounded-lg bg-secondary-fixed flex items-center justify-center text-3xl shrink-0" aria-hidden="true">🩺</div>
-          <div>
-            <h3 class="text-lg font-extrabold text-on-surface">안전·의료팀</h3>
-            <p class="mt-2 text-sm text-on-surface-variant leading-relaxed">비상 대응, 안전 점검, 응급 의료 지원을 준비합니다.</p>
-          </div>
-        </div>
+        <ul class="mt-5 space-y-5">
+          <li class="pl-4 border-l-4 border-primary-container">
+              <button type="button" class="team-manual-trigger flex w-full items-center justify-between gap-3 rounded-lg text-left text-xl font-extrabold text-on-surface transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container" data-team="재정지원팀">
+                <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">재정지원팀 <span class="team-leader-name hidden text-base font-bold text-slate-500" data-team-leader-for="재정지원팀"></span></span>
+                <span class="material-symbols-outlined text-primary-container">chevron_right</span>
+              </button>
+              <p class="mt-2 text-xl text-on-surface-variant leading-relaxed">예산, 후원, 정산과 재정 집행을 지원합니다.</p>
+          </li>
+          <li class="pl-4 border-l-4 border-primary-container">
+              <button type="button" class="team-manual-trigger flex w-full items-center justify-between gap-3 rounded-lg text-left text-xl font-extrabold text-on-surface transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container" data-team="디자인홍보팀">
+                <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">디자인홍보팀 <span class="team-leader-name hidden text-base font-bold text-slate-500" data-team-leader-for="디자인홍보팀"></span></span>
+                <span class="material-symbols-outlined text-primary-container">chevron_right</span>
+              </button>
+              <p class="mt-2 text-xl text-on-surface-variant leading-relaxed">홍보물, 온라인 콘텐츠, 안내 이미지 제작을 담당합니다.</p>
+          </li>
+          <li class="pl-4 border-l-4 border-primary-container">
+              <button type="button" class="team-manual-trigger flex w-full items-center justify-between gap-3 rounded-lg text-left text-xl font-extrabold text-on-surface transition hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-container" data-team="방송미디어팀">
+                <span class="flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-1">방송미디어팀 <span class="team-leader-name hidden text-base font-bold text-slate-500" data-team-leader-for="방송미디어팀"></span></span>
+                <span class="material-symbols-outlined text-primary-container">chevron_right</span>
+              </button>
+              <p class="mt-2 text-xl text-on-surface-variant leading-relaxed">영상, 음향, 사진 기록과 현장 송출을 담당합니다.</p>
+          </li>
+        </ul>
       </article>
     </div>
   </section>
+
+  <div id="team-manual-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-950/75 px-4 py-8 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="team-manual-title">
+    <div class="max-h-[88vh] w-full max-w-4xl overflow-y-auto rounded-3xl bg-white shadow-2xl">
+      <div class="sticky top-0 z-10 flex items-start justify-between gap-5 border-b border-slate-200 bg-white px-6 py-5 md:px-8">
+        <div>
+          <p id="team-manual-owner" class="text-xs font-extrabold uppercase tracking-[0.22em] text-primary"></p>
+          <h3 id="team-manual-title" class="mt-2 text-2xl font-black text-on-surface md:text-3xl"></h3>
+        </div>
+        <button id="team-manual-close" type="button" class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition hover:bg-slate-200" aria-label="팀 업무 매뉴얼 닫기">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+      </div>
+      <div class="grid gap-6 p-6 md:grid-cols-[1fr_1.2fr] md:p-8">
+        <section class="rounded-2xl bg-surface-container-low p-6">
+          <span class="inline-flex rounded-full bg-primary-fixed px-3 py-1 text-xs font-extrabold text-on-primary-fixed-variant">업무 매뉴얼</span>
+          <p id="team-manual-summary" class="mt-4 text-lg font-bold leading-relaxed text-on-surface"></p>
+          <p id="team-manual-focus" class="mt-4 text-base leading-relaxed text-on-surface-variant"></p>
+        </section>
+        <section class="rounded-2xl border border-outline-variant/60 bg-white p-6">
+          <span class="inline-flex rounded-full bg-secondary-fixed px-3 py-1 text-xs font-extrabold text-on-secondary-fixed-variant">체크리스트</span>
+          <ul id="team-manual-checklist" class="mt-5 space-y-3"></ul>
+        </section>
+      </div>
+    </div>
+  </div>
 </main>
 
 <!-- Footer -->
@@ -371,6 +504,211 @@ function toggleMobileMenu() {
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
 <script src="firebase-client.js"></script>
+<script src="auth-widget.js?v=20260620-org-leaders"></script>
 <script src="register.js"></script>
+<script src="language-selector.js?v=20260620-org-leaders"></script>
 <script src="chat-widget.js"></script>
+<script>
+const teamLeaderNames = {
+  "숙박식사팀": "박상복 목사",
+  "시설관리팀": "김길숙 목사",
+  "안전의료팀": "정상직 목사",
+  "대외협력팀": "정지원 목사",
+  "진행운영팀": "김지수 목사",
+  "박람회준비팀": "이형주 목사",
+  "찬양예배팀": "이태훈 목사",
+  "등록안내팀": "오성현 목사",
+  "결신자관리팀": "정창욱 목사",
+  "해외협력팀": "유병현 목사",
+  "기획프로그램팀": "정영광 목사",
+  "강사의전팀": "김세창 목사",
+  "재정지원팀": "이수연/한보연 사모",
+  "디자인홍보팀": "정혜원 목사",
+  "방송미디어팀": "장형규/임충만 전도사"
+};
+
+function isExecutiveProfile(profile) {
+  if (!profile) return false;
+  const roleValues = [
+    profile.role,
+    profile.staffRole,
+    profile.teamRole,
+    profile.committeeRole,
+    profile.accessRole
+  ].map((value) => String(value || "").toLowerCase());
+  return !!profile.isAdmin
+    || !!profile.executive
+    || !!profile.isExecutive
+    || !!profile.isChair
+    || roleValues.some((role) => ["admin", "executive", "chair", "committee", "committee_chair"].includes(role));
+}
+
+function setTeamLeaderVisibility(canView) {
+  document.querySelectorAll("[data-team-leader-for]").forEach((element) => {
+    const leaderName = teamLeaderNames[element.dataset.teamLeaderFor] || "";
+    element.textContent = canView && leaderName ? `팀장 ${leaderName}` : "";
+    element.classList.toggle("hidden", !canView || !leaderName);
+  });
+  const note = document.getElementById("team-leader-access-note");
+  if (note) note.classList.toggle("hidden", !!canView);
+}
+
+setTeamLeaderVisibility(false);
+
+if (window.JMCFirebase) {
+  window.JMCFirebase.finishRedirectSignIn().catch(() => {});
+  window.JMCFirebase.onAuth(async (user) => {
+    if (!user) {
+      setTeamLeaderVisibility(false);
+      return;
+    }
+    try {
+      const profile = await window.JMCFirebase.getCurrentUserProfile();
+      setTeamLeaderVisibility(isExecutiveProfile(profile));
+    } catch (err) {
+      setTeamLeaderVisibility(false);
+    }
+  });
+}
+
+const teamManuals = {
+  "숙박식사팀": {
+    owner: "지저스 미션 컨퍼런스 2026",
+    summary: "참가자 숙박, 식사, 간식과 현장 편의를 준비합니다.",
+    focus: "최종 인원 기준 식수, 객실, 간식 수량을 관리하고 강사, 스태프, 참가자 구분에 따라 안내합니다.",
+    checklist: ["숙박 대상자 명단과 객실 배정표 작성", "식사 인원 2주 전, 1주 전, 2일 전 단계별 확정", "알레르기, 특별식단, 위생관리 확인", "식권, 명단, 간식, 생수, 정산 증빙 관리"]
+  },
+  "시설관리팀": {
+    owner: "지저스 미션 컨퍼런스 2026",
+    summary: "공간 배치, 장비, 통신과 행사장 환경을 관리합니다.",
+    focus: "장소별 배치도, 전기, 조명, 냉난방, 안내 사인, 주차와 청소 동선을 사전에 점검합니다.",
+    checklist: ["예배실, 강의실, 등록대, 식당 배치도 확정", "음향, 프로젝터, 와이파이, 멀티탭 점검", "주차, 화장실, 동선 안내 사인 설치", "행사 후 원상복구 및 분실물 정리"]
+  },
+  "안전의료팀": {
+    owner: "지저스 미션 컨퍼런스 2026",
+    summary: "행사장 안전 점검, 비상 대응, 응급 의료 지원을 담당합니다.",
+    focus: "비상구, 구급함, 119 연락체계와 인근 병원 정보를 확보하고 사고 발생 시 기록합니다.",
+    checklist: ["위험 요소, 비상구, 통로 점검", "구급함, AED 위치, 119 담당자 지정", "고령자, 질환자, 어린이 동선 배려", "사고 보고서 작성 및 후속 조치"]
+  },
+  "대외협력팀": {
+    owner: "지저스 미션 컨퍼런스 2026",
+    summary: "동역 교회, 기관, 외부 협력자와의 소통을 담당합니다.",
+    focus: "공식 초청, 공문, 협력기관 연락, 주요 인사 참석 확인과 감사 인사를 담당합니다.",
+    checklist: ["협력 교회, 기관 명단 작성", "초청장, 협조문, 감사문 발송", "외부 약속, 비용 사항 사전 승인", "행사 후 협력 관계 후속 관리"]
+  },
+  "진행운영팀": {
+    owner: "지저스 미션 컨퍼런스 2026",
+    summary: "전체 일정 진행, 순서 전환, 현장 운영 흐름을 관리합니다.",
+    focus: "큐시트와 타임테이블을 기준으로 현장 지연, 전환, 돌발 상황을 조정합니다.",
+    checklist: ["전체 타임테이블, 큐시트 작성", "사회자, 방송, 찬양, 강사 의전팀 공유", "시간 지연, 순서 변경 시 즉시 보고", "현장 운영 단톡방, 무전 채널 관리"]
+  },
+  "박람회준비팀": {
+    owner: "지저스 미션 컨퍼런스 2026",
+    summary: "선교박람회 부스 구성, 참여 안내, 현장 세팅을 준비합니다.",
+    focus: "참여 단체 모집, 부스 배치, 전기, 테이블, 안내문과 철수 원칙을 관리합니다.",
+    checklist: ["참여 단체 명단과 부스 배치도 확정", "전기 사용, 배너, 홍보물 사전 신청", "상업성, 보안성, 공간 형평성 검토", "철수 시간 안내와 원상복구 확인"]
+  },
+  "찬양예배팀": {
+    owner: "지저스 미션 컨퍼런스 2026",
+    summary: "찬양, 예배 순서, 예배팀 협업과 현장 예배 흐름을 섬깁니다.",
+    focus: "주제 찬양, 예배 순서, 대표기도, 자막, 리허설과 예배 전 기도를 준비합니다.",
+    checklist: ["주제에 맞는 찬양곡과 예배 순서 확정", "악보, 가사, 성경본문 방송팀 전달", "마이크, 악기, 자막 리허설 진행", "예배 전 기도회와 시간 준수"]
+  },
+  "등록안내팀": {
+    owner: "지저스 미션 컨퍼런스 2026",
+    summary: "참가 등록, 접수 확인, 현장 안내와 문의 응대를 담당합니다.",
+    focus: "등록대는 컨퍼런스의 첫인상이므로 정확성, 친절성, 개인정보 보호를 우선합니다.",
+    checklist: ["사전등록, 현장등록 명단 준비", "명찰, 순서지, 식권, 안내자료 배부", "등록대 창구를 사전, 현장, 문의로 구분", "개인정보 출력물 관리와 폐기"]
+  },
+  "결신자관리팀": {
+    owner: "지저스 미션 컨퍼런스 2026",
+    summary: "결신자 확인, 상담 연결, 후속 양육 안내를 지원합니다.",
+    focus: "결신과 헌신은 강요하지 않고, 복음 설명과 기도, 교회 연결을 정중히 돕습니다.",
+    checklist: ["결신 카드, 상담 공간, 담당자 명단 준비", "상담 내용과 개인정보 비밀 보장", "지역 교회, 양육 담당자 연결", "결신자 수와 후속 필요 사항 보고"]
+  },
+  "해외협력팀": {
+    owner: "지저스 미션 컨퍼런스 2026",
+    summary: "해외 선교사, 현지 사역자, 국제 협력 사역을 연결합니다.",
+    focus: "선교지 소개, 영상 메시지, 통번역, 보안 검토와 후속 기도 네트워크를 준비합니다.",
+    checklist: ["해외 선교사, 현지 사역자 명단 작성", "시차 고려 온라인 참여 일정 조율", "민감 지역 정보 공개 범위 제한", "후속 기도제목과 협력 과제 정리"]
+  },
+  "기획프로그램팀": {
+    owner: "지저스 미션 컨퍼런스 2026",
+    summary: "세션 구성, 프로그램 흐름, 발표 콘텐츠를 기획합니다.",
+    focus: "컨퍼런스 주제와 참가자 경험을 중심으로 강의, 간증, 기도, 워크숍 흐름을 설계합니다.",
+    checklist: ["전체 프로그램안과 세션별 목표 작성", "강사별 주제, 시간, 자료 마감 관리", "선택강의, 간증, 기도회 흐름 구성", "설문지와 평가 자료 준비"]
+  },
+  "강사의전팀": {
+    owner: "지저스 미션 컨퍼런스 2026",
+    summary: "강사 일정, 이동, 대기, 현장 안내와 의전을 담당합니다.",
+    focus: "강사별 담당자를 배정하고 일정, 대기실, 강의자료, 사례비 전달을 정중히 관리합니다.",
+    checklist: ["강사별 전담 의전 담당자 지정", "도착, 식사, 강의, 출발 일정표 작성", "대기실, 물, 간식, 명찰, 순서지 준비", "PPT, 포인터, 마이크, 사례비 확인"]
+  },
+  "재정지원팀": {
+    owner: "지저스 미션 컨퍼런스 2026",
+    summary: "예산, 후원, 정산과 재정 집행을 지원합니다.",
+    focus: "모든 지출은 사전 승인, 증빙 제출, 정산 보고의 원칙으로 운영합니다.",
+    checklist: ["팀별 예산 요청 취합과 예산안 작성", "후원자 명단, 입금, 감사 인사 관리", "지출 신청서와 증빙 제출 방식 안내", "전체 결산 보고서 작성"]
+  },
+  "디자인홍보팀": {
+    owner: "지저스 미션 컨퍼런스 2026",
+    summary: "홍보물, 온라인 콘텐츠, 안내 이미지를 제작합니다.",
+    focus: "공식 명칭, 날짜, 장소, 강사명은 2회 이상 검수하고 저작권을 확인합니다.",
+    checklist: ["메인 포스터, 카드뉴스, 강사 소개 이미지 제작", "현수막, 배너, 명찰, 프로그램북 디자인", "SNS, 홈페이지, 카카오톡 홍보물 배포", "오탈자, 저작권, 파일 규격 최종 검수"]
+  },
+  "방송미디어팀": {
+    owner: "지저스 미션 컨퍼런스 2026",
+    summary: "영상, 음향, 사진 기록과 현장 송출을 담당합니다.",
+    focus: "음향, 영상, 자막, 녹화, 사진, 백업을 담당하고 행사 후 후속 콘텐츠를 제작합니다.",
+    checklist: ["음향, 카메라, 프로젝터, 노트북 점검", "찬양 가사, 성경본문, PPT 자막 준비", "녹화, 사진, 라이브 송출 담당자 배정", "원본 파일 2곳 이상 백업"]
+  }
+};
+
+const teamManualModal = document.getElementById("team-manual-modal");
+const teamManualClose = document.getElementById("team-manual-close");
+const teamManualTitle = document.getElementById("team-manual-title");
+const teamManualOwner = document.getElementById("team-manual-owner");
+const teamManualSummary = document.getElementById("team-manual-summary");
+const teamManualFocus = document.getElementById("team-manual-focus");
+const teamManualChecklist = document.getElementById("team-manual-checklist");
+
+function openTeamManual(teamName) {
+  const manual = teamManuals[teamName];
+  if (!manual) return;
+  teamManualTitle.textContent = teamName;
+  teamManualOwner.textContent = manual.owner;
+  teamManualSummary.textContent = manual.summary;
+  teamManualFocus.textContent = manual.focus;
+  teamManualChecklist.innerHTML = manual.checklist.map((item) => `
+    <li class="flex gap-3 rounded-xl bg-slate-50 px-4 py-3 text-base font-semibold leading-relaxed text-on-surface-variant">
+      <span class="material-symbols-outlined mt-0.5 text-lg text-primary-container" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+      <span>${item}</span>
+    </li>
+  `).join("");
+  teamManualModal.classList.remove("hidden");
+  teamManualModal.classList.add("flex");
+  document.body.classList.add("overflow-hidden");
+  teamManualClose.focus();
+}
+
+function closeTeamManual() {
+  teamManualModal.classList.add("hidden");
+  teamManualModal.classList.remove("flex");
+  document.body.classList.remove("overflow-hidden");
+}
+
+document.querySelectorAll(".team-manual-trigger").forEach((button) => {
+  button.addEventListener("click", () => openTeamManual(button.dataset.team));
+});
+
+teamManualClose.addEventListener("click", closeTeamManual);
+teamManualModal.addEventListener("click", (event) => {
+  if (event.target === teamManualModal) closeTeamManual();
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !teamManualModal.classList.contains("hidden")) {
+    closeTeamManual();
+  }
+});
+</script>
 </body></html>
